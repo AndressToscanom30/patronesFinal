@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DescuentoPorcentaje.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Comportamentales.Strategy.modelo</a> &gt; <span class="el_source">DescuentoPorcentaje.java</span></div><h1>DescuentoPorcentaje.java</h1><pre class="source lang-java linenums">package Comportamentales.Strategy.modelo;
+
+public class DescuentoPorcentaje implements DescuentoStrategy {
+    private double porcentaje;
+    
+<span class="fc" id="L6">    public DescuentoPorcentaje(double porcentaje) {</span>
+<span class="fc" id="L7">        this.porcentaje = porcentaje;</span>
+<span class="fc" id="L8">    }</span>
+    
+    @Override
+    public double aplicarDescuento(double total) {
+<span class="fc" id="L12">        double descuento = total * (porcentaje / 100);</span>
+<span class="fc" id="L13">        return total - descuento;</span>
+    }
+    
+    public double getPorcentaje() {
+<span class="fc" id="L17">        return porcentaje;</span>
+    }
+    
+    public void setPorcentaje(double porcentaje) {
+<span class="fc" id="L21">        this.porcentaje = porcentaje;</span>
+<span class="fc" id="L22">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

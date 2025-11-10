@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsolaCommand.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Comportamentales.Command.vista</a> &gt; <span class="el_source">ConsolaCommand.java</span></div><h1>ConsolaCommand.java</h1><pre class="source lang-java linenums">package Comportamentales.Command.vista;
+
+import Comportamentales.Command.controlador.CommandController;
+import Comportamentales.Command.modelo.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class ConsolaCommand {
+    private final CommandController controlador;
+    private final Scanner scanner;
+    private final List&lt;Producto&gt; catalogoProductos;
+
+<span class="fc" id="L14">    public ConsolaCommand() {</span>
+<span class="fc" id="L15">        this.controlador = new CommandController(this);</span>
+<span class="fc" id="L16">        this.scanner = new Scanner(System.in);</span>
+<span class="fc" id="L17">        this.catalogoProductos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L18">        inicializarCatalogo();</span>
+<span class="fc" id="L19">    }</span>
+
+    private void inicializarCatalogo() {
+<span class="fc" id="L22">        catalogoProductos.add(new Producto(&quot;P001&quot;, &quot;Leche Entera 1L&quot;, 3500, &quot;Lácteos&quot;));</span>
+<span class="fc" id="L23">        catalogoProductos.add(new Producto(&quot;P002&quot;, &quot;Pan Integral&quot;, 2500, &quot;Panadería&quot;));</span>
+<span class="fc" id="L24">        catalogoProductos.add(new Producto(&quot;P003&quot;, &quot;Huevos x12&quot;, 8000, &quot;Huevos&quot;));</span>
+<span class="fc" id="L25">        catalogoProductos.add(new Producto(&quot;P004&quot;, &quot;Arroz 1kg&quot;, 4000, &quot;Granos&quot;));</span>
+<span class="fc" id="L26">        catalogoProductos.add(new Producto(&quot;P005&quot;, &quot;Aceite 1L&quot;, 12000, &quot;Aceites&quot;));</span>
+<span class="fc" id="L27">        catalogoProductos.add(new Producto(&quot;P006&quot;, &quot;Azúcar 1kg&quot;, 3000, &quot;Endulzantes&quot;));</span>
+<span class="fc" id="L28">        catalogoProductos.add(new Producto(&quot;P007&quot;, &quot;Café 500g&quot;, 15000, &quot;Bebidas&quot;));</span>
+<span class="fc" id="L29">        catalogoProductos.add(new Producto(&quot;P008&quot;, &quot;Pasta 500g&quot;, 2800, &quot;Granos&quot;));</span>
+<span class="fc" id="L30">    }</span>
+
+    public void mostrarMenu() {
+<span class="fc" id="L33">        System.out.println(&quot;\n=== COMMAND - Gestión de Carrito de Compras ===&quot;);</span>
+<span class="fc" id="L34">        System.out.println(&quot;1. Ver catálogo de productos&quot;);</span>
+<span class="fc" id="L35">        System.out.println(&quot;2. Agregar producto al carrito&quot;);</span>
+<span class="fc" id="L36">        System.out.println(&quot;3. Eliminar producto del carrito&quot;);</span>
+<span class="fc" id="L37">        System.out.println(&quot;4. Aplicar descuento&quot;);</span>
+<span class="fc" id="L38">        System.out.println(&quot;5. Vaciar carrito&quot;);</span>
+<span class="fc" id="L39">        System.out.println(&quot;6. Ver carrito&quot;);</span>
+<span class="fc" id="L40">        System.out.println(&quot;7. Deshacer última operación (Undo)&quot;);</span>
+<span class="fc" id="L41">        System.out.println(&quot;8. Rehacer operación (Redo)&quot;);</span>
+<span class="fc" id="L42">        System.out.println(&quot;9. Ver historial de operaciones&quot;);</span>
+<span class="fc" id="L43">        System.out.println(&quot;10. Demo: Flujo completo con Undo/Redo&quot;);</span>
+<span class="fc" id="L44">        System.out.println(&quot;11. Salir&quot;);</span>
+<span class="fc" id="L45">        System.out.print(&quot;Opción: &quot;);</span>
+<span class="fc" id="L46">    }</span>
+
+    public void ejecutar() {
+<span class="nc" id="L49">        boolean continuar = true;</span>
+
+<span class="nc" id="L51">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L52">        System.out.println(&quot;║   CARRITO DE COMPRAS - PATRÓN COMMAND      ║&quot;);</span>
+<span class="nc" id="L53">        System.out.println(&quot;║   Operaciones reversibles con Undo/Redo    ║&quot;);</span>
+<span class="nc" id="L54">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        while (continuar) {</span>
+<span class="nc" id="L57">            mostrarMenu();</span>
+<span class="nc" id="L58">            int opcion = scanner.nextInt();</span>
+<span class="nc" id="L59">            scanner.nextLine();</span>
+
+<span class="nc bnc" id="L61" title="All 12 branches missed.">            switch (opcion) {</span>
+<span class="nc" id="L62">                case 1 -&gt; verCatalogo();</span>
+<span class="nc" id="L63">                case 2 -&gt; agregarProducto();</span>
+<span class="nc" id="L64">                case 3 -&gt; eliminarProducto();</span>
+<span class="nc" id="L65">                case 4 -&gt; aplicarDescuento();</span>
+<span class="nc" id="L66">                case 5 -&gt; vaciarCarrito();</span>
+<span class="nc" id="L67">                case 6 -&gt; verCarrito();</span>
+<span class="nc" id="L68">                case 7 -&gt; deshacer();</span>
+<span class="nc" id="L69">                case 8 -&gt; rehacer();</span>
+<span class="nc" id="L70">                case 9 -&gt; verHistorial();</span>
+<span class="nc" id="L71">                case 10 -&gt; demoFlujoCompleto();</span>
+<span class="nc" id="L72">                case 11 -&gt; continuar = false;</span>
+<span class="nc" id="L73">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
+            }
+        }
+
+<span class="nc" id="L77">        System.out.println(&quot;\n¡Gracias por usar el sistema de carrito!&quot;);</span>
+<span class="nc" id="L78">    }</span>
+
+    private void verCatalogo() {
+<span class="fc" id="L81">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="fc" id="L82">        System.out.println(&quot;║          CATÁLOGO DE PRODUCTOS             ║&quot;);</span>
+<span class="fc" id="L83">        System.out.println(&quot;╚════════════════════════════════════════════╝\n&quot;);</span>
+        
+<span class="fc bfc" id="L85" title="All 2 branches covered.">        for (int i = 0; i &lt; catalogoProductos.size(); i++) {</span>
+<span class="fc" id="L86">            Producto p = catalogoProductos.get(i);</span>
+<span class="fc" id="L87">            System.out.printf(&quot;%d. %s - $%.2f [%s]%n&quot;, </span>
+<span class="fc" id="L88">                (i + 1), p.getNombre(), p.getPrecio(), p.getCategoria());</span>
+        }
+<span class="fc" id="L90">    }</span>
+
+    private void agregarProducto() {
+<span class="nc" id="L93">        System.out.println(&quot;\n--- Agregar Producto al Carrito ---&quot;);</span>
+        
+<span class="nc" id="L95">        verCatalogo();</span>
+        
+<span class="nc" id="L97">        System.out.print(&quot;\nSeleccione producto (1-&quot; + catalogoProductos.size() + &quot;): &quot;);</span>
+<span class="nc" id="L98">        int indice = scanner.nextInt() - 1;</span>
+        
+<span class="nc bnc" id="L100" title="All 4 branches missed.">        if (indice &lt; 0 || indice &gt;= catalogoProductos.size()) {</span>
+<span class="nc" id="L101">            System.out.println(&quot;✗ Producto inválido&quot;);</span>
+<span class="nc" id="L102">            return;</span>
+        }
+        
+<span class="nc" id="L105">        System.out.print(&quot;Cantidad: &quot;);</span>
+<span class="nc" id="L106">        int cantidad = scanner.nextInt();</span>
+<span class="nc" id="L107">        scanner.nextLine();</span>
+        
+<span class="nc bnc" id="L109" title="All 2 branches missed.">        if (cantidad &lt;= 0) {</span>
+<span class="nc" id="L110">            System.out.println(&quot;✗ Cantidad inválida&quot;);</span>
+<span class="nc" id="L111">            return;</span>
+        }
+        
+<span class="nc" id="L114">        Producto producto = catalogoProductos.get(indice);</span>
+<span class="nc" id="L115">        controlador.agregarProducto(producto, cantidad);</span>
+<span class="nc" id="L116">    }</span>
+
+    private void eliminarProducto() {
+<span class="nc" id="L119">        System.out.println(&quot;\n--- Eliminar Producto del Carrito ---&quot;);</span>
+        
+<span class="nc bnc" id="L121" title="All 2 branches missed.">        if (controlador.getCarrito().estaVacio()) {</span>
+<span class="nc" id="L122">            System.out.println(&quot;✗ El carrito está vacío&quot;);</span>
+<span class="nc" id="L123">            return;</span>
+        }
+        
+<span class="nc" id="L126">        List&lt;ItemCarrito&gt; items = controlador.getCarrito().getItems();</span>
+        
+<span class="nc" id="L128">        System.out.println(&quot;\nProductos en el carrito:&quot;);</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">        for (int i = 0; i &lt; items.size(); i++) {</span>
+<span class="nc" id="L130">            ItemCarrito item = items.get(i);</span>
+<span class="nc" id="L131">            System.out.printf(&quot;%d. %s%n&quot;, (i + 1), item);</span>
+        }
+        
+<span class="nc" id="L134">        System.out.print(&quot;\nSeleccione producto a eliminar (1-&quot; + items.size() + &quot;): &quot;);</span>
+<span class="nc" id="L135">        int indice = scanner.nextInt() - 1;</span>
+        
+<span class="nc bnc" id="L137" title="All 4 branches missed.">        if (indice &lt; 0 || indice &gt;= items.size()) {</span>
+<span class="nc" id="L138">            System.out.println(&quot;✗ Selección inválida&quot;);</span>
+<span class="nc" id="L139">            return;</span>
+        }
+        
+<span class="nc" id="L142">        System.out.print(&quot;Cantidad a eliminar: &quot;);</span>
+<span class="nc" id="L143">        int cantidad = scanner.nextInt();</span>
+<span class="nc" id="L144">        scanner.nextLine();</span>
+        
+<span class="nc bnc" id="L146" title="All 2 branches missed.">        if (cantidad &lt;= 0) {</span>
+<span class="nc" id="L147">            System.out.println(&quot;✗ Cantidad inválida&quot;);</span>
+<span class="nc" id="L148">            return;</span>
+        }
+        
+<span class="nc" id="L151">        ItemCarrito item = items.get(indice);</span>
+<span class="nc" id="L152">        controlador.eliminarProducto(item.getProducto(), cantidad);</span>
+<span class="nc" id="L153">    }</span>
+
+    private void aplicarDescuento() {
+<span class="nc" id="L156">        System.out.println(&quot;\n--- Aplicar Descuento ---&quot;);</span>
+        
+<span class="nc bnc" id="L158" title="All 2 branches missed.">        if (controlador.getCarrito().estaVacio()) {</span>
+<span class="nc" id="L159">            System.out.println(&quot;✗ El carrito está vacío&quot;);</span>
+<span class="nc" id="L160">            return;</span>
+        }
+        
+<span class="nc" id="L163">        System.out.print(&quot;Porcentaje de descuento (ejemplo: 10 para 10%): &quot;);</span>
+<span class="nc" id="L164">        double porcentaje = scanner.nextDouble();</span>
+<span class="nc" id="L165">        scanner.nextLine();</span>
+        
+<span class="nc bnc" id="L167" title="All 4 branches missed.">        if (porcentaje &lt; 0 || porcentaje &gt; 100) {</span>
+<span class="nc" id="L168">            System.out.println(&quot;✗ Porcentaje inválido&quot;);</span>
+<span class="nc" id="L169">            return;</span>
+        }
+        
+<span class="nc" id="L172">        controlador.aplicarDescuento(porcentaje);</span>
+<span class="nc" id="L173">    }</span>
+
+    private void vaciarCarrito() {
+<span class="nc" id="L176">        System.out.println(&quot;\n--- Vaciar Carrito ---&quot;);</span>
+        
+<span class="nc bnc" id="L178" title="All 2 branches missed.">        if (controlador.getCarrito().estaVacio()) {</span>
+<span class="nc" id="L179">            System.out.println(&quot;✗ El carrito ya está vacío&quot;);</span>
+<span class="nc" id="L180">            return;</span>
+        }
+        
+<span class="nc" id="L183">        System.out.print(&quot;¿Está seguro de vaciar el carrito? (s/n): &quot;);</span>
+<span class="nc" id="L184">        String confirmacion = scanner.nextLine();</span>
+        
+<span class="nc bnc" id="L186" title="All 2 branches missed.">        if (confirmacion.equalsIgnoreCase(&quot;s&quot;)) {</span>
+<span class="nc" id="L187">            controlador.vaciarCarrito();</span>
+<span class="nc" id="L188">        } else {</span>
+<span class="nc" id="L189">            System.out.println(&quot;Operación cancelada&quot;);</span>
+        }
+<span class="nc" id="L191">    }</span>
+
+    private void verCarrito() {
+<span class="fc" id="L194">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="fc" id="L195">        System.out.println(&quot;║          CARRITO DE COMPRAS                ║&quot;);</span>
+<span class="fc" id="L196">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+        
+<span class="fc" id="L198">        CarritoCompras carrito = controlador.getCarrito();</span>
+        
+<span class="pc bpc" id="L200" title="1 of 2 branches missed.">        if (carrito.estaVacio()) {</span>
+<span class="fc" id="L201">            System.out.println(&quot;\nEl carrito está vacío&quot;);</span>
+<span class="fc" id="L202">            return;</span>
+        }
+        
+<span class="nc" id="L205">        System.out.println(&quot;\nProductos:&quot;);</span>
+<span class="nc bnc" id="L206" title="All 2 branches missed.">        for (ItemCarrito item : carrito.getItems()) {</span>
+<span class="nc" id="L207">            System.out.println(&quot;  &quot; + item);</span>
+        }
+        
+<span class="nc" id="L210">        System.out.println(&quot;\n&quot; + &quot;─&quot;.repeat(50));</span>
+<span class="nc" id="L211">        System.out.printf(&quot;Subtotal: $%.2f%n&quot;, carrito.calcularSubtotal());</span>
+        
+<span class="nc bnc" id="L213" title="All 2 branches missed.">        if (carrito.getDescuento() &gt; 0) {</span>
+<span class="nc" id="L214">            System.out.printf(&quot;Descuento (%.2f%%): -$%.2f%n&quot;, </span>
+<span class="nc" id="L215">                carrito.getDescuento(), carrito.calcularDescuento());</span>
+        }
+        
+<span class="nc" id="L218">        System.out.printf(&quot;TOTAL: $%.2f%n&quot;, carrito.calcularTotal());</span>
+<span class="nc" id="L219">        System.out.println(&quot;─&quot;.repeat(50));</span>
+<span class="nc" id="L220">    }</span>
+
+    private void deshacer() {
+<span class="nc" id="L223">        System.out.println(&quot;\n--- Deshacer Operación (Undo) ---&quot;);</span>
+        
+<span class="nc bnc" id="L225" title="All 2 branches missed.">        if (!controlador.puedeDeshacer()) {</span>
+<span class="nc" id="L226">            System.out.println(&quot;✗ No hay operaciones para deshacer&quot;);</span>
+<span class="nc" id="L227">            return;</span>
+        }
+        
+<span class="nc" id="L230">        controlador.deshacer();</span>
+<span class="nc" id="L231">    }</span>
+
+    private void rehacer() {
+<span class="nc" id="L234">        System.out.println(&quot;\n--- Rehacer Operación (Redo) ---&quot;);</span>
+        
+<span class="nc bnc" id="L236" title="All 2 branches missed.">        if (!controlador.puedeRehacer()) {</span>
+<span class="nc" id="L237">            System.out.println(&quot;✗ No hay operaciones para rehacer&quot;);</span>
+<span class="nc" id="L238">            return;</span>
+        }
+        
+<span class="nc" id="L241">        controlador.rehacer();</span>
+<span class="nc" id="L242">    }</span>
+
+    private void verHistorial() {
+<span class="nc" id="L245">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L246">        System.out.println(&quot;║       HISTORIAL DE OPERACIONES            ║&quot;);</span>
+<span class="nc" id="L247">        System.out.println(&quot;╚════════════════════════════════════════════╝\n&quot;);</span>
+        
+<span class="nc" id="L249">        List&lt;String&gt; historial = controlador.obtenerHistorial();</span>
+        
+<span class="nc bnc" id="L251" title="All 2 branches missed.">        if (historial.isEmpty()) {</span>
+<span class="nc" id="L252">            System.out.println(&quot;No hay operaciones en el historial&quot;);</span>
+<span class="nc" id="L253">            return;</span>
+        }
+        
+<span class="nc bnc" id="L256" title="All 2 branches missed.">        for (int i = 0; i &lt; historial.size(); i++) {</span>
+<span class="nc" id="L257">            System.out.printf(&quot;%d. %s%n&quot;, (i + 1), historial.get(i));</span>
+        }
+        
+<span class="nc" id="L260">        System.out.println(&quot;\n&quot; + &quot;─&quot;.repeat(50));</span>
+<span class="nc bnc" id="L261" title="All 2 branches missed.">        System.out.println(&quot;Puede deshacer: &quot; + (controlador.puedeDeshacer() ? &quot;Sí&quot; : &quot;No&quot;));</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">        System.out.println(&quot;Puede rehacer: &quot; + (controlador.puedeRehacer() ? &quot;Sí&quot; : &quot;No&quot;));</span>
+<span class="nc" id="L263">    }</span>
+
+    private void demoFlujoCompleto() {
+<span class="nc" id="L266">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L267">        System.out.println(&quot;║       DEMO: FLUJO COMPLETO                 ║&quot;);</span>
+<span class="nc" id="L268">        System.out.println(&quot;╚════════════════════════════════════════════╝\n&quot;);</span>
+        
+<span class="nc" id="L270">        System.out.println(&quot;Simulando compra con operaciones reversibles...\n&quot;);</span>
+        
+        // Operación 1: Agregar leche
+<span class="nc" id="L273">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L274">        System.out.println(&quot;PASO 1: Cliente agrega 2 litros de leche&quot;);</span>
+<span class="nc" id="L275">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L276">        controlador.agregarProducto(catalogoProductos.get(0), 2);</span>
+<span class="nc" id="L277">        verCarrito();</span>
+<span class="nc" id="L278">        pausa();</span>
+        
+        // Operación 2: Agregar pan
+<span class="nc" id="L281">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L282">        System.out.println(&quot;PASO 2: Cliente agrega 1 pan integral&quot;);</span>
+<span class="nc" id="L283">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L284">        controlador.agregarProducto(catalogoProductos.get(1), 1);</span>
+<span class="nc" id="L285">        verCarrito();</span>
+<span class="nc" id="L286">        pausa();</span>
+        
+        // Operación 3: Agregar huevos
+<span class="nc" id="L289">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L290">        System.out.println(&quot;PASO 3: Cliente agrega 1 caja de huevos&quot;);</span>
+<span class="nc" id="L291">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L292">        controlador.agregarProducto(catalogoProductos.get(2), 1);</span>
+<span class="nc" id="L293">        verCarrito();</span>
+<span class="nc" id="L294">        pausa();</span>
+        
+        // Operación 4: Cliente se arrepiente del pan
+<span class="nc" id="L297">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L298">        System.out.println(&quot;PASO 4: Cliente se arrepiente y deshace (quita el pan)&quot;);</span>
+<span class="nc" id="L299">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L300">        controlador.deshacer();</span>
+<span class="nc" id="L301">        verCarrito();</span>
+<span class="nc" id="L302">        pausa();</span>
+        
+        // Operación 5: Cliente aplica descuento
+<span class="nc" id="L305">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L306">        System.out.println(&quot;PASO 5: Cliente aplica cupón de 15% descuento&quot;);</span>
+<span class="nc" id="L307">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L308">        controlador.aplicarDescuento(15);</span>
+<span class="nc" id="L309">        verCarrito();</span>
+<span class="nc" id="L310">        pausa();</span>
+        
+        // Operación 6: Cliente decide que sí quiere el pan
+<span class="nc" id="L313">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L314">        System.out.println(&quot;PASO 6: Cliente rehace (vuelve a agregar el pan)&quot;);</span>
+<span class="nc" id="L315">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L316">        controlador.rehacer();</span>
+<span class="nc" id="L317">        verCarrito();</span>
+<span class="nc" id="L318">        pausa();</span>
+        
+        // Mostrar historial final
+<span class="nc" id="L321">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L322">        System.out.println(&quot;HISTORIAL FINAL DE OPERACIONES&quot;);</span>
+<span class="nc" id="L323">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L324">        verHistorial();</span>
+        
+<span class="nc" id="L326">        System.out.println(&quot;\n✓ Demo completado - Todas las operaciones son reversibles&quot;);</span>
+<span class="nc" id="L327">    }</span>
+
+    private void pausa() {
+        try {
+<span class="nc" id="L331">            Thread.sleep(1500);</span>
+<span class="nc" id="L332">        } catch (InterruptedException e) {</span>
+<span class="nc" id="L333">            e.printStackTrace();</span>
+        }
+<span class="nc" id="L335">    }</span>
+
+    public void mostrarMensaje(String mensaje) {
+<span class="fc" id="L338">        System.out.println(mensaje);</span>
+<span class="fc" id="L339">    }</span>
+
+    public void mostrarError(String error) {
+<span class="fc" id="L342">        System.err.println(&quot;ERROR: &quot; + error);</span>
+<span class="fc" id="L343">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L346">        ConsolaCommand consola = new ConsolaCommand();</span>
+<span class="nc" id="L347">        consola.ejecutar();</span>
+<span class="nc" id="L348">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

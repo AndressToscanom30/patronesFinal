@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: unit.Proxy.ProxyUnitTest
+-------------------------------------------------------------------------------
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 52.47 s -- in unit.Proxy.ProxyUnitTest

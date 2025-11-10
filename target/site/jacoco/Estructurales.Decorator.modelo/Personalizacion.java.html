@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Personalizacion.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Estructurales.Decorator.modelo</a> &gt; <span class="el_source">Personalizacion.java</span></div><h1>Personalizacion.java</h1><pre class="source lang-java linenums">package Estructurales.Decorator.modelo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Personalizacion extends ProductoDecorator {
+    private double costoPersonalizacion;
+    private String textoPersonalizado;
+    private String tipoPersona;
+    private String posicion;
+
+    public Personalizacion(ProductoVendible producto, String textoPersonalizado, 
+                          String tipoPersona, String posicion) {
+<span class="fc" id="L14">        super(producto);</span>
+<span class="fc" id="L15">        this.textoPersonalizado = textoPersonalizado;</span>
+<span class="fc" id="L16">        this.tipoPersona = tipoPersona;</span>
+<span class="fc" id="L17">        this.posicion = posicion;</span>
+<span class="fc" id="L18">        this.costoPersonalizacion = calcularCostoPersonalizacion(tipoPersona, textoPersonalizado);</span>
+<span class="fc" id="L19">    }</span>
+
+    private double calcularCostoPersonalizacion(String tipo, String texto) {
+<span class="pc bpc" id="L22" title="1 of 4 branches missed.">        double costo = switch (tipo.toUpperCase()) {</span>
+<span class="fc" id="L23">            case &quot;GRABADO&quot; -&gt; 5000;</span>
+<span class="fc" id="L24">            case &quot;BORDADO&quot; -&gt; 8000;</span>
+<span class="fc" id="L25">            case &quot;IMPRESION&quot; -&gt; 3000;</span>
+<span class="nc" id="L26">            default -&gt; 3000;</span>
+        };
+
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (texto.length() &gt; 20) {</span>
+<span class="fc" id="L30">            costo += 2000;</span>
+        }
+
+<span class="fc" id="L33">        return costo;</span>
+    }
+
+    @Override
+    public double obtenerPrecio() {
+<span class="fc" id="L38">        return productoBase.obtenerPrecio() + costoPersonalizacion;</span>
+    }
+
+    @Override
+    public String obtenerDescripcion() {
+<span class="fc" id="L43">        return productoBase.obtenerDescripcion() + &quot; + Personalización &quot; + tipoPersona;</span>
+    }
+
+    @Override
+    public int obtenerTiempoEntrega() {
+<span class="fc" id="L48">        return productoBase.obtenerTiempoEntrega() + 2;</span>
+    }
+
+    @Override
+    public List&lt;String&gt; obtenerDetalles() {
+<span class="nc" id="L53">        List&lt;String&gt; detalles = new ArrayList&lt;&gt;(productoBase.obtenerDetalles());</span>
+<span class="nc" id="L54">        detalles.add(&quot;--- Personalización ---&quot;);</span>
+<span class="nc" id="L55">        detalles.add(&quot;Tipo: &quot; + tipoPersona);</span>
+<span class="nc" id="L56">        detalles.add(&quot;Texto: &quot; + textoPersonalizado);</span>
+<span class="nc" id="L57">        detalles.add(&quot;Posición: &quot; + posicion);</span>
+<span class="nc" id="L58">        detalles.add(&quot;Costo: $&quot; + String.format(&quot;%.2f&quot;, costoPersonalizacion));</span>
+<span class="nc" id="L59">        detalles.add(&quot;Tiempo adicional: +2 días&quot;);</span>
+<span class="nc" id="L60">        return detalles;</span>
+    }
+
+    public boolean validarTexto() {
+<span class="pc bpc" id="L64" title="1 of 4 branches missed.">        if (textoPersonalizado == null || textoPersonalizado.trim().isEmpty()) {</span>
+<span class="fc" id="L65">            return false;</span>
+        }
+        
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (textoPersonalizado.length() &gt; 50) {</span>
+<span class="fc" id="L69">            return false;</span>
+        }
+        
+<span class="fc" id="L72">        return textoPersonalizado.matches(&quot;[a-zA-Z0-9 áéíóúñÁÉÍÓÚÑ.,!-]*&quot;);</span>
+    }
+
+<span class="nc" id="L75">    public double getCostoPersonalizacion() { return costoPersonalizacion; }</span>
+<span class="fc" id="L76">    public String getTextoPersonalizado() { return textoPersonalizado; }</span>
+<span class="fc" id="L77">    public String getTipoPersona() { return tipoPersona; }</span>
+<span class="fc" id="L78">    public String getPosicion() { return posicion; }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

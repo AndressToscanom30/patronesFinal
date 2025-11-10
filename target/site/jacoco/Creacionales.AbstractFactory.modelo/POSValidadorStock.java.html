@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>POSValidadorStock.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Creacionales.AbstractFactory.modelo</a> &gt; <span class="el_source">POSValidadorStock.java</span></div><h1>POSValidadorStock.java</h1><pre class="source lang-java linenums">package Creacionales.AbstractFactory.modelo;
+
+import Creacionales.AbstractFactory.modelo.*;
+import java.util.HashMap;
+import java.util.Map;
+
+public class POSValidadorStock implements ValidadorStock {
+    private final Map&lt;String, Integer&gt; stockLocal;
+
+<span class="fc" id="L10">    public POSValidadorStock() {</span>
+<span class="fc" id="L11">        this.stockLocal = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L12">        inicializarStockDemo();</span>
+<span class="fc" id="L13">    }</span>
+
+    private void inicializarStockDemo() {
+<span class="fc" id="L16">        stockLocal.put(&quot;PROD-001&quot;, 50);</span>
+<span class="fc" id="L17">        stockLocal.put(&quot;PROD-002&quot;, 30);</span>
+<span class="fc" id="L18">        stockLocal.put(&quot;PROD-003&quot;, 100);</span>
+<span class="fc" id="L19">        stockLocal.put(&quot;PROD-004&quot;, 25);</span>
+<span class="fc" id="L20">        stockLocal.put(&quot;PROD-005&quot;, 75);</span>
+<span class="fc" id="L21">    }</span>
+
+    @Override
+    public boolean validarDisponibilidad(String codigoProducto, int cantidad) {
+<span class="fc" id="L25">        int disponible = stockLocal.getOrDefault(codigoProducto, 0);</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        return disponible &gt;= cantidad;</span>
+    }
+
+    @Override
+    public int obtenerStockDisponible(String codigoProducto) {
+<span class="fc" id="L31">        return stockLocal.getOrDefault(codigoProducto, 0);</span>
+    }
+
+    @Override
+    public boolean reservarStock(String codigoProducto, int cantidad) {
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (!validarDisponibilidad(codigoProducto, cantidad)) {</span>
+<span class="fc" id="L37">            return false;</span>
+        }
+        
+<span class="fc" id="L40">        int stockActual = stockLocal.get(codigoProducto);</span>
+<span class="fc" id="L41">        stockLocal.put(codigoProducto, stockActual - cantidad);</span>
+<span class="fc" id="L42">        return true;</span>
+    }
+
+    @Override
+    public String obtenerTipoValidador() {
+<span class="fc" id="L47">        return &quot;Validador POS - Stock Local en Tiempo Real&quot;;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

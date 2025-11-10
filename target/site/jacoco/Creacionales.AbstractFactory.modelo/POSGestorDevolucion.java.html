@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>POSGestorDevolucion.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Creacionales.AbstractFactory.modelo</a> &gt; <span class="el_source">POSGestorDevolucion.java</span></div><h1>POSGestorDevolucion.java</h1><pre class="source lang-java linenums">package Creacionales.AbstractFactory.modelo;
+
+import Creacionales.AbstractFactory.modelo.*;
+
+<span class="fc" id="L5">public class POSGestorDevolucion implements GestorDevolucion {</span>
+    private static final int DIAS_DEVOLUCION = 15;
+    private static final double PENALIZACION_POR_DIA = 0.02; // 2% por día
+
+    @Override
+    public boolean permitirDevolucion(String codigoVenta, int diasTranscurridos) {
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        return diasTranscurridos &lt;= DIAS_DEVOLUCION;</span>
+    }
+
+    @Override
+    public double calcularReembolso(double montoOriginal, int diasTranscurridos) {
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        if (diasTranscurridos &gt; DIAS_DEVOLUCION) {</span>
+<span class="fc" id="L17">            return 0.0;</span>
+        }
+        
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        if (diasTranscurridos &lt;= 7) {</span>
+<span class="fc" id="L21">            return montoOriginal; // Reembolso completo primera semana</span>
+        }
+        
+        // Después de 7 días, penalización
+<span class="fc" id="L25">        double penalizacion = montoOriginal * PENALIZACION_POR_DIA * (diasTranscurridos - 7);</span>
+<span class="fc" id="L26">        return Math.max(0, montoOriginal - penalizacion);</span>
+    }
+
+    @Override
+    public String obtenerPoliticaDevolucion() {
+<span class="fc" id="L31">        return &quot;POS: 15 días, reembolso completo primeros 7 días, &quot; +</span>
+               &quot;penalización 2% por día después del día 7&quot;;
+    }
+
+    @Override
+    public String obtenerTipoGestor() {
+<span class="fc" id="L37">        return &quot;Gestor POS - Devolución con Ticket Físico&quot;;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

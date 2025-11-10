@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InventarioAdapter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Estructurales.Adapter.modelo</a> &gt; <span class="el_source">InventarioAdapter.java</span></div><h1>InventarioAdapter.java</h1><pre class="source lang-java linenums">package Estructurales.Adapter.modelo;
+
+import java.util.*;
+
+public class InventarioAdapter {
+    private SistemaProveedorExterno sistemaExterno;
+
+<span class="fc" id="L8">    public InventarioAdapter(SistemaProveedorExterno sistemaExterno) {</span>
+<span class="fc" id="L9">        this.sistemaExterno = sistemaExterno;</span>
+<span class="fc" id="L10">    }</span>
+
+    public Producto buscarProducto(String codigo) {
+<span class="fc" id="L13">        ProductoExterno externo = sistemaExterno.findProductById(codigo);</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">        if (externo == null) {</span>
+<span class="fc" id="L15">            return null;</span>
+        }
+<span class="fc" id="L17">        return convertirProductoExternoAInterno(externo);</span>
+    }
+
+    public List&lt;Producto&gt; obtenerTodosLosProductos() {
+<span class="fc" id="L21">        List&lt;ProductoExterno&gt; externos = sistemaExterno.getAllProducts();</span>
+<span class="fc" id="L22">        List&lt;Producto&gt; internos = new ArrayList&lt;&gt;();</span>
+        
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        for (ProductoExterno externo : externos) {</span>
+<span class="fc" id="L25">            internos.add(convertirProductoExternoAInterno(externo));</span>
+        }
+        
+<span class="fc" id="L28">        return internos;</span>
+    }
+
+    public boolean actualizarStock(String codigo, int nuevoStock) {
+<span class="fc" id="L32">        return sistemaExterno.updateQuantity(codigo, nuevoStock);</span>
+    }
+
+    public boolean verificarDisponibilidad(String codigo, int cantidad) {
+<span class="fc" id="L36">        return sistemaExterno.checkAvailability(codigo, cantidad);</span>
+    }
+
+    public List&lt;Producto&gt; buscarPorProveedor(String codigoProveedor) {
+<span class="fc" id="L40">        List&lt;ProductoExterno&gt; externos = sistemaExterno.searchBySupplier(codigoProveedor);</span>
+<span class="fc" id="L41">        List&lt;Producto&gt; internos = new ArrayList&lt;&gt;();</span>
+        
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (ProductoExterno externo : externos) {</span>
+<span class="fc" id="L44">            internos.add(convertirProductoExternoAInterno(externo));</span>
+        }
+        
+<span class="fc" id="L47">        return internos;</span>
+    }
+
+    private Producto convertirProductoExternoAInterno(ProductoExterno externo) {
+<span class="fc" id="L51">        String categoria = mapearCategoria(externo.getCategoryCode());</span>
+<span class="fc" id="L52">        return new Producto(</span>
+<span class="fc" id="L53">            externo.getProductId(),</span>
+<span class="fc" id="L54">            externo.getProductName(),</span>
+<span class="fc" id="L55">            externo.getUnitPrice(),</span>
+<span class="fc" id="L56">            categoria,</span>
+<span class="fc" id="L57">            externo.getAvailableQuantity()</span>
+        );
+    }
+
+    private String mapearCategoria(String categoryCode) {
+<span class="fc bfc" id="L62" title="All 5 branches covered.">        return switch (categoryCode) {</span>
+<span class="fc" id="L63">            case &quot;FOOD&quot; -&gt; &quot;ALIMENTOS&quot;;</span>
+<span class="fc" id="L64">            case &quot;DAIRY&quot; -&gt; &quot;LACTEOS&quot;;</span>
+<span class="fc" id="L65">            case &quot;BAKERY&quot; -&gt; &quot;PANADERIA&quot;;</span>
+<span class="fc" id="L66">            case &quot;BEVERAGE&quot; -&gt; &quot;BEBIDAS&quot;;</span>
+<span class="fc" id="L67">            default -&gt; &quot;OTROS&quot;;</span>
+        };
+    }
+
+    public void agregarProducto(Producto producto) {
+<span class="fc" id="L72">        ProductoExterno externo = convertirProductoInternoAExterno(producto);</span>
+<span class="fc" id="L73">        sistemaExterno.addProduct(externo);</span>
+<span class="fc" id="L74">    }</span>
+
+    private ProductoExterno convertirProductoInternoAExterno(Producto interno) {
+<span class="fc" id="L77">        String categoryCode = mapearCategoriaInversa(interno.getCategoria());</span>
+<span class="fc" id="L78">        return new ProductoExterno(</span>
+<span class="fc" id="L79">            interno.getCodigo(),</span>
+<span class="fc" id="L80">            interno.getNombre(),</span>
+<span class="fc" id="L81">            interno.getPrecio(),</span>
+<span class="fc" id="L82">            categoryCode,</span>
+<span class="fc" id="L83">            interno.getStock(),</span>
+<span class="fc" id="L84">            &quot;SUP-INTERNAL&quot;</span>
+        );
+    }
+
+    private String mapearCategoriaInversa(String categoria) {
+<span class="pc bpc" id="L89" title="2 of 5 branches missed.">        return switch (categoria) {</span>
+<span class="fc" id="L90">            case &quot;ALIMENTOS&quot; -&gt; &quot;FOOD&quot;;</span>
+<span class="nc" id="L91">            case &quot;LACTEOS&quot; -&gt; &quot;DAIRY&quot;;</span>
+<span class="nc" id="L92">            case &quot;PANADERIA&quot; -&gt; &quot;BAKERY&quot;;</span>
+<span class="fc" id="L93">            case &quot;BEBIDAS&quot; -&gt; &quot;BEVERAGE&quot;;</span>
+<span class="fc" id="L94">            default -&gt; &quot;OTHER&quot;;</span>
+        };
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

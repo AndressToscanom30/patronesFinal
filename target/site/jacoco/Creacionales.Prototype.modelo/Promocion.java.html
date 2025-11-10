@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Promocion.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Creacionales.Prototype.modelo</a> &gt; <span class="el_source">Promocion.java</span></div><h1>Promocion.java</h1><pre class="source lang-java linenums">package Creacionales.Prototype.modelo;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public abstract class Promocion implements Cloneable {
+    protected String id;
+    protected String nombre;
+    protected String descripcion;
+    protected LocalDate fechaInicio;
+    protected LocalDate fechaFin;
+    protected double porcentajeDescuento;
+    protected boolean activa;
+    protected List&lt;String&gt; categoriasAplicables;
+    protected int limiteUnidades;
+
+<span class="fc" id="L19">    protected Promocion(String id, String nombre, String descripcion) {</span>
+<span class="fc bfc" id="L20" title="All 4 branches covered.">        if (id == null || id.trim().isEmpty()) {</span>
+<span class="fc" id="L21">            throw new IllegalArgumentException(&quot;El ID no puede ser nulo o vacío&quot;);</span>
+        }
+<span class="fc bfc" id="L23" title="All 4 branches covered.">        if (nombre == null || nombre.trim().isEmpty()) {</span>
+<span class="fc" id="L24">            throw new IllegalArgumentException(&quot;El nombre no puede ser nulo o vacío&quot;);</span>
+        }
+        
+<span class="fc" id="L27">        this.id = id;</span>
+<span class="fc" id="L28">        this.nombre = nombre;</span>
+<span class="fc" id="L29">        this.descripcion = descripcion;</span>
+<span class="fc" id="L30">        this.activa = false;</span>
+<span class="fc" id="L31">        this.categoriasAplicables = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L32">        this.limiteUnidades = 0;</span>
+<span class="fc" id="L33">    }</span>
+
+     @Override
+    public Promocion clone() {
+        try {
+<span class="fc" id="L38">            Promocion clonada = (Promocion) super.clone();</span>
+<span class="fc" id="L39">            clonada.categoriasAplicables = new ArrayList&lt;&gt;(this.categoriasAplicables);</span>
+<span class="fc" id="L40">            return clonada;</span>
+<span class="nc" id="L41">        } catch (CloneNotSupportedException e) {</span>
+<span class="nc" id="L42">            throw new AssertionError(&quot;Error al clonar promoción&quot;, e);</span>
+        }
+    }
+
+    public abstract double aplicarDescuento(double monto);
+
+   public abstract boolean validar();
+
+    public abstract String obtenerTipo();
+
+    public boolean estaVigente() {
+<span class="fc" id="L53">        LocalDate hoy = LocalDate.now();</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        return activa &amp;&amp; </span>
+<span class="fc bfc" id="L55" title="All 4 branches covered.">               (fechaInicio == null || !hoy.isBefore(fechaInicio)) &amp;&amp;</span>
+<span class="fc bfc" id="L56" title="All 4 branches covered.">               (fechaFin == null || !hoy.isAfter(fechaFin));</span>
+    }
+
+    public boolean esAplicableACategoria(String categoria) {
+<span class="pc bpc" id="L60" title="2 of 4 branches missed.">            if (categoria == null || categoria.trim().isEmpty()) {</span>
+<span class="nc" id="L61">                return false;</span>
+            }
+        
+            // Si es una promoción tipo combo, verificar los productos
+<span class="fc bfc" id="L65" title="All 2 branches covered.">            if (this instanceof PromocionCombo combo) {</span>
+                // Buscamos productos que contengan la categoría exacta
+<span class="fc" id="L67">                return combo.getProductosRequeridos().stream()</span>
+<span class="fc" id="L68">                        .anyMatch(prod -&gt; {</span>
+<span class="fc" id="L69">                            String[] parts = prod.split(&quot;:&quot;);</span>
+                            // El formato esperado es &quot;codigo:categoria:nombre&quot;
+<span class="pc bpc" id="L71" title="3 of 4 branches missed.">                            return parts.length &gt;= 2 &amp;&amp; parts[1].equals(categoria);</span>
+                        });
+            }
+        
+         // Si la promoción no tiene categorías específicas, se aplica a todas
+         // O si la categoría está en la lista de categorías aplicables
+<span class="fc bfc" id="L77" title="All 2 branches covered.">         return categoriasAplicables.isEmpty() || </span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">             categoriasAplicables.contains(categoria);</span>
+    }
+
+    // Getters y Setters
+<span class="fc" id="L82">    public String getId() { return id; }</span>
+<span class="fc" id="L83">    public String getNombre() { return nombre; }</span>
+<span class="nc" id="L84">    public String getDescripcion() { return descripcion; }</span>
+<span class="fc" id="L85">    public LocalDate getFechaInicio() { return fechaInicio; }</span>
+<span class="fc" id="L86">    public LocalDate getFechaFin() { return fechaFin; }</span>
+<span class="fc" id="L87">    public double getPorcentajeDescuento() { return porcentajeDescuento; }</span>
+<span class="fc" id="L88">    public boolean isActiva() { return activa; }</span>
+<span class="fc" id="L89">    public List&lt;String&gt; getCategoriasAplicables() { return new ArrayList&lt;&gt;(categoriasAplicables); }</span>
+<span class="fc" id="L90">    public int getLimiteUnidades() { return limiteUnidades; }</span>
+
+<span class="fc" id="L92">    public void setId(String id) { this.id = id; }</span>
+<span class="fc" id="L93">    public void setNombre(String nombre) { this.nombre = nombre; }</span>
+<span class="nc" id="L94">    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }</span>
+<span class="fc" id="L95">    public void setFechaInicio(LocalDate fecha) { this.fechaInicio = fecha; }</span>
+<span class="fc" id="L96">    public void setFechaFin(LocalDate fecha) { this.fechaFin = fecha; }</span>
+    public void setPorcentajeDescuento(double porcentaje) {
+<span class="fc bfc" id="L98" title="All 4 branches covered.">        if (porcentaje &lt; 0 || porcentaje &gt; 100) {</span>
+<span class="fc" id="L99">            throw new IllegalArgumentException(&quot;Porcentaje debe estar entre 0 y 100&quot;);</span>
+        }
+<span class="fc" id="L101">        this.porcentajeDescuento = porcentaje;</span>
+<span class="fc" id="L102">    }</span>
+<span class="fc" id="L103">    public void setActiva(boolean activa) { this.activa = activa; }</span>
+    public void setLimiteUnidades(int limite) {
+<span class="fc bfc" id="L105" title="All 2 branches covered.">        if (limite &lt; 0) {</span>
+<span class="fc" id="L106">            throw new IllegalArgumentException(&quot;El límite no puede ser negativo&quot;);</span>
+        }
+<span class="fc" id="L108">        this.limiteUnidades = limite;</span>
+<span class="fc" id="L109">    }</span>
+
+    public void agregarCategoria(String categoria) {
+<span class="fc bfc" id="L112" title="All 2 branches covered.">        if (!categoriasAplicables.contains(categoria)) {</span>
+<span class="fc" id="L113">            categoriasAplicables.add(categoria);</span>
+        }
+<span class="fc" id="L115">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">        if (this == o) return true;</span>
+<span class="pc bpc" id="L120" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L121">        Promocion that = (Promocion) o;</span>
+<span class="fc" id="L122">        return Objects.equals(id, that.id);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L127">        return Objects.hash(id);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L132">        return String.format(&quot;%s[id=%s, nombre=%s, descuento=%.1f%%, activa=%s]&quot;,</span>
+<span class="fc" id="L133">                getClass().getSimpleName(), id, nombre, porcentajeDescuento, activa);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsolaProxy.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Estructurales.Proxy.vista</a> &gt; <span class="el_source">ConsolaProxy.java</span></div><h1>ConsolaProxy.java</h1><pre class="source lang-java linenums">package Estructurales.Proxy.vista;
+
+import Estructurales.Proxy.controlador.CatalogoController;
+import Estructurales.Proxy.modelo.*;
+import java.util.Scanner;
+
+public class ConsolaProxy {
+    private final CatalogoController controlador;
+    private final Scanner scanner;
+
+<span class="fc" id="L11">    public ConsolaProxy() {</span>
+<span class="fc" id="L12">        this.controlador = new CatalogoController(this);</span>
+<span class="fc" id="L13">        this.scanner = new Scanner(System.in);</span>
+<span class="fc" id="L14">    }</span>
+
+    public void mostrarMenu() {
+<span class="fc" id="L17">        System.out.println(&quot;\n=== PROXY - Sistema de Catálogo con Lazy Loading ===&quot;);</span>
+<span class="fc" id="L18">        System.out.println(&quot;1. Cargar productos al catálogo&quot;);</span>
+<span class="fc" id="L19">        System.out.println(&quot;2. Ver lista de productos (lazy)&quot;);</span>
+<span class="fc" id="L20">        System.out.println(&quot;3. Ver detalles de producto específico&quot;);</span>
+<span class="fc" id="L21">        System.out.println(&quot;4. Cargar todas las imágenes&quot;);</span>
+<span class="fc" id="L22">        System.out.println(&quot;5. Limpiar caché de imágenes&quot;);</span>
+<span class="fc" id="L23">        System.out.println(&quot;6. Ver estadísticas de acceso&quot;);</span>
+<span class="fc" id="L24">        System.out.println(&quot;7. Demo: Navegación típica&quot;);</span>
+<span class="fc" id="L25">        System.out.println(&quot;8. Salir&quot;);</span>
+<span class="fc" id="L26">        System.out.print(&quot;Opción: &quot;);</span>
+<span class="fc" id="L27">    }</span>
+
+    public void ejecutar() {
+<span class="nc" id="L30">        boolean continuar = true;</span>
+
+<span class="nc" id="L32">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L33">        System.out.println(&quot;║   CATÁLOGO DE PRODUCTOS - PATRÓN PROXY     ║&quot;);</span>
+<span class="nc" id="L34">        System.out.println(&quot;║   Optimizando carga de imágenes            ║&quot;);</span>
+<span class="nc" id="L35">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        while (continuar) {</span>
+<span class="nc" id="L38">            mostrarMenu();</span>
+<span class="nc" id="L39">            int opcion = scanner.nextInt();</span>
+<span class="nc" id="L40">            scanner.nextLine();</span>
+
+<span class="nc bnc" id="L42" title="All 9 branches missed.">            switch (opcion) {</span>
+<span class="nc" id="L43">                case 1 -&gt; cargarProductos();</span>
+<span class="nc" id="L44">                case 2 -&gt; verListaProductos();</span>
+<span class="nc" id="L45">                case 3 -&gt; verDetalleProducto();</span>
+<span class="nc" id="L46">                case 4 -&gt; cargarTodasLasImagenes();</span>
+<span class="nc" id="L47">                case 5 -&gt; limpiarCache();</span>
+<span class="nc" id="L48">                case 6 -&gt; verEstadisticas();</span>
+<span class="nc" id="L49">                case 7 -&gt; demoNavegacion();</span>
+<span class="nc" id="L50">                case 8 -&gt; continuar = false;</span>
+<span class="nc" id="L51">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
+            }
+        }
+
+<span class="nc" id="L55">        System.out.println(&quot;\n¡Hasta luego!&quot;);</span>
+<span class="nc" id="L56">    }</span>
+
+    private void cargarProductos() {
+<span class="nc" id="L59">        System.out.println(&quot;\n--- Cargar Productos al Catálogo ---&quot;);</span>
+<span class="nc" id="L60">        System.out.print(&quot;¿Cuántos productos desea cargar? &quot;);</span>
+<span class="nc" id="L61">        int cantidad = scanner.nextInt();</span>
+<span class="nc" id="L62">        scanner.nextLine();</span>
+
+<span class="nc" id="L64">        long inicio = System.currentTimeMillis();</span>
+
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        for (int i = 1; i &lt;= cantidad; i++) {</span>
+<span class="nc" id="L67">            String codigo = &quot;PROD&quot; + String.format(&quot;%03d&quot;, i);</span>
+<span class="nc" id="L68">            controlador.agregarProducto(codigo);</span>
+        }
+
+<span class="nc" id="L71">        long fin = System.currentTimeMillis();</span>
+
+<span class="nc" id="L73">        System.out.println(&quot;\n✓ &quot; + cantidad + &quot; productos cargados en &quot; + (fin - inicio) + &quot;ms&quot;);</span>
+<span class="nc" id="L74">        System.out.println(&quot;(Gracias al Proxy, las imágenes NO se cargaron todavía - Lazy Loading)&quot;);</span>
+<span class="nc" id="L75">    }</span>
+
+    private void verListaProductos() {
+<span class="fc" id="L78">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="fc" id="L79">        System.out.println(&quot;║          LISTA DE PRODUCTOS                ║&quot;);</span>
+<span class="fc" id="L80">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+
+<span class="fc" id="L82">        int cantidad = controlador.getCantidadProductos();</span>
+
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">        if (cantidad == 0) {</span>
+<span class="fc" id="L85">            System.out.println(&quot;\nNo hay productos en el catálogo.&quot;);</span>
+<span class="fc" id="L86">            System.out.println(&quot;Use la opción 1 para cargar productos.&quot;);</span>
+<span class="fc" id="L87">            return;</span>
+        }
+
+<span class="nc" id="L90">        System.out.println(&quot;\nMostrando miniaturas (sin cargar imágenes completas)...\n&quot;);</span>
+
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        for (int i = 0; i &lt; cantidad; i++) {</span>
+<span class="nc" id="L93">            System.out.printf(&quot;%d. Producto #%d [Miniatura]%n&quot;, (i + 1), (i + 1));</span>
+        }
+
+<span class="nc" id="L96">        System.out.println(&quot;\n✓ Lista mostrada sin cargar imágenes completas (Lazy Loading)&quot;);</span>
+<span class="nc" id="L97">    }</span>
+
+    private void verDetalleProducto() {
+<span class="nc" id="L100">        System.out.println(&quot;\n--- Ver Detalle de Producto ---&quot;);</span>
+
+<span class="nc" id="L102">        int cantidad = controlador.getCantidadProductos();</span>
+
+<span class="nc bnc" id="L104" title="All 2 branches missed.">        if (cantidad == 0) {</span>
+<span class="nc" id="L105">            System.out.println(&quot;No hay productos en el catálogo&quot;);</span>
+<span class="nc" id="L106">            return;</span>
+        }
+
+<span class="nc" id="L109">        System.out.print(&quot;Número de producto (1-&quot; + cantidad + &quot;): &quot;);</span>
+<span class="nc" id="L110">        int numero = scanner.nextInt();</span>
+<span class="nc" id="L111">        scanner.nextLine();</span>
+
+<span class="nc bnc" id="L113" title="All 4 branches missed.">        if (numero &lt; 1 || numero &gt; cantidad) {</span>
+<span class="nc" id="L114">            System.out.println(&quot;✗ Número inválido&quot;);</span>
+<span class="nc" id="L115">            return;</span>
+        }
+
+<span class="nc" id="L118">        System.out.println(&quot;\n&quot; + &quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L119">        System.out.println(&quot;Cargando imagen en alta resolución...&quot;);</span>
+<span class="nc" id="L120">        System.out.println(&quot;═&quot;.repeat(50));</span>
+
+<span class="nc" id="L122">        long inicio = System.currentTimeMillis();</span>
+<span class="nc" id="L123">        controlador.mostrarImagen(numero - 1);</span>
+<span class="nc" id="L124">        long fin = System.currentTimeMillis();</span>
+
+<span class="nc" id="L126">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L127">        System.out.println(&quot;Tiempo de carga: &quot; + (fin - inicio) + &quot;ms&quot;);</span>
+<span class="nc" id="L128">        System.out.println(&quot;═&quot;.repeat(50));</span>
+
+<span class="nc" id="L130">        ImagenProducto imagen = controlador.getProducto(numero - 1);</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">        if (imagen instanceof ImagenProductoProxy) {</span>
+<span class="nc" id="L132">            ImagenProductoProxy proxy = (ImagenProductoProxy) imagen;</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">            System.out.println(&quot;\nEstado: &quot; + (proxy.isCargada() ? &quot;Cargada en memoria&quot; : &quot;No cargada&quot;));</span>
+<span class="nc" id="L134">            System.out.println(&quot;Accesos: &quot; + proxy.getContadorAccesos());</span>
+        }
+<span class="nc" id="L136">    }</span>
+
+    private void cargarTodasLasImagenes() {
+<span class="nc" id="L139">        System.out.println(&quot;\n--- Cargar Todas las Imágenes ---&quot;);</span>
+
+<span class="nc" id="L141">        int cantidad = controlador.getCantidadProductos();</span>
+
+<span class="nc bnc" id="L143" title="All 2 branches missed.">        if (cantidad == 0) {</span>
+<span class="nc" id="L144">            System.out.println(&quot;No hay productos para cargar&quot;);</span>
+<span class="nc" id="L145">            return;</span>
+        }
+
+<span class="nc" id="L148">        System.out.println(&quot;\nCargando &quot; + cantidad + &quot; imágenes...&quot;);</span>
+<span class="nc" id="L149">        System.out.print(&quot;¿Confirmar? (s/n): &quot;);</span>
+
+<span class="nc bnc" id="L151" title="All 2 branches missed.">        if (!scanner.nextLine().equalsIgnoreCase(&quot;s&quot;)) {</span>
+<span class="nc" id="L152">            System.out.println(&quot;Operación cancelada&quot;);</span>
+<span class="nc" id="L153">            return;</span>
+        }
+
+<span class="nc" id="L156">        long inicio = System.currentTimeMillis();</span>
+
+<span class="nc bnc" id="L158" title="All 2 branches missed.">        for (int i = 0; i &lt; cantidad; i++) {</span>
+<span class="nc" id="L159">            System.out.print(&quot;Cargando imagen &quot; + (i + 1) + &quot;/&quot; + cantidad + &quot;...\r&quot;);</span>
+<span class="nc" id="L160">            controlador.cargarImagen(i);</span>
+        }
+
+<span class="nc" id="L163">        long fin = System.currentTimeMillis();</span>
+
+<span class="nc" id="L165">        System.out.println(&quot;\n\n✓ Todas las imágenes cargadas en &quot; + (fin - inicio) + &quot;ms&quot;);</span>
+<span class="nc" id="L166">    }</span>
+
+    private void limpiarCache() {
+<span class="nc" id="L169">        System.out.println(&quot;\n--- Limpiar Caché de Imágenes ---&quot;);</span>
+
+<span class="nc" id="L171">        int cantidad = controlador.getCantidadProductos();</span>
+<span class="nc" id="L172">        int cargadas = 0;</span>
+
+<span class="nc bnc" id="L174" title="All 2 branches missed.">        for (int i = 0; i &lt; cantidad; i++) {</span>
+<span class="nc" id="L175">            ImagenProducto imagen = controlador.getProducto(i);</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">            if (imagen instanceof ImagenProductoProxy) {</span>
+<span class="nc" id="L177">                ImagenProductoProxy proxy = (ImagenProductoProxy) imagen;</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">                if (proxy.isCargada()) {</span>
+<span class="nc" id="L179">                    cargadas++;</span>
+                }
+            }
+        }
+
+<span class="nc" id="L184">        System.out.println(&quot;Imágenes en caché: &quot; + cargadas + &quot;/&quot; + cantidad);</span>
+<span class="nc" id="L185">        System.out.print(&quot;¿Confirmar limpieza? (s/n): &quot;);</span>
+
+<span class="nc bnc" id="L187" title="All 2 branches missed.">        if (!scanner.nextLine().equalsIgnoreCase(&quot;s&quot;)) {</span>
+<span class="nc" id="L188">            System.out.println(&quot;Operación cancelada&quot;);</span>
+<span class="nc" id="L189">            return;</span>
+        }
+
+<span class="nc bnc" id="L192" title="All 2 branches missed.">        for (int i = 0; i &lt; cantidad; i++) {</span>
+<span class="nc" id="L193">            ImagenProducto imagen = controlador.getProducto(i);</span>
+<span class="nc bnc" id="L194" title="All 2 branches missed.">            if (imagen instanceof ImagenProductoProxy) {</span>
+<span class="nc" id="L195">                ImagenProductoProxy proxy = (ImagenProductoProxy) imagen;</span>
+<span class="nc" id="L196">                proxy.limpiarCache();</span>
+            }
+        }
+
+<span class="nc" id="L200">        System.out.println(&quot;\n✓ Caché limpiado exitosamente&quot;);</span>
+<span class="nc" id="L201">    }</span>
+
+    private void verEstadisticas() {
+<span class="nc" id="L204">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L205">        System.out.println(&quot;║         ESTADÍSTICAS DEL CATÁLOGO          ║&quot;);</span>
+<span class="nc" id="L206">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+
+<span class="nc" id="L208">        int cantidad = controlador.getCantidadProductos();</span>
+<span class="nc" id="L209">        int cargadas = 0;</span>
+<span class="nc" id="L210">        int totalAccesos = 0;</span>
+
+<span class="nc bnc" id="L212" title="All 2 branches missed.">        for (int i = 0; i &lt; cantidad; i++) {</span>
+<span class="nc" id="L213">            ImagenProducto imagen = controlador.getProducto(i);</span>
+<span class="nc bnc" id="L214" title="All 2 branches missed.">            if (imagen instanceof ImagenProductoProxy) {</span>
+<span class="nc" id="L215">                ImagenProductoProxy proxy = (ImagenProductoProxy) imagen;</span>
+<span class="nc bnc" id="L216" title="All 2 branches missed.">                if (proxy.isCargada()) {</span>
+<span class="nc" id="L217">                    cargadas++;</span>
+                }
+<span class="nc" id="L219">                totalAccesos += proxy.getContadorAccesos();</span>
+            }
+        }
+
+<span class="nc" id="L223">        System.out.println(&quot;\nTotal de productos: &quot; + cantidad);</span>
+<span class="nc" id="L224">        System.out.println(&quot;Imágenes cargadas: &quot; + cargadas);</span>
+<span class="nc" id="L225">        System.out.println(&quot;Imágenes no cargadas: &quot; + (cantidad - cargadas));</span>
+<span class="nc" id="L226">        System.out.println(&quot;Total de accesos: &quot; + totalAccesos);</span>
+
+<span class="nc bnc" id="L228" title="All 2 branches missed.">        if (cantidad &gt; 0) {</span>
+<span class="nc" id="L229">            double porcentajeCargado = (cargadas * 100.0) / cantidad;</span>
+<span class="nc" id="L230">            double ahorroMemoria = 100.0 - porcentajeCargado;</span>
+<span class="nc" id="L231">            System.out.printf(&quot;Porcentaje cargado: %.2f%%%n&quot;, porcentajeCargado);</span>
+<span class="nc" id="L232">            System.out.printf(&quot;Ahorro de memoria: %.2f%%%n&quot;, ahorroMemoria);</span>
+        }
+
+<span class="nc" id="L235">        System.out.println(&quot;\n&quot; + &quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L236">    }</span>
+
+    private void demoNavegacion() {
+<span class="nc" id="L239">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L240">        System.out.println(&quot;║      DEMO: NAVEGACIÓN TÍPICA               ║&quot;);</span>
+<span class="nc" id="L241">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+
+<span class="nc" id="L243">        System.out.println(&quot;\nSimulando navegación de usuario típico...\n&quot;);</span>
+
+        // Cargar catálogo
+<span class="nc" id="L246">        System.out.println(&quot;1. Usuario abre el catálogo (20 productos)&quot;);</span>
+<span class="nc bnc" id="L247" title="All 2 branches missed.">        for (int i = 1; i &lt;= 20; i++) {</span>
+<span class="nc" id="L248">            controlador.agregarProducto(&quot;DEMO&quot; + String.format(&quot;%03d&quot;, i));</span>
+        }
+<span class="nc" id="L250">        System.out.println(&quot;   ✓ Catálogo cargado instantáneamente (Lazy Loading)&quot;);</span>
+
+        try {
+<span class="nc" id="L253">            Thread.sleep(1000);</span>
+<span class="nc" id="L254">        } catch (InterruptedException e) {}</span>
+
+        // Ver producto
+<span class="nc" id="L257">        System.out.println(&quot;\n2. Usuario hace clic en producto #5&quot;);</span>
+<span class="nc" id="L258">        System.out.println(&quot;   (Primera vez - carga desde disco)&quot;);</span>
+<span class="nc" id="L259">        long inicio1 = System.currentTimeMillis();</span>
+<span class="nc" id="L260">        controlador.mostrarImagen(4);</span>
+<span class="nc" id="L261">        long fin1 = System.currentTimeMillis();</span>
+<span class="nc" id="L262">        System.out.println(&quot;   ✓ Cargado en &quot; + (fin1 - inicio1) + &quot;ms&quot;);</span>
+
+        try {
+<span class="nc" id="L265">            Thread.sleep(1000);</span>
+<span class="nc" id="L266">        } catch (InterruptedException e) {}</span>
+
+        // Ver otro producto
+<span class="nc" id="L269">        System.out.println(&quot;\n3. Usuario hace clic en producto #12&quot;);</span>
+<span class="nc" id="L270">        long inicio2 = System.currentTimeMillis();</span>
+<span class="nc" id="L271">        controlador.mostrarImagen(11);</span>
+<span class="nc" id="L272">        long fin2 = System.currentTimeMillis();</span>
+<span class="nc" id="L273">        System.out.println(&quot;   ✓ Cargado en &quot; + (fin2 - inicio2) + &quot;ms&quot;);</span>
+
+        try {
+<span class="nc" id="L276">            Thread.sleep(1000);</span>
+<span class="nc" id="L277">        } catch (InterruptedException e) {}</span>
+
+        // Volver al primer producto
+<span class="nc" id="L280">        System.out.println(&quot;\n4. Usuario vuelve al producto #5&quot;);</span>
+<span class="nc" id="L281">        System.out.println(&quot;   (Desde caché - instantáneo)&quot;);</span>
+<span class="nc" id="L282">        long inicio3 = System.currentTimeMillis();</span>
+<span class="nc" id="L283">        controlador.mostrarImagen(4);</span>
+<span class="nc" id="L284">        long fin3 = System.currentTimeMillis();</span>
+<span class="nc" id="L285">        System.out.println(&quot;   ✓ Cargado en &quot; + (fin3 - inicio3) + &quot;ms (desde caché)&quot;);</span>
+
+<span class="nc" id="L287">        System.out.println(&quot;\n&quot; + &quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L288">        System.out.println(&quot;RESUMEN&quot;);</span>
+<span class="nc" id="L289">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L290">        System.out.println(&quot;Total productos: 20&quot;);</span>
+<span class="nc" id="L291">        System.out.println(&quot;Imágenes cargadas: 2&quot;);</span>
+<span class="nc" id="L292">        System.out.println(&quot;Ahorro de memoria: 90%&quot;);</span>
+<span class="nc" id="L293">        System.out.println(&quot;Caché funcionando: ✓&quot;);</span>
+<span class="nc" id="L294">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L295">    }</span>
+
+    public void mostrarMensaje(String mensaje) {
+<span class="fc" id="L298">        System.out.println(mensaje);</span>
+<span class="fc" id="L299">    }</span>
+
+    public void mostrarError(String error) {
+<span class="fc" id="L302">        System.err.println(&quot;ERROR: &quot; + error);</span>
+<span class="fc" id="L303">    }</span>
+
+    public void mostrarEstadisticas(int accesos, boolean cargada) {
+<span class="fc" id="L306">        System.out.println(&quot;\n=== Estadísticas ===&quot;);</span>
+<span class="fc" id="L307">        System.out.println(&quot;Número de accesos: &quot; + accesos);</span>
+<span class="pc bpc" id="L308" title="1 of 2 branches missed.">        System.out.println(&quot;Imagen cargada: &quot; + (cargada ? &quot;Sí&quot; : &quot;No&quot;));</span>
+<span class="fc" id="L309">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L312">        ConsolaProxy consola = new ConsolaProxy();</span>
+<span class="nc" id="L313">        consola.ejecutar();</span>
+<span class="nc" id="L314">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

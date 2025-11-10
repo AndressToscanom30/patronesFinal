@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pedido.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Comportamentales.State.modelo</a> &gt; <span class="el_source">Pedido.java</span></div><h1>Pedido.java</h1><pre class="source lang-java linenums">package Comportamentales.State.modelo;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class Pedido {
+    private String numeroPedido;
+    private String cliente;
+    private List&lt;ItemPedido&gt; items;
+    private double total;
+    private EstadoPedido estado;
+    private Date fechaCreacion;
+    private List&lt;String&gt; historialEstados;
+    
+<span class="fc" id="L16">    public Pedido(String numeroPedido, String cliente) {</span>
+<span class="fc" id="L17">        this.numeroPedido = numeroPedido;</span>
+<span class="fc" id="L18">        this.cliente = cliente;</span>
+<span class="fc" id="L19">        this.items = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L20">        this.total = 0;</span>
+<span class="fc" id="L21">        this.estado = new PendienteState();</span>
+<span class="fc" id="L22">        this.fechaCreacion = new Date();</span>
+<span class="fc" id="L23">        this.historialEstados = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L24">        registrarCambioEstado(&quot;PENDIENTE&quot;);</span>
+<span class="fc" id="L25">    }</span>
+    
+    public void agregarItem(ItemPedido item) {
+<span class="fc" id="L28">        items.add(item);</span>
+<span class="fc" id="L29">        calcularTotal();</span>
+<span class="fc" id="L30">    }</span>
+    
+    private void calcularTotal() {
+<span class="fc" id="L33">        total = 0;</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        for (ItemPedido item : items) {</span>
+<span class="fc" id="L35">            total += item.getSubtotal();</span>
+        }
+<span class="fc" id="L37">    }</span>
+    
+    public void setEstado(EstadoPedido nuevoEstado) {
+<span class="fc" id="L40">        this.estado = nuevoEstado;</span>
+<span class="fc" id="L41">        registrarCambioEstado(nuevoEstado.obtenerEstado());</span>
+<span class="fc" id="L42">    }</span>
+    
+    private void registrarCambioEstado(String nombreEstado) {
+<span class="fc" id="L45">        String registro = new Date() + &quot; - &quot; + nombreEstado;</span>
+<span class="fc" id="L46">        historialEstados.add(registro);</span>
+<span class="fc" id="L47">    }</span>
+    
+    // Métodos que delegan al estado actual
+    public void procesar() {
+<span class="fc" id="L51">        estado.procesarPedido(this);</span>
+<span class="fc" id="L52">    }</span>
+    
+    public void cancelar() {
+<span class="fc" id="L55">        estado.cancelarPedido(this);</span>
+<span class="fc" id="L56">    }</span>
+    
+    public void confirmarPago() {
+<span class="fc" id="L59">        estado.confirmarPago(this);</span>
+<span class="fc" id="L60">    }</span>
+    
+    public void enviar() {
+<span class="fc" id="L63">        estado.enviarPedido(this);</span>
+<span class="fc" id="L64">    }</span>
+    
+    public void entregar() {
+<span class="fc" id="L67">        estado.entregarPedido(this);</span>
+<span class="fc" id="L68">    }</span>
+    
+    // Getters
+    public String getNumeroPedido() {
+<span class="fc" id="L72">        return numeroPedido;</span>
+    }
+    
+    public String getCliente() {
+<span class="fc" id="L76">        return cliente;</span>
+    }
+    
+    public List&lt;ItemPedido&gt; getItems() {
+<span class="fc" id="L80">        return items;</span>
+    }
+    
+    public double getTotal() {
+<span class="fc" id="L84">        return total;</span>
+    }
+    
+    public String getEstadoActual() {
+<span class="fc" id="L88">        return estado.obtenerEstado();</span>
+    }
+    
+    public Date getFechaCreacion() {
+<span class="nc" id="L92">        return fechaCreacion;</span>
+    }
+    
+    public List&lt;String&gt; getHistorialEstados() {
+<span class="fc" id="L96">        return new ArrayList&lt;&gt;(historialEstados);</span>
+    }
+    
+    @Override
+    public String toString() {
+<span class="nc" id="L101">        return String.format(&quot;Pedido #%s - Cliente: %s - Estado: %s - Total: $%.2f&quot;,</span>
+<span class="nc" id="L102">            numeroPedido, cliente, getEstadoActual(), total);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsolaTemplateMethod.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Comportamentales.TemplateMethod.vista</a> &gt; <span class="el_source">ConsolaTemplateMethod.java</span></div><h1>ConsolaTemplateMethod.java</h1><pre class="source lang-java linenums">package Comportamentales.TemplateMethod.vista;
+
+import Comportamentales.TemplateMethod.controlador.TemplateMethodController;
+import Comportamentales.TemplateMethod.modelo.*;
+import java.util.Scanner;
+
+public class ConsolaTemplateMethod {
+    private final TemplateMethodController controlador;
+    private final Scanner scanner;
+
+<span class="fc" id="L11">    public ConsolaTemplateMethod() {</span>
+<span class="fc" id="L12">        this.controlador = new TemplateMethodController(this);</span>
+<span class="fc" id="L13">        this.scanner = new Scanner(System.in);</span>
+<span class="fc" id="L14">    }</span>
+
+    public void mostrarMenu() {
+<span class="fc" id="L17">        System.out.println(&quot;\n=== TEMPLATE METHOD - Procesos de Venta ===&quot;);</span>
+<span class="fc" id="L18">        System.out.println(&quot;1. Procesar venta en efectivo&quot;);</span>
+<span class="fc" id="L19">        System.out.println(&quot;2. Procesar venta con tarjeta&quot;);</span>
+<span class="fc" id="L20">        System.out.println(&quot;3. Procesar venta por transferencia&quot;);</span>
+<span class="fc" id="L21">        System.out.println(&quot;4. Comparar procesos de venta&quot;);</span>
+<span class="fc" id="L22">        System.out.println(&quot;5. Demo: Flujo completo de ventas&quot;);</span>
+<span class="fc" id="L23">        System.out.println(&quot;6. Salir&quot;);</span>
+<span class="fc" id="L24">        System.out.print(&quot;Opción: &quot;);</span>
+<span class="fc" id="L25">    }</span>
+
+    public void ejecutar() {
+<span class="nc" id="L28">        boolean continuar = true;</span>
+
+<span class="nc" id="L30">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L31">        System.out.println(&quot;║   SISTEMA DE VENTAS - TEMPLATE METHOD      ║&quot;);</span>
+<span class="nc" id="L32">        System.out.println(&quot;║   Estructura común, implementación única   ║&quot;);</span>
+<span class="nc" id="L33">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        while (continuar) {</span>
+<span class="nc" id="L36">            mostrarMenu();</span>
+<span class="nc" id="L37">            int opcion = scanner.nextInt();</span>
+<span class="nc" id="L38">            scanner.nextLine();</span>
+
+<span class="nc bnc" id="L40" title="All 7 branches missed.">            switch (opcion) {</span>
+<span class="nc" id="L41">                case 1 -&gt; procesarVentaEfectivo();</span>
+<span class="nc" id="L42">                case 2 -&gt; procesarVentaTarjeta();</span>
+<span class="nc" id="L43">                case 3 -&gt; procesarVentaTransferencia();</span>
+<span class="nc" id="L44">                case 4 -&gt; compararProcesos();</span>
+<span class="nc" id="L45">                case 5 -&gt; demoFlujoCompleto();</span>
+<span class="nc" id="L46">                case 6 -&gt; continuar = false;</span>
+<span class="nc" id="L47">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
+            }
+        }
+
+<span class="nc" id="L51">        System.out.println(&quot;\n¡Gracias por usar el sistema de ventas!&quot;);</span>
+<span class="nc" id="L52">    }</span>
+
+    private void procesarVentaEfectivo() {
+<span class="nc" id="L55">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L56">        System.out.println(&quot;║       VENTA EN EFECTIVO                    ║&quot;);</span>
+<span class="nc" id="L57">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+        
+<span class="nc" id="L59">        System.out.print(&quot;\nMonto a pagar: $&quot;);</span>
+<span class="nc" id="L60">        double monto = scanner.nextDouble();</span>
+<span class="nc" id="L61">        scanner.nextLine();</span>
+        
+<span class="nc" id="L63">        System.out.println(&quot;\n&quot; + &quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L64">        System.out.println(&quot;PROCESANDO VENTA EN EFECTIVO&quot;);</span>
+<span class="nc" id="L65">        System.out.println(&quot;═&quot;.repeat(50));</span>
+        
+<span class="nc" id="L67">        String resultado = controlador.procesarVentaEfectivo(monto);</span>
+<span class="nc" id="L68">        System.out.println(resultado);</span>
+        
+<span class="nc" id="L70">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L71">        System.out.println(&quot;✓ Venta completada&quot;);</span>
+<span class="nc" id="L72">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L73">    }</span>
+
+    private void procesarVentaTarjeta() {
+<span class="nc" id="L76">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L77">        System.out.println(&quot;║       VENTA CON TARJETA                    ║&quot;);</span>
+<span class="nc" id="L78">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+        
+<span class="nc" id="L80">        System.out.print(&quot;\nMonto a pagar: $&quot;);</span>
+<span class="nc" id="L81">        double monto = scanner.nextDouble();</span>
+<span class="nc" id="L82">        scanner.nextLine();</span>
+        
+<span class="nc" id="L84">        System.out.print(&quot;Tipo de cuenta (CREDITO/DEBITO): &quot;);</span>
+<span class="nc" id="L85">        String tipoCuenta = scanner.nextLine();</span>
+        
+<span class="nc" id="L87">        System.out.println(&quot;\n&quot; + &quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L88">        System.out.println(&quot;PROCESANDO VENTA CON TARJETA&quot;);</span>
+<span class="nc" id="L89">        System.out.println(&quot;═&quot;.repeat(50));</span>
+        
+<span class="nc" id="L91">        String resultado = controlador.procesarVentaTarjeta(monto, tipoCuenta);</span>
+<span class="nc" id="L92">        System.out.println(resultado);</span>
+        
+<span class="nc" id="L94">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L95">        System.out.println(&quot;✓ Venta completada&quot;);</span>
+<span class="nc" id="L96">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L97">    }</span>
+
+    private void procesarVentaTransferencia() {
+<span class="nc" id="L100">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L101">        System.out.println(&quot;║       VENTA POR TRANSFERENCIA              ║&quot;);</span>
+<span class="nc" id="L102">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+        
+<span class="nc" id="L104">        System.out.print(&quot;\nMonto a pagar: $&quot;);</span>
+<span class="nc" id="L105">        double monto = scanner.nextDouble();</span>
+<span class="nc" id="L106">        scanner.nextLine();</span>
+        
+<span class="nc" id="L108">        System.out.print(&quot;Banco: &quot;);</span>
+<span class="nc" id="L109">        String banco = scanner.nextLine();</span>
+        
+<span class="nc" id="L111">        System.out.println(&quot;\n&quot; + &quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L112">        System.out.println(&quot;PROCESANDO TRANSFERENCIA&quot;);</span>
+<span class="nc" id="L113">        System.out.println(&quot;═&quot;.repeat(50));</span>
+        
+<span class="nc" id="L115">        String resultado = controlador.procesarVentaTransferencia(monto, banco);</span>
+<span class="nc" id="L116">        System.out.println(resultado);</span>
+        
+<span class="nc" id="L118">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L119">        System.out.println(&quot;✓ Venta completada&quot;);</span>
+<span class="nc" id="L120">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L121">    }</span>
+
+    private void compararProcesos() {
+<span class="fc" id="L124">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="fc" id="L125">        System.out.println(&quot;║       COMPARACIÓN DE PROCESOS              ║&quot;);</span>
+<span class="fc" id="L126">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+        
+<span class="fc" id="L128">        double monto = 100000;</span>
+<span class="fc" id="L129">        System.out.printf(&quot;\nMonto de prueba: $%.2f%n&quot;, monto);</span>
+        
+        // Efectivo
+<span class="fc" id="L132">        System.out.println(&quot;\n&quot; + &quot;─&quot;.repeat(50));</span>
+<span class="fc" id="L133">        System.out.println(&quot;1. PROCESO: EFECTIVO&quot;);</span>
+<span class="fc" id="L134">        System.out.println(&quot;─&quot;.repeat(50));</span>
+<span class="fc" id="L135">        ProcesoVenta ventaEfectivo = new VentaEfectivo();</span>
+<span class="fc" id="L136">        System.out.println(ventaEfectivo.procesarVenta(monto));</span>
+        
+        // Tarjeta
+<span class="fc" id="L139">        System.out.println(&quot;\n&quot; + &quot;─&quot;.repeat(50));</span>
+<span class="fc" id="L140">        System.out.println(&quot;2. PROCESO: TARJETA&quot;);</span>
+<span class="fc" id="L141">        System.out.println(&quot;─&quot;.repeat(50));</span>
+<span class="fc" id="L142">        ProcesoVenta ventaTarjeta = new VentaTarjeta(&quot;CREDITO&quot;);</span>
+<span class="fc" id="L143">        System.out.println(ventaTarjeta.procesarVenta(monto));</span>
+        
+        // Transferencia
+<span class="fc" id="L146">        System.out.println(&quot;\n&quot; + &quot;─&quot;.repeat(50));</span>
+<span class="fc" id="L147">        System.out.println(&quot;3. PROCESO: TRANSFERENCIA&quot;);</span>
+<span class="fc" id="L148">        System.out.println(&quot;─&quot;.repeat(50));</span>
+<span class="fc" id="L149">        ProcesoVenta ventaTransferencia = new VentaTransferencia(&quot;Banco Nacional&quot;);</span>
+<span class="fc" id="L150">        System.out.println(ventaTransferencia.procesarVenta(monto));</span>
+        
+<span class="fc" id="L152">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="fc" id="L153">        System.out.println(&quot;CONCLUSIÓN:&quot;);</span>
+<span class="fc" id="L154">        System.out.println(&quot;Todos los procesos siguen la misma estructura (Template)&quot;);</span>
+<span class="fc" id="L155">        System.out.println(&quot;pero cada uno tiene su implementación específica.&quot;);</span>
+<span class="fc" id="L156">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="fc" id="L157">    }</span>
+
+    private void demoFlujoCompleto() {
+<span class="nc" id="L160">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L161">        System.out.println(&quot;║       DEMO: FLUJO COMPLETO                 ║&quot;);</span>
+<span class="nc" id="L162">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+        
+<span class="nc" id="L164">        System.out.println(&quot;\nSimulando día de ventas en el supermercado...\n&quot;);</span>
+        
+        // Venta 1: Efectivo
+<span class="nc" id="L167">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L168">        System.out.println(&quot;VENTA #1: Cliente paga en efectivo&quot;);</span>
+<span class="nc" id="L169">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L170">        String resultado1 = controlador.procesarVentaEfectivo(50000);</span>
+<span class="nc" id="L171">        System.out.println(resultado1);</span>
+        
+        try {
+<span class="nc" id="L174">            Thread.sleep(1000);</span>
+<span class="nc" id="L175">        } catch (InterruptedException e) {}</span>
+        
+        // Venta 2: Tarjeta
+<span class="nc" id="L178">        System.out.println(&quot;\n&quot; + &quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L179">        System.out.println(&quot;VENTA #2: Cliente paga con tarjeta&quot;);</span>
+<span class="nc" id="L180">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L181">        String resultado2 = controlador.procesarVentaTarjeta(150000, &quot;DEBITO&quot;);</span>
+<span class="nc" id="L182">        System.out.println(resultado2);</span>
+        
+        try {
+<span class="nc" id="L185">            Thread.sleep(1000);</span>
+<span class="nc" id="L186">        } catch (InterruptedException e) {}</span>
+        
+        // Venta 3: Transferencia
+<span class="nc" id="L189">        System.out.println(&quot;\n&quot; + &quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L190">        System.out.println(&quot;VENTA #3: Cliente paga por transferencia&quot;);</span>
+<span class="nc" id="L191">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L192">        String resultado3 = controlador.procesarVentaTransferencia(80000, &quot;Bancolombia&quot;);</span>
+<span class="nc" id="L193">        System.out.println(resultado3);</span>
+        
+<span class="nc" id="L195">        System.out.println(&quot;\n&quot; + &quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L196">        System.out.println(&quot;RESUMEN DEL DÍA&quot;);</span>
+<span class="nc" id="L197">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L198">        System.out.println(&quot;Total de ventas: 3&quot;);</span>
+<span class="nc" id="L199">        System.out.println(&quot;- Efectivo: 1 venta ($50,000)&quot;);</span>
+<span class="nc" id="L200">        System.out.println(&quot;- Tarjeta: 1 venta ($150,000)&quot;);</span>
+<span class="nc" id="L201">        System.out.println(&quot;- Transferencia: 1 venta ($80,000)&quot;);</span>
+<span class="nc" id="L202">        System.out.println(&quot;Total recaudado: $280,000&quot;);</span>
+<span class="nc" id="L203">        System.out.println(&quot;═&quot;.repeat(50));</span>
+        
+<span class="nc" id="L205">        System.out.println(&quot;\n✓ Demo completado exitosamente&quot;);</span>
+<span class="nc" id="L206">    }</span>
+
+    public void mostrarMensaje(String mensaje) {
+<span class="fc" id="L209">        System.out.println(mensaje);</span>
+<span class="fc" id="L210">    }</span>
+
+    public void mostrarError(String error) {
+<span class="fc" id="L213">        System.err.println(&quot;ERROR: &quot; + error);</span>
+<span class="fc" id="L214">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L217">        ConsolaTemplateMethod consola = new ConsolaTemplateMethod();</span>
+<span class="nc" id="L218">        consola.ejecutar();</span>
+<span class="nc" id="L219">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

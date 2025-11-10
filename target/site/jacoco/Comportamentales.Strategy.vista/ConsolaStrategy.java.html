@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsolaStrategy.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Comportamentales.Strategy.vista</a> &gt; <span class="el_source">ConsolaStrategy.java</span></div><h1>ConsolaStrategy.java</h1><pre class="source lang-java linenums">package Comportamentales.Strategy.vista;
+
+import Comportamentales.Strategy.controlador.StrategyController;
+import Comportamentales.Strategy.modelo.*;
+import java.util.Scanner;
+
+public class ConsolaStrategy {
+    private final StrategyController controlador;
+    private final Scanner scanner;
+    private CarritoCompra carritoActual;
+
+<span class="fc" id="L12">    public ConsolaStrategy() {</span>
+<span class="fc" id="L13">        this.controlador = new StrategyController(this);</span>
+<span class="fc" id="L14">        this.scanner = new Scanner(System.in);</span>
+<span class="fc" id="L15">        this.carritoActual = null;</span>
+<span class="fc" id="L16">    }</span>
+
+    public void mostrarMenu() {
+<span class="nc" id="L19">        System.out.println(&quot;\n=== STRATEGY - Sistema de Descuentos ===&quot;);</span>
+<span class="nc" id="L20">        System.out.println(&quot;1. Crear nuevo carrito&quot;);</span>
+<span class="nc" id="L21">        System.out.println(&quot;2. Aplicar descuento por porcentaje&quot;);</span>
+<span class="nc" id="L22">        System.out.println(&quot;3. Aplicar descuento 2x1&quot;);</span>
+<span class="nc" id="L23">        System.out.println(&quot;4. Aplicar descuento 3x2&quot;);</span>
+<span class="nc" id="L24">        System.out.println(&quot;5. Calcular total con descuento&quot;);</span>
+<span class="nc" id="L25">        System.out.println(&quot;6. Ver carrito actual&quot;);</span>
+<span class="nc" id="L26">        System.out.println(&quot;7. Demo: Comparar estrategias&quot;);</span>
+<span class="nc" id="L27">        System.out.println(&quot;8. Salir&quot;);</span>
+<span class="nc" id="L28">        System.out.print(&quot;Opción: &quot;);</span>
+<span class="nc" id="L29">    }</span>
+
+    public void ejecutar() {
+<span class="nc" id="L32">        boolean continuar = true;</span>
+
+<span class="nc" id="L34">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L35">        System.out.println(&quot;║   SISTEMA DE DESCUENTOS - PATRÓN STRATEGY  ║&quot;);</span>
+<span class="nc" id="L36">        System.out.println(&quot;║   Estrategias intercambiables de descuento ║&quot;);</span>
+<span class="nc" id="L37">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        while (continuar) {</span>
+<span class="nc" id="L40">            mostrarMenu();</span>
+<span class="nc" id="L41">            int opcion = scanner.nextInt();</span>
+<span class="nc" id="L42">            scanner.nextLine();</span>
+
+<span class="nc bnc" id="L44" title="All 9 branches missed.">            switch (opcion) {</span>
+<span class="nc" id="L45">                case 1 -&gt; crearCarrito();</span>
+<span class="nc" id="L46">                case 2 -&gt; aplicarDescuentoPorcentaje();</span>
+<span class="nc" id="L47">                case 3 -&gt; aplicarDescuento2x1();</span>
+<span class="nc" id="L48">                case 4 -&gt; aplicarDescuento3x2();</span>
+<span class="nc" id="L49">                case 5 -&gt; calcularTotal();</span>
+<span class="nc" id="L50">                case 6 -&gt; verCarrito();</span>
+<span class="nc" id="L51">                case 7 -&gt; demoComparacion();</span>
+<span class="nc" id="L52">                case 8 -&gt; continuar = false;</span>
+<span class="nc" id="L53">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
+            }
+        }
+
+<span class="nc" id="L57">        System.out.println(&quot;\n¡Gracias por usar el sistema de descuentos!&quot;);</span>
+<span class="nc" id="L58">    }</span>
+
+    private void crearCarrito() {
+<span class="nc" id="L61">        System.out.println(&quot;\n--- Crear Nuevo Carrito ---&quot;);</span>
+<span class="nc" id="L62">        System.out.print(&quot;Total de la compra: $&quot;);</span>
+<span class="nc" id="L63">        double total = scanner.nextDouble();</span>
+<span class="nc" id="L64">        scanner.nextLine();</span>
+        
+<span class="nc" id="L66">        carritoActual = controlador.crearCarrito(total);</span>
+<span class="nc" id="L67">        System.out.printf(&quot;\n✓ Carrito creado con total: $%.2f%n&quot;, total);</span>
+<span class="nc" id="L68">    }</span>
+
+    private void aplicarDescuentoPorcentaje() {
+<span class="nc bnc" id="L71" title="All 2 branches missed.">        if (!validarCarrito()) return;</span>
+        
+<span class="nc" id="L73">        System.out.println(&quot;\n--- Aplicar Descuento por Porcentaje ---&quot;);</span>
+<span class="nc" id="L74">        System.out.print(&quot;Porcentaje de descuento (ejemplo: 10 para 10%): &quot;);</span>
+<span class="nc" id="L75">        double porcentaje = scanner.nextDouble();</span>
+<span class="nc" id="L76">        scanner.nextLine();</span>
+        
+<span class="nc" id="L78">        DescuentoStrategy estrategia = controlador.crearDescuentoPorcentaje(porcentaje);</span>
+<span class="nc" id="L79">        controlador.aplicarEstrategia(carritoActual, estrategia);</span>
+        
+<span class="nc" id="L81">        System.out.printf(&quot;\n✓ Descuento del %.2f%% aplicado%n&quot;, porcentaje);</span>
+<span class="nc" id="L82">        mostrarResultadoDescuento();</span>
+<span class="nc" id="L83">    }</span>
+
+    private void aplicarDescuento2x1() {
+<span class="nc bnc" id="L86" title="All 2 branches missed.">        if (!validarCarrito()) return;</span>
+        
+<span class="nc" id="L88">        System.out.println(&quot;\n--- Aplicar Descuento 2x1 ---&quot;);</span>
+<span class="nc" id="L89">        System.out.println(&quot;(Paga 1 y lleva 2 - 50% de descuento)&quot;);</span>
+        
+<span class="nc" id="L91">        DescuentoStrategy estrategia = controlador.crearDescuento2x1();</span>
+<span class="nc" id="L92">        controlador.aplicarEstrategia(carritoActual, estrategia);</span>
+        
+<span class="nc" id="L94">        System.out.println(&quot;\n✓ Descuento 2x1 aplicado&quot;);</span>
+<span class="nc" id="L95">        mostrarResultadoDescuento();</span>
+<span class="nc" id="L96">    }</span>
+
+    private void aplicarDescuento3x2() {
+<span class="nc bnc" id="L99" title="All 2 branches missed.">        if (!validarCarrito()) return;</span>
+        
+<span class="nc" id="L101">        System.out.println(&quot;\n--- Aplicar Descuento 3x2 ---&quot;);</span>
+<span class="nc" id="L102">        System.out.print(&quot;Cantidad mínima de productos: &quot;);</span>
+<span class="nc" id="L103">        int cantidadMin = scanner.nextInt();</span>
+        
+<span class="nc" id="L105">        System.out.print(&quot;Porcentaje de descuento: &quot;);</span>
+<span class="nc" id="L106">        double porcentaje = scanner.nextDouble();</span>
+<span class="nc" id="L107">        scanner.nextLine();</span>
+        
+<span class="nc" id="L109">        DescuentoStrategy estrategia = controlador.crearDescuento3x2(cantidadMin, porcentaje);</span>
+<span class="nc" id="L110">        controlador.aplicarEstrategia(carritoActual, estrategia);</span>
+        
+<span class="nc" id="L112">        System.out.printf(&quot;\n✓ Descuento 3x2 aplicado (mín %d productos, %.2f%% desc)%n&quot;, </span>
+<span class="nc" id="L113">            cantidadMin, porcentaje);</span>
+<span class="nc" id="L114">        mostrarResultadoDescuento();</span>
+<span class="nc" id="L115">    }</span>
+
+    private void calcularTotal() {
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        if (!validarCarrito()) return;</span>
+        
+<span class="nc" id="L120">        System.out.println(&quot;\n&quot; + &quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L121">        System.out.println(&quot;CÁLCULO DEL TOTAL&quot;);</span>
+<span class="nc" id="L122">        System.out.println(&quot;═&quot;.repeat(50));</span>
+        
+<span class="nc" id="L124">        double totalOriginal = carritoActual.getTotal();</span>
+<span class="nc" id="L125">        double totalConDescuento = controlador.calcularTotalConDescuento(carritoActual);</span>
+<span class="nc" id="L126">        double ahorro = totalOriginal - totalConDescuento;</span>
+        
+<span class="nc" id="L128">        System.out.printf(&quot;Total original: $%.2f%n&quot;, totalOriginal);</span>
+        
+<span class="nc bnc" id="L130" title="All 2 branches missed.">        if (carritoActual.getEstrategia() != null) {</span>
+<span class="nc" id="L131">            System.out.printf(&quot;Total con descuento: $%.2f%n&quot;, totalConDescuento);</span>
+<span class="nc" id="L132">            System.out.printf(&quot;Ahorro: $%.2f (%.2f%%)%n&quot;, ahorro, (ahorro / totalOriginal) * 100);</span>
+<span class="nc" id="L133">        } else {</span>
+<span class="nc" id="L134">            System.out.println(&quot;No hay descuento aplicado&quot;);</span>
+<span class="nc" id="L135">            System.out.printf(&quot;Total a pagar: $%.2f%n&quot;, totalConDescuento);</span>
+        }
+        
+<span class="nc" id="L138">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L139">    }</span>
+
+    private void verCarrito() {
+<span class="nc bnc" id="L142" title="All 2 branches missed.">        if (!validarCarrito()) return;</span>
+        
+<span class="nc" id="L144">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L145">        System.out.println(&quot;║          CARRITO ACTUAL                    ║&quot;);</span>
+<span class="nc" id="L146">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+        
+<span class="nc" id="L148">        System.out.printf(&quot;\nTotal: $%.2f%n&quot;, carritoActual.getTotal());</span>
+        
+<span class="nc bnc" id="L150" title="All 2 branches missed.">        if (carritoActual.getEstrategia() != null) {</span>
+<span class="nc" id="L151">            DescuentoStrategy estrategia = carritoActual.getEstrategia();</span>
+<span class="nc" id="L152">            System.out.print(&quot;Estrategia: &quot;);</span>
+            
+<span class="nc bnc" id="L154" title="All 2 branches missed.">            if (estrategia instanceof DescuentoPorcentaje) {</span>
+<span class="nc" id="L155">                DescuentoPorcentaje desc = (DescuentoPorcentaje) estrategia;</span>
+<span class="nc" id="L156">                System.out.printf(&quot;Porcentaje (%.2f%%)%n&quot;, desc.getPorcentaje());</span>
+<span class="nc bnc" id="L157" title="All 2 branches missed.">            } else if (estrategia instanceof Descuento2x1) {</span>
+<span class="nc" id="L158">                System.out.println(&quot;2x1 (50% descuento)&quot;);</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">            } else if (estrategia instanceof Descuento3x2) {</span>
+<span class="nc" id="L160">                Descuento3x2 desc = (Descuento3x2) estrategia;</span>
+<span class="nc" id="L161">                System.out.printf(&quot;3x2 (mín %d, %.2f%% desc)%n&quot;, </span>
+<span class="nc" id="L162">                    desc.getCantidadMin(), desc.getPorcentaje());</span>
+            }
+            
+<span class="nc" id="L165">            System.out.printf(&quot;Total con descuento: $%.2f%n&quot;, </span>
+<span class="nc" id="L166">                controlador.calcularTotalConDescuento(carritoActual));</span>
+<span class="nc" id="L167">        } else {</span>
+<span class="nc" id="L168">            System.out.println(&quot;Estrategia: Ninguna&quot;);</span>
+        }
+        
+<span class="nc" id="L171">        System.out.println(&quot;\n&quot; + &quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L172">    }</span>
+
+    private void demoComparacion() {
+<span class="nc" id="L175">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L176">        System.out.println(&quot;║      DEMO: COMPARACIÓN DE ESTRATEGIAS      ║&quot;);</span>
+<span class="nc" id="L177">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+        
+<span class="nc" id="L179">        double totalCompra = 100000;</span>
+<span class="nc" id="L180">        System.out.printf(&quot;\nTotal de compra: $%.2f%n&quot;, totalCompra);</span>
+<span class="nc" id="L181">        System.out.println(&quot;\nComparando diferentes estrategias de descuento:\n&quot;);</span>
+        
+        // Sin descuento
+<span class="nc" id="L184">        CarritoCompra carrito1 = controlador.crearCarrito(totalCompra);</span>
+<span class="nc" id="L185">        System.out.println(&quot;1. SIN DESCUENTO&quot;);</span>
+<span class="nc" id="L186">        System.out.printf(&quot;   Total a pagar: $%.2f%n&quot;, carrito1.calcularTotal());</span>
+        
+        // Descuento por porcentaje 10%
+<span class="nc" id="L189">        CarritoCompra carrito2 = controlador.crearCarrito(totalCompra);</span>
+<span class="nc" id="L190">        DescuentoStrategy desc10 = controlador.crearDescuentoPorcentaje(10);</span>
+<span class="nc" id="L191">        carrito2.setEstrategia(desc10);</span>
+<span class="nc" id="L192">        double total10 = carrito2.calcularTotal();</span>
+<span class="nc" id="L193">        System.out.println(&quot;\n2. DESCUENTO PORCENTAJE (10%)&quot;);</span>
+<span class="nc" id="L194">        System.out.printf(&quot;   Total a pagar: $%.2f%n&quot;, total10);</span>
+<span class="nc" id="L195">        System.out.printf(&quot;   Ahorro: $%.2f%n&quot;, totalCompra - total10);</span>
+        
+        // Descuento por porcentaje 20%
+<span class="nc" id="L198">        CarritoCompra carrito3 = controlador.crearCarrito(totalCompra);</span>
+<span class="nc" id="L199">        DescuentoStrategy desc20 = controlador.crearDescuentoPorcentaje(20);</span>
+<span class="nc" id="L200">        carrito3.setEstrategia(desc20);</span>
+<span class="nc" id="L201">        double total20 = carrito3.calcularTotal();</span>
+<span class="nc" id="L202">        System.out.println(&quot;\n3. DESCUENTO PORCENTAJE (20%)&quot;);</span>
+<span class="nc" id="L203">        System.out.printf(&quot;   Total a pagar: $%.2f%n&quot;, total20);</span>
+<span class="nc" id="L204">        System.out.printf(&quot;   Ahorro: $%.2f%n&quot;, totalCompra - total20);</span>
+        
+        // Descuento 2x1
+<span class="nc" id="L207">        CarritoCompra carrito4 = controlador.crearCarrito(totalCompra);</span>
+<span class="nc" id="L208">        DescuentoStrategy desc2x1 = controlador.crearDescuento2x1();</span>
+<span class="nc" id="L209">        carrito4.setEstrategia(desc2x1);</span>
+<span class="nc" id="L210">        double total2x1 = carrito4.calcularTotal();</span>
+<span class="nc" id="L211">        System.out.println(&quot;\n4. DESCUENTO 2x1 (50%)&quot;);</span>
+<span class="nc" id="L212">        System.out.printf(&quot;   Total a pagar: $%.2f%n&quot;, total2x1);</span>
+<span class="nc" id="L213">        System.out.printf(&quot;   Ahorro: $%.2f%n&quot;, totalCompra - total2x1);</span>
+        
+        // Descuento 3x2
+<span class="nc" id="L216">        CarritoCompra carrito5 = controlador.crearCarrito(totalCompra);</span>
+<span class="nc" id="L217">        DescuentoStrategy desc3x2 = controlador.crearDescuento3x2(3, 33.33);</span>
+<span class="nc" id="L218">        carrito5.setEstrategia(desc3x2);</span>
+<span class="nc" id="L219">        double total3x2 = carrito5.calcularTotal();</span>
+<span class="nc" id="L220">        System.out.println(&quot;\n5. DESCUENTO 3x2 (33.33%)&quot;);</span>
+<span class="nc" id="L221">        System.out.printf(&quot;   Total a pagar: $%.2f%n&quot;, total3x2);</span>
+<span class="nc" id="L222">        System.out.printf(&quot;   Ahorro: $%.2f%n&quot;, totalCompra - total3x2);</span>
+        
+<span class="nc" id="L224">        System.out.println(&quot;\n&quot; + &quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L225">        System.out.println(&quot;MEJOR OPCIÓN: 2x1 (Mayor ahorro)&quot;);</span>
+<span class="nc" id="L226">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L227">    }</span>
+
+    private boolean validarCarrito() {
+<span class="nc bnc" id="L230" title="All 2 branches missed.">        if (carritoActual == null) {</span>
+<span class="nc" id="L231">            System.out.println(&quot;\n✗ No hay carrito creado. Use la opción 1 primero.&quot;);</span>
+<span class="nc" id="L232">            return false;</span>
+        }
+<span class="nc" id="L234">        return true;</span>
+    }
+
+    private void mostrarResultadoDescuento() {
+<span class="nc" id="L238">        double totalOriginal = carritoActual.getTotal();</span>
+<span class="nc" id="L239">        double totalConDescuento = controlador.calcularTotalConDescuento(carritoActual);</span>
+<span class="nc" id="L240">        double ahorro = totalOriginal - totalConDescuento;</span>
+        
+<span class="nc" id="L242">        System.out.printf(&quot;\nTotal original: $%.2f%n&quot;, totalOriginal);</span>
+<span class="nc" id="L243">        System.out.printf(&quot;Total con descuento: $%.2f%n&quot;, totalConDescuento);</span>
+<span class="nc" id="L244">        System.out.printf(&quot;Ahorro: $%.2f%n&quot;, ahorro);</span>
+<span class="nc" id="L245">    }</span>
+
+    public void mostrarMensaje(String mensaje) {
+<span class="fc" id="L248">        System.out.println(mensaje);</span>
+<span class="fc" id="L249">    }</span>
+
+    public void mostrarError(String error) {
+<span class="nc" id="L252">        System.err.println(&quot;ERROR: &quot; + error);</span>
+<span class="nc" id="L253">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L256">        ConsolaStrategy consola = new ConsolaStrategy();</span>
+<span class="nc" id="L257">        consola.ejecutar();</span>
+<span class="nc" id="L258">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

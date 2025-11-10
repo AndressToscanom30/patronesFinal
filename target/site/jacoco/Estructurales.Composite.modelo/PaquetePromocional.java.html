@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PaquetePromocional.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Estructurales.Composite.modelo</a> &gt; <span class="el_source">PaquetePromocional.java</span></div><h1>PaquetePromocional.java</h1><pre class="source lang-java linenums">package Estructurales.Composite.modelo;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class PaquetePromocional extends ProductoIndividual {
+    private Date fechaInicio;
+    private Date fechaFin;
+    private String condiciones;
+    private int limiteUnidades;
+    private List&lt;ComponenteInventario&gt; hijos;
+
+    public PaquetePromocional(String nombre, String descripcion, double descuentoAcumulado, Date fechaInicio, Date fechaFin, String condiciones, int limiteUnidades) {
+<span class="fc" id="L15">        super(&quot;PROMO-&quot; + nombre, nombre, descripcion, 0.0, 0.0);</span>
+<span class="fc" id="L16">        this.fechaInicio = fechaInicio;</span>
+<span class="fc" id="L17">        this.fechaFin = fechaFin;</span>
+<span class="fc" id="L18">        this.condiciones = condiciones;</span>
+<span class="fc" id="L19">        this.limiteUnidades = limiteUnidades;</span>
+<span class="fc" id="L20">        this.hijos = new ArrayList&lt;&gt;();</span>
+        // Establecer descuento inicial
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        if (descuentoAcumulado &gt; 0) {</span>
+<span class="fc" id="L23">            setDescuentoAcumulado(descuentoAcumulado);</span>
+        }
+<span class="fc" id="L25">    }</span>
+
+    public boolean validarVigencia() {
+<span class="fc" id="L28">        Date ahora = new Date();</span>
+        // Usar compareTo o agregar equals para incluir el mismo día
+<span class="pc bpc" id="L30" title="1 of 4 branches missed.">        return !ahora.before(fechaInicio) &amp;&amp; !ahora.after(fechaFin);</span>
+    }
+
+    public boolean aplicarRestriccion() {
+<span class="pc bpc" id="L34" title="2 of 4 branches missed.">        return validarVigencia() &amp;&amp; contarItems() &lt;= limiteUnidades;</span>
+    }
+
+    public void agregarProducto(ComponenteInventario componente) {
+<span class="fc" id="L38">        hijos.add(componente);</span>
+<span class="fc" id="L39">    }</span>
+
+    @Override
+    public double calcularTotal() {
+<span class="fc" id="L43">        double totalSinDescuento = 0;</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
+<span class="fc" id="L45">            totalSinDescuento += hijo.calcularTotal(); // Obtiene el total de los hijos con sus propios descuentos</span>
+        }
+        // Si el paquete está vigente, aplicar el descuento del paquete promocional
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if (validarVigencia()) {</span>
+<span class="fc" id="L49">            return totalSinDescuento * (1 - getDescuentoAcumulado() / 100);</span>
+        }
+<span class="nc" id="L51">        return totalSinDescuento;</span>
+    }
+
+    @Override
+    public double calcularPesoTotal() {
+<span class="fc" id="L56">        double pesoTotal = 0;</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
+<span class="fc" id="L58">            pesoTotal += hijo.calcularPesoTotal();</span>
+        }
+<span class="fc" id="L60">        return pesoTotal;</span>
+    }
+
+    @Override
+    public int contarItems() {
+<span class="fc" id="L65">        int count = 0;</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
+<span class="fc" id="L67">            count += hijo.contarItems();</span>
+        }
+<span class="fc" id="L69">        return count;</span>
+    }
+
+    @Override
+    public void aplicarDescuento(double porcentaje) {
+        // En un paquete promocional, los descuentos se combinan multiplicativamente
+<span class="fc" id="L75">        double descuentoActual = getDescuentoAcumulado();</span>
+<span class="fc" id="L76">        double descuentoMultiplicativo = (1 - porcentaje/100.0) * (1 - descuentoActual/100.0);</span>
+<span class="fc" id="L77">        setDescuentoAcumulado((1 - descuentoMultiplicativo) * 100.0);</span>
+        // No propagar el descuento a los hijos
+<span class="fc" id="L79">    }</span>
+
+    @Override
+    public boolean esCompuesto() {
+<span class="fc" id="L83">        return true;</span>
+    }
+
+    public List&lt;ComponenteInventario&gt; obtenerHijos() {
+<span class="nc" id="L87">        return new ArrayList&lt;&gt;(hijos);</span>
+    }
+
+    public Date getFechaInicio() {
+<span class="nc" id="L91">        return fechaInicio;</span>
+    }
+
+    public Date getFechaFin() {
+<span class="nc" id="L95">        return fechaFin;</span>
+    }
+
+    public String getCondiciones() {
+<span class="nc" id="L99">        return condiciones;</span>
+    }
+
+    public int getLimiteUnidades() {
+<span class="nc" id="L103">        return limiteUnidades;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PromocionPorcentaje.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Creacionales.Prototype.modelo</a> &gt; <span class="el_source">PromocionPorcentaje.java</span></div><h1>PromocionPorcentaje.java</h1><pre class="source lang-java linenums">package Creacionales.Prototype.modelo;
+
+public class PromocionPorcentaje extends Promocion {
+    private double montoMinimo;
+
+    public PromocionPorcentaje(String id, String nombre, String descripcion) {
+<span class="fc" id="L7">        super(id, nombre, descripcion);</span>
+<span class="fc" id="L8">        this.montoMinimo = 0.0;</span>
+<span class="fc" id="L9">    }</span>
+
+    @Override
+    public double aplicarDescuento(double monto) {
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        if (monto &lt; montoMinimo) {</span>
+<span class="fc" id="L14">            return monto;</span>
+        }
+<span class="fc" id="L16">        return monto - (monto * porcentajeDescuento / 100.0);</span>
+    }
+
+    @Override
+    public boolean validar() {
+<span class="pc bpc" id="L21" title="1 of 4 branches missed.">        return porcentajeDescuento &gt; 0 &amp;&amp; porcentajeDescuento &lt;= 100;</span>
+    }
+
+    @Override
+    public String obtenerTipo() {
+<span class="fc" id="L26">        return &quot;PORCENTAJE&quot;;</span>
+    }
+
+    @Override
+    public PromocionPorcentaje clone() {
+<span class="fc" id="L31">        PromocionPorcentaje clonada = (PromocionPorcentaje) super.clone();</span>
+<span class="fc" id="L32">        clonada.montoMinimo = this.montoMinimo;</span>
+<span class="fc" id="L33">        return clonada;</span>
+    }
+
+<span class="fc" id="L36">    public double getMontoMinimo() { return montoMinimo; }</span>
+    
+    public void setMontoMinimo(double montoMinimo) {
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (montoMinimo &lt; 0) {</span>
+<span class="fc" id="L40">            throw new IllegalArgumentException(&quot;El monto mínimo no puede ser negativo&quot;);</span>
+        }
+<span class="fc" id="L42">        this.montoMinimo = montoMinimo;</span>
+<span class="fc" id="L43">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

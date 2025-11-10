@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DescuentoCupon.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Comportamentales.ChainOfResponsibility.modelo</a> &gt; <span class="el_source">DescuentoCupon.java</span></div><h1>DescuentoCupon.java</h1><pre class="source lang-java linenums">package Comportamentales.ChainOfResponsibility.modelo;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class DescuentoCupon extends ManejadorDescuento {
+    private Map&lt;String, Double&gt; cuponesValidos;
+    
+<span class="fc" id="L9">    public DescuentoCupon() {</span>
+<span class="fc" id="L10">        this.cuponesValidos = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L11">        inicializarCupones();</span>
+<span class="fc" id="L12">    }</span>
+    
+    private void inicializarCupones() {
+<span class="fc" id="L15">        cuponesValidos.put(&quot;VERANO2024&quot;, 15.0);</span>
+<span class="fc" id="L16">        cuponesValidos.put(&quot;PRIMERACOMPRA&quot;, 20.0);</span>
+<span class="fc" id="L17">        cuponesValidos.put(&quot;BLACKFRIDAY&quot;, 50.0);</span>
+<span class="fc" id="L18">        cuponesValidos.put(&quot;NAVIDAD&quot;, 25.0);</span>
+<span class="fc" id="L19">        cuponesValidos.put(&quot;BIENVENIDO&quot;, 10.0);</span>
+<span class="fc" id="L20">    }</span>
+    
+    @Override
+    public ResultadoDescuento procesarSolicitud(SolicitudDescuento solicitud) {
+<span class="fc" id="L24">        System.out.println(&quot;→ Verificando cupón de descuento...&quot;);</span>
+        
+<span class="fc" id="L26">        String codigoCupon = solicitud.getCodigoCupon();</span>
+        
+<span class="pc bpc" id="L28" title="1 of 4 branches missed.">        if (codigoCupon != null &amp;&amp; !codigoCupon.isEmpty()) {</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">            if (cuponesValidos.containsKey(codigoCupon)) {</span>
+<span class="fc" id="L30">                double porcentaje = cuponesValidos.get(codigoCupon);</span>
+<span class="fc" id="L31">                double descuento = solicitud.getMontoTotal() * (porcentaje / 100);</span>
+<span class="fc" id="L32">                System.out.printf(&quot;  ✓ Cupón '%s' aplicado: %.0f%% de descuento%n&quot;, </span>
+<span class="fc" id="L33">                    codigoCupon, porcentaje);</span>
+<span class="fc" id="L34">                return new ResultadoDescuento(</span>
+<span class="fc" id="L35">                    true,</span>
+<span class="fc" id="L36">                    descuento,</span>
+<span class="fc" id="L37">                    String.format(&quot;Cupón '%s' aplicado: %.0f%% de descuento&quot;, </span>
+<span class="fc" id="L38">                        codigoCupon, porcentaje),</span>
+<span class="fc" id="L39">                    &quot;CUPON&quot;</span>
+                );
+            } else {
+<span class="fc" id="L42">                System.out.println(&quot;  ✗ Cupón inválido o expirado: &quot; + codigoCupon);</span>
+            }
+<span class="fc" id="L44">        } else {</span>
+<span class="fc" id="L45">            System.out.println(&quot;  ✗ No se proporcionó cupón&quot;);</span>
+        }
+        
+<span class="fc" id="L48">        return pasarAlSiguiente(solicitud);</span>
+    }
+    
+    public void agregarCupon(String codigo, double porcentaje) {
+<span class="fc" id="L52">        cuponesValidos.put(codigo, porcentaje);</span>
+<span class="fc" id="L53">    }</span>
+    
+    public Map&lt;String, Double&gt; getCuponesValidos() {
+<span class="fc" id="L56">        return new HashMap&lt;&gt;(cuponesValidos);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

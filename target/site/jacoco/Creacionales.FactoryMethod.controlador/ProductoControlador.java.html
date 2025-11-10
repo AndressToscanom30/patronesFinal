@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductoControlador.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Creacionales.FactoryMethod.controlador</a> &gt; <span class="el_source">ProductoControlador.java</span></div><h1>ProductoControlador.java</h1><pre class="source lang-java linenums">package Creacionales.FactoryMethod.controlador;
+
+import Creacionales.FactoryMethod.modelo.*;
+import java.util.*;
+
+public class ProductoControlador {
+
+    private final Map&lt;String, ProductoFactory&gt; factories;
+    private final List&lt;Producto&gt; productos;
+
+<span class="fc" id="L11">    public ProductoControlador() {</span>
+<span class="fc" id="L12">        this.factories = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L13">        this.productos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L14">        inicializarFactories();</span>
+<span class="fc" id="L15">    }</span>
+
+    private void inicializarFactories() {
+<span class="fc" id="L18">        factories.put(&quot;SIMPLE&quot;, new ProductoSimpleFactory());</span>
+<span class="fc" id="L19">        factories.put(&quot;PESO&quot;, new ProductoPesoFactory());</span>
+<span class="fc" id="L20">    }</span>
+
+    public Producto crearProducto(String tipo, String codigo, String nombre,
+                                  double precio, String categoria) {
+<span class="fc" id="L24">        ProductoFactory factory = factories.get(tipo.toUpperCase());</span>
+
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (factory == null) {</span>
+<span class="fc" id="L27">            return null;</span>
+        }
+
+<span class="fc" id="L30">        Producto producto = factory.crearProducto(codigo, nombre, precio, categoria);</span>
+<span class="fc" id="L31">        productos.add(producto);</span>
+<span class="fc" id="L32">        return producto;</span>
+    }
+
+    public List&lt;Producto&gt; obtenerTodosLosProductos() {
+<span class="fc" id="L36">        return new ArrayList&lt;&gt;(productos);</span>
+    }
+
+    public Producto buscarPorCodigo(String codigo) {
+<span class="fc" id="L40">        return productos.stream()</span>
+<span class="fc" id="L41">                .filter(p -&gt; p.getCodigo().equals(codigo))</span>
+<span class="fc" id="L42">                .findFirst()</span>
+<span class="fc" id="L43">                .orElse(null);</span>
+    }
+
+    public Set&lt;String&gt; obtenerTiposDisponibles() {
+<span class="fc" id="L47">        return factories.keySet();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

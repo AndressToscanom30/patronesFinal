@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Combo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Estructurales.Composite.modelo</a> &gt; <span class="el_source">Combo.java</span></div><h1>Combo.java</h1><pre class="source lang-java linenums">package Estructurales.Composite.modelo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Combo extends ProductoIndividual {
+    private String tipo;
+    private double precioEspecial;
+    private double ahorro;
+    private String imagen;
+    private List&lt;ComponenteInventario&gt; hijos;
+
+    public Combo(String nombre, String descripcion, double descuentoAcumulado, String tipo, double precioEspecial, double ahorro, String imagen) {
+<span class="fc" id="L14">        super(&quot;COMBO-&quot; + nombre, nombre, descripcion, precioEspecial, 0.0);</span>
+<span class="fc" id="L15">        this.tipo = tipo;</span>
+<span class="fc" id="L16">        this.precioEspecial = precioEspecial;</span>
+<span class="fc" id="L17">        this.ahorro = ahorro;</span>
+<span class="fc" id="L18">        this.imagen = imagen;</span>
+<span class="fc" id="L19">        this.hijos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L20">    }</span>
+
+    public double calcularAhorro() {
+<span class="fc" id="L23">        double precioRegular = 0;</span>
+        // Calculamos el total sin descuentos
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">            if (hijo instanceof ProductoIndividual) {</span>
+<span class="fc" id="L27">                precioRegular += ((ProductoIndividual) hijo).getPrecio();</span>
+<span class="fc" id="L28">            } else {</span>
+<span class="nc" id="L29">                precioRegular += hijo.calcularTotal();</span>
+            }
+        }
+<span class="fc" id="L32">        return precioRegular - precioEspecial;</span>
+    }
+
+    public boolean validarCombinacion() {
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        return !hijos.isEmpty();</span>
+    }
+
+    public void agregarProducto(ComponenteInventario componente) {
+<span class="fc" id="L40">        hijos.add(componente);</span>
+<span class="fc" id="L41">    }</span>
+
+    @Override
+    public double calcularTotal() {
+        // En un combo, los descuentos son independientes del precio especial
+<span class="fc" id="L46">        double precioConDescuento = precioEspecial;</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        if (getDescuentoAcumulado() &gt; 0) {</span>
+<span class="fc" id="L48">            precioConDescuento *= (1 - getDescuentoAcumulado() / 100);</span>
+        }
+<span class="fc" id="L50">        return precioConDescuento;</span>
+    }
+
+    @Override
+    public double calcularPesoTotal() {
+<span class="fc" id="L55">        double pesoTotal = 0;</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
+<span class="fc" id="L57">            pesoTotal += hijo.calcularPesoTotal();</span>
+        }
+<span class="fc" id="L59">        return pesoTotal;</span>
+    }
+
+    @Override
+    public int contarItems() {
+<span class="fc" id="L64">        int count = 0;</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
+<span class="fc" id="L66">            count += hijo.contarItems();</span>
+        }
+<span class="fc" id="L68">        return count;</span>
+    }
+
+    @Override
+    public boolean esCompuesto() {
+<span class="fc" id="L73">        return true;</span>
+    }
+
+    public List&lt;ComponenteInventario&gt; obtenerHijos() {
+<span class="nc" id="L77">        return new ArrayList&lt;&gt;(hijos);</span>
+    }
+
+    public String getTipo() {
+<span class="nc" id="L81">        return tipo;</span>
+    }
+
+    public double getPrecioEspecial() {
+<span class="fc" id="L85">        return precioEspecial;</span>
+    }
+
+    public double getAhorro() {
+<span class="nc" id="L89">        return ahorro;</span>
+    }
+
+    public String getImagen() {
+<span class="nc" id="L93">        return imagen;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

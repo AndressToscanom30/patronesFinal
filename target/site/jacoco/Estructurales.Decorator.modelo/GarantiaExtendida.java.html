@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GarantiaExtendida.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Estructurales.Decorator.modelo</a> &gt; <span class="el_source">GarantiaExtendida.java</span></div><h1>GarantiaExtendida.java</h1><pre class="source lang-java linenums">package Estructurales.Decorator.modelo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GarantiaExtendida extends ProductoDecorator {
+    private double costoGarantia;
+    private int mesesGarantia;
+    private String cobertura;
+
+    public GarantiaExtendida(ProductoVendible producto, int mesesGarantia, String cobertura) {
+<span class="fc" id="L12">        super(producto);</span>
+<span class="fc" id="L13">        this.mesesGarantia = mesesGarantia;</span>
+<span class="fc" id="L14">        this.cobertura = cobertura;</span>
+<span class="fc" id="L15">        this.costoGarantia = calcularCostoGarantia(mesesGarantia, cobertura, producto);</span>
+<span class="fc" id="L16">    }</span>
+
+    private double calcularCostoGarantia(int meses, String cobertura, ProductoVendible producto) {
+        // Obtener el precio base del producto (sin decoradores)
+<span class="fc" id="L20">        double precioBase = obtenerPrecioBase(producto);</span>
+        
+<span class="pc bpc" id="L22" title="1 of 4 branches missed.">        double porcentaje = switch (meses) {</span>
+<span class="fc" id="L23">            case 12 -&gt; 0.10;</span>
+<span class="fc" id="L24">            case 24 -&gt; 0.18;</span>
+<span class="fc" id="L25">            case 36 -&gt; 0.25;</span>
+<span class="nc" id="L26">            default -&gt; 0.10;</span>
+        };
+
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (cobertura.equalsIgnoreCase(&quot;COMPLETA&quot;)) {</span>
+<span class="fc" id="L30">            porcentaje += 0.05;</span>
+        }
+
+<span class="fc" id="L33">        return precioBase * porcentaje;</span>
+    }
+    
+    // Método para obtener el precio base sin decoradores
+    private double obtenerPrecioBase(ProductoVendible producto) {
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (producto instanceof ProductoDecorator) {</span>
+<span class="fc" id="L39">            return obtenerPrecioBase(((ProductoDecorator) producto).productoBase);</span>
+        }
+<span class="fc" id="L41">        return producto.obtenerPrecio();</span>
+    }
+
+    @Override
+    public double obtenerPrecio() {
+<span class="fc" id="L46">        return productoBase.obtenerPrecio() + costoGarantia;</span>
+    }
+
+    @Override
+    public String obtenerDescripcion() {
+<span class="fc" id="L51">        return productoBase.obtenerDescripcion() + &quot; + Garantía Extendida &quot; + mesesGarantia + &quot; meses&quot;;</span>
+    }
+
+    @Override
+    public int obtenerTiempoEntrega() {
+<span class="fc" id="L56">        return productoBase.obtenerTiempoEntrega() + 2; // AGREGAR ESTE MÉTODO</span>
+    }
+
+    @Override
+    public List&lt;String&gt; obtenerDetalles() {
+<span class="fc" id="L61">        List&lt;String&gt; detalles = new ArrayList&lt;&gt;(productoBase.obtenerDetalles());</span>
+<span class="fc" id="L62">        detalles.add(&quot;--- Garantía Extendida ---&quot;);</span>
+<span class="fc" id="L63">        detalles.add(&quot;Duración: &quot; + mesesGarantia + &quot; meses&quot;);</span>
+<span class="fc" id="L64">        detalles.add(&quot;Cobertura: &quot; + cobertura);</span>
+<span class="fc" id="L65">        detalles.add(&quot;Costo garantía: $&quot; + String.format(&quot;%.2f&quot;, costoGarantia));</span>
+<span class="fc" id="L66">        detalles.add(&quot;Tiempo adicional: +2 días&quot;); // AGREGAR ESTA LÍNEA</span>
+<span class="fc" id="L67">        return detalles;</span>
+    }
+
+    public boolean validarAplicabilidad() {
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        return obtenerPrecioBase(productoBase) &gt;= 50000;</span>
+    }
+
+<span class="nc" id="L74">    public double getCostoGarantia() { return costoGarantia; }</span>
+<span class="fc" id="L75">    public int getMesesGarantia() { return mesesGarantia; }</span>
+<span class="fc" id="L76">    public String getCobertura() { return cobertura; }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

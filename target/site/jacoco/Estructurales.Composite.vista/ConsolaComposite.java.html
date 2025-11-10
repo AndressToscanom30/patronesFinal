@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsolaComposite.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Estructurales.Composite.vista</a> &gt; <span class="el_source">ConsolaComposite.java</span></div><h1>ConsolaComposite.java</h1><pre class="source lang-java linenums">package Estructurales.Composite.vista;
+
+import Estructurales.Composite.controlador.InventarioController;
+import Estructurales.Composite.modelo.*;
+import java.util.Scanner;
+
+public class ConsolaComposite {
+    private final InventarioController controlador;
+    private final Scanner scanner;
+    private Categoria categoriaRaiz;
+
+<span class="fc" id="L12">    public ConsolaComposite() {</span>
+<span class="fc" id="L13">        this.controlador = new InventarioController(this);</span>
+<span class="fc" id="L14">        this.scanner = new Scanner(System.in);</span>
+<span class="fc" id="L15">        inicializarInventario();</span>
+<span class="fc" id="L16">    }</span>
+
+    private void inicializarInventario() {
+<span class="fc" id="L19">        categoriaRaiz = new Categoria(&quot;Supermercado&quot;, &quot;Inventario completo&quot;, 0, &quot;store&quot;, 0, true, 0);</span>
+<span class="fc" id="L20">        controlador.setRaiz(categoriaRaiz);</span>
+<span class="fc" id="L21">    }</span>
+
+    public void mostrarMenu() {
+<span class="nc" id="L24">        System.out.println(&quot;\n=== COMPOSITE - Sistema de Inventario ===&quot;);</span>
+<span class="nc" id="L25">        System.out.println(&quot;1. Crear categoría&quot;);</span>
+<span class="nc" id="L26">        System.out.println(&quot;2. Agregar producto individual&quot;);</span>
+<span class="nc" id="L27">        System.out.println(&quot;3. Crear combo&quot;);</span>
+<span class="nc" id="L28">        System.out.println(&quot;4. Crear paquete promocional&quot;);</span>
+<span class="nc" id="L29">        System.out.println(&quot;5. Ver inventario completo&quot;);</span>
+<span class="nc" id="L30">        System.out.println(&quot;6. Aplicar descuento global&quot;);</span>
+<span class="nc" id="L31">        System.out.println(&quot;7. Ver totales del inventario&quot;);</span>
+<span class="nc" id="L32">        System.out.println(&quot;8. Salir&quot;);</span>
+<span class="nc" id="L33">        System.out.print(&quot;Opción: &quot;);</span>
+<span class="nc" id="L34">    }</span>
+
+    public void ejecutar() {
+<span class="nc" id="L37">        boolean continuar = true;</span>
+
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        while (continuar) {</span>
+<span class="nc" id="L40">            mostrarMenu();</span>
+<span class="nc" id="L41">            int opcion = scanner.nextInt();</span>
+<span class="nc" id="L42">            scanner.nextLine();</span>
+
+<span class="nc bnc" id="L44" title="All 9 branches missed.">            switch (opcion) {</span>
+<span class="nc" id="L45">                case 1 -&gt; crearCategoria();</span>
+<span class="nc" id="L46">                case 2 -&gt; agregarProductoIndividual();</span>
+<span class="nc" id="L47">                case 3 -&gt; crearCombo();</span>
+<span class="nc" id="L48">                case 4 -&gt; crearPaquetePromocional();</span>
+<span class="nc" id="L49">                case 5 -&gt; verInventarioCompleto();</span>
+<span class="nc" id="L50">                case 6 -&gt; aplicarDescuentoGlobal();</span>
+<span class="nc" id="L51">                case 7 -&gt; verTotales();</span>
+<span class="nc" id="L52">                case 8 -&gt; continuar = false;</span>
+<span class="nc" id="L53">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
+            }
+        }
+
+<span class="nc" id="L57">        System.out.println(&quot;¡Hasta luego!&quot;);</span>
+<span class="nc" id="L58">    }</span>
+
+    private void crearCategoria() {
+<span class="nc" id="L61">        System.out.println(&quot;\n--- Crear Categoría ---&quot;);</span>
+
+<span class="nc" id="L63">        System.out.print(&quot;Nombre de la categoría: &quot;);</span>
+<span class="nc" id="L64">        String nombre = scanner.nextLine();</span>
+
+<span class="nc" id="L66">        System.out.print(&quot;Descripción: &quot;);</span>
+<span class="nc" id="L67">        String descripcion = scanner.nextLine();</span>
+
+<span class="nc" id="L69">        System.out.print(&quot;Icono: &quot;);</span>
+<span class="nc" id="L70">        String icono = scanner.nextLine();</span>
+
+<span class="nc" id="L72">        Categoria nuevaCategoria = new Categoria(nombre, descripcion, 0, icono, 1, true, 1);</span>
+<span class="nc" id="L73">        categoriaRaiz.agregarSubcategoria(nuevaCategoria);</span>
+
+<span class="nc" id="L75">        System.out.println(&quot;✓ Categoría '&quot; + nombre + &quot;' creada exitosamente&quot;);</span>
+<span class="nc" id="L76">    }</span>
+
+    private void agregarProductoIndividual() {
+<span class="nc" id="L79">        System.out.println(&quot;\n--- Agregar Producto Individual ---&quot;);</span>
+
+<span class="nc" id="L81">        System.out.print(&quot;Código del producto: &quot;);</span>
+<span class="nc" id="L82">        String codigo = scanner.nextLine();</span>
+
+<span class="nc" id="L84">        System.out.print(&quot;Nombre: &quot;);</span>
+<span class="nc" id="L85">        String nombre = scanner.nextLine();</span>
+
+<span class="nc" id="L87">        System.out.print(&quot;Descripción: &quot;);</span>
+<span class="nc" id="L88">        String descripcion = scanner.nextLine();</span>
+
+<span class="nc" id="L90">        System.out.print(&quot;Precio: &quot;);</span>
+<span class="nc" id="L91">        double precio = scanner.nextDouble();</span>
+
+<span class="nc" id="L93">        System.out.print(&quot;Peso (kg): &quot;);</span>
+<span class="nc" id="L94">        double peso = scanner.nextDouble();</span>
+<span class="nc" id="L95">        scanner.nextLine();</span>
+
+<span class="nc" id="L97">        ProductoIndividual producto = new ProductoIndividual(codigo, nombre, descripcion, precio, peso);</span>
+<span class="nc" id="L98">        categoriaRaiz.agregarSubcategoria(producto);</span>
+
+<span class="nc" id="L100">        System.out.println(&quot;✓ Producto '&quot; + nombre + &quot;' agregado exitosamente&quot;);</span>
+<span class="nc" id="L101">    }</span>
+
+    private void crearCombo() {
+<span class="nc" id="L104">        System.out.println(&quot;\n--- Crear Combo ---&quot;);</span>
+
+<span class="nc" id="L106">        System.out.print(&quot;Nombre del combo: &quot;);</span>
+<span class="nc" id="L107">        String nombre = scanner.nextLine();</span>
+
+<span class="nc" id="L109">        System.out.print(&quot;Descripción: &quot;);</span>
+<span class="nc" id="L110">        String descripcion = scanner.nextLine();</span>
+
+<span class="nc" id="L112">        System.out.print(&quot;Tipo: &quot;);</span>
+<span class="nc" id="L113">        String tipo = scanner.nextLine();</span>
+
+<span class="nc" id="L115">        System.out.print(&quot;Precio especial: &quot;);</span>
+<span class="nc" id="L116">        double precioEspecial = scanner.nextDouble();</span>
+
+<span class="nc" id="L118">        System.out.print(&quot;Ahorro: &quot;);</span>
+<span class="nc" id="L119">        double ahorro = scanner.nextDouble();</span>
+<span class="nc" id="L120">        scanner.nextLine();</span>
+
+<span class="nc" id="L122">        System.out.print(&quot;Imagen: &quot;);</span>
+<span class="nc" id="L123">        String imagen = scanner.nextLine();</span>
+
+<span class="nc" id="L125">        Combo combo = new Combo(nombre, descripcion, 0, tipo, precioEspecial, ahorro, imagen);</span>
+
+<span class="nc" id="L127">        System.out.print(&quot;¿Cuántos productos desea agregar al combo? &quot;);</span>
+<span class="nc" id="L128">        int cantidad = scanner.nextInt();</span>
+<span class="nc" id="L129">        scanner.nextLine();</span>
+
+<span class="nc bnc" id="L131" title="All 2 branches missed.">        for (int i = 0; i &lt; cantidad; i++) {</span>
+<span class="nc" id="L132">            System.out.println(&quot;\nProducto &quot; + (i + 1) + &quot;:&quot;);</span>
+<span class="nc" id="L133">            System.out.print(&quot;Código: &quot;);</span>
+<span class="nc" id="L134">            String codigo = scanner.nextLine();</span>
+<span class="nc" id="L135">            System.out.print(&quot;Nombre: &quot;);</span>
+<span class="nc" id="L136">            String nombreProd = scanner.nextLine();</span>
+<span class="nc" id="L137">            System.out.print(&quot;Precio: &quot;);</span>
+<span class="nc" id="L138">            double precio = scanner.nextDouble();</span>
+<span class="nc" id="L139">            scanner.nextLine();</span>
+
+<span class="nc" id="L141">            ProductoIndividual producto = new ProductoIndividual(codigo, nombreProd, &quot;&quot;, precio, 0.5);</span>
+<span class="nc" id="L142">            combo.agregarProducto(producto);</span>
+        }
+
+<span class="nc" id="L145">        categoriaRaiz.agregarSubcategoria(combo);</span>
+<span class="nc" id="L146">        System.out.println(&quot;\n✓ Combo '&quot; + nombre + &quot;' creado exitosamente&quot;);</span>
+<span class="nc" id="L147">        System.out.printf(&quot;Ahorro calculado: $%.2f%n&quot;, combo.calcularAhorro());</span>
+<span class="nc" id="L148">    }</span>
+
+    private void crearPaquetePromocional() {
+<span class="nc" id="L151">        System.out.println(&quot;\n--- Crear Paquete Promocional ---&quot;);</span>
+
+<span class="nc" id="L153">        System.out.print(&quot;Nombre del paquete: &quot;);</span>
+<span class="nc" id="L154">        String nombre = scanner.nextLine();</span>
+
+<span class="nc" id="L156">        System.out.print(&quot;Descripción: &quot;);</span>
+<span class="nc" id="L157">        String descripcion = scanner.nextLine();</span>
+
+<span class="nc" id="L159">        System.out.print(&quot;Porcentaje de descuento: &quot;);</span>
+<span class="nc" id="L160">        double descuento = scanner.nextDouble();</span>
+<span class="nc" id="L161">        scanner.nextLine();</span>
+
+<span class="nc" id="L163">        System.out.print(&quot;Condiciones: &quot;);</span>
+<span class="nc" id="L164">        String condiciones = scanner.nextLine();</span>
+
+<span class="nc" id="L166">        System.out.print(&quot;Límite de unidades: &quot;);</span>
+<span class="nc" id="L167">        int limite = scanner.nextInt();</span>
+<span class="nc" id="L168">        scanner.nextLine();</span>
+
+<span class="nc" id="L170">        java.util.Calendar cal = java.util.Calendar.getInstance();</span>
+<span class="nc" id="L171">        java.util.Date fechaInicio = cal.getTime();</span>
+<span class="nc" id="L172">        cal.add(java.util.Calendar.DAY_OF_MONTH, 30);</span>
+<span class="nc" id="L173">        java.util.Date fechaFin = cal.getTime();</span>
+
+<span class="nc" id="L175">        PaquetePromocional paquete = new PaquetePromocional(</span>
+<span class="nc" id="L176">                nombre, descripcion, descuento, fechaInicio, fechaFin, condiciones, limite</span>
+        );
+
+<span class="nc" id="L179">        System.out.print(&quot;¿Cuántos productos desea agregar al paquete? &quot;);</span>
+<span class="nc" id="L180">        int cantidad = scanner.nextInt();</span>
+<span class="nc" id="L181">        scanner.nextLine();</span>
+
+<span class="nc bnc" id="L183" title="All 2 branches missed.">        for (int i = 0; i &lt; cantidad; i++) {</span>
+<span class="nc" id="L184">            System.out.println(&quot;\nProducto &quot; + (i + 1) + &quot;:&quot;);</span>
+<span class="nc" id="L185">            System.out.print(&quot;Código: &quot;);</span>
+<span class="nc" id="L186">            String codigo = scanner.nextLine();</span>
+<span class="nc" id="L187">            System.out.print(&quot;Nombre: &quot;);</span>
+<span class="nc" id="L188">            String nombreProd = scanner.nextLine();</span>
+<span class="nc" id="L189">            System.out.print(&quot;Precio: &quot;);</span>
+<span class="nc" id="L190">            double precio = scanner.nextDouble();</span>
+<span class="nc" id="L191">            scanner.nextLine();</span>
+
+<span class="nc" id="L193">            ProductoIndividual producto = new ProductoIndividual(codigo, nombreProd, &quot;&quot;, precio, 0.5);</span>
+<span class="nc" id="L194">            paquete.agregarProducto(producto);</span>
+        }
+
+<span class="nc" id="L197">        categoriaRaiz.agregarSubcategoria(paquete);</span>
+<span class="nc" id="L198">        System.out.println(&quot;\n✓ Paquete promocional '&quot; + nombre + &quot;' creado exitosamente&quot;);</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">        System.out.println(&quot;Vigente: &quot; + (paquete.validarVigencia() ? &quot;Sí&quot; : &quot;No&quot;));</span>
+<span class="nc" id="L200">    }</span>
+
+    private void verInventarioCompleto() {
+<span class="nc" id="L203">        System.out.println(&quot;\n=== INVENTARIO COMPLETO ===&quot;);</span>
+<span class="nc" id="L204">        mostrarComponente(categoriaRaiz, 0);</span>
+<span class="nc" id="L205">    }</span>
+
+    private void mostrarComponente(ComponenteInventario componente, int nivel) {
+<span class="nc" id="L208">        String indentacion = &quot;  &quot;.repeat(nivel);</span>
+
+<span class="nc bnc" id="L210" title="All 2 branches missed.">        if (componente instanceof ProductoIndividual) {</span>
+<span class="nc" id="L211">            ProductoIndividual prod = (ProductoIndividual) componente;</span>
+<span class="nc" id="L212">            System.out.printf(&quot;%s- %s: $%.2f (%.2fkg)%n&quot;,</span>
+<span class="nc" id="L213">                    indentacion, prod.getNombre(), prod.calcularTotal(), prod.calcularPesoTotal());</span>
+<span class="nc bnc" id="L214" title="All 2 branches missed.">        } else if (componente instanceof Categoria) {</span>
+<span class="nc" id="L215">            Categoria cat = (Categoria) componente;</span>
+<span class="nc" id="L216">            System.out.printf(&quot;%s[%s] - Items: %d, Total: $%.2f%n&quot;,</span>
+<span class="nc" id="L217">                    indentacion, cat.getNombre(), cat.contarItems(), cat.calcularTotal());</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">            for (ComponenteInventario hijo : cat.obtenerHijos()) {</span>
+<span class="nc" id="L219">                mostrarComponente(hijo, nivel + 1);</span>
+            }
+<span class="nc bnc" id="L221" title="All 2 branches missed.">        } else if (componente instanceof Combo) {</span>
+<span class="nc" id="L222">            Combo combo = (Combo) componente;</span>
+<span class="nc" id="L223">            System.out.printf(&quot;%s{COMBO: %s} - Precio: $%.2f, Ahorro: $%.2f%n&quot;,</span>
+<span class="nc" id="L224">                    indentacion, combo.getNombre(), combo.calcularTotal(), combo.calcularAhorro());</span>
+<span class="nc bnc" id="L225" title="All 2 branches missed.">            for (ComponenteInventario hijo : combo.obtenerHijos()) {</span>
+<span class="nc" id="L226">                mostrarComponente(hijo, nivel + 1);</span>
+            }
+<span class="nc bnc" id="L228" title="All 2 branches missed.">        } else if (componente instanceof PaquetePromocional) {</span>
+<span class="nc" id="L229">            PaquetePromocional paquete = (PaquetePromocional) componente;</span>
+<span class="nc" id="L230">            System.out.printf(&quot;%s[PROMO: %s] - Total: $%.2f, Vigente: %s%n&quot;,</span>
+<span class="nc" id="L231">                    indentacion, paquete.getNombre(), paquete.calcularTotal(),</span>
+<span class="nc bnc" id="L232" title="All 2 branches missed.">                    paquete.validarVigencia() ? &quot;Sí&quot; : &quot;No&quot;);</span>
+<span class="nc bnc" id="L233" title="All 2 branches missed.">            for (ComponenteInventario hijo : paquete.obtenerHijos()) {</span>
+<span class="nc" id="L234">                mostrarComponente(hijo, nivel + 1);</span>
+            }
+        }
+<span class="nc" id="L237">    }</span>
+
+    private void aplicarDescuentoGlobal() {
+<span class="nc" id="L240">        System.out.println(&quot;\n--- Aplicar Descuento Global ---&quot;);</span>
+<span class="nc" id="L241">        System.out.print(&quot;Porcentaje de descuento: &quot;);</span>
+<span class="nc" id="L242">        double porcentaje = scanner.nextDouble();</span>
+<span class="nc" id="L243">        scanner.nextLine();</span>
+
+<span class="nc" id="L245">        controlador.aplicarDescuentoGlobal(porcentaje);</span>
+<span class="nc" id="L246">        System.out.printf(&quot;✓ Descuento del %.2f%% aplicado a todo el inventario%n&quot;, porcentaje);</span>
+<span class="nc" id="L247">    }</span>
+
+    private void verTotales() {
+<span class="nc" id="L250">        System.out.println(&quot;\n=== TOTALES DEL INVENTARIO ===&quot;);</span>
+<span class="nc" id="L251">        controlador.mostrarInformacion();</span>
+<span class="nc" id="L252">    }</span>
+
+    public void mostrarMensaje(String mensaje) {
+<span class="fc" id="L255">        System.out.println(mensaje);</span>
+<span class="fc" id="L256">    }</span>
+
+    public void mostrarTotal(double total) {
+<span class="fc" id="L259">        System.out.printf(&quot;Total del inventario: $%.2f%n&quot;, total);</span>
+<span class="fc" id="L260">    }</span>
+
+    public void mostrarPesoTotal(double peso) {
+<span class="fc" id="L263">        System.out.printf(&quot;Peso total: %.2f kg%n&quot;, peso);</span>
+<span class="fc" id="L264">    }</span>
+
+    public void mostrarCantidadItems(int cantidad) {
+<span class="fc" id="L267">        System.out.println(&quot;Cantidad de items: &quot; + cantidad);</span>
+<span class="fc" id="L268">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L271">        ConsolaComposite consola = new ConsolaComposite();</span>
+<span class="nc" id="L272">        consola.ejecutar();</span>
+<span class="nc" id="L273">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

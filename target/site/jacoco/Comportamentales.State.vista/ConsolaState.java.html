@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsolaState.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Comportamentales.State.vista</a> &gt; <span class="el_source">ConsolaState.java</span></div><h1>ConsolaState.java</h1><pre class="source lang-java linenums">package Comportamentales.State.vista;
+
+import Comportamentales.State.controlador.StateController;
+import Comportamentales.State.modelo.*;
+import java.util.List;
+import java.util.Scanner;
+
+public class ConsolaState {
+    private final StateController controlador;
+    private final Scanner scanner;
+    private Pedido pedidoActual;
+
+<span class="fc" id="L13">    public ConsolaState() {</span>
+<span class="fc" id="L14">        this.controlador = new StateController(this);</span>
+<span class="fc" id="L15">        this.scanner = new Scanner(System.in);</span>
+<span class="fc" id="L16">        this.pedidoActual = null;</span>
+<span class="fc" id="L17">    }</span>
+
+    public void mostrarMenu() {
+<span class="nc" id="L20">        System.out.println(&quot;\n=== STATE - Sistema de Gestión de Pedidos ===&quot;);</span>
+<span class="nc" id="L21">        System.out.println(&quot;1. Crear nuevo pedido&quot;);</span>
+<span class="nc" id="L22">        System.out.println(&quot;2. Agregar items al pedido&quot;);</span>
+<span class="nc" id="L23">        System.out.println(&quot;3. Procesar pedido&quot;);</span>
+<span class="nc" id="L24">        System.out.println(&quot;4. Confirmar pago&quot;);</span>
+<span class="nc" id="L25">        System.out.println(&quot;5. Enviar pedido&quot;);</span>
+<span class="nc" id="L26">        System.out.println(&quot;6. Entregar pedido&quot;);</span>
+<span class="nc" id="L27">        System.out.println(&quot;7. Cancelar pedido&quot;);</span>
+<span class="nc" id="L28">        System.out.println(&quot;8. Ver pedido actual&quot;);</span>
+<span class="nc" id="L29">        System.out.println(&quot;9. Ver todos los pedidos&quot;);</span>
+<span class="nc" id="L30">        System.out.println(&quot;10. Ver historial de estados&quot;);</span>
+<span class="nc" id="L31">        System.out.println(&quot;11. Demo: Flujo completo de pedido&quot;);</span>
+<span class="nc" id="L32">        System.out.println(&quot;12. Salir&quot;);</span>
+<span class="nc" id="L33">        System.out.print(&quot;Opción: &quot;);</span>
+<span class="nc" id="L34">    }</span>
+
+    public void ejecutar() {
+<span class="nc" id="L37">        boolean continuar = true;</span>
+
+<span class="nc" id="L39">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L40">        System.out.println(&quot;║   GESTIÓN DE PEDIDOS - PATRÓN STATE        ║&quot;);</span>
+<span class="nc" id="L41">        System.out.println(&quot;║   Comportamiento según el estado           ║&quot;);</span>
+<span class="nc" id="L42">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        while (continuar) {</span>
+<span class="nc" id="L45">            mostrarMenu();</span>
+<span class="nc" id="L46">            int opcion = scanner.nextInt();</span>
+<span class="nc" id="L47">            scanner.nextLine();</span>
+
+<span class="nc bnc" id="L49" title="All 13 branches missed.">            switch (opcion) {</span>
+<span class="nc" id="L50">                case 1 -&gt; crearPedido();</span>
+<span class="nc" id="L51">                case 2 -&gt; agregarItems();</span>
+<span class="nc" id="L52">                case 3 -&gt; procesarPedido();</span>
+<span class="nc" id="L53">                case 4 -&gt; confirmarPago();</span>
+<span class="nc" id="L54">                case 5 -&gt; enviarPedido();</span>
+<span class="nc" id="L55">                case 6 -&gt; entregarPedido();</span>
+<span class="nc" id="L56">                case 7 -&gt; cancelarPedido();</span>
+<span class="nc" id="L57">                case 8 -&gt; verPedidoActual();</span>
+<span class="nc" id="L58">                case 9 -&gt; verTodosPedidos();</span>
+<span class="nc" id="L59">                case 10 -&gt; verHistorialEstados();</span>
+<span class="nc" id="L60">                case 11 -&gt; demoFlujoCompleto();</span>
+<span class="nc" id="L61">                case 12 -&gt; continuar = false;</span>
+<span class="nc" id="L62">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
+            }
+        }
+
+<span class="nc" id="L66">        System.out.println(&quot;\n¡Gracias por usar el sistema de pedidos!&quot;);</span>
+<span class="nc" id="L67">    }</span>
+
+    private void crearPedido() {
+<span class="nc" id="L70">        System.out.println(&quot;\n--- Crear Nuevo Pedido ---&quot;);</span>
+        
+<span class="nc" id="L72">        System.out.print(&quot;Nombre del cliente: &quot;);</span>
+<span class="nc" id="L73">        String cliente = scanner.nextLine();</span>
+        
+<span class="nc" id="L75">        pedidoActual = controlador.crearPedido(cliente);</span>
+        
+<span class="nc" id="L77">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L78">        System.out.println(pedidoActual);</span>
+<span class="nc" id="L79">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L80">    }</span>
+
+    private void agregarItems() {
+<span class="nc bnc" id="L83" title="All 2 branches missed.">        if (!validarPedidoActual()) return;</span>
+        
+<span class="nc" id="L85">        System.out.println(&quot;\n--- Agregar Items al Pedido ---&quot;);</span>
+        
+<span class="nc" id="L87">        boolean agregar = true;</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        while (agregar) {</span>
+<span class="nc" id="L89">            System.out.print(&quot;\nProducto: &quot;);</span>
+<span class="nc" id="L90">            String producto = scanner.nextLine();</span>
+            
+<span class="nc" id="L92">            System.out.print(&quot;Cantidad: &quot;);</span>
+<span class="nc" id="L93">            int cantidad = scanner.nextInt();</span>
+            
+<span class="nc" id="L95">            System.out.print(&quot;Precio unitario: $&quot;);</span>
+<span class="nc" id="L96">            double precio = scanner.nextDouble();</span>
+<span class="nc" id="L97">            scanner.nextLine();</span>
+            
+<span class="nc" id="L99">            controlador.agregarItemPedido(pedidoActual, producto, cantidad, precio);</span>
+            
+<span class="nc" id="L101">            System.out.print(&quot;\n¿Agregar otro item? (s/n): &quot;);</span>
+<span class="nc" id="L102">            agregar = scanner.nextLine().equalsIgnoreCase(&quot;s&quot;);</span>
+        }
+        
+<span class="nc" id="L105">        System.out.println(&quot;\n&quot; + &quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L106">        System.out.printf(&quot;Total del pedido: $%.2f%n&quot;, pedidoActual.getTotal());</span>
+<span class="nc" id="L107">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L108">    }</span>
+
+    private void procesarPedido() {
+<span class="nc bnc" id="L111" title="All 2 branches missed.">        if (!validarPedidoActual()) return;</span>
+        
+<span class="nc" id="L113">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L114">        System.out.println(&quot;PROCESAR PEDIDO&quot;);</span>
+<span class="nc" id="L115">        System.out.println(&quot;═&quot;.repeat(50));</span>
+        
+<span class="nc" id="L117">        controlador.procesarPedido(pedidoActual);</span>
+        
+<span class="nc" id="L119">        System.out.println(&quot;\nEstado actual: &quot; + pedidoActual.getEstadoActual());</span>
+<span class="nc" id="L120">    }</span>
+
+    private void confirmarPago() {
+<span class="nc bnc" id="L123" title="All 2 branches missed.">        if (!validarPedidoActual()) return;</span>
+        
+<span class="nc" id="L125">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L126">        System.out.println(&quot;CONFIRMAR PAGO&quot;);</span>
+<span class="nc" id="L127">        System.out.println(&quot;═&quot;.repeat(50));</span>
+        
+<span class="nc" id="L129">        controlador.confirmarPago(pedidoActual);</span>
+        
+<span class="nc" id="L131">        System.out.println(&quot;\nEstado actual: &quot; + pedidoActual.getEstadoActual());</span>
+<span class="nc" id="L132">    }</span>
+
+    private void enviarPedido() {
+<span class="nc bnc" id="L135" title="All 2 branches missed.">        if (!validarPedidoActual()) return;</span>
+        
+<span class="nc" id="L137">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L138">        System.out.println(&quot;ENVIAR PEDIDO&quot;);</span>
+<span class="nc" id="L139">        System.out.println(&quot;═&quot;.repeat(50));</span>
+        
+<span class="nc" id="L141">        controlador.enviarPedido(pedidoActual);</span>
+        
+<span class="nc" id="L143">        System.out.println(&quot;\nEstado actual: &quot; + pedidoActual.getEstadoActual());</span>
+<span class="nc" id="L144">    }</span>
+
+    private void entregarPedido() {
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        if (!validarPedidoActual()) return;</span>
+        
+<span class="nc" id="L149">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L150">        System.out.println(&quot;ENTREGAR PEDIDO&quot;);</span>
+<span class="nc" id="L151">        System.out.println(&quot;═&quot;.repeat(50));</span>
+        
+<span class="nc" id="L153">        controlador.entregarPedido(pedidoActual);</span>
+        
+<span class="nc" id="L155">        System.out.println(&quot;\nEstado actual: &quot; + pedidoActual.getEstadoActual());</span>
+<span class="nc" id="L156">    }</span>
+
+    private void cancelarPedido() {
+<span class="nc bnc" id="L159" title="All 2 branches missed.">        if (!validarPedidoActual()) return;</span>
+        
+<span class="nc" id="L161">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L162">        System.out.println(&quot;CANCELAR PEDIDO&quot;);</span>
+<span class="nc" id="L163">        System.out.println(&quot;═&quot;.repeat(50));</span>
+        
+<span class="nc" id="L165">        System.out.print(&quot;¿Está seguro de cancelar el pedido? (s/n): &quot;);</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">        if (scanner.nextLine().equalsIgnoreCase(&quot;s&quot;)) {</span>
+<span class="nc" id="L167">            controlador.cancelarPedido(pedidoActual);</span>
+<span class="nc" id="L168">            System.out.println(&quot;\nEstado actual: &quot; + pedidoActual.getEstadoActual());</span>
+<span class="nc" id="L169">        } else {</span>
+<span class="nc" id="L170">            System.out.println(&quot;Operación cancelada&quot;);</span>
+        }
+<span class="nc" id="L172">    }</span>
+
+    private void verPedidoActual() {
+<span class="nc bnc" id="L175" title="All 2 branches missed.">        if (!validarPedidoActual()) return;</span>
+        
+<span class="nc" id="L177">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L178">        System.out.println(&quot;║          PEDIDO ACTUAL                     ║&quot;);</span>
+<span class="nc" id="L179">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+        
+<span class="nc" id="L181">        System.out.println(&quot;\nNúmero: &quot; + pedidoActual.getNumeroPedido());</span>
+<span class="nc" id="L182">        System.out.println(&quot;Cliente: &quot; + pedidoActual.getCliente());</span>
+<span class="nc" id="L183">        System.out.println(&quot;Estado: &quot; + pedidoActual.getEstadoActual());</span>
+<span class="nc" id="L184">        System.out.println(&quot;Fecha: &quot; + pedidoActual.getFechaCreacion());</span>
+        
+<span class="nc" id="L186">        System.out.println(&quot;\nItems:&quot;);</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">        for (ItemPedido item : pedidoActual.getItems()) {</span>
+<span class="nc" id="L188">            System.out.println(&quot;  &quot; + item);</span>
+        }
+        
+<span class="nc" id="L191">        System.out.println(&quot;\n&quot; + &quot;─&quot;.repeat(50));</span>
+<span class="nc" id="L192">        System.out.printf(&quot;TOTAL: $%.2f%n&quot;, pedidoActual.getTotal());</span>
+<span class="nc" id="L193">        System.out.println(&quot;─&quot;.repeat(50));</span>
+<span class="nc" id="L194">    }</span>
+
+    private void verTodosPedidos() {
+<span class="nc" id="L197">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L198">        System.out.println(&quot;║          TODOS LOS PEDIDOS                 ║&quot;);</span>
+<span class="nc" id="L199">        System.out.println(&quot;╚════════════════════════════════════════════╝\n&quot;);</span>
+        
+<span class="nc" id="L201">        List&lt;Pedido&gt; pedidos = controlador.obtenerPedidos();</span>
+        
+<span class="nc bnc" id="L203" title="All 2 branches missed.">        if (pedidos.isEmpty()) {</span>
+<span class="nc" id="L204">            System.out.println(&quot;No hay pedidos registrados&quot;);</span>
+<span class="nc" id="L205">            return;</span>
+        }
+        
+<span class="nc bnc" id="L208" title="All 2 branches missed.">        for (Pedido pedido : pedidos) {</span>
+<span class="nc" id="L209">            System.out.println(pedido);</span>
+        }
+<span class="nc" id="L211">    }</span>
+
+    private void verHistorialEstados() {
+<span class="nc bnc" id="L214" title="All 2 branches missed.">        if (!validarPedidoActual()) return;</span>
+        
+<span class="nc" id="L216">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L217">        System.out.println(&quot;║       HISTORIAL DE ESTADOS                 ║&quot;);</span>
+<span class="nc" id="L218">        System.out.println(&quot;╚════════════════════════════════════════════╝\n&quot;);</span>
+        
+<span class="nc" id="L220">        System.out.println(&quot;Pedido: &quot; + pedidoActual.getNumeroPedido());</span>
+<span class="nc" id="L221">        System.out.println(&quot;\nTransiciones de estado:\n&quot;);</span>
+        
+<span class="nc bnc" id="L223" title="All 2 branches missed.">        for (String registro : pedidoActual.getHistorialEstados()) {</span>
+<span class="nc" id="L224">            System.out.println(&quot;  &quot; + registro);</span>
+        }
+<span class="nc" id="L226">    }</span>
+
+    private void demoFlujoCompleto() {
+<span class="nc" id="L229">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L230">        System.out.println(&quot;║       DEMO: FLUJO COMPLETO                 ║&quot;);</span>
+<span class="nc" id="L231">        System.out.println(&quot;╚════════════════════════════════════════════╝\n&quot;);</span>
+        
+<span class="nc" id="L233">        System.out.println(&quot;Simulando ciclo de vida completo de un pedido...\n&quot;);</span>
+        
+        // Paso 1: Crear pedido
+<span class="nc" id="L236">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L237">        System.out.println(&quot;PASO 1: CREAR PEDIDO&quot;);</span>
+<span class="nc" id="L238">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L239">        Pedido demo = controlador.crearPedido(&quot;Juan Pérez&quot;);</span>
+<span class="nc" id="L240">        controlador.agregarItemPedido(demo, &quot;Laptop&quot;, 1, 2500000);</span>
+<span class="nc" id="L241">        controlador.agregarItemPedido(demo, &quot;Mouse&quot;, 1, 50000);</span>
+<span class="nc" id="L242">        System.out.printf(&quot;Total: $%.2f%n&quot;, demo.getTotal());</span>
+<span class="nc" id="L243">        System.out.println(&quot;Estado: &quot; + demo.getEstadoActual());</span>
+<span class="nc" id="L244">        pausa();</span>
+        
+        // Paso 2: Procesar pedido
+<span class="nc" id="L247">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L248">        System.out.println(&quot;PASO 2: PROCESAR PEDIDO&quot;);</span>
+<span class="nc" id="L249">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L250">        controlador.procesarPedido(demo);</span>
+<span class="nc" id="L251">        pausa();</span>
+        
+        // Paso 3: Confirmar pago
+<span class="nc" id="L254">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L255">        System.out.println(&quot;PASO 3: CONFIRMAR PAGO&quot;);</span>
+<span class="nc" id="L256">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L257">        controlador.confirmarPago(demo);</span>
+<span class="nc" id="L258">        pausa();</span>
+        
+        // Paso 4: Enviar pedido
+<span class="nc" id="L261">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L262">        System.out.println(&quot;PASO 4: ENVIAR PEDIDO&quot;);</span>
+<span class="nc" id="L263">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L264">        controlador.enviarPedido(demo);</span>
+<span class="nc" id="L265">        pausa();</span>
+        
+        // Paso 5: Entregar pedido
+<span class="nc" id="L268">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L269">        System.out.println(&quot;PASO 5: ENTREGAR PEDIDO&quot;);</span>
+<span class="nc" id="L270">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L271">        controlador.entregarPedido(demo);</span>
+<span class="nc" id="L272">        pausa();</span>
+        
+        // Resumen
+<span class="nc" id="L275">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L276">        System.out.println(&quot;RESUMEN DEL PEDIDO&quot;);</span>
+<span class="nc" id="L277">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L278">        System.out.println(&quot;Pedido: &quot; + demo.getNumeroPedido());</span>
+<span class="nc" id="L279">        System.out.println(&quot;Cliente: &quot; + demo.getCliente());</span>
+<span class="nc" id="L280">        System.out.println(&quot;Estado final: &quot; + demo.getEstadoActual());</span>
+<span class="nc" id="L281">        System.out.printf(&quot;Total: $%.2f%n&quot;, demo.getTotal());</span>
+        
+<span class="nc" id="L283">        System.out.println(&quot;\nHistorial de estados:&quot;);</span>
+<span class="nc bnc" id="L284" title="All 2 branches missed.">        for (String registro : demo.getHistorialEstados()) {</span>
+<span class="nc" id="L285">            System.out.println(&quot;  &quot; + registro);</span>
+        }
+        
+<span class="nc" id="L288">        System.out.println(&quot;\n✓ Demo completado exitosamente&quot;);</span>
+<span class="nc" id="L289">    }</span>
+
+    private boolean validarPedidoActual() {
+<span class="nc bnc" id="L292" title="All 2 branches missed.">        if (pedidoActual == null) {</span>
+<span class="nc" id="L293">            System.out.println(&quot;\n✗ No hay pedido activo. Cree un pedido primero (opción 1)&quot;);</span>
+<span class="nc" id="L294">            return false;</span>
+        }
+<span class="nc" id="L296">        return true;</span>
+    }
+
+    private void pausa() {
+        try {
+<span class="nc" id="L301">            Thread.sleep(1500);</span>
+<span class="nc" id="L302">        } catch (InterruptedException e) {</span>
+<span class="nc" id="L303">            e.printStackTrace();</span>
+        }
+<span class="nc" id="L305">    }</span>
+
+    public void mostrarMensaje(String mensaje) {
+<span class="fc" id="L308">        System.out.println(mensaje);</span>
+<span class="fc" id="L309">    }</span>
+
+    public void mostrarError(String error) {
+<span class="nc" id="L312">        System.err.println(&quot;ERROR: &quot; + error);</span>
+<span class="nc" id="L313">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L316">        ConsolaState consola = new ConsolaState();</span>
+<span class="nc" id="L317">        consola.ejecutar();</span>
+<span class="nc" id="L318">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="e2e.Adapter.AdapterE2ETest" time="0.76" tests="10" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="America/Bogota"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CO"/>
+    <property name="sun.boot.library.path" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin"/>
+    <property name="sun.java.command" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351 2025-11-10T14-34-15_175-jvmRun1 surefire-20251110143415723_1tmp surefire_0-20251110143415723_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\tosca"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.8+9-LTS"/>
+    <property name="user.name" value="tosca"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.8+9"/>
+    <property name="localRepository" value="C:\Users\tosca\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\tosca\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\gradle\latest\bin;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\maven\latest\bin;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin;&quot;C:\Program Files\Java\jdk1.8.0_202&quot;\bin;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\xampp\php;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_202;C:\Users\tosca\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tosca\.dotnet\tools;C:\Users\tosca\AppData\Local\Programs\Python\Python313;C:\Users\tosca\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\tosca\AppData\Local\Programs\Windsurf\bin;c:\Users\tosca\.vscode\extensions\vscjava.vscode-java-debug-0.58.3\bundled\scripts\noConfigScripts;c:\Users\tosca\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.9+10-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testConsultaInventarioUnificado" classname="e2e.Adapter.AdapterE2ETest" time="0.132">
+    <system-out><![CDATA[
+=== CONSULTA DE INVENTARIO UNIFICADO ===
+
+PRODUCTOS INTERNOS:
+  Producto[P005, Huevos x30, $12000,00, Stock: 40]
+  Producto[P004, Pan Tajado, $4500,00, Stock: 60]
+  Producto[P001, Arroz Diana 1kg, $3500,00, Stock: 100]
+  Producto[P003, Leche Alpina 1L, $3800,00, Stock: 80]
+  Producto[P002, Aceite Gourmet 1L, $8500,00, Stock: 50]
+
+PRODUCTOS EXTERNOS (ADAPTADOS):
+  Producto[EXT-005, Premium Coffee 500g, $18000,00, Stock: 100]
+  Producto[EXT-004, Sliced Bread, $4000,00, Stock: 150]
+  Producto[EXT-001, Rice Premium 1kg, $3200,00, Stock: 500]
+  Producto[EXT-003, Fresh Milk 1L, $3500,00, Stock: 300]
+  Producto[EXT-002, Olive Oil 1L, $25000,00, Stock: 200]
+
+Total de productos disponibles: 10
+]]></system-out>
+  </testcase>
+  <testcase name="testProcesoCompraMultiplesFuentes" classname="e2e.Adapter.AdapterE2ETest" time="0.058">
+    <system-out><![CDATA[
+=== VERIFICACIÓN DE DISPONIBILIDAD ===
+
+P001 [INTERNO]: 5 unidades -> ✓ DISPONIBLE
+P002 [INTERNO]: 3 unidades -> ✓ DISPONIBLE
+EXT-001 [EXTERNO]: 10 unidades -> ✓ DISPONIBLE
+EXT-002 [EXTERNO]: 15 unidades -> ✓ DISPONIBLE
+]]></system-out>
+  </testcase>
+  <testcase name="testActualizacionMasivaInventario" classname="e2e.Adapter.AdapterE2ETest" time="0.053">
+    <system-out><![CDATA[
+=== ACTUALIZACIÓN MASIVA DE INVENTARIO ===
+
+✓ EXT-001 actualizado a 600 unidades
+✓ EXT-002 actualizado a 350 unidades
+✓ P001 actualizado a 150 unidades
+✓ P002 actualizado a 75 unidades
+]]></system-out>
+  </testcase>
+  <testcase name="testGestionPorProveedor" classname="e2e.Adapter.AdapterE2ETest" time="0.094">
+    <system-out><![CDATA[
+=== GESTIÓN POR PROVEEDOR ===
+
+
+Proveedor SUP-A: 2 productos
+  - Producto[EXT-001, Rice Premium 1kg, $3200,00, Stock: 500]
+  - Producto[EXT-003, Fresh Milk 1L, $3500,00, Stock: 300]
+
+Proveedor SUP-B: 2 productos
+  - Producto[EXT-005, Premium Coffee 500g, $18000,00, Stock: 100]
+  - Producto[EXT-002, Olive Oil 1L, $25000,00, Stock: 200]
+
+Proveedor SUP-C: 1 productos
+  - Producto[EXT-004, Sliced Bread, $4000,00, Stock: 150]
+]]></system-out>
+  </testcase>
+  <testcase name="testExpansionCatalogo" classname="e2e.Adapter.AdapterE2ETest" time="0.024">
+    <system-out><![CDATA[
+=== EXPANSIÓN DE CATÁLOGO ===
+
+✓ Producto interno agregado: Producto[P-NEW-001, Chocolate Premium, $8500,00, Stock: 80]
+✓ Producto externo agregado: Producto[EXT-NEW-001, Imported Tea, $12000,00, Stock: 120]
+]]></system-out>
+  </testcase>
+  <testcase name="testReporteConsolidado" classname="e2e.Adapter.AdapterE2ETest" time="0.042">
+    <system-out><![CDATA[
+=== REPORTE CONSOLIDADO DE INVENTARIO ===
+
+ESTADÍSTICAS:
+  Productos internos: 5
+  Productos externos: 5
+  Total productos: 10
+  Valor total inventario: $11879000,00
+
+PRODUCTOS POR CATEGORÍA:
+  BEBIDAS: 1 productos
+  GRANJA: 1 productos
+  ALIMENTOS: 4 productos
+  LACTEOS: 2 productos
+  PANADERIA: 2 productos
+]]></system-out>
+  </testcase>
+  <testcase name="testPedidoGrandeMultiFuente" classname="e2e.Adapter.AdapterE2ETest" time="0.071">
+    <system-out><![CDATA[
+=== PEDIDO GRANDE MULTI-FUENTE ===
+
+PROCESANDO PEDIDO:
+✓ P001 x20 - $70000,00
+✓ P002 x15 - $127500,00
+✓ P003 x25 - $95000,00
+✓ EXT-001 x50 - $160000,00
+✓ EXT-002 x30 - $750000,00
+✓ EXT-003 x40 - $140000,00
+
+RESUMEN:
+Items aprobados: 6
+Items rechazados: 0
+Costo total: $1342500,00
+]]></system-out>
+  </testcase>
+  <testcase name="testMigracionProductos" classname="e2e.Adapter.AdapterE2ETest" time="0.103">
+    <system-out><![CDATA[
+=== MIGRACIÓN DE PRODUCTOS ===
+
+Producto original (interno): Producto[P001, Arroz Diana 1kg, $3500,00, Stock: 100]
+✓ Producto migrado a sistema externo: Producto[EXT-MIG-001, Arroz Diana 1kg (Migrado), $3500,00, Stock: 100]
+]]></system-out>
+  </testcase>
+  <testcase name="testBusquedaInteligente" classname="e2e.Adapter.AdapterE2ETest" time="0.018">
+    <system-out><![CDATA[
+=== BÚSQUEDA INTELIGENTE ===
+
+
+Buscando: Arroz
+  Internos: 1
+    - Producto[P001, Arroz Diana 1kg, $3500,00, Stock: 100]
+  Externos: 0
+
+Buscando: Rice
+  Internos: 0
+  Externos: 1
+    - Producto[EXT-001, Rice Premium 1kg, $3200,00, Stock: 500]
+
+Buscando: Leche
+  Internos: 1
+    - Producto[P003, Leche Alpina 1L, $3800,00, Stock: 80]
+  Externos: 0
+
+Buscando: Milk
+  Internos: 0
+  Externos: 1
+    - Producto[EXT-003, Fresh Milk 1L, $3500,00, Stock: 300]
+
+Buscando: Aceite
+  Internos: 1
+    - Producto[P002, Aceite Gourmet 1L, $8500,00, Stock: 50]
+  Externos: 0
+
+Buscando: Oil
+  Internos: 0
+  Externos: 1
+    - Producto[EXT-002, Olive Oil 1L, $25000,00, Stock: 200]
+]]></system-out>
+  </testcase>
+  <testcase name="testEscenarioCompletoDiario" classname="e2e.Adapter.AdapterE2ETest" time="0.008">
+    <system-out><![CDATA[
+=== OPERACIÓN DIARIA COMPLETA ===
+
+1. APERTURA - Revisar inventario
+   Productos disponibles: 10 (Internos: 5, Externos: 5)
+
+2. MAÑANA - Recepción de mercancía externa
+   ✓ Producto recibido: New Morning Product
+
+3. MEDIODÍA - Ventas
+   Venta 1 (P001 x10): ✓ APROBADA
+   Venta 2 (EXT-001 x20): ✓ APROBADA
+
+4. TARDE - Reabastecimiento
+   ✓ Stocks actualizados
+
+5. CIERRE - Reporte final
+   Total productos: 11
+   Valor inventario: $14054000,00
+
+=== FIN DE OPERACIÓN DIARIA ===
+]]></system-out>
+  </testcase>
+</testsuite>

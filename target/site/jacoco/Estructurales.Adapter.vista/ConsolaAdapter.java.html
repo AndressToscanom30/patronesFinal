@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsolaAdapter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Estructurales.Adapter.vista</a> &gt; <span class="el_source">ConsolaAdapter.java</span></div><h1>ConsolaAdapter.java</h1><pre class="source lang-java linenums">package Estructurales.Adapter.vista;
+
+import Estructurales.Adapter.controlador.AdapterControlador;
+import Estructurales.Adapter.modelo.*;
+import java.util.*;
+
+public class ConsolaAdapter {
+    private final AdapterControlador controlador;
+    private final Scanner scanner;
+
+<span class="nc" id="L11">    public ConsolaAdapter() {</span>
+<span class="nc" id="L12">        this.controlador = new AdapterControlador();</span>
+<span class="nc" id="L13">        this.scanner = new Scanner(System.in);</span>
+<span class="nc" id="L14">    }</span>
+
+    public void mostrarMenu() {
+<span class="nc" id="L17">        System.out.println(&quot;\n=== ADAPTER - Integración de Inventarios ===&quot;);</span>
+<span class="nc" id="L18">        System.out.println(&quot;1. Buscar producto interno&quot;);</span>
+<span class="nc" id="L19">        System.out.println(&quot;2. Buscar producto externo&quot;);</span>
+<span class="nc" id="L20">        System.out.println(&quot;3. Listar productos internos&quot;);</span>
+<span class="nc" id="L21">        System.out.println(&quot;4. Listar productos externos&quot;);</span>
+<span class="nc" id="L22">        System.out.println(&quot;5. Listar todos los productos&quot;);</span>
+<span class="nc" id="L23">        System.out.println(&quot;6. Verificar disponibilidad&quot;);</span>
+<span class="nc" id="L24">        System.out.println(&quot;7. Actualizar stock&quot;);</span>
+<span class="nc" id="L25">        System.out.println(&quot;8. Buscar por proveedor&quot;);</span>
+<span class="nc" id="L26">        System.out.println(&quot;9. Ver estadísticas&quot;);</span>
+<span class="nc" id="L27">        System.out.println(&quot;10. Salir&quot;);</span>
+<span class="nc" id="L28">        System.out.print(&quot;Opción: &quot;);</span>
+<span class="nc" id="L29">    }</span>
+
+    public void ejecutar() {
+<span class="nc" id="L32">        boolean continuar = true;</span>
+        
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        while (continuar) {</span>
+<span class="nc" id="L35">            mostrarMenu();</span>
+<span class="nc" id="L36">            int opcion = scanner.nextInt();</span>
+<span class="nc" id="L37">            scanner.nextLine();</span>
+            
+<span class="nc bnc" id="L39" title="All 11 branches missed.">            switch (opcion) {</span>
+<span class="nc" id="L40">                case 1 -&gt; buscarProductoInterno();</span>
+<span class="nc" id="L41">                case 2 -&gt; buscarProductoExterno();</span>
+<span class="nc" id="L42">                case 3 -&gt; listarProductosInternos();</span>
+<span class="nc" id="L43">                case 4 -&gt; listarProductosExternos();</span>
+<span class="nc" id="L44">                case 5 -&gt; listarTodosLosProductos();</span>
+<span class="nc" id="L45">                case 6 -&gt; verificarDisponibilidad();</span>
+<span class="nc" id="L46">                case 7 -&gt; actualizarStock();</span>
+<span class="nc" id="L47">                case 8 -&gt; buscarPorProveedor();</span>
+<span class="nc" id="L48">                case 9 -&gt; verEstadisticas();</span>
+<span class="nc" id="L49">                case 10 -&gt; continuar = false;</span>
+<span class="nc" id="L50">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
+            }
+        }
+        
+<span class="nc" id="L54">        System.out.println(&quot;¡Hasta luego!&quot;);</span>
+<span class="nc" id="L55">    }</span>
+
+    private void buscarProductoInterno() {
+<span class="nc" id="L58">        System.out.print(&quot;\nCódigo del producto interno (P###): &quot;);</span>
+<span class="nc" id="L59">        String codigo = scanner.nextLine();</span>
+        
+<span class="nc" id="L61">        Producto producto = controlador.buscarProductoInterno(codigo);</span>
+        
+<span class="nc bnc" id="L63" title="All 2 branches missed.">        if (producto != null) {</span>
+<span class="nc" id="L64">            System.out.println(&quot;✓ Producto encontrado: &quot; + producto);</span>
+<span class="nc" id="L65">        } else {</span>
+<span class="nc" id="L66">            System.out.println(&quot;✗ Producto no encontrado&quot;);</span>
+        }
+<span class="nc" id="L68">    }</span>
+
+    private void buscarProductoExterno() {
+<span class="nc" id="L71">        System.out.print(&quot;\nCódigo del producto externo (EXT-###): &quot;);</span>
+<span class="nc" id="L72">        String codigo = scanner.nextLine();</span>
+        
+<span class="nc" id="L74">        Producto producto = controlador.buscarProductoExterno(codigo);</span>
+        
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        if (producto != null) {</span>
+<span class="nc" id="L77">            System.out.println(&quot;✓ Producto encontrado (adaptado): &quot; + producto);</span>
+<span class="nc" id="L78">        } else {</span>
+<span class="nc" id="L79">            System.out.println(&quot;✗ Producto no encontrado&quot;);</span>
+        }
+<span class="nc" id="L81">    }</span>
+
+    private void listarProductosInternos() {
+<span class="nc" id="L84">        System.out.println(&quot;\n--- Productos Internos ---&quot;);</span>
+<span class="nc" id="L85">        List&lt;Producto&gt; productos = controlador.obtenerProductosInternos();</span>
+        
+<span class="nc bnc" id="L87" title="All 2 branches missed.">        if (productos.isEmpty()) {</span>
+<span class="nc" id="L88">            System.out.println(&quot;No hay productos internos&quot;);</span>
+<span class="nc" id="L89">        } else {</span>
+<span class="nc" id="L90">            productos.forEach(p -&gt; System.out.println(&quot;- &quot; + p));</span>
+        }
+<span class="nc" id="L92">    }</span>
+
+    private void listarProductosExternos() {
+<span class="nc" id="L95">        System.out.println(&quot;\n--- Productos Externos (Adaptados) ---&quot;);</span>
+<span class="nc" id="L96">        List&lt;Producto&gt; productos = controlador.obtenerProductosExternos();</span>
+        
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        if (productos.isEmpty()) {</span>
+<span class="nc" id="L99">            System.out.println(&quot;No hay productos externos&quot;);</span>
+<span class="nc" id="L100">        } else {</span>
+<span class="nc" id="L101">            productos.forEach(p -&gt; System.out.println(&quot;- &quot; + p));</span>
+        }
+<span class="nc" id="L103">    }</span>
+
+    private void listarTodosLosProductos() {
+<span class="nc" id="L106">        System.out.println(&quot;\n--- Todos los Productos ---&quot;);</span>
+<span class="nc" id="L107">        List&lt;Producto&gt; productos = controlador.obtenerTodosLosProductos();</span>
+        
+<span class="nc" id="L109">        System.out.println(&quot;\n** INTERNOS **&quot;);</span>
+<span class="nc" id="L110">        controlador.obtenerProductosInternos().forEach(p -&gt; </span>
+<span class="nc" id="L111">            System.out.println(&quot;- &quot; + p));</span>
+        
+<span class="nc" id="L113">        System.out.println(&quot;\n** EXTERNOS **&quot;);</span>
+<span class="nc" id="L114">        controlador.obtenerProductosExternos().forEach(p -&gt; </span>
+<span class="nc" id="L115">            System.out.println(&quot;- &quot; + p));</span>
+        
+<span class="nc" id="L117">        System.out.println(&quot;\nTotal: &quot; + productos.size() + &quot; productos&quot;);</span>
+<span class="nc" id="L118">    }</span>
+
+    private void verificarDisponibilidad() {
+<span class="nc" id="L121">        System.out.print(&quot;\nCódigo del producto: &quot;);</span>
+<span class="nc" id="L122">        String codigo = scanner.nextLine();</span>
+        
+<span class="nc" id="L124">        System.out.print(&quot;Cantidad requerida: &quot;);</span>
+<span class="nc" id="L125">        int cantidad = scanner.nextInt();</span>
+<span class="nc" id="L126">        scanner.nextLine();</span>
+        
+<span class="nc" id="L128">        boolean disponible = controlador.verificarDisponibilidadGeneral(codigo, cantidad);</span>
+        
+<span class="nc bnc" id="L130" title="All 2 branches missed.">        if (disponible) {</span>
+<span class="nc" id="L131">            System.out.println(&quot;✓ Producto disponible&quot;);</span>
+<span class="nc" id="L132">        } else {</span>
+<span class="nc" id="L133">            System.out.println(&quot;✗ Stock insuficiente&quot;);</span>
+        }
+<span class="nc" id="L135">    }</span>
+
+    private void actualizarStock() {
+<span class="nc" id="L138">        System.out.println(&quot;\n1. Interno  2. Externo&quot;);</span>
+<span class="nc" id="L139">        int tipo = scanner.nextInt();</span>
+<span class="nc" id="L140">        scanner.nextLine();</span>
+        
+<span class="nc" id="L142">        System.out.print(&quot;Código del producto: &quot;);</span>
+<span class="nc" id="L143">        String codigo = scanner.nextLine();</span>
+        
+<span class="nc" id="L145">        System.out.print(&quot;Nuevo stock: &quot;);</span>
+<span class="nc" id="L146">        int nuevoStock = scanner.nextInt();</span>
+<span class="nc" id="L147">        scanner.nextLine();</span>
+        
+        boolean actualizado;
+<span class="nc bnc" id="L150" title="All 2 branches missed.">        if (tipo == 1) {</span>
+<span class="nc" id="L151">            actualizado = controlador.actualizarStockInterno(codigo, nuevoStock);</span>
+<span class="nc" id="L152">        } else {</span>
+<span class="nc" id="L153">            actualizado = controlador.actualizarStockExterno(codigo, nuevoStock);</span>
+        }
+        
+<span class="nc bnc" id="L156" title="All 2 branches missed.">        if (actualizado) {</span>
+<span class="nc" id="L157">            System.out.println(&quot;✓ Stock actualizado&quot;);</span>
+<span class="nc" id="L158">        } else {</span>
+<span class="nc" id="L159">            System.out.println(&quot;✗ Error al actualizar stock&quot;);</span>
+        }
+<span class="nc" id="L161">    }</span>
+
+    private void buscarPorProveedor() {
+<span class="nc" id="L164">        System.out.print(&quot;\nCódigo del proveedor (SUP-A, SUP-B, SUP-C): &quot;);</span>
+<span class="nc" id="L165">        String proveedor = scanner.nextLine();</span>
+        
+<span class="nc" id="L167">        List&lt;Producto&gt; productos = controlador.buscarPorProveedor(proveedor);</span>
+        
+<span class="nc" id="L169">        System.out.println(&quot;\n--- Productos del proveedor &quot; + proveedor + &quot; ---&quot;);</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">        if (productos.isEmpty()) {</span>
+<span class="nc" id="L171">            System.out.println(&quot;No hay productos de este proveedor&quot;);</span>
+<span class="nc" id="L172">        } else {</span>
+<span class="nc" id="L173">            productos.forEach(p -&gt; System.out.println(&quot;- &quot; + p));</span>
+        }
+<span class="nc" id="L175">    }</span>
+
+    private void verEstadisticas() {
+<span class="nc" id="L178">        System.out.println(&quot;\n--- Estadísticas de Inventario ---&quot;);</span>
+<span class="nc" id="L179">        Map&lt;String, Integer&gt; stats = controlador.obtenerEstadisticasInventario();</span>
+        
+<span class="nc" id="L181">        System.out.println(&quot;Productos internos: &quot; + stats.get(&quot;INTERNOS&quot;));</span>
+<span class="nc" id="L182">        System.out.println(&quot;Productos externos: &quot; + stats.get(&quot;EXTERNOS&quot;));</span>
+<span class="nc" id="L183">        System.out.println(&quot;Total de productos: &quot; + stats.get(&quot;TOTAL&quot;));</span>
+<span class="nc" id="L184">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L187">        ConsolaAdapter vista = new ConsolaAdapter();</span>
+<span class="nc" id="L188">        vista.ejecutar();</span>
+<span class="nc" id="L189">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

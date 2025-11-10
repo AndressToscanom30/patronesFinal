@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ChainOfResponsibilityController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Comportamentales.ChainOfResponsibility.controlador</a> &gt; <span class="el_source">ChainOfResponsibilityController.java</span></div><h1>ChainOfResponsibilityController.java</h1><pre class="source lang-java linenums">package Comportamentales.ChainOfResponsibility.controlador;
+
+import Comportamentales.ChainOfResponsibility.modelo.*;
+import Comportamentales.ChainOfResponsibility.vista.ConsolaChainOfResponsibility;
+
+public class ChainOfResponsibilityController {
+    private ConsolaChainOfResponsibility vista;
+    private ManejadorDescuento cadenaDescuentos;
+    
+<span class="fc" id="L10">    public ChainOfResponsibilityController(ConsolaChainOfResponsibility vista) {</span>
+<span class="fc" id="L11">        this.vista = vista;</span>
+<span class="fc" id="L12">        inicializarCadena();</span>
+<span class="fc" id="L13">    }</span>
+    
+    private void inicializarCadena() {
+        // Crear manejadores
+<span class="fc" id="L17">        ManejadorDescuento descuentoCupon = new DescuentoCupon();</span>
+<span class="fc" id="L18">        ManejadorDescuento descuentoClienteFrecuente = new DescuentoClienteFrecuente(5, 15);</span>
+<span class="fc" id="L19">        ManejadorDescuento descuentoPorMonto = new DescuentoPorMonto(100000, 10);</span>
+<span class="fc" id="L20">        ManejadorDescuento descuentoPorCantidad = new DescuentoPorCantidad(10, 5);</span>
+        
+        // Configurar cadena
+<span class="fc" id="L23">        descuentoCupon.setSiguiente(descuentoClienteFrecuente);</span>
+<span class="fc" id="L24">        descuentoClienteFrecuente.setSiguiente(descuentoPorMonto);</span>
+<span class="fc" id="L25">        descuentoPorMonto.setSiguiente(descuentoPorCantidad);</span>
+        
+<span class="fc" id="L27">        cadenaDescuentos = descuentoCupon;</span>
+<span class="fc" id="L28">    }</span>
+    
+    public ResultadoDescuento procesarSolicitud(SolicitudDescuento solicitud) {
+<span class="fc" id="L31">        vista.mostrarMensaje(&quot;\n═══ PROCESANDO SOLICITUD DE DESCUENTO ═══&quot;);</span>
+<span class="fc" id="L32">        vista.mostrarMensaje(&quot;Cliente: &quot; + solicitud.getClienteId());</span>
+<span class="fc" id="L33">        vista.mostrarMensaje(String.format(&quot;Monto: $%.2f&quot;, solicitud.getMontoTotal()));</span>
+<span class="fc" id="L34">        vista.mostrarMensaje(&quot;Cantidad: &quot; + solicitud.getCantidad());</span>
+<span class="fc" id="L35">        vista.mostrarMensaje(&quot;\nIniciando evaluación en la cadena...\n&quot;);</span>
+        
+<span class="fc" id="L37">        ResultadoDescuento resultado = cadenaDescuentos.procesarSolicitud(solicitud);</span>
+        
+<span class="fc" id="L39">        vista.mostrarMensaje(&quot;\n═══ RESULTADO ═══&quot;);</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        if (resultado.isAprobado()) {</span>
+<span class="fc" id="L41">            vista.mostrarMensaje(&quot;✓ &quot; + resultado.getDescripcion());</span>
+<span class="fc" id="L42">            vista.mostrarMensaje(String.format(&quot;Descuento: $%.2f&quot;, resultado.getMontoDescuento()));</span>
+<span class="fc" id="L43">        } else {</span>
+<span class="fc" id="L44">            vista.mostrarMensaje(&quot;✗ &quot; + resultado.getDescripcion());</span>
+        }
+        
+<span class="fc" id="L47">        return resultado;</span>
+    }
+    
+    public void configurarCadenaPersonalizada(ManejadorDescuento nuevaCadena) {
+<span class="fc" id="L51">        this.cadenaDescuentos = nuevaCadena;</span>
+<span class="fc" id="L52">        vista.mostrarMensaje(&quot;✓ Cadena de descuentos personalizada configurada&quot;);</span>
+<span class="fc" id="L53">    }</span>
+    
+    public ManejadorDescuento getCadenaDescuentos() {
+<span class="fc" id="L56">        return cadenaDescuentos;</span>
+    }
+    
+    public SolicitudDescuento crearSolicitud(String clienteId, double monto, int cantidad, 
+                                            int numeroCompras, String cupon, String categoria) {
+<span class="fc" id="L61">        return new SolicitudDescuento(clienteId, monto, cantidad, numeroCompras, cupon, categoria);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

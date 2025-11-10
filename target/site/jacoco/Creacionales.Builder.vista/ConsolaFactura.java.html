@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsolaFactura.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Creacionales.Builder.vista</a> &gt; <span class="el_source">ConsolaFactura.java</span></div><h1>ConsolaFactura.java</h1><pre class="source lang-java linenums">package Creacionales.Builder.vista;
+
+import Creacionales.Builder.controlador.FacturaControlador;
+import Creacionales.Builder.modelo.*;
+import java.util.Scanner;
+
+public class ConsolaFactura {
+    private final FacturaControlador controlador;
+    private final Scanner scanner;
+
+<span class="fc" id="L11">    public ConsolaFactura() {</span>
+<span class="fc" id="L12">        this.controlador = new FacturaControlador();</span>
+<span class="fc" id="L13">        this.scanner = new Scanner(System.in);</span>
+<span class="fc" id="L14">    }</span>
+
+    public void mostrarMenu() {
+<span class="fc" id="L17">        System.out.println(&quot;\n=== BUILDER - Gestión de Facturas ===&quot;);</span>
+<span class="fc" id="L18">        System.out.println(&quot;1. Crear factura simple&quot;);</span>
+<span class="fc" id="L19">        System.out.println(&quot;2. Crear factura completa&quot;);</span>
+<span class="fc" id="L20">        System.out.println(&quot;3. Crear factura con envío&quot;);</span>
+<span class="fc" id="L21">        System.out.println(&quot;4. Listar facturas&quot;);</span>
+<span class="fc" id="L22">        System.out.println(&quot;5. Buscar factura&quot;);</span>
+<span class="fc" id="L23">        System.out.println(&quot;6. Salir&quot;);</span>
+<span class="fc" id="L24">        System.out.print(&quot;Opción: &quot;);</span>
+<span class="fc" id="L25">    }</span>
+
+    public void ejecutar() {
+<span class="nc" id="L28">        boolean continuar = true;</span>
+
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        while (continuar) {</span>
+<span class="nc" id="L31">            mostrarMenu();</span>
+<span class="nc" id="L32">            int opcion = scanner.nextInt();</span>
+<span class="nc" id="L33">            scanner.nextLine();</span>
+
+<span class="nc bnc" id="L35" title="All 7 branches missed.">            switch (opcion) {</span>
+<span class="nc" id="L36">                case 1 -&gt; crearFacturaSimple();</span>
+<span class="nc" id="L37">                case 2 -&gt; crearFacturaCompleta();</span>
+<span class="nc" id="L38">                case 3 -&gt; crearFacturaConEnvio();</span>
+<span class="nc" id="L39">                case 4 -&gt; listarFacturas();</span>
+<span class="nc" id="L40">                case 5 -&gt; buscarFactura();</span>
+<span class="nc" id="L41">                case 6 -&gt; continuar = false;</span>
+<span class="nc" id="L42">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
+            }
+        }
+
+<span class="nc" id="L46">        System.out.println(&quot;¡Hasta luego!&quot;);</span>
+<span class="nc" id="L47">    }</span>
+
+    private void crearFacturaSimple() {
+<span class="nc" id="L50">        System.out.println(&quot;\n--- Crear Factura Simple ---&quot;);</span>
+
+<span class="nc" id="L52">        Cliente cliente = crearCliente();</span>
+<span class="nc" id="L53">        ItemFactura item1 = new ItemFactura(&quot;P001&quot;, &quot;Arroz&quot;, 2, 2500);</span>
+<span class="nc" id="L54">        ItemFactura item2 = new ItemFactura(&quot;P002&quot;, &quot;Azúcar&quot;, 1, 3000);</span>
+
+<span class="nc" id="L56">        Factura factura = controlador.iniciarFactura()</span>
+<span class="nc" id="L57">                .paraCliente(cliente)</span>
+<span class="nc" id="L58">                .agregarItem(item1)</span>
+<span class="nc" id="L59">                .agregarItem(item2)</span>
+<span class="nc" id="L60">                .conMetodoPago(&quot;EFECTIVO&quot;)</span>
+<span class="nc" id="L61">                .calcularImpuestosAutomaticamente()</span>
+<span class="nc" id="L62">                .build();</span>
+
+<span class="nc" id="L64">        controlador.guardarFactura(factura);</span>
+
+<span class="nc" id="L66">        System.out.println(&quot;✓ Factura creada: &quot; + factura);</span>
+<span class="nc" id="L67">        System.out.println(&quot;Total: $&quot; + factura.calcularTotal());</span>
+<span class="nc" id="L68">    }</span>
+
+    private void crearFacturaCompleta() {
+<span class="nc" id="L71">        System.out.println(&quot;\n--- Crear Factura Completa ---&quot;);</span>
+
+<span class="nc" id="L73">        Cliente cliente = crearCliente();</span>
+
+<span class="nc" id="L75">        Factura factura = controlador.iniciarFactura()</span>
+<span class="nc" id="L76">                .paraCliente(cliente)</span>
+<span class="nc" id="L77">                .agregarItem(new ItemFactura(&quot;P001&quot;, &quot;Leche&quot;, 3, 3500))</span>
+<span class="nc" id="L78">                .agregarItem(new ItemFactura(&quot;P002&quot;, &quot;Pan&quot;, 5, 2000))</span>
+<span class="nc" id="L79">                .agregarItem(new ItemFactura(&quot;P003&quot;, &quot;Queso&quot;, 1, 15000))</span>
+<span class="nc" id="L80">                .conMetodoPago(&quot;TARJETA&quot;)</span>
+<span class="nc" id="L81">                .calcularImpuestosAutomaticamente()</span>
+<span class="nc" id="L82">                .conDescuentos(2000)</span>
+<span class="nc" id="L83">                .conPropina(5000)</span>
+<span class="nc" id="L84">                .conObservaciones(&quot;Cliente frecuente - Descuento aplicado&quot;)</span>
+<span class="nc" id="L85">                .build();</span>
+
+<span class="nc" id="L87">        controlador.guardarFactura(factura);</span>
+
+<span class="nc" id="L89">        System.out.println(&quot;✓ Factura completa creada: &quot; + factura);</span>
+<span class="nc" id="L90">        System.out.printf(&quot;Subtotal: $%.2f%n&quot;, factura.getSubtotal());</span>
+<span class="nc" id="L91">        System.out.printf(&quot;Impuestos: $%.2f%n&quot;, factura.getImpuestos());</span>
+<span class="nc" id="L92">        System.out.printf(&quot;Descuentos: $%.2f%n&quot;, factura.getDescuentos());</span>
+<span class="nc" id="L93">        System.out.printf(&quot;Propina: $%.2f%n&quot;, factura.getPropina());</span>
+<span class="nc" id="L94">        System.out.printf(&quot;TOTAL: $%.2f%n&quot;, factura.calcularTotal());</span>
+<span class="nc" id="L95">    }</span>
+
+    private void crearFacturaConEnvio() {
+<span class="nc" id="L98">        System.out.println(&quot;\n--- Crear Factura con Envío ---&quot;);</span>
+
+<span class="nc" id="L100">        Cliente cliente = crearCliente();</span>
+<span class="nc" id="L101">        cliente.setDireccion(&quot;Calle 123 #45-67&quot;);</span>
+<span class="nc" id="L102">        cliente.setEmail(&quot;cliente@email.com&quot;);</span>
+
+<span class="nc" id="L104">        Factura factura = controlador.iniciarFactura()</span>
+<span class="nc" id="L105">                .paraCliente(cliente)</span>
+<span class="nc" id="L106">                .agregarItem(new ItemFactura(&quot;E001&quot;, &quot;Licuadora&quot;, 1, 150000))</span>
+<span class="nc" id="L107">                .agregarItem(new ItemFactura(&quot;E002&quot;, &quot;Batidora&quot;, 1, 80000))</span>
+<span class="nc" id="L108">                .conMetodoPago(&quot;TRANSFERENCIA&quot;)</span>
+<span class="nc" id="L109">                .calcularImpuestosAutomaticamente()</span>
+<span class="nc" id="L110">                .conDireccionEnvio(cliente.getDireccion())</span>
+<span class="nc" id="L111">                .conObservaciones(&quot;Envío programado para mañana&quot;)</span>
+<span class="nc" id="L112">                .build();</span>
+
+<span class="nc" id="L114">        controlador.guardarFactura(factura);</span>
+
+<span class="nc" id="L116">        System.out.println(&quot;✓ Factura con envío creada: &quot; + factura);</span>
+<span class="nc" id="L117">        System.out.println(&quot;Dirección de envío: &quot; + factura.getDireccionEnvio());</span>
+<span class="nc" id="L118">        System.out.println(&quot;Total con envío: $&quot; + factura.calcularTotal());</span>
+<span class="nc" id="L119">    }</span>
+
+    private void listarFacturas() {
+<span class="fc" id="L122">        System.out.println(&quot;\n--- Lista de Facturas ---&quot;);</span>
+<span class="fc" id="L123">        var facturas = controlador.obtenerTodasLasFacturas();</span>
+
+<span class="pc bpc" id="L125" title="1 of 2 branches missed.">        if (facturas.isEmpty()) {</span>
+<span class="fc" id="L126">            System.out.println(&quot;No hay facturas registradas&quot;);</span>
+<span class="fc" id="L127">        } else {</span>
+<span class="nc" id="L128">            facturas.forEach(f -&gt; {</span>
+<span class="nc" id="L129">                System.out.printf(&quot;%s | Cliente: %s | Total: $%.2f | Fecha: %s%n&quot;,</span>
+<span class="nc" id="L130">                        f.getNumeroFactura(),</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">                        f.getCliente() != null ? f.getCliente().getNombre() : &quot;N/A&quot;,</span>
+<span class="nc" id="L132">                        f.calcularTotal(),</span>
+<span class="nc" id="L133">                        f.getFechaEmision());</span>
+<span class="nc" id="L134">            });</span>
+<span class="nc" id="L135">            System.out.printf(&quot;\nTotal ventas: $%.2f%n&quot;, controlador.calcularTotalVentas());</span>
+        }
+<span class="fc" id="L137">    }</span>
+
+    private void buscarFactura() {
+<span class="nc" id="L140">        System.out.print(&quot;\nNúmero de factura: &quot;);</span>
+<span class="nc" id="L141">        String numero = scanner.nextLine();</span>
+
+<span class="nc" id="L143">        Factura factura = controlador.buscarFactura(numero);</span>
+
+<span class="nc bnc" id="L145" title="All 2 branches missed.">        if (factura != null) {</span>
+<span class="nc" id="L146">            System.out.println(&quot;Encontrada: &quot; + factura);</span>
+<span class="nc" id="L147">            System.out.println(&quot;Items: &quot; + factura.getItems().size());</span>
+<span class="nc" id="L148">            System.out.println(&quot;Método de pago: &quot; + factura.getMetodoPago());</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">            if (factura.getObservaciones() != null) {</span>
+<span class="nc" id="L150">                System.out.println(&quot;Observaciones: &quot; + factura.getObservaciones());</span>
+            }
+<span class="nc" id="L152">        } else {</span>
+<span class="nc" id="L153">            System.out.println(&quot;Factura no encontrada&quot;);</span>
+        }
+<span class="nc" id="L155">    }</span>
+
+    private Cliente crearCliente() {
+<span class="nc" id="L158">        System.out.print(&quot;Nombre cliente: &quot;);</span>
+<span class="nc" id="L159">        String nombre = scanner.nextLine();</span>
+<span class="nc" id="L160">        return new Cliente(&quot;C&quot; + System.currentTimeMillis(), nombre, &quot;1234567890&quot;);</span>
+    }
+
+    public static void main(String[] args) {
+<span class="nc" id="L164">        ConsolaFactura vista = new ConsolaFactura();</span>
+<span class="nc" id="L165">        vista.ejecutar();</span>
+<span class="nc" id="L166">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

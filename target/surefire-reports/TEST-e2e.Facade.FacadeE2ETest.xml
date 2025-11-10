@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="e2e.Facade.FacadeE2ETest" time="0.253" tests="6" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="America/Bogota"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CO"/>
+    <property name="sun.boot.library.path" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin"/>
+    <property name="sun.java.command" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351 2025-11-10T14-34-15_175-jvmRun1 surefire-20251110143415723_1tmp surefire_0-20251110143415723_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\tosca"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.8+9-LTS"/>
+    <property name="user.name" value="tosca"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.8+9"/>
+    <property name="localRepository" value="C:\Users\tosca\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\tosca\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\gradle\latest\bin;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\maven\latest\bin;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin;&quot;C:\Program Files\Java\jdk1.8.0_202&quot;\bin;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\xampp\php;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_202;C:\Users\tosca\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tosca\.dotnet\tools;C:\Users\tosca\AppData\Local\Programs\Python\Python313;C:\Users\tosca\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\tosca\AppData\Local\Programs\Windsurf\bin;c:\Users\tosca\.vscode\extensions\vscjava.vscode-java-debug-0.58.3\bundled\scripts\noConfigScripts;c:\Users\tosca\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.9+10-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testEscenarioMultiplesVentasSimultaneas" classname="e2e.Facade.FacadeE2ETest" time="0.143">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: MÚLTIPLES VENTAS SIMULTÁNEAS ===
+
+Procesando venta 1...
+
+=== INICIANDO PROCESO DE VENTA ===
+
+PASO 1: Validando stock...
+Validando stock para producto: P001
+Reservando 1 unidades del producto: P001
+✓ Stock validado y reservado
+
+PASO 2: Procesando pago...
+Procesando pago de $119.0 con método: EFECTIVO
+✓ Pago procesado exitosamente
+
+PASO 3: Generando factura...
+Generando factura para cliente: Cliente 1
+Generando PDF de factura: FAC-1762803272677
+✓ Factura generada: FAC-1762803272677
+
+PASO 4: Actualizando inventario...
+Descontando 1 unidades del inventario: P001
+Registrando movimiento: VENTA - Producto: P001 - Cantidad: 1
+Verificando stock mínimo para: P001
+✓ Inventario actualizado
+
+PASO 5: Procesando programa de fidelización...
+Acreditando 11 puntos al cliente: CLI10
+✓ 11 puntos acreditados
+
+PASO 6: Enviando notificaciones...
+Enviando email a cliente1@example.com - Asunto: Confirmación de compra
+Enviando factura FAC-1762803272677 a: cliente1@example.com
+Notificando venta al cliente CLI10 - Factura: FAC-1762803272677
+✓ Notificaciones enviadas
+
+PASO 7: Generando reportes...
+Registrando venta en reportes: FAC-1762803272677 - Monto: $119.0
+Actualizando estadísticas de sucursal: SUCURSAL-001
+✓ Reportes actualizados
+
+=== VENTA COMPLETADA EXITOSAMENTE ===
+
+Procesando venta 2...
+
+=== INICIANDO PROCESO DE VENTA ===
+
+PASO 1: Validando stock...
+Validando stock para producto: P002
+Reservando 1 unidades del producto: P002
+✓ Stock validado y reservado
+
+PASO 2: Procesando pago...
+Procesando pago de $238.0 con método: TARJETA
+✓ Pago procesado exitosamente
+
+PASO 3: Generando factura...
+Generando factura para cliente: Cliente 2
+Generando PDF de factura: FAC-1762803272710
+✓ Factura generada: FAC-1762803272710
+
+PASO 4: Actualizando inventario...
+Descontando 1 unidades del inventario: P002
+Registrando movimiento: VENTA - Producto: P002 - Cantidad: 1
+Verificando stock mínimo para: P002
+✓ Inventario actualizado
+
+PASO 5: Procesando programa de fidelización...
+Acreditando 23 puntos al cliente: CLI11
+✓ 23 puntos acreditados
+
+PASO 6: Enviando notificaciones...
+Enviando email a cliente2@example.com - Asunto: Confirmación de compra
+Enviando factura FAC-1762803272710 a: cliente2@example.com
+Notificando venta al cliente CLI11 - Factura: FAC-1762803272710
+✓ Notificaciones enviadas
+
+PASO 7: Generando reportes...
+Registrando venta en reportes: FAC-1762803272710 - Monto: $238.0
+Actualizando estadísticas de sucursal: SUCURSAL-001
+✓ Reportes actualizados
+
+=== VENTA COMPLETADA EXITOSAMENTE ===
+
+Procesando venta 3...
+
+=== INICIANDO PROCESO DE VENTA ===
+
+PASO 1: Validando stock...
+Validando stock para producto: P003
+Reservando 1 unidades del producto: P003
+✓ Stock validado y reservado
+
+PASO 2: Procesando pago...
+Procesando pago de $357.0 con método: EFECTIVO
+✓ Pago procesado exitosamente
+
+PASO 3: Generando factura...
+Generando factura para cliente: Cliente 3
+Generando PDF de factura: FAC-1762803272710
+✓ Factura generada: FAC-1762803272710
+
+PASO 4: Actualizando inventario...
+Descontando 1 unidades del inventario: P003
+Registrando movimiento: VENTA - Producto: P003 - Cantidad: 1
+Verificando stock mínimo para: P003
+✓ Inventario actualizado
+
+PASO 5: Procesando programa de fidelización...
+Acreditando 35 puntos al cliente: CLI12
+✓ 35 puntos acreditados
+
+PASO 6: Enviando notificaciones...
+Enviando email a cliente3@example.com - Asunto: Confirmación de compra
+Enviando factura FAC-1762803272710 a: cliente3@example.com
+Notificando venta al cliente CLI12 - Factura: FAC-1762803272710
+✓ Notificaciones enviadas
+
+PASO 7: Generando reportes...
+Registrando venta en reportes: FAC-1762803272710 - Monto: $357.0
+Actualizando estadísticas de sucursal: SUCURSAL-001
+✓ Reportes actualizados
+
+=== VENTA COMPLETADA EXITOSAMENTE ===
+
+Procesando venta 4...
+
+=== INICIANDO PROCESO DE VENTA ===
+
+PASO 1: Validando stock...
+Validando stock para producto: P004
+Reservando 1 unidades del producto: P004
+✓ Stock validado y reservado
+
+PASO 2: Procesando pago...
+Procesando pago de $476.0 con método: TARJETA
+✓ Pago procesado exitosamente
+
+PASO 3: Generando factura...
+Generando factura para cliente: Cliente 4
+Generando PDF de factura: FAC-1762803272711
+✓ Factura generada: FAC-1762803272711
+
+PASO 4: Actualizando inventario...
+Descontando 1 unidades del inventario: P004
+Registrando movimiento: VENTA - Producto: P004 - Cantidad: 1
+Verificando stock mínimo para: P004
+✓ Inventario actualizado
+
+PASO 5: Procesando programa de fidelización...
+Acreditando 47 puntos al cliente: CLI13
+✓ 47 puntos acreditados
+
+PASO 6: Enviando notificaciones...
+Enviando email a cliente4@example.com - Asunto: Confirmación de compra
+Enviando factura FAC-1762803272711 a: cliente4@example.com
+Notificando venta al cliente CLI13 - Factura: FAC-1762803272711
+✓ Notificaciones enviadas
+
+PASO 7: Generando reportes...
+Registrando venta en reportes: FAC-1762803272711 - Monto: $476.0
+Actualizando estadísticas de sucursal: SUCURSAL-001
+✓ Reportes actualizados
+
+=== VENTA COMPLETADA EXITOSAMENTE ===
+
+Procesando venta 5...
+
+=== INICIANDO PROCESO DE VENTA ===
+
+PASO 1: Validando stock...
+Validando stock para producto: P005
+Reservando 1 unidades del producto: P005
+✓ Stock validado y reservado
+
+PASO 2: Procesando pago...
+Procesando pago de $595.0 con método: EFECTIVO
+✓ Pago procesado exitosamente
+
+PASO 3: Generando factura...
+Generando factura para cliente: Cliente 5
+Generando PDF de factura: FAC-1762803272712
+✓ Factura generada: FAC-1762803272712
+
+PASO 4: Actualizando inventario...
+Descontando 1 unidades del inventario: P005
+Registrando movimiento: VENTA - Producto: P005 - Cantidad: 1
+Verificando stock mínimo para: P005
+✓ Inventario actualizado
+
+PASO 5: Procesando programa de fidelización...
+Acreditando 59 puntos al cliente: CLI14
+✓ 59 puntos acreditados
+
+PASO 6: Enviando notificaciones...
+Enviando email a cliente5@example.com - Asunto: Confirmación de compra
+Enviando factura FAC-1762803272712 a: cliente5@example.com
+Notificando venta al cliente CLI14 - Factura: FAC-1762803272712
+✓ Notificaciones enviadas
+
+PASO 7: Generando reportes...
+Registrando venta en reportes: FAC-1762803272712 - Monto: $595.0
+Actualizando estadísticas de sucursal: SUCURSAL-001
+✓ Reportes actualizados
+
+=== VENTA COMPLETADA EXITOSAMENTE ===
+
+
+--- Resultados ---
+✓ Venta 1: FAC-1762803272677
+✓ Venta 2: FAC-1762803272710
+✓ Venta 3: FAC-1762803272710
+✓ Venta 4: FAC-1762803272711
+✓ Venta 5: FAC-1762803272712
+
+Total de ventas procesadas exitosamente: 5/5
+]]></system-out>
+  </testcase>
+  <testcase name="testEscenarioCompletoVentaTiendaFisica" classname="e2e.Facade.FacadeE2ETest" time="0.007">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: VENTA EN TIENDA FÍSICA ===
+
+Cliente selecciona productos:
+- Laptop HP Pavilion: $800.00
+- Mouse Inalámbrico: $25.00
+- Teclado USB: $35.00
+- Memoria USB 32GB (x2): $30.00
+Subtotal: $890.0
+Impuestos (19%): $169.1
+Total: $1059.1
+
+Método de pago: TARJETA
+
+=== INICIANDO PROCESO DE VENTA ===
+
+PASO 1: Validando stock...
+Validando stock para producto: P001
+Reservando 1 unidades del producto: P001
+Validando stock para producto: P002
+Reservando 1 unidades del producto: P002
+Validando stock para producto: P003
+Reservando 1 unidades del producto: P003
+Validando stock para producto: P004
+Reservando 2 unidades del producto: P004
+✓ Stock validado y reservado
+
+PASO 2: Procesando pago...
+Procesando pago de $1059.1 con método: TARJETA
+✓ Pago procesado exitosamente
+
+PASO 3: Generando factura...
+Generando factura para cliente: Roberto Gómez
+Generando PDF de factura: FAC-1762803272720
+✓ Factura generada: FAC-1762803272720
+
+PASO 4: Actualizando inventario...
+Descontando 1 unidades del inventario: P001
+Registrando movimiento: VENTA - Producto: P001 - Cantidad: 1
+Verificando stock mínimo para: P001
+Descontando 1 unidades del inventario: P002
+Registrando movimiento: VENTA - Producto: P002 - Cantidad: 1
+Verificando stock mínimo para: P002
+Descontando 1 unidades del inventario: P003
+Registrando movimiento: VENTA - Producto: P003 - Cantidad: 1
+Verificando stock mínimo para: P003
+Descontando 2 unidades del inventario: P004
+Registrando movimiento: VENTA - Producto: P004 - Cantidad: 2
+Verificando stock mínimo para: P004
+✓ Inventario actualizado
+
+PASO 5: Procesando programa de fidelización...
+Acreditando 105 puntos al cliente: CLI001
+✓ 105 puntos acreditados
+
+PASO 6: Enviando notificaciones...
+Enviando email a roberto@example.com - Asunto: Confirmación de compra
+Enviando factura FAC-1762803272720 a: roberto@example.com
+Notificando venta al cliente CLI001 - Factura: FAC-1762803272720
+✓ Notificaciones enviadas
+
+PASO 7: Generando reportes...
+Registrando venta en reportes: FAC-1762803272720 - Monto: $1059.1
+Actualizando estadísticas de sucursal: SUCURSAL-001
+✓ Reportes actualizados
+
+=== VENTA COMPLETADA EXITOSAMENTE ===
+
+
+--- Resumen Final ---
+✓ Venta completada exitosamente
+Factura: FAC-1762803272720
+Comprobante: COMPROBANTE-1762803272720
+Puntos ganados: 105
+Puntos totales del cliente: 150
+]]></system-out>
+  </testcase>
+  <testcase name="testEscenarioCompraGrandeConReportes" classname="e2e.Facade.FacadeE2ETest" time="0.008">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: COMPRA GRANDE CON REPORTES ===
+
+Cliente corporativo selecciona equipos:
+
+Resumen de compra:
+- 10 Laptops Dell XPS
+- 10 Monitores 27'
+- 10 Teclados Mecánicos
+- 10 Mouse Inalámbricos
+- 10 Webcams HD
+
+Subtotal: $22000.0
+Impuestos: $4180.0
+Total: $26180.0
+
+=== INICIANDO PROCESO DE VENTA ===
+
+PASO 1: Validando stock...
+Validando stock para producto: P001
+Reservando 10 unidades del producto: P001
+Validando stock para producto: P002
+Reservando 10 unidades del producto: P002
+Validando stock para producto: P003
+Reservando 10 unidades del producto: P003
+Validando stock para producto: P004
+Reservando 10 unidades del producto: P004
+Validando stock para producto: P005
+Reservando 10 unidades del producto: P005
+✓ Stock validado y reservado
+
+PASO 2: Procesando pago...
+Procesando pago de $26180.0 con método: TRANSFERENCIA
+✓ Pago procesado exitosamente
+
+PASO 3: Generando factura...
+Generando factura para cliente: Empresa ABC S.A.
+Generando PDF de factura: FAC-1762803272730
+✓ Factura generada: FAC-1762803272730
+
+PASO 4: Actualizando inventario...
+Descontando 10 unidades del inventario: P001
+Registrando movimiento: VENTA - Producto: P001 - Cantidad: 10
+Verificando stock mínimo para: P001
+Descontando 10 unidades del inventario: P002
+Registrando movimiento: VENTA - Producto: P002 - Cantidad: 10
+Verificando stock mínimo para: P002
+Descontando 10 unidades del inventario: P003
+Registrando movimiento: VENTA - Producto: P003 - Cantidad: 10
+Verificando stock mínimo para: P003
+Descontando 10 unidades del inventario: P004
+Registrando movimiento: VENTA - Producto: P004 - Cantidad: 10
+Verificando stock mínimo para: P004
+Descontando 10 unidades del inventario: P005
+Registrando movimiento: VENTA - Producto: P005 - Cantidad: 10
+Verificando stock mínimo para: P005
+✓ Inventario actualizado
+
+PASO 5: Procesando programa de fidelización...
+Acreditando 2618 puntos al cliente: CORP001
+✓ 2618 puntos acreditados
+
+PASO 6: Enviando notificaciones...
+Enviando email a compras@abc.com - Asunto: Confirmación de compra
+Enviando factura FAC-1762803272730 a: compras@abc.com
+Notificando venta al cliente CORP001 - Factura: FAC-1762803272730
+✓ Notificaciones enviadas
+
+PASO 7: Generando reportes...
+Registrando venta en reportes: FAC-1762803272730 - Monto: $26180.0
+Actualizando estadísticas de sucursal: SUCURSAL-001
+✓ Reportes actualizados
+
+=== VENTA COMPLETADA EXITOSAMENTE ===
+
+
+Generando reportes...
+Reporte generado: REPORTE-VENTAS-1762803272731
+
+--- Detalles Finales ---
+Factura: FAC-1762803272730
+Monto total: $26180.0
+Puntos corporativos ganados: 2618
+]]></system-out>
+  </testcase>
+  <testcase name="testEscenarioClienteFrecuenteConPuntos" classname="e2e.Facade.FacadeE2ETest" time="0.013">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: CLIENTE FRECUENTE ===
+
+Consultando puntos del cliente CLI003...
+Puntos actuales: 150
+
+--- Primera Compra ---
+
+=== INICIANDO PROCESO DE VENTA ===
+
+PASO 1: Validando stock...
+Validando stock para producto: P001
+Reservando 1 unidades del producto: P001
+✓ Stock validado y reservado
+
+PASO 2: Procesando pago...
+Procesando pago de $178.5 con método: EFECTIVO
+✓ Pago procesado exitosamente
+
+PASO 3: Generando factura...
+Generando factura para cliente: Luis Fernández
+Generando PDF de factura: FAC-1762803272738
+✓ Factura generada: FAC-1762803272738
+
+PASO 4: Actualizando inventario...
+Descontando 1 unidades del inventario: P001
+Registrando movimiento: VENTA - Producto: P001 - Cantidad: 1
+Verificando stock mínimo para: P001
+✓ Inventario actualizado
+
+PASO 5: Procesando programa de fidelización...
+Acreditando 17 puntos al cliente: CLI003
+✓ 17 puntos acreditados
+
+PASO 6: Enviando notificaciones...
+Enviando email a luis@example.com - Asunto: Confirmación de compra
+Enviando factura FAC-1762803272738 a: luis@example.com
+Notificando venta al cliente CLI003 - Factura: FAC-1762803272738
+✓ Notificaciones enviadas
+
+PASO 7: Generando reportes...
+Registrando venta en reportes: FAC-1762803272738 - Monto: $178.5
+Actualizando estadísticas de sucursal: SUCURSAL-001
+✓ Reportes actualizados
+
+=== VENTA COMPLETADA EXITOSAMENTE ===
+
+Puntos ganados: 17
+
+--- Segunda Compra ---
+
+=== INICIANDO PROCESO DE VENTA ===
+
+PASO 1: Validando stock...
+Validando stock para producto: P002
+Reservando 1 unidades del producto: P002
+✓ Stock validado y reservado
+
+PASO 2: Procesando pago...
+Procesando pago de $238.0 con método: TARJETA
+✓ Pago procesado exitosamente
+
+PASO 3: Generando factura...
+Generando factura para cliente: Luis Fernández
+Generando PDF de factura: FAC-1762803272740
+✓ Factura generada: FAC-1762803272740
+
+PASO 4: Actualizando inventario...
+Descontando 1 unidades del inventario: P002
+Registrando movimiento: VENTA - Producto: P002 - Cantidad: 1
+Verificando stock mínimo para: P002
+✓ Inventario actualizado
+
+PASO 5: Procesando programa de fidelización...
+Acreditando 23 puntos al cliente: CLI003
+✓ 23 puntos acreditados
+
+PASO 6: Enviando notificaciones...
+Enviando email a luis@example.com - Asunto: Confirmación de compra
+Enviando factura FAC-1762803272740 a: luis@example.com
+Notificando venta al cliente CLI003 - Factura: FAC-1762803272740
+✓ Notificaciones enviadas
+
+PASO 7: Generando reportes...
+Registrando venta en reportes: FAC-1762803272740 - Monto: $238.0
+Actualizando estadísticas de sucursal: SUCURSAL-001
+✓ Reportes actualizados
+
+=== VENTA COMPLETADA EXITOSAMENTE ===
+
+Puntos ganados: 23
+
+--- Tercera Compra ---
+
+=== INICIANDO PROCESO DE VENTA ===
+
+PASO 1: Validando stock...
+Validando stock para producto: P003
+Reservando 1 unidades del producto: P003
+✓ Stock validado y reservado
+
+PASO 2: Procesando pago...
+Procesando pago de $95.2 con método: TARJETA
+✓ Pago procesado exitosamente
+
+PASO 3: Generando factura...
+Generando factura para cliente: Luis Fernández
+Generando PDF de factura: FAC-1762803272742
+✓ Factura generada: FAC-1762803272742
+
+PASO 4: Actualizando inventario...
+Descontando 1 unidades del inventario: P003
+Registrando movimiento: VENTA - Producto: P003 - Cantidad: 1
+Verificando stock mínimo para: P003
+✓ Inventario actualizado
+
+PASO 5: Procesando programa de fidelización...
+Acreditando 9 puntos al cliente: CLI003
+✓ 9 puntos acreditados
+
+PASO 6: Enviando notificaciones...
+Enviando email a luis@example.com - Asunto: Confirmación de compra
+Enviando factura FAC-1762803272742 a: luis@example.com
+Notificando venta al cliente CLI003 - Factura: FAC-1762803272742
+✓ Notificaciones enviadas
+
+PASO 7: Generando reportes...
+Registrando venta en reportes: FAC-1762803272742 - Monto: $95.2
+Actualizando estadísticas de sucursal: SUCURSAL-001
+✓ Reportes actualizados
+
+=== VENTA COMPLETADA EXITOSAMENTE ===
+
+Puntos ganados: 9
+
+--- Resumen de Puntos ---
+Total de puntos ganados en las 3 compras: 49
+]]></system-out>
+  </testcase>
+  <testcase name="testEscenarioVentaErrorPago" classname="e2e.Facade.FacadeE2ETest" time="0.012">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: ERROR EN PAGO ===
+
+Intentando procesar pago...
+
+=== INICIANDO PROCESO DE VENTA ===
+
+PASO 1: Validando stock...
+✓ Stock validado y reservado
+
+PASO 2: Procesando pago...
+Procesando pago de $0.0 con método: TARJETA
+Liberando stock reservado...
+✗ Venta fallida: Error al procesar el pago
+Stock liberado automáticamente
+]]></system-out>
+  </testcase>
+  <testcase name="testEscenarioCompletoConMVC" classname="e2e.Facade.FacadeE2ETest" time="0.035">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: FLUJO COMPLETO MVC ===
+
+Procesando venta a través del controlador MVC...
+
+=== INICIANDO PROCESO DE VENTA ===
+
+PASO 1: Validando stock...
+Validando stock para producto: P001
+Reservando 1 unidades del producto: P001
+Validando stock para producto: P002
+Reservando 1 unidades del producto: P002
+Validando stock para producto: P003
+Reservando 1 unidades del producto: P003
+✓ Stock validado y reservado
+
+PASO 2: Procesando pago...
+Procesando pago de $987.7 con método: TARJETA
+✓ Pago procesado exitosamente
+
+PASO 3: Generando factura...
+Generando factura para cliente: Sofía Ramírez
+Generando PDF de factura: FAC-1762803272792
+✓ Factura generada: FAC-1762803272792
+
+PASO 4: Actualizando inventario...
+Descontando 1 unidades del inventario: P001
+Registrando movimiento: VENTA - Producto: P001 - Cantidad: 1
+Verificando stock mínimo para: P001
+Descontando 1 unidades del inventario: P002
+Registrando movimiento: VENTA - Producto: P002 - Cantidad: 1
+Verificando stock mínimo para: P002
+Descontando 1 unidades del inventario: P003
+Registrando movimiento: VENTA - Producto: P003 - Cantidad: 1
+Verificando stock mínimo para: P003
+✓ Inventario actualizado
+
+PASO 5: Procesando programa de fidelización...
+Acreditando 98 puntos al cliente: CLI999
+✓ 98 puntos acreditados
+
+PASO 6: Enviando notificaciones...
+Enviando email a sofia@example.com - Asunto: Confirmación de compra
+Enviando factura FAC-1762803272792 a: sofia@example.com
+Notificando venta al cliente CLI999 - Factura: FAC-1762803272792
+✓ Notificaciones enviadas
+
+PASO 7: Generando reportes...
+Registrando venta en reportes: FAC-1762803272792 - Monto: $987.7
+Actualizando estadísticas de sucursal: SUCURSAL-001
+✓ Reportes actualizados
+
+=== VENTA COMPLETADA EXITOSAMENTE ===
+
+
+══════════════════════════════════════════════════
+RESULTADO DE LA VENTA
+══════════════════════════════════════════════════
+Estado: ✓ EXITOSA
+Número de Factura: FAC-1762803272792
+Comprobante de Pago: COMPROBANTE-1762803272792
+Puntos Ganados: 98
+Venta procesada exitosamente
+══════════════════════════════════════════════════
+
+Consultando puntos del cliente...
+
+══════════════════════════════════════════════════
+Cliente CLI999 tiene 150 puntos acumulados
+══════════════════════════════════════════════════
+
+Generando reporte...
+
+══════════════════════════════════════════════════
+Reporte generado: REPORTE-VENTAS-1762803272802
+══════════════════════════════════════════════════
+
+✓ Flujo MVC completado exitosamente
+]]></system-out>
+  </testcase>
+</testsuite>

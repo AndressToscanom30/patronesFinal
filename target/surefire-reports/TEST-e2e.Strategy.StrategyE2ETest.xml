@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="e2e.Strategy.StrategyE2ETest" time="0.431" tests="7" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="America/Bogota"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CO"/>
+    <property name="sun.boot.library.path" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin"/>
+    <property name="sun.java.command" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351 2025-11-10T14-34-15_175-jvmRun1 surefire-20251110143415723_1tmp surefire_0-20251110143415723_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\tosca"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.8+9-LTS"/>
+    <property name="user.name" value="tosca"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.8+9"/>
+    <property name="localRepository" value="C:\Users\tosca\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\tosca\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\gradle\latest\bin;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\maven\latest\bin;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin;&quot;C:\Program Files\Java\jdk1.8.0_202&quot;\bin;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\xampp\php;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_202;C:\Users\tosca\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tosca\.dotnet\tools;C:\Users\tosca\AppData\Local\Programs\Python\Python313;C:\Users\tosca\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\tosca\AppData\Local\Programs\Windsurf\bin;c:\Users\tosca\.vscode\extensions\vscjava.vscode-java-debug-0.58.3\bundled\scripts\noConfigScripts;c:\Users\tosca\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.9+10-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testFlujoCompletoCompra" classname="e2e.Strategy.StrategyE2ETest" time="0.119">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: FLUJO COMPLETO DE COMPRA ===
+
+PASO 1: Cliente selecciona productos
+- Producto A: $200
+- Producto B: $150
+- Producto C: $50
+
+Subtotal: $400,00
+
+--------------------------------------------------
+PASO 2: Descuentos disponibles
+--------------------------------------------------
+A) Cupón 15% de descuento
+B) Promoción 2x1 (50% desc)
+C) Compra 3 y paga 2 (33% desc)
+
+PASO 3: Cliente analiza opciones...
+Opción A (15%): $340,00
+Opción B (2x1): $200,00
+Opción C (3x2): $268,00
+
+PASO 4: Cliente selecciona promoción 2x1
+Estrategia de descuento aplicada
+
+══════════════════════════════════════════════════
+PASO 5: RESUMEN DE COMPRA
+══════════════════════════════════════════════════
+Subtotal: $400,00
+Descuento aplicado: -$200,00
+TOTAL A PAGAR: $200,00
+══════════════════════════════════════════════════
+
+✓ Compra finalizada con éxito
+✓ Cliente ahorró $200 usando la mejor estrategia
+]]></system-out>
+  </testcase>
+  <testcase name="testBlackFriday" classname="e2e.Strategy.StrategyE2ETest" time="0.043">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: BLACK FRIDAY ===
+
+EVENTO: Black Friday - Mega Descuentos
+
+Total de compra: $2000,00
+
+Aplicando descuento Black Friday: 50% OFF
+Estrategia de descuento aplicada
+
+══════════════════════════════════════════════════
+Total original: $2000,00
+BLACK FRIDAY 50% OFF: -$1000,00
+TOTAL A PAGAR: $1000,00
+══════════════════════════════════════════════════
+
+✓ ¡Aprovecha esta oferta increíble!
+]]></system-out>
+  </testcase>
+  <testcase name="testClienteComparaEstrategias" classname="e2e.Strategy.StrategyE2ETest" time="0.017">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: CLIENTE COMPARA ESTRATEGIAS ===
+
+Total de compra: $1000,00
+
+Cliente tiene varias opciones de descuento:
+
+1. Cupón 10% descuento: $900,00 (ahorro: $100,00)
+2. Cupón 15% descuento: $850,00 (ahorro: $150,00)
+3. Promoción 2x1: $500,00 (ahorro: $500,00)
+
+══════════════════════════════════════════════════
+MEJOR OPCIÓN: Promoción 2x1
+Total a pagar: $500,00
+══════════════════════════════════════════════════
+
+✓ Cliente eligió la mejor estrategia
+]]></system-out>
+  </testcase>
+  <testcase name="testCambioEstrategia" classname="e2e.Strategy.StrategyE2ETest" time="0.017">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: CAMBIO DE ESTRATEGIA ===
+
+Total de compra: $500,00
+
+1. Cliente aplica cupón del 10%
+Estrategia de descuento aplicada
+   Total con 10%: $450,00
+
+2. Cliente encuentra cupón del 20%
+Estrategia de descuento aplicada
+   Total con 20%: $400,00 (mejor opción!)
+
+3. Cliente ve promoción 2x1 en algunos productos
+Estrategia de descuento aplicada
+   Total con 2x1: $250,00 (¡MEJOR!)
+
+══════════════════════════════════════════════════
+ESTRATEGIA FINAL ELEGIDA: 2x1
+Total a pagar: $250,00
+Ahorro máximo: $250,00
+══════════════════════════════════════════════════
+
+✓ Cliente optimizó su ahorro cambiando estrategias
+]]></system-out>
+  </testcase>
+  <testcase name="testClienteVIP" classname="e2e.Strategy.StrategyE2ETest" time="0.042">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: CLIENTE VIP ===
+
+Cliente VIP realiza compra grande:
+- Smart TV 55': $1,500
+- Soundbar: $300
+- Soporte: $50
+
+Total de compra: $1850,00
+
+Descuento VIP: 25%
+Estrategia de descuento aplicada
+
+══════════════════════════════════════════════════
+Total original: $1850,00
+Descuento VIP (25%): -$462,50
+TOTAL A PAGAR: $1387,50
+══════════════════════════════════════════════════
+
+✓ Beneficio VIP aplicado exitosamente
+]]></system-out>
+  </testcase>
+  <testcase name="testPromocion2x1" classname="e2e.Strategy.StrategyE2ETest" time="0.036">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: PROMOCIÓN 2x1 ===
+
+Cliente compra 2 productos iguales:
+- 2x Shampoo ($10 c/u) = $20
+
+Promoción 2x1 aplicada: Paga 1, lleva 2
+Estrategia de descuento aplicada
+
+══════════════════════════════════════════════════
+Precio normal 2 productos: $20,00
+Con promoción 2x1: $10,00
+Ahorro: $10,00 (50%)
+══════════════════════════════════════════════════
+
+✓ Promoción aplicada exitosamente
+]]></system-out>
+  </testcase>
+  <testcase name="testCompraConDescuentoPorcentaje" classname="e2e.Strategy.StrategyE2ETest" time="0.018">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: COMPRA CON DESCUENTO PORCENTAJE ===
+
+Cliente agrega productos al carrito:
+- Laptop: $800
+- Mouse: $25
+- Teclado: $75
+
+Total de compra: $900,00
+
+Cliente aplica cupón de descuento del 15%
+Estrategia de descuento aplicada
+
+══════════════════════════════════════════════════
+Total original: $900,00
+Descuento (15%): -$135,00
+TOTAL A PAGAR: $765,00
+══════════════════════════════════════════════════
+
+✓ Compra completada exitosamente
+]]></system-out>
+  </testcase>
+</testsuite>

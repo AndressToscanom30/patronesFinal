@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AdapterControlador.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Estructurales.Adapter.controlador</a> &gt; <span class="el_source">AdapterControlador.java</span></div><h1>AdapterControlador.java</h1><pre class="source lang-java linenums">package Estructurales.Adapter.controlador;
+
+import Estructurales.Adapter.modelo.*;
+import java.util.*;
+
+public class AdapterControlador {
+    private SistemaInventarioInterno sistemaInterno;
+    private SistemaProveedorExterno sistemaExterno;
+    private InventarioAdapter adapter;
+
+<span class="fc" id="L11">    public AdapterControlador() {</span>
+<span class="fc" id="L12">        this.sistemaInterno = new SistemaInventarioInterno();</span>
+<span class="fc" id="L13">        this.sistemaExterno = new SistemaProveedorExterno();</span>
+<span class="fc" id="L14">        this.adapter = new InventarioAdapter(sistemaExterno);</span>
+<span class="fc" id="L15">    }</span>
+
+    public Producto buscarProductoInterno(String codigo) {
+<span class="fc" id="L18">        return sistemaInterno.buscarProducto(codigo);</span>
+    }
+
+    public Producto buscarProductoExterno(String codigo) {
+<span class="fc" id="L22">        return adapter.buscarProducto(codigo);</span>
+    }
+
+    public List&lt;Producto&gt; obtenerProductosInternos() {
+<span class="fc" id="L26">        return sistemaInterno.obtenerTodosLosProductos();</span>
+    }
+
+    public List&lt;Producto&gt; obtenerProductosExternos() {
+<span class="fc" id="L30">        return adapter.obtenerTodosLosProductos();</span>
+    }
+
+    public List&lt;Producto&gt; obtenerTodosLosProductos() {
+<span class="fc" id="L34">        List&lt;Producto&gt; todos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L35">        todos.addAll(sistemaInterno.obtenerTodosLosProductos());</span>
+<span class="fc" id="L36">        todos.addAll(adapter.obtenerTodosLosProductos());</span>
+<span class="fc" id="L37">        return todos;</span>
+    }
+
+    public boolean verificarDisponibilidadInterno(String codigo, int cantidad) {
+<span class="fc" id="L41">        return sistemaInterno.verificarDisponibilidad(codigo, cantidad);</span>
+    }
+
+    public boolean verificarDisponibilidadExterno(String codigo, int cantidad) {
+<span class="fc" id="L45">        return adapter.verificarDisponibilidad(codigo, cantidad);</span>
+    }
+
+    public boolean verificarDisponibilidadGeneral(String codigo, int cantidad) {
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (codigo.startsWith(&quot;EXT-&quot;)) {</span>
+<span class="fc" id="L50">            return verificarDisponibilidadExterno(codigo, cantidad);</span>
+        } else {
+<span class="fc" id="L52">            return verificarDisponibilidadInterno(codigo, cantidad);</span>
+        }
+    }
+
+    public boolean actualizarStockInterno(String codigo, int nuevoStock) {
+<span class="fc" id="L57">        return sistemaInterno.actualizarStock(codigo, nuevoStock);</span>
+    }
+
+    public boolean actualizarStockExterno(String codigo, int nuevoStock) {
+<span class="fc" id="L61">        return adapter.actualizarStock(codigo, nuevoStock);</span>
+    }
+
+    public List&lt;Producto&gt; buscarPorProveedor(String codigoProveedor) {
+<span class="fc" id="L65">        return adapter.buscarPorProveedor(codigoProveedor);</span>
+    }
+
+    public void agregarProductoInterno(Producto producto) {
+<span class="fc" id="L69">        sistemaInterno.agregarProducto(producto);</span>
+<span class="fc" id="L70">    }</span>
+
+    public void agregarProductoExterno(Producto producto) {
+<span class="fc" id="L73">        adapter.agregarProducto(producto);</span>
+<span class="fc" id="L74">    }</span>
+
+    public Map&lt;String, Integer&gt; obtenerEstadisticasInventario() {
+<span class="fc" id="L77">        Map&lt;String, Integer&gt; stats = new HashMap&lt;&gt;();</span>
+        
+<span class="fc" id="L79">        int totalInterno = sistemaInterno.obtenerTodosLosProductos().size();</span>
+<span class="fc" id="L80">        int totalExterno = adapter.obtenerTodosLosProductos().size();</span>
+        
+<span class="fc" id="L82">        stats.put(&quot;INTERNOS&quot;, totalInterno);</span>
+<span class="fc" id="L83">        stats.put(&quot;EXTERNOS&quot;, totalExterno);</span>
+<span class="fc" id="L84">        stats.put(&quot;TOTAL&quot;, totalInterno + totalExterno);</span>
+        
+<span class="fc" id="L86">        return stats;</span>
+    }
+
+    public SistemaInventarioInterno getSistemaInterno() {
+<span class="fc" id="L90">        return sistemaInterno;</span>
+    }
+
+    public InventarioAdapter getAdapter() {
+<span class="fc" id="L94">        return adapter;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

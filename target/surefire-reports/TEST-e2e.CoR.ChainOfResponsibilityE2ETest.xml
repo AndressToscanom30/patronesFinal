@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="e2e.CoR.ChainOfResponsibilityE2ETest" time="3.752" tests="7" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="America/Bogota"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CO"/>
+    <property name="sun.boot.library.path" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin"/>
+    <property name="sun.java.command" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351 2025-11-10T14-34-15_175-jvmRun1 surefire-20251110143415723_1tmp surefire_0-20251110143415723_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\tosca"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.8+9-LTS"/>
+    <property name="user.name" value="tosca"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.8+9"/>
+    <property name="localRepository" value="C:\Users\tosca\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\tosca\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\gradle\latest\bin;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\maven\latest\bin;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin;&quot;C:\Program Files\Java\jdk1.8.0_202&quot;\bin;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\xampp\php;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_202;C:\Users\tosca\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tosca\.dotnet\tools;C:\Users\tosca\AppData\Local\Programs\Python\Python313;C:\Users\tosca\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\tosca\AppData\Local\Programs\Windsurf\bin;c:\Users\tosca\.vscode\extensions\vscjava.vscode-java-debug-0.58.3\bundled\scripts\noConfigScripts;c:\Users\tosca\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.9+10-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testClienteUsaCuponPrimeraCompra" classname="e2e.CoR.ChainOfResponsibilityE2ETest" time="0.042">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: CUPÓN PRIMERA COMPRA ===
+
+Cliente nuevo recibe cupón: PRIMERACOMPRA (20% descuento)
+Realiza compra por $120,000
+Aplica el cupón en el checkout
+
+Procesando solicitud de descuento...
+
+═══ PROCESANDO SOLICITUD DE DESCUENTO ═══
+Cliente: CLI-NUEVO-002
+Monto: $120000,00
+Cantidad: 6
+
+Iniciando evaluación en la cadena...
+
+→ Verificando cupón de descuento...
+  ✓ Cupón 'PRIMERACOMPRA' aplicado: 20% de descuento
+
+═══ RESULTADO ═══
+✓ Cupón 'PRIMERACOMPRA' aplicado: 20% de descuento
+Descuento: $24000,00
+
+══════════════════════════════════════════════════
+RESULTADO DEL CHECKOUT
+══════════════════════════════════════════════════
+Subtotal: $120,000
+Descuento (20%): -$24000,00
+TOTAL A PAGAR: $96000,00
+══════════════════════════════════════════════════
+
+✓ Cliente ahorró $24,000 con el cupón
+]]></system-out>
+  </testcase>
+  <testcase name="testDiaCompletoVentas" classname="e2e.CoR.ChainOfResponsibilityE2ETest" time="2.067">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: DÍA COMPLETO DE VENTAS ===
+
+Supermercado 'El Ahorro' - Resumen del día
+
+9:00 AM - Venta #1: Cliente nuevo
+
+═══ PROCESANDO SOLICITUD DE DESCUENTO ═══
+Cliente: CLI-001
+Monto: $45000,00
+Cantidad: 4
+
+Iniciando evaluación en la cadena...
+
+→ Verificando cupón de descuento...
+  ✗ No se proporcionó cupón
+→ Verificando descuento por cliente frecuente...
+  ✗ No califica (compras mínimas: 5)
+→ Verificando descuento por monto...
+  ✗ No califica (monto mínimo: $100000)
+→ Verificando descuento por cantidad...
+  ✗ No califica (cantidad mínima: 10)
+
+═══ RESULTADO ═══
+✗ No hay más manejadores en la cadena
+Total: $45,000 (sin descuento)
+
+10:30 AM - Venta #2: Cliente con cupón
+
+═══ PROCESANDO SOLICITUD DE DESCUENTO ═══
+Cliente: CLI-002
+Monto: $120000,00
+Cantidad: 5
+
+Iniciando evaluación en la cadena...
+
+→ Verificando cupón de descuento...
+  ✓ Cupón 'VERANO2024' aplicado: 15% de descuento
+
+═══ RESULTADO ═══
+✓ Cupón 'VERANO2024' aplicado: 15% de descuento
+Descuento: $18000,00
+Total: $120,000 - Descuento: $18000,00
+
+12:00 PM - Venta #3: Cliente frecuente
+
+═══ PROCESANDO SOLICITUD DE DESCUENTO ═══
+Cliente: CLI-003
+Monto: $95000,00
+Cantidad: 6
+
+Iniciando evaluación en la cadena...
+
+→ Verificando cupón de descuento...
+  ✗ No se proporcionó cupón
+→ Verificando descuento por cliente frecuente...
+  ✓ Descuento cliente frecuente aplicado: 15% (8 compras)
+
+═══ RESULTADO ═══
+✓ Descuento cliente frecuente: 15% por tener 8 compras
+Descuento: $14250,00
+Total: $95,000 - Descuento: $14250,00
+
+2:00 PM - Venta #4: Compra grande
+
+═══ PROCESANDO SOLICITUD DE DESCUENTO ═══
+Cliente: CLI-004
+Monto: $250000,00
+Cantidad: 8
+
+Iniciando evaluación en la cadena...
+
+→ Verificando cupón de descuento...
+  ✗ No se proporcionó cupón
+→ Verificando descuento por cliente frecuente...
+  ✗ No califica (compras mínimas: 5)
+→ Verificando descuento por monto...
+  ✓ Descuento por monto aplicado: 10% (compra >= $100000)
+
+═══ RESULTADO ═══
+✓ Descuento por monto: 10% por compras sobre $100000
+Descuento: $25000,00
+Total: $250,000 - Descuento: $25000,00
+
+4:00 PM - Venta #5: Cliente mayorista
+
+═══ PROCESANDO SOLICITUD DE DESCUENTO ═══
+Cliente: CLI-005
+Monto: $500000,00
+Cantidad: 35
+
+Iniciando evaluación en la cadena...
+
+→ Verificando cupón de descuento...
+  ✗ No se proporcionó cupón
+→ Verificando descuento por cliente frecuente...
+  ✗ No califica (compras mínimas: 5)
+→ Verificando descuento por monto...
+  ✓ Descuento por monto aplicado: 10% (compra >= $100000)
+
+═══ RESULTADO ═══
+✓ Descuento por monto: 10% por compras sobre $100000
+Descuento: $50000,00
+Total: $500,000 - Descuento: $50000,00
+
+══════════════════════════════════════════════════
+RESUMEN DEL DÍA
+══════════════════════════════════════════════════
+Total de ventas: 5
+Ventas con descuento: 4
+Ventas sin descuento: 1
+Total bruto: $1010000,00
+Total descuentos: $107250,00
+Total neto: $902750,00
+Tasa de descuento promedio: 10,62%
+══════════════════════════════════════════════════
+
+✓ Sistema procesó todas las ventas correctamente
+]]></system-out>
+  </testcase>
+  <testcase name="testClienteNuevoPrimeraCompra" classname="e2e.CoR.ChainOfResponsibilityE2ETest" time="0.005">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: CLIENTE NUEVO - PRIMERA COMPRA ===
+
+Cliente nuevo visita el supermercado por primera vez
+Selecciona productos por un valor de $85,000
+Cantidad: 8 productos
+
+Procesando solicitud de descuento...
+
+═══ PROCESANDO SOLICITUD DE DESCUENTO ═══
+Cliente: CLI-NUEVO-001
+Monto: $85000,00
+Cantidad: 8
+
+Iniciando evaluación en la cadena...
+
+→ Verificando cupón de descuento...
+  ✗ No se proporcionó cupón
+→ Verificando descuento por cliente frecuente...
+  ✗ No califica (compras mínimas: 5)
+→ Verificando descuento por monto...
+  ✗ No califica (monto mínimo: $100000)
+→ Verificando descuento por cantidad...
+  ✗ No califica (cantidad mínima: 10)
+
+═══ RESULTADO ═══
+✗ No hay más manejadores en la cadena
+
+══════════════════════════════════════════════════
+Resultado: SIN DESCUENTO
+Total a pagar: $85,000
+══════════════════════════════════════════════════
+
+✓ Cliente puede continuar con la compra sin descuento
+]]></system-out>
+  </testcase>
+  <testcase name="testClienteFrecuenteSinCupon" classname="e2e.CoR.ChainOfResponsibilityE2ETest" time="0.016">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: CLIENTE FRECUENTE ===
+
+Cliente María González
+- Número de compras previas: 12
+- Estado: Cliente Frecuente VIP
+
+Realiza nueva compra por $95,000
+No tiene cupón activo
+
+Sistema verifica beneficios del cliente...
+
+═══ PROCESANDO SOLICITUD DE DESCUENTO ═══
+Cliente: CLI-MARIA-001
+Monto: $95000,00
+Cantidad: 7
+
+Iniciando evaluación en la cadena...
+
+→ Verificando cupón de descuento...
+  ✗ No se proporcionó cupón
+→ Verificando descuento por cliente frecuente...
+  ✓ Descuento cliente frecuente aplicado: 15% (12 compras)
+
+═══ RESULTADO ═══
+✓ Descuento cliente frecuente: 15% por tener 12 compras
+Descuento: $14250,00
+
+══════════════════════════════════════════════════
+BENEFICIO CLIENTE FRECUENTE APLICADO
+══════════════════════════════════════════════════
+Subtotal: $95,000
+Descuento VIP (15%): -$14250,00
+TOTAL A PAGAR: $80750,00
+
+¡Gracias por su preferencia!
+══════════════════════════════════════════════════
+
+✓ Cliente frecuente recibió su beneficio automáticamente
+]]></system-out>
+  </testcase>
+  <testcase name="testBlackFriday" classname="e2e.CoR.ChainOfResponsibilityE2ETest" time="0.021">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: BLACK FRIDAY ===
+
+╔════════════════════════════════════════════╗
+║        BLACK FRIDAY - 50% DESCUENTO        ║
+║    Usa el cupón: BLACKFRIDAY               ║
+╚════════════════════════════════════════════╝
+
+Cliente Juan Pérez aprovecha la promoción
+Carrito de compras:
+- Smart TV 55": $1,800,000
+- Soundbar: $400,000
+- Cable HDMI: $50,000
+
+Total del carrito: $2250000
+
+Cliente aplica cupón BLACKFRIDAY...
+
+═══ PROCESANDO SOLICITUD DE DESCUENTO ═══
+Cliente: CLI-JUAN-001
+Monto: $2250000,00
+Cantidad: 3
+
+Iniciando evaluación en la cadena...
+
+→ Verificando cupón de descuento...
+  ✓ Cupón 'BLACKFRIDAY' aplicado: 50% de descuento
+
+═══ RESULTADO ═══
+✓ Cupón 'BLACKFRIDAY' aplicado: 50% de descuento
+Descuento: $1125000,00
+
+══════════════════════════════════════════════════
+BLACK FRIDAY - DESCUENTO APLICADO
+══════════════════════════════════════════════════
+Subtotal: $2250000
+BLACK FRIDAY (50%): -$1125000
+TOTAL A PAGAR: $1125000
+AHORRASTE: $1125000
+══════════════════════════════════════════════════
+
+✓ Cliente aprovechó el máximo descuento posible
+]]></system-out>
+  </testcase>
+  <testcase name="testCompraAlPorMayor" classname="e2e.CoR.ChainOfResponsibilityE2ETest" time="0.021">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: COMPRA AL POR MAYOR ===
+
+Tienda 'Minimarket El Ahorro' realiza pedido mayorista
+Productos solicitados: 50 unidades de diferentes artículos
+Valor total del pedido: $850,000
+
+Sistema evalúa descuentos aplicables...
+
+═══ PROCESANDO SOLICITUD DE DESCUENTO ═══
+Cliente: CLI-MAYORISTA-001
+Monto: $850000,00
+Cantidad: 50
+
+Iniciando evaluación en la cadena...
+
+→ Verificando cupón de descuento...
+  ✗ No se proporcionó cupón
+→ Verificando descuento por cliente frecuente...
+  ✗ No califica (compras mínimas: 5)
+→ Verificando descuento por monto...
+  ✓ Descuento por monto aplicado: 10% (compra >= $100000)
+
+═══ RESULTADO ═══
+✓ Descuento por monto: 10% por compras sobre $100000
+Descuento: $85000,00
+
+══════════════════════════════════════════════════
+DESCUENTO POR CANTIDAD APLICADO
+══════════════════════════════════════════════════
+Subtotal: $850,000
+Descuento por cantidad (5%): -$85000,00
+TOTAL A PAGAR: $765000,00
+
+Beneficio por compra de 50+ unidades
+══════════════════════════════════════════════════
+
+✓ Descuento por volumen aplicado correctamente
+]]></system-out>
+  </testcase>
+  <testcase name="testClienteIndecisoVariosEscenarios" classname="e2e.CoR.ChainOfResponsibilityE2ETest" time="1.545">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: CLIENTE INDECISO ===
+
+Cliente Ana Martínez está comparando opciones de compra
+
+──────────────────────────────────────────────────
+OPCIÓN 1: Compra sin beneficios
+──────────────────────────────────────────────────
+
+═══ PROCESANDO SOLICITUD DE DESCUENTO ═══
+Cliente: CLI-ANA-001
+Monto: $180000,00
+Cantidad: 6
+
+Iniciando evaluación en la cadena...
+
+→ Verificando cupón de descuento...
+  ✗ No se proporcionó cupón
+→ Verificando descuento por cliente frecuente...
+  ✗ No califica (compras mínimas: 5)
+→ Verificando descuento por monto...
+  ✓ Descuento por monto aplicado: 10% (compra >= $100000)
+
+═══ RESULTADO ═══
+✓ Descuento por monto: 10% por compras sobre $100000
+Descuento: $18000,00
+Total a pagar: $162000,00
+
+──────────────────────────────────────────────────
+OPCIÓN 2: Usando cupón BIENVENIDO (10%)
+──────────────────────────────────────────────────
+
+═══ PROCESANDO SOLICITUD DE DESCUENTO ═══
+Cliente: CLI-ANA-001
+Monto: $180000,00
+Cantidad: 6
+
+Iniciando evaluación en la cadena...
+
+→ Verificando cupón de descuento...
+  ✓ Cupón 'BIENVENIDO' aplicado: 10% de descuento
+
+═══ RESULTADO ═══
+✓ Cupón 'BIENVENIDO' aplicado: 10% de descuento
+Descuento: $18000,00
+Total a pagar: $162000,00
+Ahorro: $18000,00
+
+──────────────────────────────────────────────────
+OPCIÓN 3: Usando cupón VERANO2024 (15%)
+──────────────────────────────────────────────────
+
+═══ PROCESANDO SOLICITUD DE DESCUENTO ═══
+Cliente: CLI-ANA-001
+Monto: $180000,00
+Cantidad: 6
+
+Iniciando evaluación en la cadena...
+
+→ Verificando cupón de descuento...
+  ✓ Cupón 'VERANO2024' aplicado: 15% de descuento
+
+═══ RESULTADO ═══
+✓ Cupón 'VERANO2024' aplicado: 15% de descuento
+Descuento: $27000,00
+Total a pagar: $153000,00
+Ahorro: $27000,00
+
+──────────────────────────────────────────────────
+OPCIÓN 4: Comprando 15 unidades (desc. cantidad)
+──────────────────────────────────────────────────
+
+═══ PROCESANDO SOLICITUD DE DESCUENTO ═══
+Cliente: CLI-ANA-001
+Monto: $180000,00
+Cantidad: 15
+
+Iniciando evaluación en la cadena...
+
+→ Verificando cupón de descuento...
+  ✗ No se proporcionó cupón
+→ Verificando descuento por cliente frecuente...
+  ✗ No califica (compras mínimas: 5)
+→ Verificando descuento por monto...
+  ✓ Descuento por monto aplicado: 10% (compra >= $100000)
+
+═══ RESULTADO ═══
+✓ Descuento por monto: 10% por compras sobre $100000
+Descuento: $18000,00
+Total a pagar: $162000,00
+Ahorro: $18000,00
+
+══════════════════════════════════════════════════
+COMPARACIÓN FINAL
+══════════════════════════════════════════════════
+Opción 1 (sin desc.): $162000,00
+Opción 2 (BIENVENIDO): $162000,00
+Opción 3 (VERANO2024): $153000,00 ← MEJOR OPCIÓN
+Opción 4 (cantidad): $162000,00
+══════════════════════════════════════════════════
+
+Cliente elige OPCIÓN 3: Cupón VERANO2024
+Ahorro total: $27000,00
+
+✓ Cliente tomó la mejor decisión financiera
+]]></system-out>
+  </testcase>
+</testsuite>

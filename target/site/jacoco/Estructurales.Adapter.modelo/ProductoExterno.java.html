@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductoExterno.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Estructurales.Adapter.modelo</a> &gt; <span class="el_source">ProductoExterno.java</span></div><h1>ProductoExterno.java</h1><pre class="source lang-java linenums">package Estructurales.Adapter.modelo;
+
+public class ProductoExterno {
+    private String productId;
+    private String productName;
+    private double unitPrice;
+    private String categoryCode;
+    private int availableQuantity;
+    private String supplierCode;
+
+<span class="fc" id="L11">    public ProductoExterno(String productId, String productName, double unitPrice, </span>
+                          String categoryCode, int availableQuantity, String supplierCode) {
+<span class="fc" id="L13">        this.productId = productId;</span>
+<span class="fc" id="L14">        this.productName = productName;</span>
+<span class="fc" id="L15">        this.unitPrice = unitPrice;</span>
+<span class="fc" id="L16">        this.categoryCode = categoryCode;</span>
+<span class="fc" id="L17">        this.availableQuantity = availableQuantity;</span>
+<span class="fc" id="L18">        this.supplierCode = supplierCode;</span>
+<span class="fc" id="L19">    }</span>
+
+<span class="fc" id="L21">    public String getProductId() { return productId; }</span>
+<span class="fc" id="L22">    public String getProductName() { return productName; }</span>
+<span class="fc" id="L23">    public double getUnitPrice() { return unitPrice; }</span>
+<span class="fc" id="L24">    public String getCategoryCode() { return categoryCode; }</span>
+<span class="fc" id="L25">    public int getAvailableQuantity() { return availableQuantity; }</span>
+<span class="fc" id="L26">    public String getSupplierCode() { return supplierCode; }</span>
+
+<span class="fc" id="L28">    public void setProductId(String productId) { this.productId = productId; }</span>
+<span class="fc" id="L29">    public void setProductName(String productName) { this.productName = productName; }</span>
+<span class="fc" id="L30">    public void setUnitPrice(double unitPrice) { this.unitPrice = unitPrice; }</span>
+<span class="fc" id="L31">    public void setCategoryCode(String categoryCode) { this.categoryCode = categoryCode; }</span>
+<span class="fc" id="L32">    public void setAvailableQuantity(int availableQuantity) { this.availableQuantity = availableQuantity; }</span>
+<span class="fc" id="L33">    public void setSupplierCode(String supplierCode) { this.supplierCode = supplierCode; }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L37">        return String.format(&quot;ProductoExterno[%s, %s, $%.2f, Qty: %d, Supplier: %s]&quot;, </span>
+<span class="nc" id="L38">            productId, productName, unitPrice, availableQuantity, supplierCode);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

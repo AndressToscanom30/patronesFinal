@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CatalogoController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Estructurales.Proxy.controlador</a> &gt; <span class="el_source">CatalogoController.java</span></div><h1>CatalogoController.java</h1><pre class="source lang-java linenums">package Estructurales.Proxy.controlador;
+
+import Estructurales.Proxy.modelo.ImagenProducto;
+import Estructurales.Proxy.modelo.ImagenProductoProxy;
+import Estructurales.Proxy.vista.ConsolaProxy;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CatalogoController {
+    private List&lt;ImagenProducto&gt; catalogo;
+    private ConsolaProxy vista;
+    
+<span class="fc" id="L14">    public CatalogoController(ConsolaProxy vista) {</span>
+<span class="fc" id="L15">        this.catalogo = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L16">        this.vista = vista;</span>
+<span class="fc" id="L17">    }</span>
+    
+    public void agregarProducto(String codigoProducto) {
+<span class="fc" id="L20">        ImagenProducto proxy = new ImagenProductoProxy(codigoProducto);</span>
+<span class="fc" id="L21">        catalogo.add(proxy);</span>
+<span class="fc" id="L22">        vista.mostrarMensaje(&quot;Producto agregado al catálogo: &quot; + codigoProducto);</span>
+<span class="fc" id="L23">    }</span>
+    
+    public void mostrarCatalogo() {
+<span class="fc" id="L26">        vista.mostrarMensaje(&quot;\n=== Mostrando catálogo ===&quot;);</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (ImagenProducto imagen : catalogo) {</span>
+<span class="fc" id="L28">            imagen.mostrar();</span>
+        }
+<span class="fc" id="L30">    }</span>
+    
+    public void cargarImagen(int indice) {
+<span class="pc bpc" id="L33" title="1 of 4 branches missed.">        if (indice &gt;= 0 &amp;&amp; indice &lt; catalogo.size()) {</span>
+<span class="fc" id="L34">            catalogo.get(indice).cargar();</span>
+<span class="fc" id="L35">        } else {</span>
+<span class="fc" id="L36">            vista.mostrarError(&quot;Índice inválido&quot;);</span>
+        }
+<span class="fc" id="L38">    }</span>
+    
+    public void mostrarImagen(int indice) {
+<span class="pc bpc" id="L41" title="1 of 4 branches missed.">        if (indice &gt;= 0 &amp;&amp; indice &lt; catalogo.size()) {</span>
+<span class="fc" id="L42">            catalogo.get(indice).mostrar();</span>
+<span class="fc" id="L43">        } else {</span>
+<span class="fc" id="L44">            vista.mostrarError(&quot;Índice inválido&quot;);</span>
+        }
+<span class="fc" id="L46">    }</span>
+    
+    public int getCantidadProductos() {
+<span class="fc" id="L49">        return catalogo.size();</span>
+    }
+    
+    public ImagenProducto getProducto(int indice) {
+<span class="pc bpc" id="L53" title="1 of 4 branches missed.">        if (indice &gt;= 0 &amp;&amp; indice &lt; catalogo.size()) {</span>
+<span class="fc" id="L54">            return catalogo.get(indice);</span>
+        }
+<span class="fc" id="L56">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

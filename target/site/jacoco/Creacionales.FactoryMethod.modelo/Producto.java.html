@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Producto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Creacionales.FactoryMethod.modelo</a> &gt; <span class="el_source">Producto.java</span></div><h1>Producto.java</h1><pre class="source lang-java linenums">package Creacionales.FactoryMethod.modelo;
+
+import java.time.LocalDate;
+import java.util.Objects;
+
+public abstract class Producto {
+    protected String codigo;
+    protected String nombre;
+    protected double precio;
+    protected String categoria;
+    protected LocalDate fechaCreacion;
+
+<span class="fc" id="L13">    protected Producto(String codigo, String nombre, double precio, String categoria) {</span>
+<span class="fc bfc" id="L14" title="All 4 branches covered.">        if (codigo == null || codigo.trim().isEmpty()) {</span>
+<span class="fc" id="L15">            throw new IllegalArgumentException(&quot;El código no puede ser nulo o vacío&quot;);</span>
+        }
+<span class="pc bpc" id="L17" title="1 of 4 branches missed.">        if (nombre == null || nombre.trim().isEmpty()) {</span>
+<span class="fc" id="L18">            throw new IllegalArgumentException(&quot;El nombre no puede ser nulo o vacío&quot;);</span>
+        }
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        if (precio &lt; 0) {</span>
+<span class="fc" id="L21">            throw new IllegalArgumentException(&quot;El precio no puede ser negativo&quot;);</span>
+        }
+
+<span class="fc" id="L24">        this.codigo = codigo;</span>
+<span class="fc" id="L25">        this.nombre = nombre;</span>
+<span class="fc" id="L26">        this.precio = precio;</span>
+<span class="fc" id="L27">        this.categoria = categoria;</span>
+<span class="fc" id="L28">        this.fechaCreacion = LocalDate.now();</span>
+<span class="fc" id="L29">    }</span>
+
+    public abstract double calcularPrecioFinal();
+
+    public abstract boolean requiereRefrigeracion();
+
+    public abstract String obtenerTipo();
+
+    public String getCodigo() {
+<span class="fc" id="L38">        return codigo;</span>
+    }
+
+    public String getNombre() {
+<span class="fc" id="L42">        return nombre;</span>
+    }
+
+    public double getPrecio() {
+<span class="fc" id="L46">        return precio;</span>
+    }
+
+    public String getCategoria() {
+<span class="nc" id="L50">        return categoria;</span>
+    }
+
+    public LocalDate getFechaCreacion() {
+<span class="fc" id="L54">        return fechaCreacion;</span>
+    }
+
+    public void setPrecio(double precio) {
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (precio &lt; 0) {</span>
+<span class="fc" id="L59">            throw new IllegalArgumentException(&quot;El precio no puede ser negativo&quot;);</span>
+        }
+<span class="fc" id="L61">        this.precio = precio;</span>
+<span class="fc" id="L62">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">        if (this == o) return true;</span>
+<span class="pc bpc" id="L67" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L68">        Producto producto = (Producto) o;</span>
+<span class="fc" id="L69">        return Objects.equals(codigo, producto.codigo);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L74">        return Objects.hash(codigo);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L79">        return String.format(&quot;%s[codigo=%s, nombre=%s, precio=%.2f]&quot;,</span>
+<span class="fc" id="L80">                getClass().getSimpleName(), codigo, nombre, precio);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

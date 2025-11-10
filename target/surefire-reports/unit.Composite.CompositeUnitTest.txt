@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: unit.Composite.CompositeUnitTest
+-------------------------------------------------------------------------------
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.274 s -- in unit.Composite.CompositeUnitTest

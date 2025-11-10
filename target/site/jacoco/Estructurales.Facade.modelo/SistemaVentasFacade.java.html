@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SistemaVentasFacade.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Estructurales.Facade.modelo</a> &gt; <span class="el_source">SistemaVentasFacade.java</span></div><h1>SistemaVentasFacade.java</h1><pre class="source lang-java linenums">package Estructurales.Facade.modelo;
+
+public class SistemaVentasFacade {
+    private ValidadorStock validadorStock;
+    private ProcesadorPagos procesadorPagos;
+    private GeneradorFacturas generadorFacturas;
+    private ActualizadorInventario actualizadorInventario;
+    private SistemaFidelizacion sistemaFidelizacion;
+    private ServicioNotificaciones servicioNotificaciones;
+    private GeneradorReportes generadorReportes;
+    
+<span class="fc" id="L12">    public SistemaVentasFacade() {</span>
+<span class="fc" id="L13">        this.validadorStock = new ValidadorStock();</span>
+<span class="fc" id="L14">        this.procesadorPagos = new ProcesadorPagos();</span>
+<span class="fc" id="L15">        this.generadorFacturas = new GeneradorFacturas();</span>
+<span class="fc" id="L16">        this.actualizadorInventario = new ActualizadorInventario();</span>
+<span class="fc" id="L17">        this.sistemaFidelizacion = new SistemaFidelizacion();</span>
+<span class="fc" id="L18">        this.servicioNotificaciones = new ServicioNotificaciones();</span>
+<span class="fc" id="L19">        this.generadorReportes = new GeneradorReportes();</span>
+<span class="fc" id="L20">    }</span>
+    
+    public ResultadoVenta procesarVenta(Venta venta) {
+<span class="fc" id="L23">        ResultadoVenta resultado = new ResultadoVenta();</span>
+        
+        try {
+<span class="fc" id="L26">            System.out.println(&quot;\n=== INICIANDO PROCESO DE VENTA ===\n&quot;);</span>
+            
+<span class="fc" id="L28">            System.out.println(&quot;PASO 1: Validando stock...&quot;);</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">            for (ItemVenta item : venta.getItems()) {</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">                if (!validadorStock.validarDisponibilidad(item.getCodigoProducto(), item.getCantidad())) {</span>
+<span class="fc" id="L31">                    resultado.setExitoso(false);</span>
+<span class="fc" id="L32">                    resultado.setMensaje(&quot;Stock insuficiente para: &quot; + item.getNombreProducto());</span>
+<span class="fc" id="L33">                    return resultado;</span>
+                }
+<span class="fc" id="L35">                validadorStock.reservarStock(item.getCodigoProducto(), item.getCantidad());</span>
+            }
+<span class="fc" id="L37">            System.out.println(&quot;✓ Stock validado y reservado\n&quot;);</span>
+            
+<span class="fc" id="L39">            System.out.println(&quot;PASO 2: Procesando pago...&quot;);</span>
+<span class="fc" id="L40">            boolean pagoExitoso = procesadorPagos.procesarPago(venta.getMetodoPago(), venta.getTotal());</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">            if (!pagoExitoso) {</span>
+<span class="fc" id="L42">                liberarStockReservado(venta);</span>
+<span class="fc" id="L43">                resultado.setExitoso(false);</span>
+<span class="fc" id="L44">                resultado.setMensaje(&quot;Error al procesar el pago&quot;);</span>
+<span class="fc" id="L45">                return resultado;</span>
+            }
+<span class="fc" id="L47">            String comprobante = procesadorPagos.generarComprobante(venta.getMetodoPago(), venta.getTotal());</span>
+<span class="fc" id="L48">            venta.setComprobantePago(comprobante);</span>
+<span class="fc" id="L49">            System.out.println(&quot;✓ Pago procesado exitosamente\n&quot;);</span>
+            
+<span class="fc" id="L51">            System.out.println(&quot;PASO 3: Generando factura...&quot;);</span>
+<span class="fc" id="L52">            String numeroFactura = generadorFacturas.generarFactura(</span>
+<span class="fc" id="L53">                venta.getClienteNombre(),</span>
+<span class="fc" id="L54">                venta.getSubtotal(),</span>
+<span class="fc" id="L55">                venta.getImpuestos()</span>
+            );
+<span class="fc" id="L57">            venta.setNumeroFactura(numeroFactura);</span>
+<span class="fc" id="L58">            generadorFacturas.generarPDF(numeroFactura);</span>
+<span class="fc" id="L59">            System.out.println(&quot;✓ Factura generada: &quot; + numeroFactura + &quot;\n&quot;);</span>
+            
+<span class="fc" id="L61">            System.out.println(&quot;PASO 4: Actualizando inventario...&quot;);</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">            for (ItemVenta item : venta.getItems()) {</span>
+<span class="fc" id="L63">                actualizadorInventario.descontarStock(item.getCodigoProducto(), item.getCantidad());</span>
+<span class="fc" id="L64">                actualizadorInventario.registrarMovimiento(</span>
+<span class="fc" id="L65">                    item.getCodigoProducto(),</span>
+<span class="fc" id="L66">                    item.getCantidad(),</span>
+<span class="fc" id="L67">                    &quot;VENTA&quot;</span>
+                );
+<span class="fc" id="L69">                actualizadorInventario.verificarStockMinimo(item.getCodigoProducto());</span>
+            }
+<span class="fc" id="L71">            System.out.println(&quot;✓ Inventario actualizado\n&quot;);</span>
+            
+<span class="fc" id="L73">            System.out.println(&quot;PASO 5: Procesando programa de fidelización...&quot;);</span>
+<span class="fc" id="L74">            int puntos = sistemaFidelizacion.calcularPuntos(venta.getTotal());</span>
+<span class="fc" id="L75">            sistemaFidelizacion.acreditarPuntos(venta.getClienteId(), puntos);</span>
+<span class="fc" id="L76">            System.out.println(&quot;✓ &quot; + puntos + &quot; puntos acreditados\n&quot;);</span>
+            
+<span class="fc" id="L78">            System.out.println(&quot;PASO 6: Enviando notificaciones...&quot;);</span>
+<span class="fc" id="L79">            servicioNotificaciones.enviarEmail(</span>
+<span class="fc" id="L80">                venta.getClienteEmail(),</span>
+<span class="fc" id="L81">                &quot;Confirmación de compra&quot;,</span>
+<span class="fc" id="L82">                &quot;Su compra ha sido procesada. Factura: &quot; + numeroFactura</span>
+            );
+<span class="fc" id="L84">            generadorFacturas.enviarFacturaElectronica(numeroFactura, venta.getClienteEmail());</span>
+<span class="fc" id="L85">            servicioNotificaciones.notificarVenta(venta.getClienteId(), numeroFactura);</span>
+<span class="fc" id="L86">            System.out.println(&quot;✓ Notificaciones enviadas\n&quot;);</span>
+            
+<span class="fc" id="L88">            System.out.println(&quot;PASO 7: Generando reportes...&quot;);</span>
+<span class="fc" id="L89">            generadorReportes.registrarVenta(numeroFactura, venta.getTotal(), venta.getFecha());</span>
+<span class="fc" id="L90">            generadorReportes.actualizarEstadisticas(&quot;SUCURSAL-001&quot;, venta.getTotal());</span>
+<span class="fc" id="L91">            System.out.println(&quot;✓ Reportes actualizados\n&quot;);</span>
+            
+<span class="fc" id="L93">            resultado.setExitoso(true);</span>
+<span class="fc" id="L94">            resultado.setMensaje(&quot;Venta procesada exitosamente&quot;);</span>
+<span class="fc" id="L95">            resultado.setNumeroFactura(numeroFactura);</span>
+<span class="fc" id="L96">            resultado.setComprobantePago(comprobante);</span>
+<span class="fc" id="L97">            resultado.setPuntosGanados(puntos);</span>
+            
+<span class="fc" id="L99">            System.out.println(&quot;=== VENTA COMPLETADA EXITOSAMENTE ===\n&quot;);</span>
+            
+<span class="pc" id="L101">        } catch (Exception e) {</span>
+<span class="nc" id="L102">            resultado.setExitoso(false);</span>
+<span class="nc" id="L103">            resultado.setMensaje(&quot;Error al procesar venta: &quot; + e.getMessage());</span>
+<span class="nc" id="L104">            liberarStockReservado(venta);</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">            if (venta.getComprobantePago() != null) {</span>
+<span class="nc" id="L106">                procesadorPagos.revertirPago(venta.getComprobantePago());</span>
+            }
+        }
+        
+<span class="fc" id="L110">        return resultado;</span>
+    }
+    
+    private void liberarStockReservado(Venta venta) {
+<span class="fc" id="L114">        System.out.println(&quot;Liberando stock reservado...&quot;);</span>
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">        for (ItemVenta item : venta.getItems()) {</span>
+<span class="nc" id="L116">            validadorStock.liberarStock(item.getCodigoProducto(), item.getCantidad());</span>
+        }
+<span class="fc" id="L118">    }</span>
+    
+    public int consultarPuntosCliente(String clienteId) {
+<span class="fc" id="L121">        return sistemaFidelizacion.consultarPuntos(clienteId);</span>
+    }
+    
+    public String generarReporteVentas(java.util.Date fechaInicio, java.util.Date fechaFin) {
+<span class="fc" id="L125">        return generadorReportes.generarReporteVentas(fechaInicio, fechaFin);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

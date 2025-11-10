@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GeneradorFacturas.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Estructurales.Facade.modelo</a> &gt; <span class="el_source">GeneradorFacturas.java</span></div><h1>GeneradorFacturas.java</h1><pre class="source lang-java linenums">package Estructurales.Facade.modelo;
+
+import java.util.Date;
+
+<span class="fc" id="L5">public class GeneradorFacturas {</span>
+    
+    public String generarFactura(String cliente, double subtotal, double impuestos) {
+<span class="fc" id="L8">        System.out.println(&quot;Generando factura para cliente: &quot; + cliente);</span>
+<span class="fc" id="L9">        String numeroFactura = &quot;FAC-&quot; + System.currentTimeMillis();</span>
+<span class="fc" id="L10">        return numeroFactura;</span>
+    }
+    
+    public void enviarFacturaElectronica(String numeroFactura, String email) {
+<span class="fc" id="L14">        System.out.println(&quot;Enviando factura &quot; + numeroFactura + &quot; a: &quot; + email);</span>
+<span class="fc" id="L15">    }</span>
+    
+    public byte[] generarPDF(String numeroFactura) {
+<span class="fc" id="L18">        System.out.println(&quot;Generando PDF de factura: &quot; + numeroFactura);</span>
+<span class="fc" id="L19">        return new byte[0];</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

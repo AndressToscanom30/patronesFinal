@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsolaPromocion.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Creacionales.Prototype.vista</a> &gt; <span class="el_source">ConsolaPromocion.java</span></div><h1>ConsolaPromocion.java</h1><pre class="source lang-java linenums">package Creacionales.Prototype.vista;
+
+import Creacionales.Prototype.controlador.PromocionControlador;
+import Creacionales.Prototype.modelo.*;
+import java.time.LocalDate;
+import java.util.Scanner;
+
+
+public class ConsolaPromocion {
+    private final PromocionControlador controlador;
+    private final Scanner scanner;
+
+<span class="nc" id="L13">    public ConsolaPromocion() {</span>
+<span class="nc" id="L14">        this.controlador = new PromocionControlador();</span>
+<span class="nc" id="L15">        this.scanner = new Scanner(System.in);</span>
+<span class="nc" id="L16">    }</span>
+
+    public void mostrarMenu() {
+<span class="nc" id="L19">        System.out.println(&quot;\n=== PROTOTYPE - Gestión de Promociones ===&quot;);</span>
+<span class="nc" id="L20">        System.out.println(&quot;1. Crear promoción desde prototipo&quot;);</span>
+<span class="nc" id="L21">        System.out.println(&quot;2. Clonar promoción existente&quot;);</span>
+<span class="nc" id="L22">        System.out.println(&quot;3. Listar promociones vigentes&quot;);</span>
+<span class="nc" id="L23">        System.out.println(&quot;4. Crear prototipo personalizado&quot;);</span>
+<span class="nc" id="L24">        System.out.println(&quot;5. Aplicar promoción (simular)&quot;);</span>
+<span class="nc" id="L25">        System.out.println(&quot;6. Salir&quot;);</span>
+<span class="nc" id="L26">        System.out.print(&quot;Opción: &quot;);</span>
+<span class="nc" id="L27">    }</span>
+
+    public void ejecutar() {
+<span class="nc" id="L30">        boolean continuar = true;</span>
+        
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        while (continuar) {</span>
+<span class="nc" id="L33">            mostrarMenu();</span>
+<span class="nc" id="L34">            int opcion = scanner.nextInt();</span>
+<span class="nc" id="L35">            scanner.nextLine();</span>
+            
+<span class="nc bnc" id="L37" title="All 7 branches missed.">            switch (opcion) {</span>
+<span class="nc" id="L38">                case 1 -&gt; crearDesdePrototipo();</span>
+<span class="nc" id="L39">                case 2 -&gt; clonarPromocion();</span>
+<span class="nc" id="L40">                case 3 -&gt; listarPromocionesVigentes();</span>
+<span class="nc" id="L41">                case 4 -&gt; crearPrototipoPersonalizado();</span>
+<span class="nc" id="L42">                case 5 -&gt; simularAplicacion();</span>
+<span class="nc" id="L43">                case 6 -&gt; continuar = false;</span>
+<span class="nc" id="L44">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
+            }
+        }
+        
+<span class="nc" id="L48">        System.out.println(&quot;¡Hasta luego!&quot;);</span>
+<span class="nc" id="L49">    }</span>
+
+    private void crearDesdePrototipo() {
+<span class="nc" id="L52">        System.out.println(&quot;\n--- Crear desde Prototipo ---&quot;);</span>
+<span class="nc" id="L53">        System.out.println(&quot;Prototipos disponibles:&quot;);</span>
+<span class="nc" id="L54">        System.out.println(&quot;1. BASE_PORCENTAJE&quot;);</span>
+<span class="nc" id="L55">        System.out.println(&quot;2. BASE_2X1&quot;);</span>
+<span class="nc" id="L56">        System.out.println(&quot;3. BASE_COMBO&quot;);</span>
+<span class="nc" id="L57">        System.out.print(&quot;Seleccione: &quot;);</span>
+        
+<span class="nc" id="L59">        int opcion = scanner.nextInt();</span>
+<span class="nc" id="L60">        scanner.nextLine();</span>
+        
+<span class="nc bnc" id="L62" title="All 4 branches missed.">        String clave = switch (opcion) {</span>
+<span class="nc" id="L63">            case 1 -&gt; &quot;BASE_PORCENTAJE&quot;;</span>
+<span class="nc" id="L64">            case 2 -&gt; &quot;BASE_2X1&quot;;</span>
+<span class="nc" id="L65">            case 3 -&gt; &quot;BASE_COMBO&quot;;</span>
+<span class="nc" id="L66">            default -&gt; null;</span>
+        };
+        
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        if (clave == null) {</span>
+<span class="nc" id="L70">            System.out.println(&quot;Opción inválida&quot;);</span>
+<span class="nc" id="L71">            return;</span>
+        }
+        
+<span class="nc" id="L74">        System.out.print(&quot;Nombre de la promoción: &quot;);</span>
+<span class="nc" id="L75">        String nombre = scanner.nextLine();</span>
+        
+<span class="nc" id="L77">        Promocion promocion = controlador.crearDesdePrototipo(clave, nombre);</span>
+        
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        if (promocion != null) {</span>
+<span class="nc" id="L80">            configurarPromocion(promocion);</span>
+<span class="nc" id="L81">            controlador.guardarPromocion(promocion);</span>
+<span class="nc" id="L82">            System.out.println(&quot;✓ Promoción creada: &quot; + promocion);</span>
+<span class="nc" id="L83">        } else {</span>
+<span class="nc" id="L84">            System.out.println(&quot;✗ Error al crear promoción&quot;);</span>
+        }
+<span class="nc" id="L86">    }</span>
+
+    private void configurarPromocion(Promocion promocion) {
+<span class="nc" id="L89">        System.out.print(&quot;Fecha inicio (yyyy-MM-dd) o ENTER para hoy: &quot;);</span>
+<span class="nc" id="L90">        String fechaInicioStr = scanner.nextLine();</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">        LocalDate fechaInicio = fechaInicioStr.isEmpty() ? </span>
+<span class="nc" id="L92">            LocalDate.now() : LocalDate.parse(fechaInicioStr);</span>
+        
+<span class="nc" id="L94">        System.out.print(&quot;Fecha fin (yyyy-MM-dd): &quot;);</span>
+<span class="nc" id="L95">        String fechaFinStr = scanner.nextLine();</span>
+<span class="nc" id="L96">        LocalDate fechaFin = LocalDate.parse(fechaFinStr);</span>
+        
+<span class="nc" id="L98">        promocion.setFechaInicio(fechaInicio);</span>
+<span class="nc" id="L99">        promocion.setFechaFin(fechaFin);</span>
+<span class="nc" id="L100">        promocion.setActiva(true);</span>
+        
+<span class="nc bnc" id="L102" title="All 2 branches missed.">        if (promocion instanceof PromocionPorcentaje pp) {</span>
+<span class="nc" id="L103">            System.out.print(&quot;Porcentaje de descuento: &quot;);</span>
+<span class="nc" id="L104">            double porcentaje = scanner.nextDouble();</span>
+<span class="nc" id="L105">            scanner.nextLine();</span>
+<span class="nc" id="L106">            pp.setPorcentajeDescuento(porcentaje);</span>
+            
+<span class="nc" id="L108">            System.out.print(&quot;Monto mínimo: &quot;);</span>
+<span class="nc" id="L109">            double montoMin = scanner.nextDouble();</span>
+<span class="nc" id="L110">            scanner.nextLine();</span>
+<span class="nc" id="L111">            pp.setMontoMinimo(montoMin);</span>
+        }
+<span class="nc" id="L113">    }</span>
+
+    private void clonarPromocion() {
+<span class="nc" id="L116">        System.out.println(&quot;\n--- Clonar Promoción ---&quot;);</span>
+<span class="nc" id="L117">        var promociones = controlador.obtenerTodasLasPromociones();</span>
+        
+<span class="nc bnc" id="L119" title="All 2 branches missed.">        if (promociones.isEmpty()) {</span>
+<span class="nc" id="L120">            System.out.println(&quot;No hay promociones para clonar&quot;);</span>
+<span class="nc" id="L121">            return;</span>
+        }
+        
+<span class="nc" id="L124">        System.out.println(&quot;Promociones disponibles:&quot;);</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        for (int i = 0; i &lt; promociones.size(); i++) {</span>
+<span class="nc" id="L126">            System.out.printf(&quot;%d. %s%n&quot;, i + 1, promociones.get(i));</span>
+        }
+        
+<span class="nc" id="L129">        System.out.print(&quot;Seleccione promoción a clonar: &quot;);</span>
+<span class="nc" id="L130">        int indice = scanner.nextInt() - 1;</span>
+<span class="nc" id="L131">        scanner.nextLine();</span>
+        
+<span class="nc bnc" id="L133" title="All 4 branches missed.">        if (indice &lt; 0 || indice &gt;= promociones.size()) {</span>
+<span class="nc" id="L134">            System.out.println(&quot;Índice inválido&quot;);</span>
+<span class="nc" id="L135">            return;</span>
+        }
+        
+<span class="nc" id="L138">        Promocion original = promociones.get(indice);</span>
+        
+<span class="nc" id="L140">        System.out.print(&quot;Nombre para la copia: &quot;);</span>
+<span class="nc" id="L141">        String nuevoNombre = scanner.nextLine();</span>
+        
+<span class="nc" id="L143">        Promocion clonada = controlador.clonarPromocion(original.getId(), nuevoNombre);</span>
+        
+<span class="nc bnc" id="L145" title="All 2 branches missed.">        if (clonada != null) {</span>
+<span class="nc" id="L146">            controlador.guardarPromocion(clonada);</span>
+<span class="nc" id="L147">            System.out.println(&quot;✓ Promoción clonada: &quot; + clonada);</span>
+<span class="nc" id="L148">        } else {</span>
+<span class="nc" id="L149">            System.out.println(&quot;✗ Error al clonar&quot;);</span>
+        }
+<span class="nc" id="L151">    }</span>
+
+    private void listarPromocionesVigentes() {
+<span class="nc" id="L154">        System.out.println(&quot;\n--- Promociones Vigentes ---&quot;);</span>
+<span class="nc" id="L155">        var vigentes = controlador.buscarPromocionesVigentes();</span>
+        
+<span class="nc bnc" id="L157" title="All 2 branches missed.">        if (vigentes.isEmpty()) {</span>
+<span class="nc" id="L158">            System.out.println(&quot;No hay promociones vigentes&quot;);</span>
+<span class="nc" id="L159">        } else {</span>
+<span class="nc" id="L160">            vigentes.forEach(p -&gt; {</span>
+<span class="nc" id="L161">                System.out.printf(&quot;- %s | Tipo: %s | Vigente hasta: %s%n&quot;,</span>
+<span class="nc" id="L162">                    p.getNombre(), p.obtenerTipo(), p.getFechaFin());</span>
+<span class="nc" id="L163">            });</span>
+        }
+<span class="nc" id="L165">    }</span>
+
+    private void crearPrototipoPersonalizado() {
+<span class="nc" id="L168">        System.out.println(&quot;\n--- Crear Prototipo Personalizado ---&quot;);</span>
+<span class="nc" id="L169">        System.out.print(&quot;Clave del prototipo: &quot;);</span>
+<span class="nc" id="L170">        String clave = scanner.nextLine();</span>
+        
+<span class="nc" id="L172">        System.out.print(&quot;Nombre: &quot;);</span>
+<span class="nc" id="L173">        String nombre = scanner.nextLine();</span>
+        
+<span class="nc" id="L175">        System.out.println(&quot;Tipo: 1.Porcentaje 2.2x1 3.Combo&quot;);</span>
+<span class="nc" id="L176">        int tipo = scanner.nextInt();</span>
+<span class="nc" id="L177">        scanner.nextLine();</span>
+        
+<span class="nc bnc" id="L179" title="All 4 branches missed.">        Promocion prototipo = switch (tipo) {</span>
+<span class="nc" id="L180">            case 1 -&gt; new PromocionPorcentaje(clave, nombre, &quot;Prototipo personalizado&quot;);</span>
+<span class="nc" id="L181">            case 2 -&gt; new PromocionDosXUno(clave, nombre, &quot;Prototipo personalizado&quot;);</span>
+<span class="nc" id="L182">            case 3 -&gt; new PromocionCombo(clave, nombre, &quot;Prototipo personalizado&quot;);</span>
+<span class="nc" id="L183">            default -&gt; null;</span>
+        };
+        
+<span class="nc bnc" id="L186" title="All 2 branches missed.">        if (prototipo != null) {</span>
+<span class="nc" id="L187">            controlador.registrarPrototipoPersonalizado(clave, prototipo);</span>
+<span class="nc" id="L188">            System.out.println(&quot;✓ Prototipo registrado: &quot; + clave);</span>
+        }
+<span class="nc" id="L190">    }</span>
+
+    private void simularAplicacion() {
+<span class="nc" id="L193">        System.out.println(&quot;\n--- Simular Aplicación de Promoción ---&quot;);</span>
+<span class="nc" id="L194">        var vigentes = controlador.buscarPromocionesVigentes();</span>
+        
+<span class="nc bnc" id="L196" title="All 2 branches missed.">        if (vigentes.isEmpty()) {</span>
+<span class="nc" id="L197">            System.out.println(&quot;No hay promociones vigentes&quot;);</span>
+<span class="nc" id="L198">            return;</span>
+        }
+        
+<span class="nc" id="L201">        System.out.println(&quot;Seleccione promoción:&quot;);</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">        for (int i = 0; i &lt; vigentes.size(); i++) {</span>
+<span class="nc" id="L203">            System.out.printf(&quot;%d. %s%n&quot;, i + 1, vigentes.get(i).getNombre());</span>
+        }
+        
+<span class="nc" id="L206">        int indice = scanner.nextInt() - 1;</span>
+<span class="nc" id="L207">        scanner.nextLine();</span>
+        
+<span class="nc bnc" id="L209" title="All 4 branches missed.">        if (indice &lt; 0 || indice &gt;= vigentes.size()) {</span>
+<span class="nc" id="L210">            System.out.println(&quot;Índice inválido&quot;);</span>
+<span class="nc" id="L211">            return;</span>
+        }
+        
+<span class="nc" id="L214">        Promocion promo = vigentes.get(indice);</span>
+        
+<span class="nc" id="L216">        System.out.print(&quot;Monto original: &quot;);</span>
+<span class="nc" id="L217">        double monto = scanner.nextDouble();</span>
+<span class="nc" id="L218">        scanner.nextLine();</span>
+        
+<span class="nc" id="L220">        double montoFinal = promo.aplicarDescuento(monto);</span>
+<span class="nc" id="L221">        double ahorro = monto - montoFinal;</span>
+        
+<span class="nc" id="L223">        System.out.printf(&quot;Monto original: $%.2f%n&quot;, monto);</span>
+<span class="nc" id="L224">        System.out.printf(&quot;Ahorro: $%.2f%n&quot;, ahorro);</span>
+<span class="nc" id="L225">        System.out.printf(&quot;Total a pagar: $%.2f%n&quot;, montoFinal);</span>
+<span class="nc" id="L226">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L229">        ConsolaPromocion vista = new ConsolaPromocion();</span>
+<span class="nc" id="L230">        vista.ejecutar();</span>
+<span class="nc" id="L231">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

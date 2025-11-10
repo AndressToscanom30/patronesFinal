@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsolaVenta.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Creacionales.AbstractFactory.vista</a> &gt; <span class="el_source">ConsolaVenta.java</span></div><h1>ConsolaVenta.java</h1><pre class="source lang-java linenums">package Creacionales.AbstractFactory.vista;
+
+import Creacionales.AbstractFactory.controlador.VentaControlador;
+import Creacionales.AbstractFactory.modelo.*;
+import java.util.Map;
+import java.util.Scanner;
+
+public class ConsolaVenta {
+    private final VentaControlador controlador;
+    private final Scanner scanner;
+
+<span class="nc" id="L12">    public ConsolaVenta() {</span>
+<span class="nc" id="L13">        this.controlador = new VentaControlador();</span>
+<span class="nc" id="L14">        this.scanner = new Scanner(System.in);</span>
+<span class="nc" id="L15">    }</span>
+
+    public void mostrarMenu() {
+<span class="nc" id="L18">        System.out.println(&quot;\n=== ABSTRACT FACTORY - Gestión de Ventas Multi-Canal ===&quot;);</span>
+<span class="nc" id="L19">        System.out.println(&quot;1. Crear venta POS (Punto de Venta)&quot;);</span>
+<span class="nc" id="L20">        System.out.println(&quot;2. Crear venta E-commerce (Online)&quot;);</span>
+<span class="nc" id="L21">        System.out.println(&quot;3. Crear venta B2B (Corporativa)&quot;);</span>
+<span class="nc" id="L22">        System.out.println(&quot;4. Consultar información de canal&quot;);</span>
+<span class="nc" id="L23">        System.out.println(&quot;5. Procesar devolución&quot;);</span>
+<span class="nc" id="L24">        System.out.println(&quot;6. Calcular envío&quot;);</span>
+<span class="nc" id="L25">        System.out.println(&quot;7. Ver estadísticas&quot;);</span>
+<span class="nc" id="L26">        System.out.println(&quot;8. Listar ventas&quot;);</span>
+<span class="nc" id="L27">        System.out.println(&quot;9. Salir&quot;);</span>
+<span class="nc" id="L28">        System.out.print(&quot;Opción: &quot;);</span>
+<span class="nc" id="L29">    }</span>
+
+    public void ejecutar() {
+<span class="nc" id="L32">        boolean continuar = true;</span>
+        
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        while (continuar) {</span>
+<span class="nc" id="L35">            mostrarMenu();</span>
+<span class="nc" id="L36">            int opcion = scanner.nextInt();</span>
+<span class="nc" id="L37">            scanner.nextLine();</span>
+            
+<span class="nc bnc" id="L39" title="All 10 branches missed.">            switch (opcion) {</span>
+<span class="nc" id="L40">                case 1 -&gt; crearVentaPOS();</span>
+<span class="nc" id="L41">                case 2 -&gt; crearVentaEcommerce();</span>
+<span class="nc" id="L42">                case 3 -&gt; crearVentaB2B();</span>
+<span class="nc" id="L43">                case 4 -&gt; consultarInfoCanal();</span>
+<span class="nc" id="L44">                case 5 -&gt; procesarDevolucion();</span>
+<span class="nc" id="L45">                case 6 -&gt; calcularEnvio();</span>
+<span class="nc" id="L46">                case 7 -&gt; verEstadisticas();</span>
+<span class="nc" id="L47">                case 8 -&gt; listarVentas();</span>
+<span class="nc" id="L48">                case 9 -&gt; continuar = false;</span>
+<span class="nc" id="L49">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
+            }
+        }
+        
+<span class="nc" id="L53">        System.out.println(&quot;¡Hasta luego!&quot;);</span>
+<span class="nc" id="L54">    }</span>
+
+    private void crearVentaPOS() {
+<span class="nc" id="L57">        System.out.println(&quot;\n--- Venta en Punto de Venta (POS) ---&quot;);</span>
+        
+<span class="nc" id="L59">        System.out.print(&quot;ID Cliente: &quot;);</span>
+<span class="nc" id="L60">        String clienteId = scanner.nextLine();</span>
+        
+<span class="nc" id="L62">        System.out.print(&quot;Nombre Cliente: &quot;);</span>
+<span class="nc" id="L63">        String clienteNombre = scanner.nextLine();</span>
+        
+<span class="nc" id="L65">        DatosVenta venta = controlador.crearVenta(&quot;POS&quot;, clienteId, clienteNombre);</span>
+        
+<span class="nc" id="L67">        System.out.println(&quot;Agregar productos (escriba 'fin' para terminar):&quot;);</span>
+<span class="nc" id="L68">        while (true) {</span>
+<span class="nc" id="L69">            System.out.print(&quot;Código producto (o 'fin'): &quot;);</span>
+<span class="nc" id="L70">            String codigo = scanner.nextLine();</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">            if (codigo.equalsIgnoreCase(&quot;fin&quot;)) break;</span>
+            
+<span class="nc" id="L73">            System.out.print(&quot;Nombre producto: &quot;);</span>
+<span class="nc" id="L74">            String nombre = scanner.nextLine();</span>
+            
+<span class="nc" id="L76">            System.out.print(&quot;Cantidad: &quot;);</span>
+<span class="nc" id="L77">            int cantidad = scanner.nextInt();</span>
+            
+<span class="nc" id="L79">            System.out.print(&quot;Precio unitario: &quot;);</span>
+<span class="nc" id="L80">            double precio = scanner.nextDouble();</span>
+<span class="nc" id="L81">            scanner.nextLine();</span>
+            
+<span class="nc" id="L83">            venta.agregarItem(new ItemVenta(codigo, nombre, cantidad, precio));</span>
+<span class="nc" id="L84">            System.out.println(&quot;✓ Producto agregado&quot;);</span>
+        }
+        
+<span class="nc" id="L87">        System.out.print(&quot;Método de pago: &quot;);</span>
+<span class="nc" id="L88">        venta.setMetodoPago(scanner.nextLine());</span>
+        
+<span class="nc" id="L90">        boolean exito = controlador.procesarVenta(&quot;POS&quot;, venta);</span>
+        
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        if (exito) {</span>
+<span class="nc" id="L93">            System.out.println(&quot;\n✓ Venta procesada exitosamente&quot;);</span>
+<span class="nc" id="L94">            System.out.println(&quot;Número de venta: &quot; + venta.getNumeroVenta());</span>
+<span class="nc" id="L95">            System.out.printf(&quot;Total: $%.2f%n&quot;, venta.getTotal());</span>
+<span class="nc" id="L96">            System.out.println(&quot;\nCaracterísticas POS:&quot;);</span>
+<span class="nc" id="L97">            System.out.println(&quot;- Validación de stock en tiempo real&quot;);</span>
+<span class="nc" id="L98">            System.out.println(&quot;- Sin costo de envío&quot;);</span>
+<span class="nc" id="L99">            System.out.println(&quot;- Devolución: 15 días&quot;);</span>
+<span class="nc" id="L100">        } else {</span>
+<span class="nc" id="L101">            System.out.println(&quot;✗ Error al procesar venta (stock insuficiente)&quot;);</span>
+        }
+<span class="nc" id="L103">    }</span>
+
+    private void crearVentaEcommerce() {
+<span class="nc" id="L106">        System.out.println(&quot;\n--- Venta E-commerce (Online) ---&quot;);</span>
+        
+<span class="nc" id="L108">        System.out.print(&quot;ID Cliente: &quot;);</span>
+<span class="nc" id="L109">        String clienteId = scanner.nextLine();</span>
+        
+<span class="nc" id="L111">        System.out.print(&quot;Nombre Cliente: &quot;);</span>
+<span class="nc" id="L112">        String clienteNombre = scanner.nextLine();</span>
+        
+<span class="nc" id="L114">        DatosVenta venta = controlador.crearVenta(&quot;ECOMMERCE&quot;, clienteId, clienteNombre);</span>
+        
+<span class="nc" id="L116">        System.out.println(&quot;Agregar productos (escriba 'fin' para terminar):&quot;);</span>
+<span class="nc" id="L117">        while (true) {</span>
+<span class="nc" id="L118">            System.out.print(&quot;Código producto (o 'fin'): &quot;);</span>
+<span class="nc" id="L119">            String codigo = scanner.nextLine();</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">            if (codigo.equalsIgnoreCase(&quot;fin&quot;)) break;</span>
+            
+<span class="nc" id="L122">            System.out.print(&quot;Nombre producto: &quot;);</span>
+<span class="nc" id="L123">            String nombre = scanner.nextLine();</span>
+            
+<span class="nc" id="L125">            System.out.print(&quot;Cantidad: &quot;);</span>
+<span class="nc" id="L126">            int cantidad = scanner.nextInt();</span>
+            
+<span class="nc" id="L128">            System.out.print(&quot;Precio unitario: &quot;);</span>
+<span class="nc" id="L129">            double precio = scanner.nextDouble();</span>
+<span class="nc" id="L130">            scanner.nextLine();</span>
+            
+<span class="nc" id="L132">            venta.agregarItem(new ItemVenta(codigo, nombre, cantidad, precio));</span>
+<span class="nc" id="L133">            System.out.println(&quot;✓ Producto agregado&quot;);</span>
+        }
+        
+<span class="nc" id="L136">        System.out.print(&quot;Dirección de envío: &quot;);</span>
+<span class="nc" id="L137">        venta.setDireccionEnvio(scanner.nextLine());</span>
+        
+<span class="nc" id="L139">        System.out.print(&quot;Método de pago: &quot;);</span>
+<span class="nc" id="L140">        venta.setMetodoPago(scanner.nextLine());</span>
+        
+        // Calcular envío
+<span class="nc" id="L143">        double costoEnvio = controlador.calcularEnvio(&quot;ECOMMERCE&quot;, venta.getDireccionEnvio(), 5.0);</span>
+        
+<span class="nc" id="L145">        boolean exito = controlador.procesarVenta(&quot;ECOMMERCE&quot;, venta);</span>
+        
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        if (exito) {</span>
+<span class="nc" id="L148">            System.out.println(&quot;\n✓ Venta procesada exitosamente&quot;);</span>
+<span class="nc" id="L149">            System.out.println(&quot;Número de venta: &quot; + venta.getNumeroVenta());</span>
+<span class="nc" id="L150">            System.out.printf(&quot;Subtotal: $%.2f%n&quot;, venta.getTotal());</span>
+<span class="nc" id="L151">            System.out.printf(&quot;Envío: $%.2f%n&quot;, costoEnvio);</span>
+<span class="nc" id="L152">            System.out.printf(&quot;Total con envío: $%.2f%n&quot;, venta.getTotal() + costoEnvio);</span>
+<span class="nc" id="L153">            System.out.println(&quot;\nCaracterísticas E-commerce:&quot;);</span>
+<span class="nc" id="L154">            System.out.println(&quot;- Validación de inventario general&quot;);</span>
+<span class="nc" id="L155">            System.out.println(&quot;- Envío a domicilio incluido&quot;);</span>
+<span class="nc" id="L156">            System.out.println(&quot;- Devolución: 30 días&quot;);</span>
+<span class="nc" id="L157">        } else {</span>
+<span class="nc" id="L158">            System.out.println(&quot;✗ Error al procesar venta&quot;);</span>
+        }
+<span class="nc" id="L160">    }</span>
+
+    private void crearVentaB2B() {
+<span class="nc" id="L163">        System.out.println(&quot;\n--- Venta B2B (Corporativa) ---&quot;);</span>
+        
+<span class="nc" id="L165">        System.out.print(&quot;ID Empresa: &quot;);</span>
+<span class="nc" id="L166">        String empresaId = scanner.nextLine();</span>
+        
+<span class="nc" id="L168">        System.out.print(&quot;Nombre Empresa: &quot;);</span>
+<span class="nc" id="L169">        String empresaNombre = scanner.nextLine();</span>
+        
+<span class="nc" id="L171">        DatosVenta venta = controlador.crearVenta(&quot;B2B&quot;, empresaId, empresaNombre);</span>
+        
+<span class="nc" id="L173">        System.out.println(&quot;Agregar productos (escriba 'fin' para terminar):&quot;);</span>
+<span class="nc" id="L174">        while (true) {</span>
+<span class="nc" id="L175">            System.out.print(&quot;Código producto (o 'fin'): &quot;);</span>
+<span class="nc" id="L176">            String codigo = scanner.nextLine();</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">            if (codigo.equalsIgnoreCase(&quot;fin&quot;)) break;</span>
+            
+<span class="nc" id="L179">            System.out.print(&quot;Nombre producto: &quot;);</span>
+<span class="nc" id="L180">            String nombre = scanner.nextLine();</span>
+            
+<span class="nc" id="L182">            System.out.print(&quot;Cantidad: &quot;);</span>
+<span class="nc" id="L183">            int cantidad = scanner.nextInt();</span>
+            
+<span class="nc" id="L185">            System.out.print(&quot;Precio unitario: &quot;);</span>
+<span class="nc" id="L186">            double precio = scanner.nextDouble();</span>
+<span class="nc" id="L187">            scanner.nextLine();</span>
+            
+<span class="nc" id="L189">            venta.agregarItem(new ItemVenta(codigo, nombre, cantidad, precio));</span>
+<span class="nc" id="L190">            System.out.println(&quot;✓ Producto agregado&quot;);</span>
+        }
+        
+<span class="nc" id="L193">        System.out.print(&quot;Centro de distribución: &quot;);</span>
+<span class="nc" id="L194">        venta.setDireccionEnvio(scanner.nextLine());</span>
+        
+<span class="nc" id="L196">        venta.setMetodoPago(&quot;CREDITO_30_DIAS&quot;);</span>
+        
+<span class="nc" id="L198">        boolean exito = controlador.procesarVenta(&quot;B2B&quot;, venta);</span>
+        
+<span class="nc bnc" id="L200" title="All 2 branches missed.">        if (exito) {</span>
+<span class="nc" id="L201">            System.out.println(&quot;\n✓ Venta corporativa procesada&quot;);</span>
+<span class="nc" id="L202">            System.out.println(&quot;Número de venta: &quot; + venta.getNumeroVenta());</span>
+<span class="nc" id="L203">            System.out.printf(&quot;Total: $%.2f%n&quot;, venta.getTotal());</span>
+<span class="nc" id="L204">            System.out.println(&quot;Método de pago: Crédito 30 días&quot;);</span>
+<span class="nc" id="L205">            System.out.println(&quot;\nCaracterísticas B2B:&quot;);</span>
+<span class="nc" id="L206">            System.out.println(&quot;- Validación contra órdenes de compra&quot;);</span>
+<span class="nc" id="L207">            System.out.println(&quot;- Envío logístico especializado&quot;);</span>
+<span class="nc" id="L208">            System.out.println(&quot;- Devolución: 60 días&quot;);</span>
+<span class="nc" id="L209">        } else {</span>
+<span class="nc" id="L210">            System.out.println(&quot;✗ Error al procesar venta corporativa&quot;);</span>
+        }
+<span class="nc" id="L212">    }</span>
+
+    private void consultarInfoCanal() {
+<span class="nc" id="L215">        System.out.println(&quot;\n--- Información de Canal ---&quot;);</span>
+<span class="nc" id="L216">        System.out.println(&quot;Canales disponibles: &quot; + controlador.obtenerCanalesDisponibles());</span>
+<span class="nc" id="L217">        System.out.print(&quot;Ingrese canal (POS/ECOMMERCE/B2B): &quot;);</span>
+<span class="nc" id="L218">        String canal = scanner.nextLine();</span>
+        
+<span class="nc" id="L220">        String info = controlador.obtenerInformacionFactory(canal);</span>
+<span class="nc" id="L221">        System.out.println(&quot;\n&quot; + info);</span>
+<span class="nc" id="L222">    }</span>
+
+    private void procesarDevolucion() {
+<span class="nc" id="L225">        System.out.println(&quot;\n--- Procesar Devolución ---&quot;);</span>
+        
+<span class="nc" id="L227">        System.out.print(&quot;Número de venta: &quot;);</span>
+<span class="nc" id="L228">        String numeroVenta = scanner.nextLine();</span>
+        
+<span class="nc" id="L230">        DatosVenta venta = controlador.buscarVenta(numeroVenta);</span>
+<span class="nc bnc" id="L231" title="All 2 branches missed.">        if (venta == null) {</span>
+<span class="nc" id="L232">            System.out.println(&quot;✗ Venta no encontrada&quot;);</span>
+<span class="nc" id="L233">            return;</span>
+        }
+        
+<span class="nc" id="L236">        String tipoCanal = numeroVenta.substring(0, numeroVenta.indexOf('-'));</span>
+        
+<span class="nc" id="L238">        System.out.print(&quot;Días transcurridos desde la compra: &quot;);</span>
+<span class="nc" id="L239">        int dias = scanner.nextInt();</span>
+<span class="nc" id="L240">        scanner.nextLine();</span>
+        
+<span class="nc" id="L242">        boolean permitida = controlador.procesarDevolucion(</span>
+<span class="nc" id="L243">            tipoCanal, </span>
+<span class="nc" id="L244">            numeroVenta, </span>
+<span class="nc" id="L245">            dias, </span>
+<span class="nc" id="L246">            venta.getTotal()</span>
+        );
+        
+<span class="nc bnc" id="L249" title="All 2 branches missed.">        if (permitida) {</span>
+<span class="nc" id="L250">            VentaComponentFactory factory = controlador.obtenerFactory(tipoCanal);</span>
+<span class="nc" id="L251">            GestorDevolucion gestor = factory.crearGestorDevolucion();</span>
+<span class="nc" id="L252">            double reembolso = gestor.calcularReembolso(venta.getTotal(), dias);</span>
+            
+<span class="nc" id="L254">            System.out.println(&quot;✓ Devolución aprobada&quot;);</span>
+<span class="nc" id="L255">            System.out.printf(&quot;Monto original: $%.2f%n&quot;, venta.getTotal());</span>
+<span class="nc" id="L256">            System.out.printf(&quot;Reembolso: $%.2f%n&quot;, reembolso);</span>
+<span class="nc" id="L257">        } else {</span>
+<span class="nc" id="L258">            System.out.println(&quot;✗ Devolución no permitida&quot;);</span>
+<span class="nc" id="L259">            System.out.println(&quot;Verifique la política de devoluciones del canal&quot;);</span>
+        }
+<span class="nc" id="L261">    }</span>
+
+    private void calcularEnvio() {
+<span class="nc" id="L264">        System.out.println(&quot;\n--- Calcular Costo de Envío ---&quot;);</span>
+        
+<span class="nc" id="L266">        System.out.println(&quot;Canal: 1.E-commerce 2.B2B&quot;);</span>
+<span class="nc" id="L267">        int opcion = scanner.nextInt();</span>
+<span class="nc" id="L268">        scanner.nextLine();</span>
+        
+<span class="nc bnc" id="L270" title="All 2 branches missed.">        String canal = opcion == 1 ? &quot;ECOMMERCE&quot; : &quot;B2B&quot;;</span>
+        
+<span class="nc" id="L272">        System.out.print(&quot;Destino: &quot;);</span>
+<span class="nc" id="L273">        String destino = scanner.nextLine();</span>
+        
+<span class="nc" id="L275">        System.out.print(&quot;Peso (kg): &quot;);</span>
+<span class="nc" id="L276">        double peso = scanner.nextDouble();</span>
+<span class="nc" id="L277">        scanner.nextLine();</span>
+        
+<span class="nc" id="L279">        double costo = controlador.calcularEnvio(canal, destino, peso);</span>
+        
+<span class="nc" id="L281">        VentaComponentFactory factory = controlador.obtenerFactory(canal);</span>
+<span class="nc" id="L282">        CalculadorEnvio calculador = factory.crearCalculadorEnvio();</span>
+<span class="nc" id="L283">        int tiempoEntrega = calculador.calcularTiempoEntrega(destino);</span>
+        
+<span class="nc" id="L285">        System.out.printf(&quot;\nCosto de envío: $%.2f%n&quot;, costo);</span>
+<span class="nc" id="L286">        System.out.printf(&quot;Tiempo estimado: %d días%n&quot;, tiempoEntrega);</span>
+<span class="nc" id="L287">        System.out.println(&quot;Envío express disponible: &quot; + </span>
+<span class="nc bnc" id="L288" title="All 2 branches missed.">            (calculador.soportaEnvioExpress() ? &quot;Sí&quot; : &quot;No&quot;));</span>
+<span class="nc" id="L289">    }</span>
+
+    private void verEstadisticas() {
+<span class="nc" id="L292">        System.out.println(&quot;\n--- Estadísticas de Ventas ---&quot;);</span>
+        
+<span class="nc" id="L294">        Map&lt;String, Long&gt; stats = controlador.obtenerEstadisticasPorCanal();</span>
+        
+<span class="nc" id="L296">        System.out.println(&quot;\nVentas por canal:&quot;);</span>
+<span class="nc" id="L297">        stats.forEach((canal, cantidad) -&gt; </span>
+<span class="nc" id="L298">            System.out.printf(&quot;- %s: %d ventas%n&quot;, canal, cantidad)</span>
+        );
+        
+<span class="nc" id="L301">        System.out.printf(&quot;\nTotal ventas: %d%n&quot;, controlador.obtenerVentas().size());</span>
+<span class="nc" id="L302">        System.out.printf(&quot;Monto total: $%.2f%n&quot;, controlador.calcularTotalVentas());</span>
+<span class="nc" id="L303">    }</span>
+
+    private void listarVentas() {
+<span class="nc" id="L306">        System.out.println(&quot;\n--- Lista de Ventas ---&quot;);</span>
+        
+<span class="nc" id="L308">        var ventas = controlador.obtenerVentas();</span>
+        
+<span class="nc bnc" id="L310" title="All 2 branches missed.">        if (ventas.isEmpty()) {</span>
+<span class="nc" id="L311">            System.out.println(&quot;No hay ventas registradas&quot;);</span>
+<span class="nc" id="L312">        } else {</span>
+<span class="nc" id="L313">            ventas.forEach(v -&gt; {</span>
+<span class="nc" id="L314">                System.out.printf(&quot;%s | Cliente: %s | Total: $%.2f | Items: %d%n&quot;,</span>
+<span class="nc" id="L315">                    v.getNumeroVenta(),</span>
+<span class="nc" id="L316">                    v.getClienteNombre(),</span>
+<span class="nc" id="L317">                    v.getTotal(),</span>
+<span class="nc" id="L318">                    v.getItems().size());</span>
+<span class="nc" id="L319">            });</span>
+        }
+<span class="nc" id="L321">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L324">        ConsolaVenta vista = new ConsolaVenta();</span>
+<span class="nc" id="L325">        vista.ejecutar();</span>
+<span class="nc" id="L326">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

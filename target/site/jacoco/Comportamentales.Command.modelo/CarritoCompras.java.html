@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CarritoCompras.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Comportamentales.Command.modelo</a> &gt; <span class="el_source">CarritoCompras.java</span></div><h1>CarritoCompras.java</h1><pre class="source lang-java linenums">package Comportamentales.Command.modelo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CarritoCompras {
+    private List&lt;ItemCarrito&gt; items;
+    private double descuento;
+    
+<span class="fc" id="L10">    public CarritoCompras() {</span>
+<span class="fc" id="L11">        this.items = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L12">        this.descuento = 0;</span>
+<span class="fc" id="L13">    }</span>
+    
+    public void agregarProducto(Producto producto, int cantidad) {
+        // Buscar si el producto ya existe
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        for (ItemCarrito item : items) {</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">            if (item.getProducto().getCodigo().equals(producto.getCodigo())) {</span>
+<span class="fc" id="L19">                item.setCantidad(item.getCantidad() + cantidad);</span>
+<span class="fc" id="L20">                return;</span>
+            }
+        }
+        // Si no existe, agregar nuevo item
+<span class="fc" id="L24">        items.add(new ItemCarrito(producto, cantidad));</span>
+<span class="fc" id="L25">    }</span>
+    
+    public void eliminarProducto(Producto producto, int cantidad) {
+<span class="fc" id="L28">        ItemCarrito itemAEliminar = null;</span>
+        
+<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        for (ItemCarrito item : items) {</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">            if (item.getProducto().getCodigo().equals(producto.getCodigo())) {</span>
+<span class="fc" id="L32">                int nuevaCantidad = item.getCantidad() - cantidad;</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">                if (nuevaCantidad &lt;= 0) {</span>
+<span class="fc" id="L34">                    itemAEliminar = item;</span>
+<span class="fc" id="L35">                } else {</span>
+<span class="fc" id="L36">                    item.setCantidad(nuevaCantidad);</span>
+                }
+<span class="fc" id="L38">                break;</span>
+            }
+        }
+        
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (itemAEliminar != null) {</span>
+<span class="fc" id="L43">            items.remove(itemAEliminar);</span>
+        }
+<span class="fc" id="L45">    }</span>
+    
+    public void aplicarDescuento(double porcentaje) {
+<span class="fc" id="L48">        this.descuento = porcentaje;</span>
+<span class="fc" id="L49">    }</span>
+    
+    public void vaciar() {
+<span class="fc" id="L52">        items.clear();</span>
+<span class="fc" id="L53">        descuento = 0;</span>
+<span class="fc" id="L54">    }</span>
+    
+    public double calcularSubtotal() {
+<span class="fc" id="L57">        double subtotal = 0;</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        for (ItemCarrito item : items) {</span>
+<span class="fc" id="L59">            subtotal += item.getSubtotal();</span>
+        }
+<span class="fc" id="L61">        return Math.round(subtotal * 100.0) / 100.0;</span>
+    }
+    
+    public double calcularDescuento() {
+        // Si el descuento es 0, no hay descuento que calcular
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if (descuento == 0) return 0;</span>
+        // Calculamos el subtotal primero
+<span class="fc" id="L68">        double subtotal = calcularSubtotal();</span>
+        // Calculamos el descuento exacto y lo redondeamos
+<span class="fc" id="L70">        return Math.round(subtotal * (descuento / 100.0) * 100.0) / 100.0;</span>
+    }
+    
+    public double calcularTotal() {
+        // Calculamos el subtotal primero
+<span class="fc" id="L75">        double subtotal = calcularSubtotal();</span>
+        // Calculamos el descuento usando calcularDescuento()
+<span class="fc" id="L77">        double montoDescuento = calcularDescuento();</span>
+        // Restamos el descuento y redondeamos
+<span class="fc" id="L79">        return Math.round((subtotal - montoDescuento) * 100.0) / 100.0;</span>
+    }
+    
+    public List&lt;ItemCarrito&gt; getItems() {
+<span class="fc" id="L83">        return new ArrayList&lt;&gt;(items);</span>
+    }
+    
+    public double getDescuento() {
+<span class="fc" id="L87">        return descuento;</span>
+    }
+    
+    public int getCantidadItems() {
+<span class="fc" id="L91">        return items.size();</span>
+    }
+    
+    public boolean estaVacio() {
+<span class="fc" id="L95">        return items.isEmpty();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

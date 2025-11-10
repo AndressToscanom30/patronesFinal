@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsolaDecorator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Estructurales.Decorator.vista</a> &gt; <span class="el_source">ConsolaDecorator.java</span></div><h1>ConsolaDecorator.java</h1><pre class="source lang-java linenums">package Estructurales.Decorator.vista;
+
+import Estructurales.Decorator.controlador.DecoratorControlador;
+import Estructurales.Decorator.modelo.*;
+import java.util.*;
+
+public class ConsolaDecorator {
+    private final DecoratorControlador controlador;
+    private final Scanner scanner;
+
+<span class="nc" id="L11">    public ConsolaDecorator() {</span>
+<span class="nc" id="L12">        this.controlador = new DecoratorControlador();</span>
+<span class="nc" id="L13">        this.scanner = new Scanner(System.in);</span>
+<span class="nc" id="L14">    }</span>
+
+    public void mostrarMenu() {
+<span class="nc" id="L17">        System.out.println(&quot;\n=== DECORATOR - Personalización de Productos ===&quot;);</span>
+<span class="nc" id="L18">        System.out.println(&quot;1. Ver catálogo de productos&quot;);</span>
+<span class="nc" id="L19">        System.out.println(&quot;2. Configurar producto con decoradores&quot;);</span>
+<span class="nc" id="L20">        System.out.println(&quot;3. Agregar solo empaque regalo&quot;);</span>
+<span class="nc" id="L21">        System.out.println(&quot;4. Agregar solo garantía extendida&quot;);</span>
+<span class="nc" id="L22">        System.out.println(&quot;5. Agregar solo personalización&quot;);</span>
+<span class="nc" id="L23">        System.out.println(&quot;6. Ver productos configurados&quot;);</span>
+<span class="nc" id="L24">        System.out.println(&quot;7. Ver estadísticas&quot;);</span>
+<span class="nc" id="L25">        System.out.println(&quot;8. Salir&quot;);</span>
+<span class="nc" id="L26">        System.out.print(&quot;Opción: &quot;);</span>
+<span class="nc" id="L27">    }</span>
+
+    public void ejecutar() {
+<span class="nc" id="L30">        boolean continuar = true;</span>
+
+<span class="nc bnc" id="L32" title="All 2 branches missed.">        while (continuar) {</span>
+<span class="nc" id="L33">            mostrarMenu();</span>
+<span class="nc" id="L34">            int opcion = scanner.nextInt();</span>
+<span class="nc" id="L35">            scanner.nextLine();</span>
+
+<span class="nc bnc" id="L37" title="All 9 branches missed.">            switch (opcion) {</span>
+<span class="nc" id="L38">                case 1 -&gt; verCatalogo();</span>
+<span class="nc" id="L39">                case 2 -&gt; configurarProductoCompleto();</span>
+<span class="nc" id="L40">                case 3 -&gt; agregarSoloEmpaque();</span>
+<span class="nc" id="L41">                case 4 -&gt; agregarSoloGarantia();</span>
+<span class="nc" id="L42">                case 5 -&gt; agregarSoloPersonalizacion();</span>
+<span class="nc" id="L43">                case 6 -&gt; verProductosConfigurados();</span>
+<span class="nc" id="L44">                case 7 -&gt; verEstadisticas();</span>
+<span class="nc" id="L45">                case 8 -&gt; continuar = false;</span>
+<span class="nc" id="L46">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
+            }
+        }
+
+<span class="nc" id="L50">        System.out.println(&quot;¡Hasta luego!&quot;);</span>
+<span class="nc" id="L51">    }</span>
+
+    private void verCatalogo() {
+<span class="nc" id="L54">        System.out.println(&quot;\n--- Catálogo de Productos ---&quot;);</span>
+<span class="nc" id="L55">        var productos = controlador.obtenerCatalogo();</span>
+
+<span class="nc" id="L57">        productos.forEach(p -&gt; {</span>
+<span class="nc" id="L58">            System.out.println(&quot;\n&quot; + p);</span>
+<span class="nc" id="L59">            System.out.println(&quot;Descripción: &quot; + p.obtenerDescripcion());</span>
+<span class="nc" id="L60">            System.out.printf(&quot;Precio: $%.2f%n&quot;, p.obtenerPrecio());</span>
+<span class="nc" id="L61">            System.out.printf(&quot;Peso: %.2fkg%n&quot;, p.obtenerPeso());</span>
+<span class="nc" id="L62">        });</span>
+<span class="nc" id="L63">    }</span>
+
+    private void configurarProductoCompleto() {
+<span class="nc" id="L66">        System.out.println(&quot;\n--- Configurar Producto Completo ---&quot;);</span>
+
+<span class="nc" id="L68">        System.out.print(&quot;Código del producto: &quot;);</span>
+<span class="nc" id="L69">        String codigo = scanner.nextLine();</span>
+
+<span class="nc" id="L71">        ProductoBase base = controlador.obtenerProductoBase(codigo);</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">        if (base == null) {</span>
+<span class="nc" id="L73">            System.out.println(&quot;✗ Producto no encontrado&quot;);</span>
+<span class="nc" id="L74">            return;</span>
+        }
+
+<span class="nc" id="L77">        ProductoVendible producto = base;</span>
+<span class="nc" id="L78">        System.out.println(&quot;Producto base: &quot; + base.obtenerDescripcion());</span>
+<span class="nc" id="L79">        System.out.printf(&quot;Precio base: $%.2f%n&quot;, base.obtenerPrecio());</span>
+
+<span class="nc" id="L81">        System.out.print(&quot;\n¿Agregar empaque regalo? (s/n): &quot;);</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        if (scanner.nextLine().equalsIgnoreCase(&quot;s&quot;)) {</span>
+<span class="nc" id="L83">            System.out.print(&quot;Tipo (BASICO/PREMIUM/LUJO): &quot;);</span>
+<span class="nc" id="L84">            String tipo = scanner.nextLine();</span>
+<span class="nc" id="L85">            System.out.print(&quot;¿Incluir tarjeta? (s/n): &quot;);</span>
+<span class="nc" id="L86">            boolean tarjeta = scanner.nextLine().equalsIgnoreCase(&quot;s&quot;);</span>
+<span class="nc" id="L87">            producto = controlador.agregarEmpaqueRegalo(producto, tipo, tarjeta);</span>
+<span class="nc" id="L88">            System.out.println(&quot;✓ Empaque agregado&quot;);</span>
+        }
+
+<span class="nc" id="L91">        System.out.print(&quot;\n¿Agregar garantía extendida? (s/n): &quot;);</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        if (scanner.nextLine().equalsIgnoreCase(&quot;s&quot;)) {</span>
+<span class="nc" id="L93">            System.out.print(&quot;Meses (12/24/36): &quot;);</span>
+<span class="nc" id="L94">            int meses = scanner.nextInt();</span>
+<span class="nc" id="L95">            scanner.nextLine();</span>
+<span class="nc" id="L96">            System.out.print(&quot;Cobertura (BASICA/COMPLETA): &quot;);</span>
+<span class="nc" id="L97">            String cobertura = scanner.nextLine();</span>
+            
+            try {
+<span class="nc" id="L100">                producto = controlador.agregarGarantiaExtendida(producto, meses, cobertura);</span>
+<span class="nc" id="L101">                System.out.println(&quot;✓ Garantía agregada&quot;);</span>
+<span class="nc" id="L102">            } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L103">                System.out.println(&quot;✗ &quot; + e.getMessage());</span>
+            }
+        }
+
+<span class="nc" id="L107">        System.out.print(&quot;\n¿Agregar personalización? (s/n): &quot;);</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if (scanner.nextLine().equalsIgnoreCase(&quot;s&quot;)) {</span>
+<span class="nc" id="L109">            System.out.print(&quot;Texto a personalizar: &quot;);</span>
+<span class="nc" id="L110">            String texto = scanner.nextLine();</span>
+<span class="nc" id="L111">            System.out.print(&quot;Tipo (GRABADO/BORDADO/IMPRESION): &quot;);</span>
+<span class="nc" id="L112">            String tipo = scanner.nextLine();</span>
+<span class="nc" id="L113">            System.out.print(&quot;Posición (FRENTE/ATRAS/LATERAL): &quot;);</span>
+<span class="nc" id="L114">            String posicion = scanner.nextLine();</span>
+            
+            try {
+<span class="nc" id="L117">                producto = controlador.agregarPersonalizacion(producto, texto, tipo, posicion);</span>
+<span class="nc" id="L118">                System.out.println(&quot;✓ Personalización agregada&quot;);</span>
+<span class="nc" id="L119">            } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L120">                System.out.println(&quot;✗ &quot; + e.getMessage());</span>
+            }
+        }
+
+<span class="nc" id="L124">        System.out.println(&quot;\n=== PRODUCTO FINAL ===&quot;);</span>
+<span class="nc" id="L125">        System.out.println(&quot;Descripción: &quot; + producto.obtenerDescripcion());</span>
+<span class="nc" id="L126">        System.out.printf(&quot;Precio total: $%.2f%n&quot;, producto.obtenerPrecio());</span>
+<span class="nc" id="L127">        System.out.printf(&quot;Peso total: %.2fkg%n&quot;, producto.obtenerPeso());</span>
+<span class="nc" id="L128">        System.out.println(&quot;Tiempo de entrega: &quot; + producto.obtenerTiempoEntrega() + &quot; días&quot;);</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">        System.out.println(&quot;Requiere refrigeración: &quot; + (producto.requiereRefrigeracion() ? &quot;Sí&quot; : &quot;No&quot;));</span>
+
+<span class="nc" id="L131">        controlador.guardarProductoConfigurado(producto);</span>
+<span class="nc" id="L132">        System.out.println(&quot;\n✓ Producto configurado guardado&quot;);</span>
+<span class="nc" id="L133">    }</span>
+
+    private void agregarSoloEmpaque() {
+<span class="nc" id="L136">        System.out.println(&quot;\n--- Agregar Empaque Regalo ---&quot;);</span>
+        
+<span class="nc" id="L138">        System.out.print(&quot;Código del producto: &quot;);</span>
+<span class="nc" id="L139">        String codigo = scanner.nextLine();</span>
+        
+<span class="nc" id="L141">        ProductoBase base = controlador.obtenerProductoBase(codigo);</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">        if (base == null) {</span>
+<span class="nc" id="L143">            System.out.println(&quot;✗ Producto no encontrado&quot;);</span>
+<span class="nc" id="L144">            return;</span>
+        }
+
+<span class="nc" id="L147">        System.out.print(&quot;Tipo de empaque (BASICO/PREMIUM/LUJO): &quot;);</span>
+<span class="nc" id="L148">        String tipo = scanner.nextLine();</span>
+        
+<span class="nc" id="L150">        System.out.print(&quot;¿Incluir tarjeta? (s/n): &quot;);</span>
+<span class="nc" id="L151">        boolean tarjeta = scanner.nextLine().equalsIgnoreCase(&quot;s&quot;);</span>
+
+<span class="nc" id="L153">        ProductoVendible conEmpaque = controlador.agregarEmpaqueRegalo(base, tipo, tarjeta);</span>
+        
+<span class="nc" id="L155">        System.out.println(&quot;\n✓ Empaque agregado&quot;);</span>
+<span class="nc" id="L156">        mostrarResumenProducto(conEmpaque);</span>
+        
+<span class="nc" id="L158">        controlador.guardarProductoConfigurado(conEmpaque);</span>
+<span class="nc" id="L159">    }</span>
+
+    private void agregarSoloGarantia() {
+<span class="nc" id="L162">        System.out.println(&quot;\n--- Agregar Garantía Extendida ---&quot;);</span>
+        
+<span class="nc" id="L164">        System.out.print(&quot;Código del producto: &quot;);</span>
+<span class="nc" id="L165">        String codigo = scanner.nextLine();</span>
+        
+<span class="nc" id="L167">        ProductoBase base = controlador.obtenerProductoBase(codigo);</span>
+<span class="nc bnc" id="L168" title="All 2 branches missed.">        if (base == null) {</span>
+<span class="nc" id="L169">            System.out.println(&quot;✗ Producto no encontrado&quot;);</span>
+<span class="nc" id="L170">            return;</span>
+        }
+
+<span class="nc" id="L173">        System.out.print(&quot;Meses de garantía (12/24/36): &quot;);</span>
+<span class="nc" id="L174">        int meses = scanner.nextInt();</span>
+<span class="nc" id="L175">        scanner.nextLine();</span>
+        
+<span class="nc" id="L177">        System.out.print(&quot;Cobertura (BASICA/COMPLETA): &quot;);</span>
+<span class="nc" id="L178">        String cobertura = scanner.nextLine();</span>
+
+        try {
+<span class="nc" id="L181">            ProductoVendible conGarantia = controlador.agregarGarantiaExtendida(base, meses, cobertura);</span>
+<span class="nc" id="L182">            System.out.println(&quot;\n✓ Garantía agregada&quot;);</span>
+<span class="nc" id="L183">            mostrarResumenProducto(conGarantia);</span>
+<span class="nc" id="L184">            controlador.guardarProductoConfigurado(conGarantia);</span>
+<span class="nc" id="L185">        } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L186">            System.out.println(&quot;✗ &quot; + e.getMessage());</span>
+        }
+<span class="nc" id="L188">    }</span>
+
+    private void agregarSoloPersonalizacion() {
+<span class="nc" id="L191">        System.out.println(&quot;\n--- Agregar Personalización ---&quot;);</span>
+        
+<span class="nc" id="L193">        System.out.print(&quot;Código del producto: &quot;);</span>
+<span class="nc" id="L194">        String codigo = scanner.nextLine();</span>
+        
+<span class="nc" id="L196">        ProductoBase base = controlador.obtenerProductoBase(codigo);</span>
+<span class="nc bnc" id="L197" title="All 2 branches missed.">        if (base == null) {</span>
+<span class="nc" id="L198">            System.out.println(&quot;✗ Producto no encontrado&quot;);</span>
+<span class="nc" id="L199">            return;</span>
+        }
+
+<span class="nc" id="L202">        System.out.print(&quot;Texto a personalizar: &quot;);</span>
+<span class="nc" id="L203">        String texto = scanner.nextLine();</span>
+        
+<span class="nc" id="L205">        System.out.print(&quot;Tipo (GRABADO/BORDADO/IMPRESION): &quot;);</span>
+<span class="nc" id="L206">        String tipo = scanner.nextLine();</span>
+        
+<span class="nc" id="L208">        System.out.print(&quot;Posición (FRENTE/ATRAS/LATERAL): &quot;);</span>
+<span class="nc" id="L209">        String posicion = scanner.nextLine();</span>
+
+        try {
+<span class="nc" id="L212">            ProductoVendible personalizado = controlador.agregarPersonalizacion(base, texto, tipo, posicion);</span>
+<span class="nc" id="L213">            System.out.println(&quot;\n✓ Personalización agregada&quot;);</span>
+<span class="nc" id="L214">            mostrarResumenProducto(personalizado);</span>
+<span class="nc" id="L215">            controlador.guardarProductoConfigurado(personalizado);</span>
+<span class="nc" id="L216">        } catch (IllegalArgumentException e) {</span>
+<span class="nc" id="L217">            System.out.println(&quot;✗ &quot; + e.getMessage());</span>
+        }
+<span class="nc" id="L219">    }</span>
+
+    private void verProductosConfigurados() {
+<span class="nc" id="L222">        System.out.println(&quot;\n--- Productos Configurados ---&quot;);</span>
+<span class="nc" id="L223">        var productos = controlador.obtenerProductosConfigurados();</span>
+
+<span class="nc bnc" id="L225" title="All 2 branches missed.">        if (productos.isEmpty()) {</span>
+<span class="nc" id="L226">            System.out.println(&quot;No hay productos configurados&quot;);</span>
+<span class="nc" id="L227">            return;</span>
+        }
+
+<span class="nc bnc" id="L230" title="All 2 branches missed.">        for (int i = 0; i &lt; productos.size(); i++) {</span>
+<span class="nc" id="L231">            ProductoVendible p = productos.get(i);</span>
+<span class="nc" id="L232">            System.out.println(&quot;\n&quot; + (i + 1) + &quot;. &quot; + p.obtenerDescripcion());</span>
+<span class="nc" id="L233">            System.out.printf(&quot;   Precio: $%.2f%n&quot;, p.obtenerPrecio());</span>
+<span class="nc" id="L234">            System.out.println(&quot;   Detalles:&quot;);</span>
+<span class="nc" id="L235">            p.obtenerDetalles().forEach(d -&gt; System.out.println(&quot;     &quot; + d));</span>
+        }
+<span class="nc" id="L237">    }</span>
+
+    private void verEstadisticas() {
+<span class="nc" id="L240">        System.out.println(&quot;\n--- Estadísticas ---&quot;);</span>
+        
+<span class="nc" id="L242">        Map&lt;String, Integer&gt; stats = controlador.obtenerEstadisticasDecoradores();</span>
+<span class="nc" id="L243">        double total = controlador.calcularTotalVentas();</span>
+<span class="nc" id="L244">        int cantidad = controlador.obtenerProductosConfigurados().size();</span>
+
+<span class="nc" id="L246">        System.out.println(&quot;Total de productos configurados: &quot; + cantidad);</span>
+<span class="nc" id="L247">        System.out.println(&quot;Con empaque regalo: &quot; + stats.get(&quot;EMPAQUE_REGALO&quot;));</span>
+<span class="nc" id="L248">        System.out.println(&quot;Con garantía extendida: &quot; + stats.get(&quot;GARANTIA&quot;));</span>
+<span class="nc" id="L249">        System.out.println(&quot;Con personalización: &quot; + stats.get(&quot;PERSONALIZACION&quot;));</span>
+<span class="nc" id="L250">        System.out.printf(&quot;Valor total: $%.2f%n&quot;, total);</span>
+<span class="nc" id="L251">    }</span>
+
+    private void mostrarResumenProducto(ProductoVendible producto) {
+<span class="nc" id="L254">        System.out.println(&quot;\nDescripción: &quot; + producto.obtenerDescripcion());</span>
+<span class="nc" id="L255">        System.out.printf(&quot;Precio: $%.2f%n&quot;, producto.obtenerPrecio());</span>
+<span class="nc" id="L256">        System.out.printf(&quot;Peso: %.2fkg%n&quot;, producto.obtenerPeso());</span>
+<span class="nc" id="L257">        System.out.println(&quot;Tiempo entrega: &quot; + producto.obtenerTiempoEntrega() + &quot; días&quot;);</span>
+<span class="nc" id="L258">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L261">        ConsolaDecorator vista = new ConsolaDecorator();</span>
+<span class="nc" id="L262">        vista.ejecutar();</span>
+<span class="nc" id="L263">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

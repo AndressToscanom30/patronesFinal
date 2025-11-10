@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="e2e.Command.CommandE2ETest" time="4.316" tests="8" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="America/Bogota"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CO"/>
+    <property name="sun.boot.library.path" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin"/>
+    <property name="sun.java.command" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351 2025-11-10T14-34-15_175-jvmRun1 surefire-20251110143415723_1tmp surefire_0-20251110143415723_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\tosca"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.8+9-LTS"/>
+    <property name="user.name" value="tosca"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.8+9"/>
+    <property name="localRepository" value="C:\Users\tosca\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\tosca\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\gradle\latest\bin;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\maven\latest\bin;C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin;&quot;C:\Program Files\Java\jdk1.8.0_202&quot;\bin;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\xampp\php;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Java\jdk1.8.0_202;C:\Users\tosca\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tosca\.dotnet\tools;C:\Users\tosca\AppData\Local\Programs\Python\Python313;C:\Users\tosca\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\tosca\AppData\Local\Programs\Windsurf\bin;c:\Users\tosca\.vscode\extensions\vscjava.vscode-java-debug-0.58.3\bundled\scripts\noConfigScripts;c:\Users\tosca\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.9+10-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testFlujoCompletoConMultiplesCambios" classname="e2e.Command.CommandE2ETest" time="4.19">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: FLUJO COMPLETO DE COMPRA ===
+
+══════════════════════════════════════════════════
+PASO 1: Cliente agrega productos iniciales
+══════════════════════════════════════════════════
+✓ Producto agregado al carrito
+✓ Producto agregado al carrito
+Carrito: Leche (2), Pan (1)
+Total: $9500,00
+
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+PASO 2: Cliente agrega más productos
+══════════════════════════════════════════════════
+✓ Producto agregado al carrito
+✓ Producto agregado al carrito
+Agregados: Huevos (1), Arroz (2)
+Total: $25500,00
+
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+PASO 3: Cliente aplica cupón de descuento
+══════════════════════════════════════════════════
+✓ Descuento del 15,00% aplicado
+Cupón del 15% aplicado
+Total con descuento: $21675,00
+
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+PASO 4: Cliente decide quitar el arroz
+══════════════════════════════════════════════════
+✓ Producto eliminado del carrito
+Arroz eliminado
+Nuevo total: $14875,00
+
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+PASO 5: Cliente se arrepiente (Undo)
+══════════════════════════════════════════════════
+✓ Operación deshecha
+Arroz de vuelta en el carrito
+Total restaurado: $21675,00
+
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+HISTORIAL DE OPERACIONES
+══════════════════════════════════════════════════
+1. Agregar 2 x Leche Entera 1L al carrito
+2. Agregar 1 x Pan Integral al carrito
+3. Agregar 1 x Huevos x12 al carrito
+4. Agregar 2 x Arroz 1kg al carrito
+5. Aplicar descuento del 15,00%
+
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+═
+RESUMEN FINAL
+══════════════════════════════════════════════════
+Productos en carrito: 4
+Subtotal: $25500,00
+Descuento (15%): -$3825,00
+TOTAL A PAGAR: $21675,00
+══════════════════════════════════════════════════
+
+✓ Flujo completo de compra finalizado exitosamente
+]]></system-out>
+  </testcase>
+  <testcase name="testClienteRealizaCompraSimple" classname="e2e.Command.CommandE2ETest" time="0.005">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: COMPRA SIMPLE ===
+
+Cliente ingresa al supermercado...
+
+Paso 1: Agregar productos al carrito
+✓ Producto agregado al carrito
+✓ Agregado: 2 x Leche
+✓ Producto agregado al carrito
+✓ Agregado: 1 x Pan
+✓ Producto agregado al carrito
+✓ Agregado: 1 x Huevos
+
+Carrito actual:
+Total: $17500,00
+
+✓ Compra simple completada
+]]></system-out>
+  </testcase>
+  <testcase name="testClienteCambiaOpinionUndo" classname="e2e.Command.CommandE2ETest" time="0.012">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: CLIENTE USA UNDO ===
+
+Cliente agrega productos al carrito:
+✓ Producto agregado al carrito
+✓ Agregado: 2 x Leche ($7,000)
+✓ Producto agregado al carrito
+✓ Agregado: 3 x Pan ($7,500)
+✓ Producto agregado al carrito
+✓ Agregado: 2 x Huevos ($16,000)
+
+Total: $30500,00
+
+¡Cliente se arrepiente de los huevos!
+Presiona DESHACER (Ctrl+Z)...
+✓ Operación deshecha
+Nuevo total: $14500,00
+
+✓ Operación deshecha exitosamente
+]]></system-out>
+  </testcase>
+  <testcase name="testClienteModificaCantidades" classname="e2e.Command.CommandE2ETest" time="0.011">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: MODIFICAR CANTIDADES ===
+
+Cliente agrega 1 leche al carrito
+✓ Producto agregado al carrito
+Total: $3500,00
+
+Cliente agrega 2 leches más
+✓ Producto agregado al carrito
+Total: $10500,00 (3 leches)
+
+Cliente cree que son muchas, deshace última acción
+✓ Operación deshecha
+Total: $3500,00 (1 leche)
+
+Cliente cambia de opinión, rehace
+✓ Operación rehecha
+Total: $10500,00 (3 leches otra vez)
+
+✓ Modificación de cantidades completada
+]]></system-out>
+  </testcase>
+  <testcase name="testClienteVaciaYRestaurar" classname="e2e.Command.CommandE2ETest" time="0.019">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: VACIAR Y RESTAURAR CARRITO ===
+
+Cliente agrega varios productos:
+✓ Producto agregado al carrito
+✓ Producto agregado al carrito
+✓ Producto agregado al carrito
+✓ Producto agregado al carrito
+Productos en carrito: 4
+Total: $30500,00
+
+Cliente decide vaciar todo el carrito...
+✓ Carrito vaciado
+✓ Carrito vaciado
+
+¡Cliente se arrepiente! Presiona DESHACER...
+✓ Operación deshecha
+Productos restaurados: 4
+Total restaurado: $30500,00
+
+✓ Carrito completamente restaurado
+]]></system-out>
+  </testcase>
+  <testcase name="testClienteAplicaYQuitaCupon" classname="e2e.Command.CommandE2ETest" time="0.011">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: CUPÓN DE DESCUENTO ===
+
+Cliente agrega productos:
+✓ Producto agregado al carrito
+✓ Producto agregado al carrito
+✓ Producto agregado al carrito
+Total sin descuento: $26500,00
+
+Cliente aplica cupón del 20% de descuento...
+✓ Descuento del 20,00% aplicado
+Descuento: -$5300,00 (20%)
+Total con descuento: $21200,00
+
+Cliente se arrepiente y quita el cupón (Undo)...
+✓ Operación deshecha
+Total sin cupón: $26500,00
+
+✓ Gestión de cupones con Undo completada
+]]></system-out>
+  </testcase>
+  <testcase name="testEscenarioIndecisionExtrema" classname="e2e.Command.CommandE2ETest" time="0.011">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: CLIENTE INDECISO ===
+
+Cliente muy indeciso haciendo compras...
+
+1. Agrega leche
+✓ Producto agregado al carrito
+2. Agrega pan
+✓ Producto agregado al carrito
+3. Agrega huevos
+✓ Producto agregado al carrito
+
+Total: $17500,00
+
+¡Se arrepiente de TODO!
+Deshace... deshace... deshace...
+✓ Operación deshecha
+✓ Operación deshecha
+✓ Operación deshecha
+Carrito vacío
+
+¡Espera! Sí quiere todo!
+Rehace... rehace... rehace...
+✓ Operación rehecha
+✓ Operación rehecha
+✓ Operación rehecha
+
+Total final: $17500,00
+
+✓ Cliente finalmente decidió
+✓ Sistema manejó perfectamente la indecisión
+]]></system-out>
+  </testcase>
+  <testcase name="testClienteUsaUndoYRedo" classname="e2e.Command.CommandE2ETest" time="0.006">
+    <system-out><![CDATA[
+=== ESCENARIO E2E: CLIENTE USA UNDO Y REDO ===
+
+Paso 1: Cliente agrega productos
+✓ Producto agregado al carrito
+✓ Producto agregado al carrito
+✓ Carrito: Leche (2), Pan (1)
+Total: $9500,00
+
+Paso 2: Cliente deshace última acción (quita pan)
+✓ Operación deshecha
+✓ Pan eliminado del carrito
+Nuevo total: $7000,00
+
+Paso 3: Cliente se arrepiente y rehace (vuelve el pan)
+✓ Operación rehecha
+✓ Pan de vuelta en el carrito
+Total final: $9500,00
+
+✓ Undo/Redo funcionando perfectamente
+]]></system-out>
+  </testcase>
+</testsuite>

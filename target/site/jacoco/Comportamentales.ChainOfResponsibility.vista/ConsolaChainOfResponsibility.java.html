@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsolaChainOfResponsibility.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Comportamentales.ChainOfResponsibility.vista</a> &gt; <span class="el_source">ConsolaChainOfResponsibility.java</span></div><h1>ConsolaChainOfResponsibility.java</h1><pre class="source lang-java linenums">package Comportamentales.ChainOfResponsibility.vista;
+
+import Comportamentales.ChainOfResponsibility.controlador.ChainOfResponsibilityController;
+import Comportamentales.ChainOfResponsibility.modelo.*;
+import java.util.Scanner;
+
+public class ConsolaChainOfResponsibility {
+    private final ChainOfResponsibilityController controlador;
+    private final Scanner scanner;
+
+<span class="fc" id="L11">    public ConsolaChainOfResponsibility() {</span>
+<span class="fc" id="L12">        this.controlador = new ChainOfResponsibilityController(this);</span>
+<span class="fc" id="L13">        this.scanner = new Scanner(System.in);</span>
+<span class="fc" id="L14">    }</span>
+
+    public void mostrarMenu() {
+<span class="nc" id="L17">        System.out.println(&quot;\n=== CHAIN OF RESPONSIBILITY - Sistema de Descuentos ===&quot;);</span>
+<span class="nc" id="L18">        System.out.println(&quot;1. Solicitar descuento (completo)&quot;);</span>
+<span class="nc" id="L19">        System.out.println(&quot;2. Solicitar descuento por cupón&quot;);</span>
+<span class="nc" id="L20">        System.out.println(&quot;3. Solicitar descuento cliente frecuente&quot;);</span>
+<span class="nc" id="L21">        System.out.println(&quot;4. Solicitar descuento por monto&quot;);</span>
+<span class="nc" id="L22">        System.out.println(&quot;5. Solicitar descuento por cantidad&quot;);</span>
+<span class="nc" id="L23">        System.out.println(&quot;6. Ver cupones disponibles&quot;);</span>
+<span class="nc" id="L24">        System.out.println(&quot;7. Demo: Comparar diferentes solicitudes&quot;);</span>
+<span class="nc" id="L25">        System.out.println(&quot;8. Salir&quot;);</span>
+<span class="nc" id="L26">        System.out.print(&quot;Opción: &quot;);</span>
+<span class="nc" id="L27">    }</span>
+
+    public void ejecutar() {
+<span class="nc" id="L30">        boolean continuar = true;</span>
+
+<span class="nc" id="L32">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L33">        System.out.println(&quot;║   DESCUENTOS - CHAIN OF RESPONSIBILITY     ║&quot;);</span>
+<span class="nc" id="L34">        System.out.println(&quot;║   Cadena de validación de descuentos       ║&quot;);</span>
+<span class="nc" id="L35">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        while (continuar) {</span>
+<span class="nc" id="L38">            mostrarMenu();</span>
+<span class="nc" id="L39">            int opcion = scanner.nextInt();</span>
+<span class="nc" id="L40">            scanner.nextLine();</span>
+
+<span class="nc bnc" id="L42" title="All 9 branches missed.">            switch (opcion) {</span>
+<span class="nc" id="L43">                case 1 -&gt; solicitarDescuentoCompleto();</span>
+<span class="nc" id="L44">                case 2 -&gt; solicitarDescuentoCupon();</span>
+<span class="nc" id="L45">                case 3 -&gt; solicitarDescuentoClienteFrecuente();</span>
+<span class="nc" id="L46">                case 4 -&gt; solicitarDescuentoPorMonto();</span>
+<span class="nc" id="L47">                case 5 -&gt; solicitarDescuentoPorCantidad();</span>
+<span class="nc" id="L48">                case 6 -&gt; verCuponesDisponibles();</span>
+<span class="nc" id="L49">                case 7 -&gt; demoComparacion();</span>
+<span class="nc" id="L50">                case 8 -&gt; continuar = false;</span>
+<span class="nc" id="L51">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
+            }
+        }
+
+<span class="nc" id="L55">        System.out.println(&quot;\n¡Gracias por usar el sistema de descuentos!&quot;);</span>
+<span class="nc" id="L56">    }</span>
+
+    private void solicitarDescuentoCompleto() {
+<span class="nc" id="L59">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L60">        System.out.println(&quot;║     SOLICITUD DE DESCUENTO COMPLETA        ║&quot;);</span>
+<span class="nc" id="L61">        System.out.println(&quot;╚════════════════════════════════════════════╝&quot;);</span>
+        
+<span class="nc" id="L63">        System.out.print(&quot;\nID del cliente: &quot;);</span>
+<span class="nc" id="L64">        String clienteId = scanner.nextLine();</span>
+        
+<span class="nc" id="L66">        System.out.print(&quot;Monto total de la compra: $&quot;);</span>
+<span class="nc" id="L67">        double monto = scanner.nextDouble();</span>
+        
+<span class="nc" id="L69">        System.out.print(&quot;Cantidad de productos: &quot;);</span>
+<span class="nc" id="L70">        int cantidad = scanner.nextInt();</span>
+        
+<span class="nc" id="L72">        System.out.print(&quot;Número de compras previas: &quot;);</span>
+<span class="nc" id="L73">        int numeroCompras = scanner.nextInt();</span>
+<span class="nc" id="L74">        scanner.nextLine();</span>
+        
+<span class="nc" id="L76">        System.out.print(&quot;Código de cupón (Enter si no tiene): &quot;);</span>
+<span class="nc" id="L77">        String cupon = scanner.nextLine();</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        if (cupon.isEmpty()) cupon = null;</span>
+        
+<span class="nc" id="L80">        SolicitudDescuento solicitud = controlador.crearSolicitud(</span>
+<span class="nc" id="L81">            clienteId, monto, cantidad, numeroCompras, cupon, &quot;GENERAL&quot;);</span>
+        
+<span class="nc" id="L83">        ResultadoDescuento resultado = controlador.procesarSolicitud(solicitud);</span>
+        
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        if (resultado.isAprobado()) {</span>
+<span class="nc" id="L86">            double montoFinal = monto - resultado.getMontoDescuento();</span>
+<span class="nc" id="L87">            System.out.println(&quot;\n&quot; + &quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L88">            System.out.printf(&quot;Monto original: $%.2f%n&quot;, monto);</span>
+<span class="nc" id="L89">            System.out.printf(&quot;Descuento: -$%.2f%n&quot;, resultado.getMontoDescuento());</span>
+<span class="nc" id="L90">            System.out.printf(&quot;TOTAL A PAGAR: $%.2f%n&quot;, montoFinal);</span>
+<span class="nc" id="L91">            System.out.println(&quot;═&quot;.repeat(50));</span>
+        }
+<span class="nc" id="L93">    }</span>
+
+    private void solicitarDescuentoCupon() {
+<span class="nc" id="L96">        System.out.println(&quot;\n--- Solicitar Descuento con Cupón ---&quot;);</span>
+        
+<span class="nc" id="L98">        System.out.print(&quot;ID del cliente: &quot;);</span>
+<span class="nc" id="L99">        String clienteId = scanner.nextLine();</span>
+        
+<span class="nc" id="L101">        System.out.print(&quot;Monto total: $&quot;);</span>
+<span class="nc" id="L102">        double monto = scanner.nextDouble();</span>
+        
+<span class="nc" id="L104">        System.out.print(&quot;Cantidad: &quot;);</span>
+<span class="nc" id="L105">        int cantidad = scanner.nextInt();</span>
+<span class="nc" id="L106">        scanner.nextLine();</span>
+        
+<span class="nc" id="L108">        System.out.print(&quot;Código de cupón: &quot;);</span>
+<span class="nc" id="L109">        String cupon = scanner.nextLine();</span>
+        
+<span class="nc" id="L111">        SolicitudDescuento solicitud = controlador.crearSolicitud(</span>
+<span class="nc" id="L112">            clienteId, monto, cantidad, 0, cupon, &quot;GENERAL&quot;);</span>
+        
+<span class="nc" id="L114">        ResultadoDescuento resultado = controlador.procesarSolicitud(solicitud);</span>
+<span class="nc" id="L115">        mostrarResumen(monto, resultado);</span>
+<span class="nc" id="L116">    }</span>
+
+    private void solicitarDescuentoClienteFrecuente() {
+<span class="nc" id="L119">        System.out.println(&quot;\n--- Descuento Cliente Frecuente ---&quot;);</span>
+        
+<span class="nc" id="L121">        System.out.print(&quot;ID del cliente: &quot;);</span>
+<span class="nc" id="L122">        String clienteId = scanner.nextLine();</span>
+        
+<span class="nc" id="L124">        System.out.print(&quot;Monto total: $&quot;);</span>
+<span class="nc" id="L125">        double monto = scanner.nextDouble();</span>
+        
+<span class="nc" id="L127">        System.out.print(&quot;Cantidad: &quot;);</span>
+<span class="nc" id="L128">        int cantidad = scanner.nextInt();</span>
+        
+<span class="nc" id="L130">        System.out.print(&quot;Número de compras previas: &quot;);</span>
+<span class="nc" id="L131">        int numeroCompras = scanner.nextInt();</span>
+<span class="nc" id="L132">        scanner.nextLine();</span>
+        
+<span class="nc" id="L134">        SolicitudDescuento solicitud = controlador.crearSolicitud(</span>
+<span class="nc" id="L135">            clienteId, monto, cantidad, numeroCompras, null, &quot;GENERAL&quot;);</span>
+        
+<span class="nc" id="L137">        ResultadoDescuento resultado = controlador.procesarSolicitud(solicitud);</span>
+<span class="nc" id="L138">        mostrarResumen(monto, resultado);</span>
+<span class="nc" id="L139">    }</span>
+
+    private void solicitarDescuentoPorMonto() {
+<span class="nc" id="L142">        System.out.println(&quot;\n--- Descuento por Monto ---&quot;);</span>
+        
+<span class="nc" id="L144">        System.out.print(&quot;ID del cliente: &quot;);</span>
+<span class="nc" id="L145">        String clienteId = scanner.nextLine();</span>
+        
+<span class="nc" id="L147">        System.out.print(&quot;Monto total: $&quot;);</span>
+<span class="nc" id="L148">        double monto = scanner.nextDouble();</span>
+        
+<span class="nc" id="L150">        System.out.print(&quot;Cantidad: &quot;);</span>
+<span class="nc" id="L151">        int cantidad = scanner.nextInt();</span>
+<span class="nc" id="L152">        scanner.nextLine();</span>
+        
+<span class="nc" id="L154">        SolicitudDescuento solicitud = controlador.crearSolicitud(</span>
+<span class="nc" id="L155">            clienteId, monto, cantidad, 0, null, &quot;GENERAL&quot;);</span>
+        
+<span class="nc" id="L157">        ResultadoDescuento resultado = controlador.procesarSolicitud(solicitud);</span>
+<span class="nc" id="L158">        mostrarResumen(monto, resultado);</span>
+<span class="nc" id="L159">    }</span>
+
+    private void solicitarDescuentoPorCantidad() {
+<span class="nc" id="L162">        System.out.println(&quot;\n--- Descuento por Cantidad ---&quot;);</span>
+        
+<span class="nc" id="L164">        System.out.print(&quot;ID del cliente: &quot;);</span>
+<span class="nc" id="L165">        String clienteId = scanner.nextLine();</span>
+        
+<span class="nc" id="L167">        System.out.print(&quot;Monto total: $&quot;);</span>
+<span class="nc" id="L168">        double monto = scanner.nextDouble();</span>
+        
+<span class="nc" id="L170">        System.out.print(&quot;Cantidad de productos: &quot;);</span>
+<span class="nc" id="L171">        int cantidad = scanner.nextInt();</span>
+<span class="nc" id="L172">        scanner.nextLine();</span>
+        
+<span class="nc" id="L174">        SolicitudDescuento solicitud = controlador.crearSolicitud(</span>
+<span class="nc" id="L175">            clienteId, monto, cantidad, 0, null, &quot;GENERAL&quot;);</span>
+        
+<span class="nc" id="L177">        ResultadoDescuento resultado = controlador.procesarSolicitud(solicitud);</span>
+<span class="nc" id="L178">        mostrarResumen(monto, resultado);</span>
+<span class="nc" id="L179">    }</span>
+
+    private void verCuponesDisponibles() {
+<span class="nc" id="L182">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L183">        System.out.println(&quot;║       CUPONES DISPONIBLES                  ║&quot;);</span>
+<span class="nc" id="L184">        System.out.println(&quot;╚════════════════════════════════════════════╝\n&quot;);</span>
+        
+<span class="nc" id="L186">        System.out.println(&quot;Código          | Descuento&quot;);</span>
+<span class="nc" id="L187">        System.out.println(&quot;─&quot;.repeat(50));</span>
+<span class="nc" id="L188">        System.out.println(&quot;VERANO2024      | 15%&quot;);</span>
+<span class="nc" id="L189">        System.out.println(&quot;PRIMERACOMPRA   | 20%&quot;);</span>
+<span class="nc" id="L190">        System.out.println(&quot;BLACKFRIDAY     | 50%&quot;);</span>
+<span class="nc" id="L191">        System.out.println(&quot;NAVIDAD         | 25%&quot;);</span>
+<span class="nc" id="L192">        System.out.println(&quot;BIENVENIDO      | 10%&quot;);</span>
+<span class="nc" id="L193">        System.out.println(&quot;─&quot;.repeat(50));</span>
+<span class="nc" id="L194">    }</span>
+
+    private void demoComparacion() {
+<span class="nc" id="L197">        System.out.println(&quot;\n╔════════════════════════════════════════════╗&quot;);</span>
+<span class="nc" id="L198">        System.out.println(&quot;║       DEMO: COMPARACIÓN DE SOLICITUDES     ║&quot;);</span>
+<span class="nc" id="L199">        System.out.println(&quot;╚════════════════════════════════════════════╝\n&quot;);</span>
+        
+<span class="nc" id="L201">        double montoBase = 150000;</span>
+<span class="nc" id="L202">        int cantidadBase = 15;</span>
+        
+<span class="nc" id="L204">        System.out.println(&quot;Datos base:&quot;);</span>
+<span class="nc" id="L205">        System.out.printf(&quot;- Monto: $%.0f%n&quot;, montoBase);</span>
+<span class="nc" id="L206">        System.out.println(&quot;- Cantidad: &quot; + cantidadBase);</span>
+<span class="nc" id="L207">        System.out.println(&quot;\nComparando diferentes escenarios...\n&quot;);</span>
+        
+        // Escenario 1: Cliente nuevo sin cupón
+<span class="nc" id="L210">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L211">        System.out.println(&quot;ESCENARIO 1: Cliente nuevo, sin cupón&quot;);</span>
+<span class="nc" id="L212">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L213">        SolicitudDescuento sol1 = controlador.crearSolicitud(</span>
+<span class="nc" id="L214">            &quot;CLI-001&quot;, montoBase, cantidadBase, 0, null, &quot;GENERAL&quot;);</span>
+<span class="nc" id="L215">        ResultadoDescuento res1 = controlador.procesarSolicitud(sol1);</span>
+<span class="nc" id="L216">        mostrarResumen(montoBase, res1);</span>
+<span class="nc" id="L217">        pausa();</span>
+        
+        // Escenario 2: Cliente con cupón
+<span class="nc" id="L220">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L221">        System.out.println(&quot;ESCENARIO 2: Cliente con cupón VERANO2024&quot;);</span>
+<span class="nc" id="L222">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L223">        SolicitudDescuento sol2 = controlador.crearSolicitud(</span>
+<span class="nc" id="L224">            &quot;CLI-002&quot;, montoBase, cantidadBase, 0, &quot;VERANO2024&quot;, &quot;GENERAL&quot;);</span>
+<span class="nc" id="L225">        ResultadoDescuento res2 = controlador.procesarSolicitud(sol2);</span>
+<span class="nc" id="L226">        mostrarResumen(montoBase, res2);</span>
+<span class="nc" id="L227">        pausa();</span>
+        
+        // Escenario 3: Cliente frecuente
+<span class="nc" id="L230">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L231">        System.out.println(&quot;ESCENARIO 3: Cliente frecuente (10 compras)&quot;);</span>
+<span class="nc" id="L232">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L233">        SolicitudDescuento sol3 = controlador.crearSolicitud(</span>
+<span class="nc" id="L234">            &quot;CLI-003&quot;, montoBase, cantidadBase, 10, null, &quot;GENERAL&quot;);</span>
+<span class="nc" id="L235">        ResultadoDescuento res3 = controlador.procesarSolicitud(sol3);</span>
+<span class="nc" id="L236">        mostrarResumen(montoBase, res3);</span>
+<span class="nc" id="L237">        pausa();</span>
+        
+        // Escenario 4: Black Friday
+<span class="nc" id="L240">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L241">        System.out.println(&quot;ESCENARIO 4: Black Friday (cupón 50%)&quot;);</span>
+<span class="nc" id="L242">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L243">        SolicitudDescuento sol4 = controlador.crearSolicitud(</span>
+<span class="nc" id="L244">            &quot;CLI-004&quot;, montoBase, cantidadBase, 0, &quot;BLACKFRIDAY&quot;, &quot;GENERAL&quot;);</span>
+<span class="nc" id="L245">        ResultadoDescuento res4 = controlador.procesarSolicitud(sol4);</span>
+<span class="nc" id="L246">        mostrarResumen(montoBase, res4);</span>
+        
+        // Comparación final
+<span class="nc" id="L249">        System.out.println(&quot;\n═&quot;.repeat(50));</span>
+<span class="nc" id="L250">        System.out.println(&quot;COMPARACIÓN FINAL&quot;);</span>
+<span class="nc" id="L251">        System.out.println(&quot;═&quot;.repeat(50));</span>
+<span class="nc" id="L252">        System.out.printf(&quot;Escenario 1 (sin desc.): $%.2f%n&quot;, </span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">            montoBase - (res1.isAprobado() ? res1.getMontoDescuento() : 0));</span>
+<span class="nc" id="L254">        System.out.printf(&quot;Escenario 2 (cupón): $%.2f%n&quot;, </span>
+<span class="nc bnc" id="L255" title="All 2 branches missed.">            montoBase - (res2.isAprobado() ? res2.getMontoDescuento() : 0));</span>
+<span class="nc" id="L256">        System.out.printf(&quot;Escenario 3 (frecuente): $%.2f%n&quot;, </span>
+<span class="nc bnc" id="L257" title="All 2 branches missed.">            montoBase - (res3.isAprobado() ? res3.getMontoDescuento() : 0));</span>
+<span class="nc" id="L258">        System.out.printf(&quot;Escenario 4 (Black Friday): $%.2f%n&quot;, </span>
+<span class="nc bnc" id="L259" title="All 2 branches missed.">            montoBase - (res4.isAprobado() ? res4.getMontoDescuento() : 0));</span>
+<span class="nc" id="L260">        System.out.println(&quot;═&quot;.repeat(50));</span>
+        
+<span class="nc" id="L262">        System.out.println(&quot;\n✓ La cadena evalúa automáticamente el mejor descuento&quot;);</span>
+<span class="nc" id="L263">    }</span>
+
+    private void mostrarResumen(double montoOriginal, ResultadoDescuento resultado) {
+<span class="nc" id="L266">        System.out.println(&quot;\n&quot; + &quot;─&quot;.repeat(50));</span>
+<span class="nc bnc" id="L267" title="All 2 branches missed.">        if (resultado.isAprobado()) {</span>
+<span class="nc" id="L268">            double montoFinal = montoOriginal - resultado.getMontoDescuento();</span>
+<span class="nc" id="L269">            System.out.printf(&quot;Monto original: $%.2f%n&quot;, montoOriginal);</span>
+<span class="nc" id="L270">            System.out.printf(&quot;Descuento: -$%.2f%n&quot;, resultado.getMontoDescuento());</span>
+<span class="nc" id="L271">            System.out.printf(&quot;Total a pagar: $%.2f%n&quot;, montoFinal);</span>
+<span class="nc" id="L272">            System.out.printf(&quot;Ahorro: %.0f%%%n&quot;, </span>
+<span class="nc" id="L273">                (resultado.getMontoDescuento() / montoOriginal) * 100);</span>
+<span class="nc" id="L274">        } else {</span>
+<span class="nc" id="L275">            System.out.printf(&quot;Total a pagar: $%.2f (sin descuento)%n&quot;, montoOriginal);</span>
+        }
+<span class="nc" id="L277">        System.out.println(&quot;─&quot;.repeat(50));</span>
+<span class="nc" id="L278">    }</span>
+
+    private void pausa() {
+        try {
+<span class="nc" id="L282">            Thread.sleep(1000);</span>
+<span class="nc" id="L283">        } catch (InterruptedException e) {</span>
+<span class="nc" id="L284">            e.printStackTrace();</span>
+        }
+<span class="nc" id="L286">    }</span>
+
+    public void mostrarMensaje(String mensaje) {
+<span class="fc" id="L289">        System.out.println(mensaje);</span>
+<span class="fc" id="L290">    }</span>
+
+    public void mostrarError(String error) {
+<span class="nc" id="L293">        System.err.println(&quot;ERROR: &quot; + error);</span>
+<span class="nc" id="L294">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L297">        ConsolaChainOfResponsibility consola = new ConsolaChainOfResponsibility();</span>
+<span class="nc" id="L298">        consola.ejecutar();</span>
+<span class="nc" id="L299">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

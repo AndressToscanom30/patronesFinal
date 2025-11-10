@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsolaProducto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Creacionales.FactoryMethod.vista</a> &gt; <span class="el_source">ConsolaProducto.java</span></div><h1>ConsolaProducto.java</h1><pre class="source lang-java linenums">package Creacionales.FactoryMethod.vista;
+
+import Creacionales.FactoryMethod.modelo.Producto;
+import Creacionales.FactoryMethod.controlador.ProductoControlador;
+import java.util.Scanner;
+
+public class ConsolaProducto {
+
+    private final ProductoControlador controlador;
+    private final Scanner scanner;
+
+<span class="nc" id="L12">    public ConsolaProducto() {</span>
+<span class="nc" id="L13">        this.controlador = new ProductoControlador();</span>
+<span class="nc" id="L14">        this.scanner = new Scanner(System.in);</span>
+<span class="nc" id="L15">    }</span>
+
+    public void mostrarMenu() {
+<span class="nc" id="L18">        System.out.println(&quot;\n=== FACTORY METHOD - Gestión de Productos ===&quot;);</span>
+<span class="nc" id="L19">        System.out.println(&quot;1. Crear producto&quot;);</span>
+<span class="nc" id="L20">        System.out.println(&quot;2. Listar productos&quot;);</span>
+<span class="nc" id="L21">        System.out.println(&quot;3. Buscar producto&quot;);</span>
+<span class="nc" id="L22">        System.out.println(&quot;4. Salir&quot;);</span>
+<span class="nc" id="L23">        System.out.print(&quot;Opción: &quot;);</span>
+<span class="nc" id="L24">    }</span>
+
+    public void ejecutar() {
+<span class="nc" id="L27">        boolean continuar = true;</span>
+
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        while (continuar) {</span>
+<span class="nc" id="L30">            mostrarMenu();</span>
+<span class="nc" id="L31">            int opcion = scanner.nextInt();</span>
+<span class="nc" id="L32">            scanner.nextLine();</span>
+
+<span class="nc bnc" id="L34" title="All 5 branches missed.">            switch (opcion) {</span>
+<span class="nc" id="L35">                case 1 -&gt; crearProductoInteractivo();</span>
+<span class="nc" id="L36">                case 2 -&gt; listarProductos();</span>
+<span class="nc" id="L37">                case 3 -&gt; buscarProductoInteractivo();</span>
+<span class="nc" id="L38">                case 4 -&gt; continuar = false;</span>
+<span class="nc" id="L39">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
+            }
+        }
+
+<span class="nc" id="L43">        System.out.println(&quot;¡Hasta luego!&quot;);</span>
+<span class="nc" id="L44">    }</span>
+
+    private void crearProductoInteractivo() {
+<span class="nc" id="L47">        System.out.println(&quot;\n--- Crear Producto ---&quot;);</span>
+<span class="nc" id="L48">        System.out.println(&quot;Tipos disponibles: &quot; + controlador.obtenerTiposDisponibles());</span>
+<span class="nc" id="L49">        System.out.print(&quot;Tipo: &quot;);</span>
+<span class="nc" id="L50">        String tipo = scanner.nextLine();</span>
+
+<span class="nc" id="L52">        System.out.print(&quot;Código: &quot;);</span>
+<span class="nc" id="L53">        String codigo = scanner.nextLine();</span>
+
+<span class="nc" id="L55">        System.out.print(&quot;Nombre: &quot;);</span>
+<span class="nc" id="L56">        String nombre = scanner.nextLine();</span>
+
+<span class="nc" id="L58">        System.out.print(&quot;Precio: &quot;);</span>
+<span class="nc" id="L59">        double precio = scanner.nextDouble();</span>
+<span class="nc" id="L60">        scanner.nextLine();</span>
+
+<span class="nc" id="L62">        System.out.print(&quot;Categoría: &quot;);</span>
+<span class="nc" id="L63">        String categoria = scanner.nextLine();</span>
+
+<span class="nc" id="L65">        Producto producto = controlador.crearProducto(tipo, codigo, nombre, precio, categoria);</span>
+
+<span class="nc bnc" id="L67" title="All 2 branches missed.">        if (producto != null) {</span>
+<span class="nc" id="L68">            System.out.println(&quot;✓ Producto creado: &quot; + producto);</span>
+<span class="nc" id="L69">        } else {</span>
+<span class="nc" id="L70">            System.out.println(&quot;✗ Tipo de producto no válido&quot;);</span>
+        }
+<span class="nc" id="L72">    }</span>
+
+    private void listarProductos() {
+<span class="nc" id="L75">        System.out.println(&quot;\n--- Lista de Productos ---&quot;);</span>
+<span class="nc" id="L76">        var productos = controlador.obtenerTodosLosProductos();</span>
+
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        if (productos.isEmpty()) {</span>
+<span class="nc" id="L79">            System.out.println(&quot;No hay productos registrados&quot;);</span>
+<span class="nc" id="L80">        } else {</span>
+<span class="nc" id="L81">            productos.forEach(p -&gt; {</span>
+<span class="nc" id="L82">                System.out.printf(&quot;- %s | Tipo: %s | Precio final: $%.2f%n&quot;,</span>
+<span class="nc" id="L83">                        p.getNombre(), p.obtenerTipo(), p.calcularPrecioFinal());</span>
+<span class="nc" id="L84">            });</span>
+        }
+<span class="nc" id="L86">    }</span>
+
+    private void buscarProductoInteractivo() {
+<span class="nc" id="L89">        System.out.print(&quot;\nCódigo del producto: &quot;);</span>
+<span class="nc" id="L90">        String codigo = scanner.nextLine();</span>
+
+<span class="nc" id="L92">        Producto producto = controlador.buscarPorCodigo(codigo);</span>
+
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        if (producto != null) {</span>
+<span class="nc" id="L95">            System.out.println(&quot;Encontrado: &quot; + producto);</span>
+<span class="nc" id="L96">            System.out.println(&quot;Precio final: $&quot; + producto.calcularPrecioFinal());</span>
+<span class="nc" id="L97">            System.out.println(&quot;Requiere refrigeración: &quot; + producto.requiereRefrigeracion());</span>
+<span class="nc" id="L98">        } else {</span>
+<span class="nc" id="L99">            System.out.println(&quot;Producto no encontrado&quot;);</span>
+        }
+<span class="nc" id="L101">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L104">        ConsolaProducto vista = new ConsolaProducto();</span>
+<span class="nc" id="L105">        vista.ejecutar();</span>
+<span class="nc" id="L106">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductoPeso.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Proyecto Final Patrones</a> &gt; <a href="index.source.html" class="el_package">Creacionales.FactoryMethod.modelo</a> &gt; <span class="el_source">ProductoPeso.java</span></div><h1>ProductoPeso.java</h1><pre class="source lang-java linenums">package Creacionales.FactoryMethod.modelo;
+
+public class ProductoPeso extends Producto {
+
+    private double precioPorKilo;
+    private double pesoPromedio;
+    private boolean requiereBascula;
+
+    public ProductoPeso(String codigo, String nombre, double precioPorKilo, String categoria) {
+<span class="fc" id="L10">        super(codigo, nombre, precioPorKilo, categoria);</span>
+<span class="fc" id="L11">        this.precioPorKilo = precioPorKilo;</span>
+<span class="fc" id="L12">        this.pesoPromedio = 1.0;</span>
+<span class="fc" id="L13">        this.requiereBascula = true;</span>
+<span class="fc" id="L14">    }</span>
+
+    @Override
+    public double calcularPrecioFinal() {
+<span class="fc" id="L18">        return precioPorKilo * pesoPromedio;</span>
+    }
+
+    @Override
+    public boolean requiereRefrigeracion() {
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">        return categoria != null &amp;&amp;</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">                (categoria.equalsIgnoreCase(&quot;CARNES&quot;) ||</span>
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">                        categoria.equalsIgnoreCase(&quot;LACTEOS&quot;));</span>
+    }
+
+    @Override
+    public String obtenerTipo() {
+<span class="fc" id="L30">        return &quot;PESO&quot;;</span>
+    }
+
+    public double getPrecioPorKilo() {
+<span class="nc" id="L34">        return precioPorKilo;</span>
+    }
+
+    public double getPesoPromedio() {
+<span class="fc" id="L38">        return pesoPromedio;</span>
+    }
+
+    public boolean isRequiereBascula() {
+<span class="fc" id="L42">        return requiereBascula;</span>
+    }
+
+    public void setPesoPromedio(double peso) {
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        if (peso &lt;= 0) {</span>
+<span class="fc" id="L47">            throw new IllegalArgumentException(&quot;El peso debe ser positivo&quot;);</span>
+        }
+<span class="fc" id="L49">        this.pesoPromedio = peso;</span>
+<span class="fc" id="L50">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
