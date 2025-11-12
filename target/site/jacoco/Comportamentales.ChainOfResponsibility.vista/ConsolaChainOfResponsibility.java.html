@@ -50,7 +50,7 @@ public class ConsolaChainOfResponsibility {
 <span class="nc" id="L50">                case 8 -&gt; continuar = false;</span>
 <span class="nc" id="L51">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
             }
-        }
+<span class="nc" id="L53">        }</span>
 
 <span class="nc" id="L55">        System.out.println(&quot;\n¡Gracias por usar el sistema de descuentos!&quot;);</span>
 <span class="nc" id="L56">    }</span>
@@ -78,7 +78,7 @@ public class ConsolaChainOfResponsibility {
 <span class="nc bnc" id="L78" title="All 2 branches missed.">        if (cupon.isEmpty()) cupon = null;</span>
         
 <span class="nc" id="L80">        SolicitudDescuento solicitud = controlador.crearSolicitud(</span>
-<span class="nc" id="L81">            clienteId, monto, cantidad, numeroCompras, cupon, &quot;GENERAL&quot;);</span>
+            clienteId, monto, cantidad, numeroCompras, cupon, &quot;GENERAL&quot;);
         
 <span class="nc" id="L83">        ResultadoDescuento resultado = controlador.procesarSolicitud(solicitud);</span>
         
@@ -109,7 +109,7 @@ public class ConsolaChainOfResponsibility {
 <span class="nc" id="L109">        String cupon = scanner.nextLine();</span>
         
 <span class="nc" id="L111">        SolicitudDescuento solicitud = controlador.crearSolicitud(</span>
-<span class="nc" id="L112">            clienteId, monto, cantidad, 0, cupon, &quot;GENERAL&quot;);</span>
+            clienteId, monto, cantidad, 0, cupon, &quot;GENERAL&quot;);
         
 <span class="nc" id="L114">        ResultadoDescuento resultado = controlador.procesarSolicitud(solicitud);</span>
 <span class="nc" id="L115">        mostrarResumen(monto, resultado);</span>
@@ -132,7 +132,7 @@ public class ConsolaChainOfResponsibility {
 <span class="nc" id="L132">        scanner.nextLine();</span>
         
 <span class="nc" id="L134">        SolicitudDescuento solicitud = controlador.crearSolicitud(</span>
-<span class="nc" id="L135">            clienteId, monto, cantidad, numeroCompras, null, &quot;GENERAL&quot;);</span>
+            clienteId, monto, cantidad, numeroCompras, null, &quot;GENERAL&quot;);
         
 <span class="nc" id="L137">        ResultadoDescuento resultado = controlador.procesarSolicitud(solicitud);</span>
 <span class="nc" id="L138">        mostrarResumen(monto, resultado);</span>
@@ -152,7 +152,7 @@ public class ConsolaChainOfResponsibility {
 <span class="nc" id="L152">        scanner.nextLine();</span>
         
 <span class="nc" id="L154">        SolicitudDescuento solicitud = controlador.crearSolicitud(</span>
-<span class="nc" id="L155">            clienteId, monto, cantidad, 0, null, &quot;GENERAL&quot;);</span>
+            clienteId, monto, cantidad, 0, null, &quot;GENERAL&quot;);
         
 <span class="nc" id="L157">        ResultadoDescuento resultado = controlador.procesarSolicitud(solicitud);</span>
 <span class="nc" id="L158">        mostrarResumen(monto, resultado);</span>
@@ -172,7 +172,7 @@ public class ConsolaChainOfResponsibility {
 <span class="nc" id="L172">        scanner.nextLine();</span>
         
 <span class="nc" id="L174">        SolicitudDescuento solicitud = controlador.crearSolicitud(</span>
-<span class="nc" id="L175">            clienteId, monto, cantidad, 0, null, &quot;GENERAL&quot;);</span>
+            clienteId, monto, cantidad, 0, null, &quot;GENERAL&quot;);
         
 <span class="nc" id="L177">        ResultadoDescuento resultado = controlador.procesarSolicitud(solicitud);</span>
 <span class="nc" id="L178">        mostrarResumen(monto, resultado);</span>
@@ -211,7 +211,7 @@ public class ConsolaChainOfResponsibility {
 <span class="nc" id="L211">        System.out.println(&quot;ESCENARIO 1: Cliente nuevo, sin cupón&quot;);</span>
 <span class="nc" id="L212">        System.out.println(&quot;═&quot;.repeat(50));</span>
 <span class="nc" id="L213">        SolicitudDescuento sol1 = controlador.crearSolicitud(</span>
-<span class="nc" id="L214">            &quot;CLI-001&quot;, montoBase, cantidadBase, 0, null, &quot;GENERAL&quot;);</span>
+            &quot;CLI-001&quot;, montoBase, cantidadBase, 0, null, &quot;GENERAL&quot;);
 <span class="nc" id="L215">        ResultadoDescuento res1 = controlador.procesarSolicitud(sol1);</span>
 <span class="nc" id="L216">        mostrarResumen(montoBase, res1);</span>
 <span class="nc" id="L217">        pausa();</span>
@@ -221,7 +221,7 @@ public class ConsolaChainOfResponsibility {
 <span class="nc" id="L221">        System.out.println(&quot;ESCENARIO 2: Cliente con cupón VERANO2024&quot;);</span>
 <span class="nc" id="L222">        System.out.println(&quot;═&quot;.repeat(50));</span>
 <span class="nc" id="L223">        SolicitudDescuento sol2 = controlador.crearSolicitud(</span>
-<span class="nc" id="L224">            &quot;CLI-002&quot;, montoBase, cantidadBase, 0, &quot;VERANO2024&quot;, &quot;GENERAL&quot;);</span>
+            &quot;CLI-002&quot;, montoBase, cantidadBase, 0, &quot;VERANO2024&quot;, &quot;GENERAL&quot;);
 <span class="nc" id="L225">        ResultadoDescuento res2 = controlador.procesarSolicitud(sol2);</span>
 <span class="nc" id="L226">        mostrarResumen(montoBase, res2);</span>
 <span class="nc" id="L227">        pausa();</span>
@@ -231,7 +231,7 @@ public class ConsolaChainOfResponsibility {
 <span class="nc" id="L231">        System.out.println(&quot;ESCENARIO 3: Cliente frecuente (10 compras)&quot;);</span>
 <span class="nc" id="L232">        System.out.println(&quot;═&quot;.repeat(50));</span>
 <span class="nc" id="L233">        SolicitudDescuento sol3 = controlador.crearSolicitud(</span>
-<span class="nc" id="L234">            &quot;CLI-003&quot;, montoBase, cantidadBase, 10, null, &quot;GENERAL&quot;);</span>
+            &quot;CLI-003&quot;, montoBase, cantidadBase, 10, null, &quot;GENERAL&quot;);
 <span class="nc" id="L235">        ResultadoDescuento res3 = controlador.procesarSolicitud(sol3);</span>
 <span class="nc" id="L236">        mostrarResumen(montoBase, res3);</span>
 <span class="nc" id="L237">        pausa();</span>
@@ -241,7 +241,7 @@ public class ConsolaChainOfResponsibility {
 <span class="nc" id="L241">        System.out.println(&quot;ESCENARIO 4: Black Friday (cupón 50%)&quot;);</span>
 <span class="nc" id="L242">        System.out.println(&quot;═&quot;.repeat(50));</span>
 <span class="nc" id="L243">        SolicitudDescuento sol4 = controlador.crearSolicitud(</span>
-<span class="nc" id="L244">            &quot;CLI-004&quot;, montoBase, cantidadBase, 0, &quot;BLACKFRIDAY&quot;, &quot;GENERAL&quot;);</span>
+            &quot;CLI-004&quot;, montoBase, cantidadBase, 0, &quot;BLACKFRIDAY&quot;, &quot;GENERAL&quot;);
 <span class="nc" id="L245">        ResultadoDescuento res4 = controlador.procesarSolicitud(sol4);</span>
 <span class="nc" id="L246">        mostrarResumen(montoBase, res4);</span>
         
@@ -282,7 +282,7 @@ public class ConsolaChainOfResponsibility {
 <span class="nc" id="L282">            Thread.sleep(1000);</span>
 <span class="nc" id="L283">        } catch (InterruptedException e) {</span>
 <span class="nc" id="L284">            e.printStackTrace();</span>
-        }
+<span class="nc" id="L285">        }</span>
 <span class="nc" id="L286">    }</span>
 
     public void mostrarMensaje(String mensaje) {

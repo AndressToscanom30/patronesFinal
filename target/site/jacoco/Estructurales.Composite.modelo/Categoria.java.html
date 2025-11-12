@@ -35,7 +35,7 @@ public class Categoria extends ProductoIndividual {
 <span class="fc" id="L35">        double total = 0;</span>
 <span class="fc bfc" id="L36" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
 <span class="fc" id="L37">            total += hijo.calcularTotal();</span>
-        }
+<span class="fc" id="L38">        }</span>
         // Aplicar el descuento de la categoría
 <span class="fc" id="L40">        return total * (1 - getDescuentoAcumulado() / 100);</span>
     }
@@ -45,7 +45,7 @@ public class Categoria extends ProductoIndividual {
 <span class="fc" id="L45">        double pesoTotal = 0;</span>
 <span class="fc bfc" id="L46" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
 <span class="fc" id="L47">            pesoTotal += hijo.calcularPesoTotal();</span>
-        }
+<span class="fc" id="L48">        }</span>
 <span class="fc" id="L49">        return pesoTotal;</span>
     }
 
@@ -54,7 +54,7 @@ public class Categoria extends ProductoIndividual {
 <span class="fc" id="L54">        int count = 0;</span>
 <span class="fc bfc" id="L55" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
 <span class="fc" id="L56">            count += hijo.contarItems();</span>
-        }
+<span class="fc" id="L57">        }</span>
 <span class="fc" id="L58">        return count;</span>
     }
 
@@ -63,7 +63,7 @@ public class Categoria extends ProductoIndividual {
         // Solo propagar el descuento a los hijos, NO acumularlo en la categoría
 <span class="fc bfc" id="L64" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
 <span class="fc" id="L65">            hijo.aplicarDescuento(porcentaje);</span>
-        }
+<span class="fc" id="L66">        }</span>
 <span class="fc" id="L67">    }</span>
 
     @Override

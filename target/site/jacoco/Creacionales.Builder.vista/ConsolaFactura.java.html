@@ -41,7 +41,7 @@ public class ConsolaFactura {
 <span class="nc" id="L41">                case 6 -&gt; continuar = false;</span>
 <span class="nc" id="L42">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
             }
-        }
+<span class="nc" id="L44">        }</span>
 
 <span class="nc" id="L46">        System.out.println(&quot;¡Hasta luego!&quot;);</span>
 <span class="nc" id="L47">    }</span>
@@ -124,7 +124,7 @@ public class ConsolaFactura {
 
 <span class="pc bpc" id="L125" title="1 of 2 branches missed.">        if (facturas.isEmpty()) {</span>
 <span class="fc" id="L126">            System.out.println(&quot;No hay facturas registradas&quot;);</span>
-<span class="fc" id="L127">        } else {</span>
+        } else {
 <span class="nc" id="L128">            facturas.forEach(f -&gt; {</span>
 <span class="nc" id="L129">                System.out.printf(&quot;%s | Cliente: %s | Total: $%.2f | Fecha: %s%n&quot;,</span>
 <span class="nc" id="L130">                        f.getNumeroFactura(),</span>
@@ -149,7 +149,7 @@ public class ConsolaFactura {
 <span class="nc bnc" id="L149" title="All 2 branches missed.">            if (factura.getObservaciones() != null) {</span>
 <span class="nc" id="L150">                System.out.println(&quot;Observaciones: &quot; + factura.getObservaciones());</span>
             }
-<span class="nc" id="L152">        } else {</span>
+        } else {
 <span class="nc" id="L153">            System.out.println(&quot;Factura no encontrada&quot;);</span>
         }
 <span class="nc" id="L155">    }</span>

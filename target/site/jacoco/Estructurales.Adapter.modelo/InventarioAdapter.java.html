@@ -23,7 +23,7 @@ public class InventarioAdapter {
         
 <span class="fc bfc" id="L24" title="All 2 branches covered.">        for (ProductoExterno externo : externos) {</span>
 <span class="fc" id="L25">            internos.add(convertirProductoExternoAInterno(externo));</span>
-        }
+<span class="fc" id="L26">        }</span>
         
 <span class="fc" id="L28">        return internos;</span>
     }
@@ -42,7 +42,7 @@ public class InventarioAdapter {
         
 <span class="fc bfc" id="L43" title="All 2 branches covered.">        for (ProductoExterno externo : externos) {</span>
 <span class="fc" id="L44">            internos.add(convertirProductoExternoAInterno(externo));</span>
-        }
+<span class="fc" id="L45">        }</span>
         
 <span class="fc" id="L47">        return internos;</span>
     }
@@ -53,7 +53,7 @@ public class InventarioAdapter {
 <span class="fc" id="L53">            externo.getProductId(),</span>
 <span class="fc" id="L54">            externo.getProductName(),</span>
 <span class="fc" id="L55">            externo.getUnitPrice(),</span>
-<span class="fc" id="L56">            categoria,</span>
+            categoria,
 <span class="fc" id="L57">            externo.getAvailableQuantity()</span>
         );
     }
@@ -79,9 +79,9 @@ public class InventarioAdapter {
 <span class="fc" id="L79">            interno.getCodigo(),</span>
 <span class="fc" id="L80">            interno.getNombre(),</span>
 <span class="fc" id="L81">            interno.getPrecio(),</span>
-<span class="fc" id="L82">            categoryCode,</span>
+            categoryCode,
 <span class="fc" id="L83">            interno.getStock(),</span>
-<span class="fc" id="L84">            &quot;SUP-INTERNAL&quot;</span>
+            &quot;SUP-INTERNAL&quot;
         );
     }
 

@@ -43,7 +43,7 @@ public class ConsolaPromocion {
 <span class="nc" id="L43">                case 6 -&gt; continuar = false;</span>
 <span class="nc" id="L44">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
             }
-        }
+<span class="nc" id="L46">        }</span>
         
 <span class="nc" id="L48">        System.out.println(&quot;¡Hasta luego!&quot;);</span>
 <span class="nc" id="L49">    }</span>
@@ -80,7 +80,7 @@ public class ConsolaPromocion {
 <span class="nc" id="L80">            configurarPromocion(promocion);</span>
 <span class="nc" id="L81">            controlador.guardarPromocion(promocion);</span>
 <span class="nc" id="L82">            System.out.println(&quot;✓ Promoción creada: &quot; + promocion);</span>
-<span class="nc" id="L83">        } else {</span>
+        } else {
 <span class="nc" id="L84">            System.out.println(&quot;✗ Error al crear promoción&quot;);</span>
         }
 <span class="nc" id="L86">    }</span>
@@ -145,7 +145,7 @@ public class ConsolaPromocion {
 <span class="nc bnc" id="L145" title="All 2 branches missed.">        if (clonada != null) {</span>
 <span class="nc" id="L146">            controlador.guardarPromocion(clonada);</span>
 <span class="nc" id="L147">            System.out.println(&quot;✓ Promoción clonada: &quot; + clonada);</span>
-<span class="nc" id="L148">        } else {</span>
+        } else {
 <span class="nc" id="L149">            System.out.println(&quot;✗ Error al clonar&quot;);</span>
         }
 <span class="nc" id="L151">    }</span>
@@ -156,7 +156,7 @@ public class ConsolaPromocion {
         
 <span class="nc bnc" id="L157" title="All 2 branches missed.">        if (vigentes.isEmpty()) {</span>
 <span class="nc" id="L158">            System.out.println(&quot;No hay promociones vigentes&quot;);</span>
-<span class="nc" id="L159">        } else {</span>
+        } else {
 <span class="nc" id="L160">            vigentes.forEach(p -&gt; {</span>
 <span class="nc" id="L161">                System.out.printf(&quot;- %s | Tipo: %s | Vigente hasta: %s%n&quot;,</span>
 <span class="nc" id="L162">                    p.getNombre(), p.obtenerTipo(), p.getFechaFin());</span>

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: e2e.Proxy.ProxyE2ETest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6262 s -- in e2e.Proxy.ProxyE2ETest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 108.7 s -- in e2e.Proxy.ProxyE2ETest

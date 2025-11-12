@@ -25,10 +25,10 @@ public class Combo extends ProductoIndividual {
 <span class="fc bfc" id="L25" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
 <span class="pc bpc" id="L26" title="1 of 2 branches missed.">            if (hijo instanceof ProductoIndividual) {</span>
 <span class="fc" id="L27">                precioRegular += ((ProductoIndividual) hijo).getPrecio();</span>
-<span class="fc" id="L28">            } else {</span>
+            } else {
 <span class="nc" id="L29">                precioRegular += hijo.calcularTotal();</span>
             }
-        }
+<span class="fc" id="L31">        }</span>
 <span class="fc" id="L32">        return precioRegular - precioEspecial;</span>
     }
 
@@ -55,7 +55,7 @@ public class Combo extends ProductoIndividual {
 <span class="fc" id="L55">        double pesoTotal = 0;</span>
 <span class="fc bfc" id="L56" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
 <span class="fc" id="L57">            pesoTotal += hijo.calcularPesoTotal();</span>
-        }
+<span class="fc" id="L58">        }</span>
 <span class="fc" id="L59">        return pesoTotal;</span>
     }
 
@@ -64,7 +64,7 @@ public class Combo extends ProductoIndividual {
 <span class="fc" id="L64">        int count = 0;</span>
 <span class="fc bfc" id="L65" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
 <span class="fc" id="L66">            count += hijo.contarItems();</span>
-        }
+<span class="fc" id="L67">        }</span>
 <span class="fc" id="L68">        return count;</span>
     }
 

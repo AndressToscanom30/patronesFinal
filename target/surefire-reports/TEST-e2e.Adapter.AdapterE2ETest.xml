@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="e2e.Adapter.AdapterE2ETest" time="0.76" tests="10" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="e2e.Adapter.AdapterE2ETest" time="0.364" tests="10" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="java.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,9 +15,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CO"/>
     <property name="sun.boot.library.path" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin"/>
-    <property name="sun.java.command" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351 2025-11-10T14-34-15_175-jvmRun1 surefire-20251110143415723_1tmp surefire_0-20251110143415723_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\tosca\AppData\Local\Temp\surefire2208938244730102823\surefirebooter-20251112004733842_3.jar C:\Users\tosca\AppData\Local\Temp\surefire2208938244730102823 2025-11-12T00-47-33_205-jvmRun1 surefire-20251112004733842_1tmp surefire_0-20251112004733842_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\tosca"/>
     <property name="user.language" value="es"/>
@@ -25,12 +25,12 @@
     <property name="java.version.date" value="2025-07-15"/>
     <property name="java.home" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="basedir" value="C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\tosca\AppData\Local\Temp\surefire2208938244730102823\surefirebooter-20251112004733842_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.8+9-LTS"/>
@@ -46,7 +46,7 @@
     <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
     <property name="java.io.tmpdir" value="C:\Users\tosca\AppData\Local\Temp\"/>
     <property name="java.version" value="21.0.8"/>
-    <property name="user.dir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="user.dir" value="C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
@@ -59,7 +59,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testConsultaInventarioUnificado" classname="e2e.Adapter.AdapterE2ETest" time="0.132">
+  <testcase name="testConsultaInventarioUnificado" classname="e2e.Adapter.AdapterE2ETest" time="0.059">
     <system-out><![CDATA[
 === CONSULTA DE INVENTARIO UNIFICADO ===
 
@@ -80,7 +80,7 @@ PRODUCTOS EXTERNOS (ADAPTADOS):
 Total de productos disponibles: 10
 ]]></system-out>
   </testcase>
-  <testcase name="testProcesoCompraMultiplesFuentes" classname="e2e.Adapter.AdapterE2ETest" time="0.058">
+  <testcase name="testProcesoCompraMultiplesFuentes" classname="e2e.Adapter.AdapterE2ETest" time="0.072">
     <system-out><![CDATA[
 === VERIFICACIÓN DE DISPONIBILIDAD ===
 
@@ -90,17 +90,17 @@ EXT-001 [EXTERNO]: 10 unidades -> ✓ DISPONIBLE
 EXT-002 [EXTERNO]: 15 unidades -> ✓ DISPONIBLE
 ]]></system-out>
   </testcase>
-  <testcase name="testActualizacionMasivaInventario" classname="e2e.Adapter.AdapterE2ETest" time="0.053">
+  <testcase name="testActualizacionMasivaInventario" classname="e2e.Adapter.AdapterE2ETest" time="0.017">
     <system-out><![CDATA[
 === ACTUALIZACIÓN MASIVA DE INVENTARIO ===
 
-✓ EXT-001 actualizado a 600 unidades
-✓ EXT-002 actualizado a 350 unidades
 ✓ P001 actualizado a 150 unidades
 ✓ P002 actualizado a 75 unidades
+✓ EXT-001 actualizado a 600 unidades
+✓ EXT-002 actualizado a 350 unidades
 ]]></system-out>
   </testcase>
-  <testcase name="testGestionPorProveedor" classname="e2e.Adapter.AdapterE2ETest" time="0.094">
+  <testcase name="testGestionPorProveedor" classname="e2e.Adapter.AdapterE2ETest" time="0.014">
     <system-out><![CDATA[
 === GESTIÓN POR PROVEEDOR ===
 
@@ -117,7 +117,7 @@ Proveedor SUP-C: 1 productos
   - Producto[EXT-004, Sliced Bread, $4000,00, Stock: 150]
 ]]></system-out>
   </testcase>
-  <testcase name="testExpansionCatalogo" classname="e2e.Adapter.AdapterE2ETest" time="0.024">
+  <testcase name="testExpansionCatalogo" classname="e2e.Adapter.AdapterE2ETest" time="0.012">
     <system-out><![CDATA[
 === EXPANSIÓN DE CATÁLOGO ===
 
@@ -125,7 +125,7 @@ Proveedor SUP-C: 1 productos
 ✓ Producto externo agregado: Producto[EXT-NEW-001, Imported Tea, $12000,00, Stock: 120]
 ]]></system-out>
   </testcase>
-  <testcase name="testReporteConsolidado" classname="e2e.Adapter.AdapterE2ETest" time="0.042">
+  <testcase name="testReporteConsolidado" classname="e2e.Adapter.AdapterE2ETest" time="0.028">
     <system-out><![CDATA[
 === REPORTE CONSOLIDADO DE INVENTARIO ===
 
@@ -143,7 +143,7 @@ PRODUCTOS POR CATEGORÍA:
   PANADERIA: 2 productos
 ]]></system-out>
   </testcase>
-  <testcase name="testPedidoGrandeMultiFuente" classname="e2e.Adapter.AdapterE2ETest" time="0.071">
+  <testcase name="testPedidoGrandeMultiFuente" classname="e2e.Adapter.AdapterE2ETest" time="0.029">
     <system-out><![CDATA[
 === PEDIDO GRANDE MULTI-FUENTE ===
 
@@ -161,7 +161,7 @@ Items rechazados: 0
 Costo total: $1342500,00
 ]]></system-out>
   </testcase>
-  <testcase name="testMigracionProductos" classname="e2e.Adapter.AdapterE2ETest" time="0.103">
+  <testcase name="testMigracionProductos" classname="e2e.Adapter.AdapterE2ETest" time="0.005">
     <system-out><![CDATA[
 === MIGRACIÓN DE PRODUCTOS ===
 
@@ -169,7 +169,7 @@ Producto original (interno): Producto[P001, Arroz Diana 1kg, $3500,00, Stock: 10
 ✓ Producto migrado a sistema externo: Producto[EXT-MIG-001, Arroz Diana 1kg (Migrado), $3500,00, Stock: 100]
 ]]></system-out>
   </testcase>
-  <testcase name="testBusquedaInteligente" classname="e2e.Adapter.AdapterE2ETest" time="0.018">
+  <testcase name="testBusquedaInteligente" classname="e2e.Adapter.AdapterE2ETest" time="0.034">
     <system-out><![CDATA[
 === BÚSQUEDA INTELIGENTE ===
 
@@ -205,7 +205,7 @@ Buscando: Oil
     - Producto[EXT-002, Olive Oil 1L, $25000,00, Stock: 200]
 ]]></system-out>
   </testcase>
-  <testcase name="testEscenarioCompletoDiario" classname="e2e.Adapter.AdapterE2ETest" time="0.008">
+  <testcase name="testEscenarioCompletoDiario" classname="e2e.Adapter.AdapterE2ETest" time="0.034">
     <system-out><![CDATA[
 === OPERACIÓN DIARIA COMPLETA ===
 

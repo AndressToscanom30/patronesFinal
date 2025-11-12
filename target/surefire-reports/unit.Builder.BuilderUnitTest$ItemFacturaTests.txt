@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: unit.Builder.BuilderUnitTest$ItemFacturaTests
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s -- in unit.Builder.BuilderUnitTest$ItemFacturaTests
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in unit.Builder.BuilderUnitTest$ItemFacturaTests

@@ -18,11 +18,11 @@ public class DescuentoClienteFrecuente extends ManejadorDescuento {
 <span class="fc" id="L18">            System.out.printf(&quot;  ✓ Descuento cliente frecuente aplicado: %.0f%% (%d compras)%n&quot;, </span>
 <span class="fc" id="L19">                porcentajeDescuento, solicitud.getNumeroCompras());</span>
 <span class="fc" id="L20">            return new ResultadoDescuento(</span>
-<span class="fc" id="L21">                true,</span>
-<span class="fc" id="L22">                descuento,</span>
+                true,
+                descuento,
 <span class="fc" id="L23">                String.format(&quot;Descuento cliente frecuente: %.0f%% por tener %d compras&quot;, </span>
 <span class="fc" id="L24">                    porcentajeDescuento, solicitud.getNumeroCompras()),</span>
-<span class="fc" id="L25">                &quot;CLIENTE_FRECUENTE&quot;</span>
+                &quot;CLIENTE_FRECUENTE&quot;
             );
         }
         

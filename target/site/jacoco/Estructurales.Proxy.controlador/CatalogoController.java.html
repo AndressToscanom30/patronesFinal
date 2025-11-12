@@ -26,13 +26,13 @@ public class CatalogoController {
 <span class="fc" id="L26">        vista.mostrarMensaje(&quot;\n=== Mostrando catálogo ===&quot;);</span>
 <span class="fc bfc" id="L27" title="All 2 branches covered.">        for (ImagenProducto imagen : catalogo) {</span>
 <span class="fc" id="L28">            imagen.mostrar();</span>
-        }
+<span class="fc" id="L29">        }</span>
 <span class="fc" id="L30">    }</span>
     
     public void cargarImagen(int indice) {
 <span class="pc bpc" id="L33" title="1 of 4 branches missed.">        if (indice &gt;= 0 &amp;&amp; indice &lt; catalogo.size()) {</span>
 <span class="fc" id="L34">            catalogo.get(indice).cargar();</span>
-<span class="fc" id="L35">        } else {</span>
+        } else {
 <span class="fc" id="L36">            vista.mostrarError(&quot;Índice inválido&quot;);</span>
         }
 <span class="fc" id="L38">    }</span>
@@ -40,7 +40,7 @@ public class CatalogoController {
     public void mostrarImagen(int indice) {
 <span class="pc bpc" id="L41" title="1 of 4 branches missed.">        if (indice &gt;= 0 &amp;&amp; indice &lt; catalogo.size()) {</span>
 <span class="fc" id="L42">            catalogo.get(indice).mostrar();</span>
-<span class="fc" id="L43">        } else {</span>
+        } else {
 <span class="fc" id="L44">            vista.mostrarError(&quot;Índice inválido&quot;);</span>
         }
 <span class="fc" id="L46">    }</span>

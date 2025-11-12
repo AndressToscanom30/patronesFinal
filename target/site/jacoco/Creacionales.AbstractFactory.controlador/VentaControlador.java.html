@@ -43,12 +43,12 @@ public class VentaControlador {
 <span class="fc bfc" id="L43" title="All 2 branches covered.">            if (!validador.validarDisponibilidad(item.getCodigoProducto(), item.getCantidad())) {</span>
 <span class="fc" id="L44">                return false;</span>
             }
-        }
+<span class="fc" id="L46">        }</span>
 
         // Reservar stock
 <span class="fc bfc" id="L49" title="All 2 branches covered.">        for (ItemVenta item : datos.getItems()) {</span>
 <span class="fc" id="L50">            validador.reservarStock(item.getCodigoProducto(), item.getCantidad());</span>
-        }
+<span class="fc" id="L51">        }</span>
 
         // Generar factura
 <span class="fc" id="L54">        GeneradorFactura generador = factory.crearGeneradorFactura();</span>
@@ -119,7 +119,7 @@ public class VentaControlador {
 <span class="fc bfc" id="L119" title="All 2 branches covered.">        for (String canal : factories.keySet()) {</span>
 <span class="fc" id="L120">            long cantidad = obtenerVentasPorCanal(canal).size();</span>
 <span class="fc" id="L121">            stats.put(canal, cantidad);</span>
-        }
+<span class="fc" id="L122">        }</span>
 <span class="fc" id="L123">        return stats;</span>
     }
 

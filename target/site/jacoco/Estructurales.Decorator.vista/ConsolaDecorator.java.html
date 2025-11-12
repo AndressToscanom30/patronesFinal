@@ -45,7 +45,7 @@ public class ConsolaDecorator {
 <span class="nc" id="L45">                case 8 -&gt; continuar = false;</span>
 <span class="nc" id="L46">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
             }
-        }
+<span class="nc" id="L48">        }</span>
 
 <span class="nc" id="L50">        System.out.println(&quot;¡Hasta luego!&quot;);</span>
 <span class="nc" id="L51">    }</span>
@@ -101,7 +101,7 @@ public class ConsolaDecorator {
 <span class="nc" id="L101">                System.out.println(&quot;✓ Garantía agregada&quot;);</span>
 <span class="nc" id="L102">            } catch (IllegalArgumentException e) {</span>
 <span class="nc" id="L103">                System.out.println(&quot;✗ &quot; + e.getMessage());</span>
-            }
+<span class="nc" id="L104">            }</span>
         }
 
 <span class="nc" id="L107">        System.out.print(&quot;\n¿Agregar personalización? (s/n): &quot;);</span>
@@ -118,7 +118,7 @@ public class ConsolaDecorator {
 <span class="nc" id="L118">                System.out.println(&quot;✓ Personalización agregada&quot;);</span>
 <span class="nc" id="L119">            } catch (IllegalArgumentException e) {</span>
 <span class="nc" id="L120">                System.out.println(&quot;✗ &quot; + e.getMessage());</span>
-            }
+<span class="nc" id="L121">            }</span>
         }
 
 <span class="nc" id="L124">        System.out.println(&quot;\n=== PRODUCTO FINAL ===&quot;);</span>
@@ -184,7 +184,7 @@ public class ConsolaDecorator {
 <span class="nc" id="L184">            controlador.guardarProductoConfigurado(conGarantia);</span>
 <span class="nc" id="L185">        } catch (IllegalArgumentException e) {</span>
 <span class="nc" id="L186">            System.out.println(&quot;✗ &quot; + e.getMessage());</span>
-        }
+<span class="nc" id="L187">        }</span>
 <span class="nc" id="L188">    }</span>
 
     private void agregarSoloPersonalizacion() {
@@ -215,7 +215,7 @@ public class ConsolaDecorator {
 <span class="nc" id="L215">            controlador.guardarProductoConfigurado(personalizado);</span>
 <span class="nc" id="L216">        } catch (IllegalArgumentException e) {</span>
 <span class="nc" id="L217">            System.out.println(&quot;✗ &quot; + e.getMessage());</span>
-        }
+<span class="nc" id="L218">        }</span>
 <span class="nc" id="L219">    }</span>
 
     private void verProductosConfigurados() {

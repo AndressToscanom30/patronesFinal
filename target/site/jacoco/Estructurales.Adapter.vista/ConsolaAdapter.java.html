@@ -49,7 +49,7 @@ public class ConsolaAdapter {
 <span class="nc" id="L49">                case 10 -&gt; continuar = false;</span>
 <span class="nc" id="L50">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
             }
-        }
+<span class="nc" id="L52">        }</span>
         
 <span class="nc" id="L54">        System.out.println(&quot;¡Hasta luego!&quot;);</span>
 <span class="nc" id="L55">    }</span>
@@ -62,7 +62,7 @@ public class ConsolaAdapter {
         
 <span class="nc bnc" id="L63" title="All 2 branches missed.">        if (producto != null) {</span>
 <span class="nc" id="L64">            System.out.println(&quot;✓ Producto encontrado: &quot; + producto);</span>
-<span class="nc" id="L65">        } else {</span>
+        } else {
 <span class="nc" id="L66">            System.out.println(&quot;✗ Producto no encontrado&quot;);</span>
         }
 <span class="nc" id="L68">    }</span>
@@ -75,7 +75,7 @@ public class ConsolaAdapter {
         
 <span class="nc bnc" id="L76" title="All 2 branches missed.">        if (producto != null) {</span>
 <span class="nc" id="L77">            System.out.println(&quot;✓ Producto encontrado (adaptado): &quot; + producto);</span>
-<span class="nc" id="L78">        } else {</span>
+        } else {
 <span class="nc" id="L79">            System.out.println(&quot;✗ Producto no encontrado&quot;);</span>
         }
 <span class="nc" id="L81">    }</span>
@@ -86,7 +86,7 @@ public class ConsolaAdapter {
         
 <span class="nc bnc" id="L87" title="All 2 branches missed.">        if (productos.isEmpty()) {</span>
 <span class="nc" id="L88">            System.out.println(&quot;No hay productos internos&quot;);</span>
-<span class="nc" id="L89">        } else {</span>
+        } else {
 <span class="nc" id="L90">            productos.forEach(p -&gt; System.out.println(&quot;- &quot; + p));</span>
         }
 <span class="nc" id="L92">    }</span>
@@ -97,7 +97,7 @@ public class ConsolaAdapter {
         
 <span class="nc bnc" id="L98" title="All 2 branches missed.">        if (productos.isEmpty()) {</span>
 <span class="nc" id="L99">            System.out.println(&quot;No hay productos externos&quot;);</span>
-<span class="nc" id="L100">        } else {</span>
+        } else {
 <span class="nc" id="L101">            productos.forEach(p -&gt; System.out.println(&quot;- &quot; + p));</span>
         }
 <span class="nc" id="L103">    }</span>
@@ -129,7 +129,7 @@ public class ConsolaAdapter {
         
 <span class="nc bnc" id="L130" title="All 2 branches missed.">        if (disponible) {</span>
 <span class="nc" id="L131">            System.out.println(&quot;✓ Producto disponible&quot;);</span>
-<span class="nc" id="L132">        } else {</span>
+        } else {
 <span class="nc" id="L133">            System.out.println(&quot;✗ Stock insuficiente&quot;);</span>
         }
 <span class="nc" id="L135">    }</span>
@@ -149,13 +149,13 @@ public class ConsolaAdapter {
         boolean actualizado;
 <span class="nc bnc" id="L150" title="All 2 branches missed.">        if (tipo == 1) {</span>
 <span class="nc" id="L151">            actualizado = controlador.actualizarStockInterno(codigo, nuevoStock);</span>
-<span class="nc" id="L152">        } else {</span>
+        } else {
 <span class="nc" id="L153">            actualizado = controlador.actualizarStockExterno(codigo, nuevoStock);</span>
         }
         
 <span class="nc bnc" id="L156" title="All 2 branches missed.">        if (actualizado) {</span>
 <span class="nc" id="L157">            System.out.println(&quot;✓ Stock actualizado&quot;);</span>
-<span class="nc" id="L158">        } else {</span>
+        } else {
 <span class="nc" id="L159">            System.out.println(&quot;✗ Error al actualizar stock&quot;);</span>
         }
 <span class="nc" id="L161">    }</span>
@@ -169,7 +169,7 @@ public class ConsolaAdapter {
 <span class="nc" id="L169">        System.out.println(&quot;\n--- Productos del proveedor &quot; + proveedor + &quot; ---&quot;);</span>
 <span class="nc bnc" id="L170" title="All 2 branches missed.">        if (productos.isEmpty()) {</span>
 <span class="nc" id="L171">            System.out.println(&quot;No hay productos de este proveedor&quot;);</span>
-<span class="nc" id="L172">        } else {</span>
+        } else {
 <span class="nc" id="L173">            productos.forEach(p -&gt; System.out.println(&quot;- &quot; + p));</span>
         }
 <span class="nc" id="L175">    }</span>

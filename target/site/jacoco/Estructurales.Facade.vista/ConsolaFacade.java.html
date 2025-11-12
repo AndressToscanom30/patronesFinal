@@ -46,7 +46,7 @@ public class ConsolaFacade {
 <span class="nc" id="L46">                case 6 -&gt; continuar = false;</span>
 <span class="nc" id="L47">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
             }
-        }
+<span class="nc" id="L49">        }</span>
 
 <span class="nc" id="L51">        System.out.println(&quot;\n¡Gracias por usar el sistema de ventas!&quot;);</span>
 <span class="nc" id="L52">    }</span>
@@ -100,7 +100,7 @@ public class ConsolaFacade {
 <span class="nc" id="L100">        System.out.print(&quot;\n¿Confirmar venta? (s/n): &quot;);</span>
 <span class="nc bnc" id="L101" title="All 2 branches missed.">        if (scanner.nextLine().equalsIgnoreCase(&quot;s&quot;)) {</span>
 <span class="nc" id="L102">            controlador.procesarVenta(venta);</span>
-<span class="nc" id="L103">        } else {</span>
+        } else {
 <span class="nc" id="L104">            System.out.println(&quot;✗ Venta cancelada&quot;);</span>
         }
 <span class="nc" id="L106">    }</span>
@@ -158,7 +158,7 @@ public class ConsolaFacade {
 <span class="nc bnc" id="L158" title="All 2 branches missed.">        for (ItemVenta item : venta.getItems()) {</span>
 <span class="nc" id="L159">            System.out.printf(&quot;  - %s (x%d): $%.2f%n&quot;,</span>
 <span class="nc" id="L160">                    item.getNombreProducto(), item.getCantidad(), item.getSubtotal());</span>
-        }
+<span class="nc" id="L161">        }</span>
 <span class="nc" id="L162">        System.out.println(&quot;-&quot;.repeat(50));</span>
 <span class="nc" id="L163">        System.out.printf(&quot;Subtotal: $%.2f%n&quot;, venta.getSubtotal());</span>
 <span class="nc" id="L164">        System.out.printf(&quot;Impuestos (19%%): $%.2f%n&quot;, venta.getImpuestos());</span>
@@ -168,7 +168,7 @@ public class ConsolaFacade {
 <span class="nc" id="L168">        System.out.print(&quot;\n¿Confirmar venta? (s/n): &quot;);</span>
 <span class="nc bnc" id="L169" title="All 2 branches missed.">        if (scanner.nextLine().equalsIgnoreCase(&quot;s&quot;)) {</span>
 <span class="nc" id="L170">            controlador.procesarVenta(venta);</span>
-<span class="nc" id="L171">        } else {</span>
+        } else {
 <span class="nc" id="L172">            System.out.println(&quot;✗ Venta cancelada&quot;);</span>
         }
 <span class="nc" id="L174">    }</span>
@@ -229,7 +229,7 @@ public class ConsolaFacade {
 <span class="fc" id="L229">            System.out.println(&quot;Comprobante de Pago: &quot; + resultado.getComprobantePago());</span>
 <span class="fc" id="L230">            System.out.println(&quot;Puntos Ganados: &quot; + resultado.getPuntosGanados());</span>
 <span class="fc" id="L231">            System.out.println(resultado.getMensaje());</span>
-<span class="fc" id="L232">        } else {</span>
+        } else {
 <span class="fc" id="L233">            System.out.println(&quot;Estado: ✗ FALLIDA&quot;);</span>
 <span class="fc" id="L234">            System.out.println(&quot;Motivo: &quot; + resultado.getMensaje());</span>
         }

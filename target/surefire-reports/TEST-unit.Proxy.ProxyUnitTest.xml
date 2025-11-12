@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="unit.Proxy.ProxyUnitTest" time="52.473" tests="20" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="unit.Proxy.ProxyUnitTest" time="52.359" tests="20" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="java.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,9 +15,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CO"/>
     <property name="sun.boot.library.path" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin"/>
-    <property name="sun.java.command" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351 2025-11-10T14-34-15_175-jvmRun1 surefire-20251110143415723_1tmp surefire_0-20251110143415723_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\tosca\AppData\Local\Temp\surefire2208938244730102823\surefirebooter-20251112004733842_3.jar C:\Users\tosca\AppData\Local\Temp\surefire2208938244730102823 2025-11-12T00-47-33_205-jvmRun1 surefire-20251112004733842_1tmp surefire_0-20251112004733842_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\tosca"/>
     <property name="user.language" value="es"/>
@@ -25,12 +25,12 @@
     <property name="java.version.date" value="2025-07-15"/>
     <property name="java.home" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="basedir" value="C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\tosca\AppData\Local\Temp\surefire2208938244730102823\surefirebooter-20251112004733842_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.8+9-LTS"/>
@@ -46,7 +46,7 @@
     <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
     <property name="java.io.tmpdir" value="C:\Users\tosca\AppData\Local\Temp\"/>
     <property name="java.version" value="21.0.8"/>
-    <property name="user.dir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="user.dir" value="C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
@@ -59,12 +59,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testRedimensionarReal" classname="unit.Proxy.ProxyUnitTest" time="1.031">
+  <testcase name="testRedimensionarReal" classname="unit.Proxy.ProxyUnitTest" time="1.004">
     <system-out><![CDATA[ImagenProductoReal: Redimensionando imagen a 800x600
 ImagenProductoReal: Procesando imagen...
 ]]></system-out>
   </testcase>
-  <testcase name="testCacheFuncional" classname="unit.Proxy.ProxyUnitTest" time="3.047">
+  <testcase name="testCacheFuncional" classname="unit.Proxy.ProxyUnitTest" time="3.027">
     <system-out><![CDATA[ImagenProductoProxy: Acceso #1 registrado
 ImagenProductoProxy: Verificando permisos de acceso...
 ImagenProductoProxy: Iniciando carga lazy de imagen...
@@ -91,8 +91,8 @@ Imagen cargada: 5242880 bytes
 ImagenProductoProxy: Guardando imagen en caché...
 ]]></system-out>
   </testcase>
-  <testcase name="testCrearImagenReal" classname="unit.Proxy.ProxyUnitTest" time="0.002"/>
-  <testcase name="testMostrarSinCargar" classname="unit.Proxy.ProxyUnitTest" time="3.036">
+  <testcase name="testCrearImagenReal" classname="unit.Proxy.ProxyUnitTest" time="0.0"/>
+  <testcase name="testMostrarSinCargar" classname="unit.Proxy.ProxyUnitTest" time="3.006">
     <system-out><![CDATA[ImagenProductoProxy: Acceso #1 registrado
 ImagenProductoProxy: Solicitando mostrar imagen...
 ImagenProductoProxy: Acceso #2 registrado
@@ -108,7 +108,7 @@ ImagenProductoReal: Mostrando imagen del producto P001
 Dimensiones: 1920x1080
 ]]></system-out>
   </testcase>
-  <testcase name="testLeerDesdeDisco" classname="unit.Proxy.ProxyUnitTest" time="3.028">
+  <testcase name="testLeerDesdeDisco" classname="unit.Proxy.ProxyUnitTest" time="3.03">
     <system-out><![CDATA[ImagenProductoProxy: Acceso #1 registrado
 ImagenProductoProxy: Verificando permisos de acceso...
 ImagenProductoProxy: Iniciando carga lazy de imagen...
@@ -121,7 +121,7 @@ ImagenProductoProxy: Guardando imagen en caché...
 ImagenProductoProxy: Lectura desde caché en memoria
 ]]></system-out>
   </testcase>
-  <testcase name="testLimpiarCache" classname="unit.Proxy.ProxyUnitTest" time="3.009">
+  <testcase name="testLimpiarCache" classname="unit.Proxy.ProxyUnitTest" time="3.016">
     <system-out><![CDATA[ImagenProductoProxy: Acceso #1 registrado
 ImagenProductoProxy: Verificando permisos de acceso...
 ImagenProductoProxy: Iniciando carga lazy de imagen...
@@ -134,7 +134,7 @@ ImagenProductoProxy: Guardando imagen en caché...
 ImagenProductoProxy: Limpiando caché...
 ]]></system-out>
   </testcase>
-  <testcase name="testMostrarImagenReal" classname="unit.Proxy.ProxyUnitTest" time="3.018">
+  <testcase name="testMostrarImagenReal" classname="unit.Proxy.ProxyUnitTest" time="3.024">
     <system-out><![CDATA[ImagenProductoReal: Cargando imagen de alta resolución desde disco...
 Ruta: /images/P001.jpg
 ImagenProductoReal: Leyendo archivo desde disco...
@@ -144,7 +144,7 @@ ImagenProductoReal: Mostrando imagen del producto P001
 Dimensiones: 1920x1080
 ]]></system-out>
   </testcase>
-  <testcase name="testCargarImagenReal" classname="unit.Proxy.ProxyUnitTest" time="3.023">
+  <testcase name="testCargarImagenReal" classname="unit.Proxy.ProxyUnitTest" time="3.014">
     <system-out><![CDATA[ImagenProductoReal: Cargando imagen de alta resolución desde disco...
 Ruta: /images/P001.jpg
 ImagenProductoReal: Leyendo archivo desde disco...
@@ -152,7 +152,7 @@ ImagenProductoReal: Procesando imagen...
 Imagen cargada: 5242880 bytes
 ]]></system-out>
   </testcase>
-  <testcase name="testProcesarImagen" classname="unit.Proxy.ProxyUnitTest" time="4.039">
+  <testcase name="testProcesarImagen" classname="unit.Proxy.ProxyUnitTest" time="4.021">
     <system-out><![CDATA[ImagenProductoReal: Cargando imagen de alta resolución desde disco...
 Ruta: /images/P001.jpg
 ImagenProductoReal: Leyendo archivo desde disco...
@@ -161,7 +161,7 @@ Imagen cargada: 5242880 bytes
 ImagenProductoReal: Procesando imagen...
 ]]></system-out>
   </testcase>
-  <testcase name="testObtenerDimensionesReal" classname="unit.Proxy.ProxyUnitTest" time="3.03">
+  <testcase name="testObtenerDimensionesReal" classname="unit.Proxy.ProxyUnitTest" time="3.023">
     <system-out><![CDATA[ImagenProductoReal: Cargando imagen de alta resolución desde disco...
 Ruta: /images/P001.jpg
 ImagenProductoReal: Leyendo archivo desde disco...
@@ -169,7 +169,7 @@ ImagenProductoReal: Procesando imagen...
 Imagen cargada: 5242880 bytes
 ]]></system-out>
   </testcase>
-  <testcase name="testProcesarImagenProxy" classname="unit.Proxy.ProxyUnitTest" time="4.026">
+  <testcase name="testProcesarImagenProxy" classname="unit.Proxy.ProxyUnitTest" time="4.024">
     <system-out><![CDATA[ImagenProductoProxy: Acceso #1 registrado
 ImagenProductoProxy: Procesamiento delegado a imagen real
 ImagenProductoProxy: Acceso #2 registrado
@@ -184,12 +184,12 @@ ImagenProductoProxy: Guardando imagen en caché...
 ImagenProductoReal: Procesando imagen...
 ]]></system-out>
   </testcase>
-  <testcase name="testObtenerDimensionesSinCargar" classname="unit.Proxy.ProxyUnitTest" time="0.005">
+  <testcase name="testObtenerDimensionesSinCargar" classname="unit.Proxy.ProxyUnitTest" time="0.001">
     <system-out><![CDATA[ImagenProductoProxy: Acceso #1 registrado
 ImagenProductoProxy: Retornando dimensiones sin cargar imagen completa
 ]]></system-out>
   </testcase>
-  <testcase name="testContadorAccesos" classname="unit.Proxy.ProxyUnitTest" time="3.021">
+  <testcase name="testContadorAccesos" classname="unit.Proxy.ProxyUnitTest" time="3.019">
     <system-out><![CDATA[ImagenProductoProxy: Acceso #1 registrado
 ImagenProductoProxy: Solicitando mostrar imagen...
 ImagenProductoProxy: Acceso #2 registrado
@@ -207,8 +207,8 @@ ImagenProductoProxy: Acceso #3 registrado
 ImagenProductoProxy: Imagen ya en caché, carga instantánea
 ]]></system-out>
   </testcase>
-  <testcase name="testCrearProxy" classname="unit.Proxy.ProxyUnitTest" time="0.002"/>
-  <testcase name="testCargarYMostrar" classname="unit.Proxy.ProxyUnitTest" time="3.023">
+  <testcase name="testCrearProxy" classname="unit.Proxy.ProxyUnitTest" time="0.0"/>
+  <testcase name="testCargarYMostrar" classname="unit.Proxy.ProxyUnitTest" time="3.019">
     <system-out><![CDATA[ImagenProductoProxy: Acceso #1 registrado
 ImagenProductoProxy: Verificando permisos de acceso...
 ImagenProductoProxy: Iniciando carga lazy de imagen...
@@ -225,7 +225,7 @@ ImagenProductoProxy: Imagen obtenida desde caché
 ImagenProductoProxy: Mostrando miniatura desde proxy
 ]]></system-out>
   </testcase>
-  <testcase name="testObtenerTamanioReal" classname="unit.Proxy.ProxyUnitTest" time="3.018">
+  <testcase name="testObtenerTamanioReal" classname="unit.Proxy.ProxyUnitTest" time="3.019">
     <system-out><![CDATA[ImagenProductoReal: Cargando imagen de alta resolución desde disco...
 Ruta: /images/P001.jpg
 ImagenProductoReal: Leyendo archivo desde disco...
@@ -233,7 +233,7 @@ ImagenProductoReal: Procesando imagen...
 Imagen cargada: 5242880 bytes
 ]]></system-out>
   </testcase>
-  <testcase name="testRedimensionarProxy" classname="unit.Proxy.ProxyUnitTest" time="4.038">
+  <testcase name="testRedimensionarProxy" classname="unit.Proxy.ProxyUnitTest" time="4.031">
     <system-out><![CDATA[ImagenProductoProxy: Acceso #1 registrado
 ImagenProductoProxy: Redireccionando operación de redimensionar...
 ImagenProductoProxy: Acceso #2 registrado
@@ -250,7 +250,7 @@ ImagenProductoReal: Procesando imagen...
 ImagenProductoProxy: Guardando imagen en caché...
 ]]></system-out>
   </testcase>
-  <testcase name="testMultiplesAccesosConCache" classname="unit.Proxy.ProxyUnitTest" time="3.027">
+  <testcase name="testMultiplesAccesosConCache" classname="unit.Proxy.ProxyUnitTest" time="3.021">
     <system-out><![CDATA[ImagenProductoProxy: Acceso #1 registrado
 ImagenProductoProxy: Solicitando mostrar imagen...
 ImagenProductoProxy: Acceso #2 registrado
@@ -273,7 +273,7 @@ ImagenProductoProxy: Acceso #4 registrado
 ImagenProductoProxy: Obteniendo tamano desde caché
 ]]></system-out>
   </testcase>
-  <testcase name="testLazyLoading" classname="unit.Proxy.ProxyUnitTest" time="3.012">
+  <testcase name="testLazyLoading" classname="unit.Proxy.ProxyUnitTest" time="3.021">
     <system-out><![CDATA[ImagenProductoProxy: Acceso #1 registrado
 ImagenProductoProxy: Verificando permisos de acceso...
 ImagenProductoProxy: Iniciando carga lazy de imagen...

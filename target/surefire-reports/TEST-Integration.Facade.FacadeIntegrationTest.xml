@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="Integration.Facade.FacadeIntegrationTest" time="0.299" tests="10" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="Integration.Facade.FacadeIntegrationTest" time="0.04" tests="10" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="java.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,9 +15,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CO"/>
     <property name="sun.boot.library.path" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin"/>
-    <property name="sun.java.command" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351 2025-11-10T14-34-15_175-jvmRun1 surefire-20251110143415723_1tmp surefire_0-20251110143415723_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\tosca\AppData\Local\Temp\surefire2208938244730102823\surefirebooter-20251112004733842_3.jar C:\Users\tosca\AppData\Local\Temp\surefire2208938244730102823 2025-11-12T00-47-33_205-jvmRun1 surefire-20251112004733842_1tmp surefire_0-20251112004733842_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal\target\test-classes;C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal\target\classes;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\tosca\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\tosca\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\tosca\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\tosca\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\tosca\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\tosca\.m2\repository\org\mockito\mockito-junit-jupiter\5.8.0\mockito-junit-jupiter-5.8.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\tosca"/>
     <property name="user.language" value="es"/>
@@ -25,12 +25,12 @@
     <property name="java.version.date" value="2025-07-15"/>
     <property name="java.home" value="C:\Users\tosca\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="basedir" value="C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\tosca\AppData\Local\Temp\surefire13859181083497568351\surefirebooter-20251110143415723_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\tosca\AppData\Local\Temp\surefire2208938244730102823\surefirebooter-20251112004733842_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.8+9-LTS"/>
@@ -46,7 +46,7 @@
     <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
     <property name="java.io.tmpdir" value="C:\Users\tosca\AppData\Local\Temp\"/>
     <property name="java.version" value="21.0.8"/>
-    <property name="user.dir" value="C:\Users\tosca\Documentos\Programacion\Java\PatronesFinal"/>
+    <property name="user.dir" value="C:\Users\tosca\Documentos\Programacion\Java\Patrones\patronesFinal"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
@@ -59,7 +59,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testControllerProcesaVentaExitosa" classname="Integration.Facade.FacadeIntegrationTest" time="0.046">
+  <testcase name="testControllerProcesaVentaExitosa" classname="Integration.Facade.FacadeIntegrationTest" time="0.004">
     <system-out><![CDATA[
 === INICIANDO PROCESO DE VENTA ===
 
@@ -74,8 +74,8 @@ Procesando pago de $595.0 con método: TARJETA
 
 PASO 3: Generando factura...
 Generando factura para cliente: Carlos López
-Generando PDF de factura: FAC-1762809559375
-✓ Factura generada: FAC-1762809559375
+Generando PDF de factura: FAC-1762926595445
+✓ Factura generada: FAC-1762926595445
 
 PASO 4: Actualizando inventario...
 Descontando 1 unidades del inventario: P001
@@ -89,12 +89,12 @@ Acreditando 59 puntos al cliente: CLI003
 
 PASO 6: Enviando notificaciones...
 Enviando email a carlos@example.com - Asunto: Confirmación de compra
-Enviando factura FAC-1762809559375 a: carlos@example.com
-Notificando venta al cliente CLI003 - Factura: FAC-1762809559375
+Enviando factura FAC-1762926595445 a: carlos@example.com
+Notificando venta al cliente CLI003 - Factura: FAC-1762926595445
 ✓ Notificaciones enviadas
 
 PASO 7: Generando reportes...
-Registrando venta en reportes: FAC-1762809559375 - Monto: $595.0
+Registrando venta en reportes: FAC-1762926595445 - Monto: $595.0
 Actualizando estadísticas de sucursal: SUCURSAL-001
 ✓ Reportes actualizados
 
@@ -105,14 +105,14 @@ Actualizando estadísticas de sucursal: SUCURSAL-001
 RESULTADO DE LA VENTA
 ══════════════════════════════════════════════════
 Estado: ✓ EXITOSA
-Número de Factura: FAC-1762809559375
-Comprobante de Pago: COMPROBANTE-1762809559375
+Número de Factura: FAC-1762926595445
+Comprobante de Pago: COMPROBANTE-1762926595445
 Puntos Ganados: 59
 Venta procesada exitosamente
 ══════════════════════════════════════════════════
 ]]></system-out>
   </testcase>
-  <testcase name="testVentaExitosaCompleta" classname="Integration.Facade.FacadeIntegrationTest" time="0.01">
+  <testcase name="testVentaExitosaCompleta" classname="Integration.Facade.FacadeIntegrationTest" time="0.002">
     <system-out><![CDATA[
 === INICIANDO PROCESO DE VENTA ===
 
@@ -129,8 +129,8 @@ Procesando pago de $1249.5 con método: TARJETA
 
 PASO 3: Generando factura...
 Generando factura para cliente: Juan Pérez
-Generando PDF de factura: FAC-1762809559403
-✓ Factura generada: FAC-1762809559403
+Generando PDF de factura: FAC-1762926595449
+✓ Factura generada: FAC-1762926595449
 
 PASO 4: Actualizando inventario...
 Descontando 1 unidades del inventario: P001
@@ -147,12 +147,12 @@ Acreditando 124 puntos al cliente: CLI001
 
 PASO 6: Enviando notificaciones...
 Enviando email a juan@example.com - Asunto: Confirmación de compra
-Enviando factura FAC-1762809559403 a: juan@example.com
-Notificando venta al cliente CLI001 - Factura: FAC-1762809559403
+Enviando factura FAC-1762926595449 a: juan@example.com
+Notificando venta al cliente CLI001 - Factura: FAC-1762926595449
 ✓ Notificaciones enviadas
 
 PASO 7: Generando reportes...
-Registrando venta en reportes: FAC-1762809559403 - Monto: $1249.5
+Registrando venta en reportes: FAC-1762926595449 - Monto: $1249.5
 Actualizando estadísticas de sucursal: SUCURSAL-001
 ✓ Reportes actualizados
 
@@ -160,14 +160,14 @@ Actualizando estadísticas de sucursal: SUCURSAL-001
 
 ]]></system-out>
   </testcase>
-  <testcase name="testControllerConsultaPuntos" classname="Integration.Facade.FacadeIntegrationTest" time="0.03">
+  <testcase name="testControllerConsultaPuntos" classname="Integration.Facade.FacadeIntegrationTest" time="0.002">
     <system-out><![CDATA[
 ══════════════════════════════════════════════════
 Cliente CLI001 tiene 150 puntos acumulados
 ══════════════════════════════════════════════════
 ]]></system-out>
   </testcase>
-  <testcase name="testVentaStockInsuficiente" classname="Integration.Facade.FacadeIntegrationTest" time="0.009">
+  <testcase name="testVentaStockInsuficiente" classname="Integration.Facade.FacadeIntegrationTest" time="0.001">
     <system-out><![CDATA[
 === INICIANDO PROCESO DE VENTA ===
 
@@ -175,7 +175,7 @@ PASO 1: Validando stock...
 Validando stock para producto: P001
 ]]></system-out>
   </testcase>
-  <testcase name="testCalculoCorrectoPuntos" classname="Integration.Facade.FacadeIntegrationTest" time="0.015">
+  <testcase name="testCalculoCorrectoPuntos" classname="Integration.Facade.FacadeIntegrationTest" time="0.003">
     <system-out><![CDATA[
 === INICIANDO PROCESO DE VENTA ===
 
@@ -190,8 +190,8 @@ Procesando pago de $1190.0 con método: TARJETA
 
 PASO 3: Generando factura...
 Generando factura para cliente: Diego Torres
-Generando PDF de factura: FAC-1762809559465
-✓ Factura generada: FAC-1762809559465
+Generando PDF de factura: FAC-1762926595459
+✓ Factura generada: FAC-1762926595459
 
 PASO 4: Actualizando inventario...
 Descontando 1 unidades del inventario: P001
@@ -205,12 +205,12 @@ Acreditando 119 puntos al cliente: CLI007
 
 PASO 6: Enviando notificaciones...
 Enviando email a diego@example.com - Asunto: Confirmación de compra
-Enviando factura FAC-1762809559465 a: diego@example.com
-Notificando venta al cliente CLI007 - Factura: FAC-1762809559465
+Enviando factura FAC-1762926595459 a: diego@example.com
+Notificando venta al cliente CLI007 - Factura: FAC-1762926595459
 ✓ Notificaciones enviadas
 
 PASO 7: Generando reportes...
-Registrando venta en reportes: FAC-1762809559465 - Monto: $1190.0
+Registrando venta en reportes: FAC-1762926595459 - Monto: $1190.0
 Actualizando estadísticas de sucursal: SUCURSAL-001
 ✓ Reportes actualizados
 
@@ -218,14 +218,14 @@ Actualizando estadísticas de sucursal: SUCURSAL-001
 
 ]]></system-out>
   </testcase>
-  <testcase name="testControllerGeneraReporte" classname="Integration.Facade.FacadeIntegrationTest" time="0.008">
+  <testcase name="testControllerGeneraReporte" classname="Integration.Facade.FacadeIntegrationTest" time="0.004">
     <system-out><![CDATA[
 ══════════════════════════════════════════════════
-Reporte generado: REPORTE-VENTAS-1762809559504
+Reporte generado: REPORTE-VENTAS-1762926595462
 ══════════════════════════════════════════════════
 ]]></system-out>
   </testcase>
-  <testcase name="testFlujoCompletoMultiplesItems" classname="Integration.Facade.FacadeIntegrationTest" time="0.009">
+  <testcase name="testFlujoCompletoMultiplesItems" classname="Integration.Facade.FacadeIntegrationTest" time="0.002">
     <system-out><![CDATA[
 === INICIANDO PROCESO DE VENTA ===
 
@@ -244,8 +244,8 @@ Procesando pago de $1190.0 con método: TARJETA
 
 PASO 3: Generando factura...
 Generando factura para cliente: Ana Martínez
-Generando PDF de factura: FAC-1762809559514
-✓ Factura generada: FAC-1762809559514
+Generando PDF de factura: FAC-1762926595466
+✓ Factura generada: FAC-1762926595466
 
 PASO 4: Actualizando inventario...
 Descontando 2 unidades del inventario: P001
@@ -265,12 +265,12 @@ Acreditando 119 puntos al cliente: CLI004
 
 PASO 6: Enviando notificaciones...
 Enviando email a ana@example.com - Asunto: Confirmación de compra
-Enviando factura FAC-1762809559514 a: ana@example.com
-Notificando venta al cliente CLI004 - Factura: FAC-1762809559514
+Enviando factura FAC-1762926595466 a: ana@example.com
+Notificando venta al cliente CLI004 - Factura: FAC-1762926595466
 ✓ Notificaciones enviadas
 
 PASO 7: Generando reportes...
-Registrando venta en reportes: FAC-1762809559514 - Monto: $1190.0
+Registrando venta en reportes: FAC-1762926595466 - Monto: $1190.0
 Actualizando estadísticas de sucursal: SUCURSAL-001
 ✓ Reportes actualizados
 
@@ -278,9 +278,9 @@ Actualizando estadísticas de sucursal: SUCURSAL-001
 
 ]]></system-out>
   </testcase>
-  <testcase name="testConsultarPuntosCliente" classname="Integration.Facade.FacadeIntegrationTest" time="0.027"/>
-  <testcase name="testGenerarReporteVentas" classname="Integration.Facade.FacadeIntegrationTest" time="0.011"/>
-  <testcase name="testVentaDiferentesMetodosPago" classname="Integration.Facade.FacadeIntegrationTest" time="0.008">
+  <testcase name="testConsultarPuntosCliente" classname="Integration.Facade.FacadeIntegrationTest" time="0.002"/>
+  <testcase name="testGenerarReporteVentas" classname="Integration.Facade.FacadeIntegrationTest" time="0.004"/>
+  <testcase name="testVentaDiferentesMetodosPago" classname="Integration.Facade.FacadeIntegrationTest" time="0.002">
     <system-out><![CDATA[
 === INICIANDO PROCESO DE VENTA ===
 
@@ -295,8 +295,8 @@ Procesando pago de $59.5 con método: EFECTIVO
 
 PASO 3: Generando factura...
 Generando factura para cliente: Pedro Ramírez
-Generando PDF de factura: FAC-1762809559571
-✓ Factura generada: FAC-1762809559571
+Generando PDF de factura: FAC-1762926595476
+✓ Factura generada: FAC-1762926595476
 
 PASO 4: Actualizando inventario...
 Descontando 1 unidades del inventario: P001
@@ -310,12 +310,12 @@ Acreditando 5 puntos al cliente: CLI005
 
 PASO 6: Enviando notificaciones...
 Enviando email a pedro@example.com - Asunto: Confirmación de compra
-Enviando factura FAC-1762809559571 a: pedro@example.com
-Notificando venta al cliente CLI005 - Factura: FAC-1762809559571
+Enviando factura FAC-1762926595476 a: pedro@example.com
+Notificando venta al cliente CLI005 - Factura: FAC-1762926595476
 ✓ Notificaciones enviadas
 
 PASO 7: Generando reportes...
-Registrando venta en reportes: FAC-1762809559571 - Monto: $59.5
+Registrando venta en reportes: FAC-1762926595476 - Monto: $59.5
 Actualizando estadísticas de sucursal: SUCURSAL-001
 ✓ Reportes actualizados
 
@@ -335,8 +335,8 @@ Procesando pago de $119.0 con método: TARJETA
 
 PASO 3: Generando factura...
 Generando factura para cliente: Laura Sánchez
-Generando PDF de factura: FAC-1762809559577
-✓ Factura generada: FAC-1762809559577
+Generando PDF de factura: FAC-1762926595476
+✓ Factura generada: FAC-1762926595476
 
 PASO 4: Actualizando inventario...
 Descontando 1 unidades del inventario: P002
@@ -350,12 +350,12 @@ Acreditando 11 puntos al cliente: CLI006
 
 PASO 6: Enviando notificaciones...
 Enviando email a laura@example.com - Asunto: Confirmación de compra
-Enviando factura FAC-1762809559577 a: laura@example.com
-Notificando venta al cliente CLI006 - Factura: FAC-1762809559577
+Enviando factura FAC-1762926595476 a: laura@example.com
+Notificando venta al cliente CLI006 - Factura: FAC-1762926595476
 ✓ Notificaciones enviadas
 
 PASO 7: Generando reportes...
-Registrando venta en reportes: FAC-1762809559577 - Monto: $119.0
+Registrando venta en reportes: FAC-1762926595476 - Monto: $119.0
 Actualizando estadísticas de sucursal: SUCURSAL-001
 ✓ Reportes actualizados
 

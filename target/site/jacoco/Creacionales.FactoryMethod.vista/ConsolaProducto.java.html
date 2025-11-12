@@ -38,7 +38,7 @@ public class ConsolaProducto {
 <span class="nc" id="L38">                case 4 -&gt; continuar = false;</span>
 <span class="nc" id="L39">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
             }
-        }
+<span class="nc" id="L41">        }</span>
 
 <span class="nc" id="L43">        System.out.println(&quot;¡Hasta luego!&quot;);</span>
 <span class="nc" id="L44">    }</span>
@@ -66,7 +66,7 @@ public class ConsolaProducto {
 
 <span class="nc bnc" id="L67" title="All 2 branches missed.">        if (producto != null) {</span>
 <span class="nc" id="L68">            System.out.println(&quot;✓ Producto creado: &quot; + producto);</span>
-<span class="nc" id="L69">        } else {</span>
+        } else {
 <span class="nc" id="L70">            System.out.println(&quot;✗ Tipo de producto no válido&quot;);</span>
         }
 <span class="nc" id="L72">    }</span>
@@ -77,7 +77,7 @@ public class ConsolaProducto {
 
 <span class="nc bnc" id="L78" title="All 2 branches missed.">        if (productos.isEmpty()) {</span>
 <span class="nc" id="L79">            System.out.println(&quot;No hay productos registrados&quot;);</span>
-<span class="nc" id="L80">        } else {</span>
+        } else {
 <span class="nc" id="L81">            productos.forEach(p -&gt; {</span>
 <span class="nc" id="L82">                System.out.printf(&quot;- %s | Tipo: %s | Precio final: $%.2f%n&quot;,</span>
 <span class="nc" id="L83">                        p.getNombre(), p.obtenerTipo(), p.calcularPrecioFinal());</span>
@@ -95,7 +95,7 @@ public class ConsolaProducto {
 <span class="nc" id="L95">            System.out.println(&quot;Encontrado: &quot; + producto);</span>
 <span class="nc" id="L96">            System.out.println(&quot;Precio final: $&quot; + producto.calcularPrecioFinal());</span>
 <span class="nc" id="L97">            System.out.println(&quot;Requiere refrigeración: &quot; + producto.requiereRefrigeracion());</span>
-<span class="nc" id="L98">        } else {</span>
+        } else {
 <span class="nc" id="L99">            System.out.println(&quot;Producto no encontrado&quot;);</span>
         }
 <span class="nc" id="L101">    }</span>

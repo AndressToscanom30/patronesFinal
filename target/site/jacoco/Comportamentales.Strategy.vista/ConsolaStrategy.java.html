@@ -52,7 +52,7 @@ public class ConsolaStrategy {
 <span class="nc" id="L52">                case 8 -&gt; continuar = false;</span>
 <span class="nc" id="L53">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
             }
-        }
+<span class="nc" id="L55">        }</span>
 
 <span class="nc" id="L57">        System.out.println(&quot;\n¡Gracias por usar el sistema de descuentos!&quot;);</span>
 <span class="nc" id="L58">    }</span>
@@ -130,7 +130,7 @@ public class ConsolaStrategy {
 <span class="nc bnc" id="L130" title="All 2 branches missed.">        if (carritoActual.getEstrategia() != null) {</span>
 <span class="nc" id="L131">            System.out.printf(&quot;Total con descuento: $%.2f%n&quot;, totalConDescuento);</span>
 <span class="nc" id="L132">            System.out.printf(&quot;Ahorro: $%.2f (%.2f%%)%n&quot;, ahorro, (ahorro / totalOriginal) * 100);</span>
-<span class="nc" id="L133">        } else {</span>
+        } else {
 <span class="nc" id="L134">            System.out.println(&quot;No hay descuento aplicado&quot;);</span>
 <span class="nc" id="L135">            System.out.printf(&quot;Total a pagar: $%.2f%n&quot;, totalConDescuento);</span>
         }

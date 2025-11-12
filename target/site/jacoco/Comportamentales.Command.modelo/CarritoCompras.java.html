@@ -19,7 +19,7 @@ public class CarritoCompras {
 <span class="fc" id="L19">                item.setCantidad(item.getCantidad() + cantidad);</span>
 <span class="fc" id="L20">                return;</span>
             }
-        }
+<span class="fc" id="L22">        }</span>
         // Si no existe, agregar nuevo item
 <span class="fc" id="L24">        items.add(new ItemCarrito(producto, cantidad));</span>
 <span class="fc" id="L25">    }</span>
@@ -32,12 +32,12 @@ public class CarritoCompras {
 <span class="fc" id="L32">                int nuevaCantidad = item.getCantidad() - cantidad;</span>
 <span class="fc bfc" id="L33" title="All 2 branches covered.">                if (nuevaCantidad &lt;= 0) {</span>
 <span class="fc" id="L34">                    itemAEliminar = item;</span>
-<span class="fc" id="L35">                } else {</span>
+                } else {
 <span class="fc" id="L36">                    item.setCantidad(nuevaCantidad);</span>
                 }
 <span class="fc" id="L38">                break;</span>
             }
-        }
+<span class="fc" id="L40">        }</span>
         
 <span class="fc bfc" id="L42" title="All 2 branches covered.">        if (itemAEliminar != null) {</span>
 <span class="fc" id="L43">            items.remove(itemAEliminar);</span>
@@ -57,7 +57,7 @@ public class CarritoCompras {
 <span class="fc" id="L57">        double subtotal = 0;</span>
 <span class="fc bfc" id="L58" title="All 2 branches covered.">        for (ItemCarrito item : items) {</span>
 <span class="fc" id="L59">            subtotal += item.getSubtotal();</span>
-        }
+<span class="fc" id="L60">        }</span>
 <span class="fc" id="L61">        return Math.round(subtotal * 100.0) / 100.0;</span>
     }
     

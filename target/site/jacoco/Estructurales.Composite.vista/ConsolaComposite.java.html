@@ -52,7 +52,7 @@ public class ConsolaComposite {
 <span class="nc" id="L52">                case 8 -&gt; continuar = false;</span>
 <span class="nc" id="L53">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
             }
-        }
+<span class="nc" id="L55">        }</span>
 
 <span class="nc" id="L57">        System.out.println(&quot;¡Hasta luego!&quot;);</span>
 <span class="nc" id="L58">    }</span>
@@ -173,7 +173,7 @@ public class ConsolaComposite {
 <span class="nc" id="L173">        java.util.Date fechaFin = cal.getTime();</span>
 
 <span class="nc" id="L175">        PaquetePromocional paquete = new PaquetePromocional(</span>
-<span class="nc" id="L176">                nombre, descripcion, descuento, fechaInicio, fechaFin, condiciones, limite</span>
+                nombre, descripcion, descuento, fechaInicio, fechaFin, condiciones, limite
         );
 
 <span class="nc" id="L179">        System.out.print(&quot;¿Cuántos productos desea agregar al paquete? &quot;);</span>
@@ -217,14 +217,14 @@ public class ConsolaComposite {
 <span class="nc" id="L217">                    indentacion, cat.getNombre(), cat.contarItems(), cat.calcularTotal());</span>
 <span class="nc bnc" id="L218" title="All 2 branches missed.">            for (ComponenteInventario hijo : cat.obtenerHijos()) {</span>
 <span class="nc" id="L219">                mostrarComponente(hijo, nivel + 1);</span>
-            }
+<span class="nc" id="L220">            }</span>
 <span class="nc bnc" id="L221" title="All 2 branches missed.">        } else if (componente instanceof Combo) {</span>
 <span class="nc" id="L222">            Combo combo = (Combo) componente;</span>
 <span class="nc" id="L223">            System.out.printf(&quot;%s{COMBO: %s} - Precio: $%.2f, Ahorro: $%.2f%n&quot;,</span>
 <span class="nc" id="L224">                    indentacion, combo.getNombre(), combo.calcularTotal(), combo.calcularAhorro());</span>
 <span class="nc bnc" id="L225" title="All 2 branches missed.">            for (ComponenteInventario hijo : combo.obtenerHijos()) {</span>
 <span class="nc" id="L226">                mostrarComponente(hijo, nivel + 1);</span>
-            }
+<span class="nc" id="L227">            }</span>
 <span class="nc bnc" id="L228" title="All 2 branches missed.">        } else if (componente instanceof PaquetePromocional) {</span>
 <span class="nc" id="L229">            PaquetePromocional paquete = (PaquetePromocional) componente;</span>
 <span class="nc" id="L230">            System.out.printf(&quot;%s[PROMO: %s] - Total: $%.2f, Vigente: %s%n&quot;,</span>
@@ -232,7 +232,7 @@ public class ConsolaComposite {
 <span class="nc bnc" id="L232" title="All 2 branches missed.">                    paquete.validarVigencia() ? &quot;Sí&quot; : &quot;No&quot;);</span>
 <span class="nc bnc" id="L233" title="All 2 branches missed.">            for (ComponenteInventario hijo : paquete.obtenerHijos()) {</span>
 <span class="nc" id="L234">                mostrarComponente(hijo, nivel + 1);</span>
-            }
+<span class="nc" id="L235">            }</span>
         }
 <span class="nc" id="L237">    }</span>
 

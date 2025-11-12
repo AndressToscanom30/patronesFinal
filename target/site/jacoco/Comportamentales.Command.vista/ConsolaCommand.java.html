@@ -72,7 +72,7 @@ public class ConsolaCommand {
 <span class="nc" id="L72">                case 11 -&gt; continuar = false;</span>
 <span class="nc" id="L73">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
             }
-        }
+<span class="nc" id="L75">        }</span>
 
 <span class="nc" id="L77">        System.out.println(&quot;\n¡Gracias por usar el sistema de carrito!&quot;);</span>
 <span class="nc" id="L78">    }</span>
@@ -185,7 +185,7 @@ public class ConsolaCommand {
         
 <span class="nc bnc" id="L186" title="All 2 branches missed.">        if (confirmacion.equalsIgnoreCase(&quot;s&quot;)) {</span>
 <span class="nc" id="L187">            controlador.vaciarCarrito();</span>
-<span class="nc" id="L188">        } else {</span>
+        } else {
 <span class="nc" id="L189">            System.out.println(&quot;Operación cancelada&quot;);</span>
         }
 <span class="nc" id="L191">    }</span>
@@ -205,7 +205,7 @@ public class ConsolaCommand {
 <span class="nc" id="L205">        System.out.println(&quot;\nProductos:&quot;);</span>
 <span class="nc bnc" id="L206" title="All 2 branches missed.">        for (ItemCarrito item : carrito.getItems()) {</span>
 <span class="nc" id="L207">            System.out.println(&quot;  &quot; + item);</span>
-        }
+<span class="nc" id="L208">        }</span>
         
 <span class="nc" id="L210">        System.out.println(&quot;\n&quot; + &quot;─&quot;.repeat(50));</span>
 <span class="nc" id="L211">        System.out.printf(&quot;Subtotal: $%.2f%n&quot;, carrito.calcularSubtotal());</span>
@@ -331,7 +331,7 @@ public class ConsolaCommand {
 <span class="nc" id="L331">            Thread.sleep(1500);</span>
 <span class="nc" id="L332">        } catch (InterruptedException e) {</span>
 <span class="nc" id="L333">            e.printStackTrace();</span>
-        }
+<span class="nc" id="L334">        }</span>
 <span class="nc" id="L335">    }</span>
 
     public void mostrarMensaje(String mensaje) {

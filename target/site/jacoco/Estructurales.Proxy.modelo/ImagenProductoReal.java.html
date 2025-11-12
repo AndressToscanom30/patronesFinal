@@ -55,10 +55,10 @@ public class ImagenProductoReal implements ImagenProducto {
 <span class="fc" id="L55">        System.out.println(&quot;ImagenProductoReal: Leyendo archivo desde disco...&quot;);</span>
         try {
 <span class="fc" id="L57">            Thread.sleep(2000);</span>
-<span class="pc" id="L58">        } catch (InterruptedException e) {</span>
+<span class="nc" id="L58">        } catch (InterruptedException e) {</span>
 <span class="nc" id="L59">            e.printStackTrace();</span>
 <span class="nc" id="L60">            return false;</span>
-        }
+<span class="fc" id="L61">        }</span>
 <span class="fc" id="L62">        this.datosImagen = new byte[1024 * 1024 * 5];</span>
 <span class="fc" id="L63">        this.size = datosImagen.length;</span>
 <span class="fc" id="L64">        this.ancho = 1920;</span>
@@ -71,9 +71,9 @@ public class ImagenProductoReal implements ImagenProducto {
 <span class="fc" id="L71">        System.out.println(&quot;ImagenProductoReal: Procesando imagen...&quot;);</span>
         try {
 <span class="fc" id="L73">            Thread.sleep(1000);</span>
-<span class="pc" id="L74">        } catch (InterruptedException e) {</span>
+<span class="nc" id="L74">        } catch (InterruptedException e) {</span>
 <span class="nc" id="L75">            e.printStackTrace();</span>
-        }
+<span class="fc" id="L76">        }</span>
 <span class="fc" id="L77">    }</span>
     
     public String getCodigoProducto() {

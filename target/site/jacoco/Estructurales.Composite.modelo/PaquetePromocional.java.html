@@ -43,7 +43,7 @@ public class PaquetePromocional extends ProductoIndividual {
 <span class="fc" id="L43">        double totalSinDescuento = 0;</span>
 <span class="fc bfc" id="L44" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
 <span class="fc" id="L45">            totalSinDescuento += hijo.calcularTotal(); // Obtiene el total de los hijos con sus propios descuentos</span>
-        }
+<span class="fc" id="L46">        }</span>
         // Si el paquete está vigente, aplicar el descuento del paquete promocional
 <span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if (validarVigencia()) {</span>
 <span class="fc" id="L49">            return totalSinDescuento * (1 - getDescuentoAcumulado() / 100);</span>
@@ -56,7 +56,7 @@ public class PaquetePromocional extends ProductoIndividual {
 <span class="fc" id="L56">        double pesoTotal = 0;</span>
 <span class="fc bfc" id="L57" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
 <span class="fc" id="L58">            pesoTotal += hijo.calcularPesoTotal();</span>
-        }
+<span class="fc" id="L59">        }</span>
 <span class="fc" id="L60">        return pesoTotal;</span>
     }
 
@@ -65,7 +65,7 @@ public class PaquetePromocional extends ProductoIndividual {
 <span class="fc" id="L65">        int count = 0;</span>
 <span class="fc bfc" id="L66" title="All 2 branches covered.">        for (ComponenteInventario hijo : hijos) {</span>
 <span class="fc" id="L67">            count += hijo.contarItems();</span>
-        }
+<span class="fc" id="L68">        }</span>
 <span class="fc" id="L69">        return count;</span>
     }
 

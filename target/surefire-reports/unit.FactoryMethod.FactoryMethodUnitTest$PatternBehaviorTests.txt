@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: unit.FactoryMethod.FactoryMethodUnitTest$PatternBehaviorTests
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.175 s -- in unit.FactoryMethod.FactoryMethodUnitTest$PatternBehaviorTests
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in unit.FactoryMethod.FactoryMethodUnitTest$PatternBehaviorTests

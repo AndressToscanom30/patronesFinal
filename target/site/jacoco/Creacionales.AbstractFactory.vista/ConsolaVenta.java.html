@@ -48,7 +48,7 @@ public class ConsolaVenta {
 <span class="nc" id="L48">                case 9 -&gt; continuar = false;</span>
 <span class="nc" id="L49">                default -&gt; System.out.println(&quot;Opción inválida&quot;);</span>
             }
-        }
+<span class="nc" id="L51">        }</span>
         
 <span class="nc" id="L53">        System.out.println(&quot;¡Hasta luego!&quot;);</span>
 <span class="nc" id="L54">    }</span>
@@ -65,7 +65,7 @@ public class ConsolaVenta {
 <span class="nc" id="L65">        DatosVenta venta = controlador.crearVenta(&quot;POS&quot;, clienteId, clienteNombre);</span>
         
 <span class="nc" id="L67">        System.out.println(&quot;Agregar productos (escriba 'fin' para terminar):&quot;);</span>
-<span class="nc" id="L68">        while (true) {</span>
+        while (true) {
 <span class="nc" id="L69">            System.out.print(&quot;Código producto (o 'fin'): &quot;);</span>
 <span class="nc" id="L70">            String codigo = scanner.nextLine();</span>
 <span class="nc bnc" id="L71" title="All 2 branches missed.">            if (codigo.equalsIgnoreCase(&quot;fin&quot;)) break;</span>
@@ -82,7 +82,7 @@ public class ConsolaVenta {
             
 <span class="nc" id="L83">            venta.agregarItem(new ItemVenta(codigo, nombre, cantidad, precio));</span>
 <span class="nc" id="L84">            System.out.println(&quot;✓ Producto agregado&quot;);</span>
-        }
+<span class="nc" id="L85">        }</span>
         
 <span class="nc" id="L87">        System.out.print(&quot;Método de pago: &quot;);</span>
 <span class="nc" id="L88">        venta.setMetodoPago(scanner.nextLine());</span>
@@ -97,7 +97,7 @@ public class ConsolaVenta {
 <span class="nc" id="L97">            System.out.println(&quot;- Validación de stock en tiempo real&quot;);</span>
 <span class="nc" id="L98">            System.out.println(&quot;- Sin costo de envío&quot;);</span>
 <span class="nc" id="L99">            System.out.println(&quot;- Devolución: 15 días&quot;);</span>
-<span class="nc" id="L100">        } else {</span>
+        } else {
 <span class="nc" id="L101">            System.out.println(&quot;✗ Error al procesar venta (stock insuficiente)&quot;);</span>
         }
 <span class="nc" id="L103">    }</span>
@@ -114,7 +114,7 @@ public class ConsolaVenta {
 <span class="nc" id="L114">        DatosVenta venta = controlador.crearVenta(&quot;ECOMMERCE&quot;, clienteId, clienteNombre);</span>
         
 <span class="nc" id="L116">        System.out.println(&quot;Agregar productos (escriba 'fin' para terminar):&quot;);</span>
-<span class="nc" id="L117">        while (true) {</span>
+        while (true) {
 <span class="nc" id="L118">            System.out.print(&quot;Código producto (o 'fin'): &quot;);</span>
 <span class="nc" id="L119">            String codigo = scanner.nextLine();</span>
 <span class="nc bnc" id="L120" title="All 2 branches missed.">            if (codigo.equalsIgnoreCase(&quot;fin&quot;)) break;</span>
@@ -131,7 +131,7 @@ public class ConsolaVenta {
             
 <span class="nc" id="L132">            venta.agregarItem(new ItemVenta(codigo, nombre, cantidad, precio));</span>
 <span class="nc" id="L133">            System.out.println(&quot;✓ Producto agregado&quot;);</span>
-        }
+<span class="nc" id="L134">        }</span>
         
 <span class="nc" id="L136">        System.out.print(&quot;Dirección de envío: &quot;);</span>
 <span class="nc" id="L137">        venta.setDireccionEnvio(scanner.nextLine());</span>
@@ -154,7 +154,7 @@ public class ConsolaVenta {
 <span class="nc" id="L154">            System.out.println(&quot;- Validación de inventario general&quot;);</span>
 <span class="nc" id="L155">            System.out.println(&quot;- Envío a domicilio incluido&quot;);</span>
 <span class="nc" id="L156">            System.out.println(&quot;- Devolución: 30 días&quot;);</span>
-<span class="nc" id="L157">        } else {</span>
+        } else {
 <span class="nc" id="L158">            System.out.println(&quot;✗ Error al procesar venta&quot;);</span>
         }
 <span class="nc" id="L160">    }</span>
@@ -171,7 +171,7 @@ public class ConsolaVenta {
 <span class="nc" id="L171">        DatosVenta venta = controlador.crearVenta(&quot;B2B&quot;, empresaId, empresaNombre);</span>
         
 <span class="nc" id="L173">        System.out.println(&quot;Agregar productos (escriba 'fin' para terminar):&quot;);</span>
-<span class="nc" id="L174">        while (true) {</span>
+        while (true) {
 <span class="nc" id="L175">            System.out.print(&quot;Código producto (o 'fin'): &quot;);</span>
 <span class="nc" id="L176">            String codigo = scanner.nextLine();</span>
 <span class="nc bnc" id="L177" title="All 2 branches missed.">            if (codigo.equalsIgnoreCase(&quot;fin&quot;)) break;</span>
@@ -188,7 +188,7 @@ public class ConsolaVenta {
             
 <span class="nc" id="L189">            venta.agregarItem(new ItemVenta(codigo, nombre, cantidad, precio));</span>
 <span class="nc" id="L190">            System.out.println(&quot;✓ Producto agregado&quot;);</span>
-        }
+<span class="nc" id="L191">        }</span>
         
 <span class="nc" id="L193">        System.out.print(&quot;Centro de distribución: &quot;);</span>
 <span class="nc" id="L194">        venta.setDireccionEnvio(scanner.nextLine());</span>
@@ -206,7 +206,7 @@ public class ConsolaVenta {
 <span class="nc" id="L206">            System.out.println(&quot;- Validación contra órdenes de compra&quot;);</span>
 <span class="nc" id="L207">            System.out.println(&quot;- Envío logístico especializado&quot;);</span>
 <span class="nc" id="L208">            System.out.println(&quot;- Devolución: 60 días&quot;);</span>
-<span class="nc" id="L209">        } else {</span>
+        } else {
 <span class="nc" id="L210">            System.out.println(&quot;✗ Error al procesar venta corporativa&quot;);</span>
         }
 <span class="nc" id="L212">    }</span>
@@ -240,9 +240,9 @@ public class ConsolaVenta {
 <span class="nc" id="L240">        scanner.nextLine();</span>
         
 <span class="nc" id="L242">        boolean permitida = controlador.procesarDevolucion(</span>
-<span class="nc" id="L243">            tipoCanal, </span>
-<span class="nc" id="L244">            numeroVenta, </span>
-<span class="nc" id="L245">            dias, </span>
+            tipoCanal, 
+            numeroVenta, 
+            dias, 
 <span class="nc" id="L246">            venta.getTotal()</span>
         );
         
@@ -309,7 +309,7 @@ public class ConsolaVenta {
         
 <span class="nc bnc" id="L310" title="All 2 branches missed.">        if (ventas.isEmpty()) {</span>
 <span class="nc" id="L311">            System.out.println(&quot;No hay ventas registradas&quot;);</span>
-<span class="nc" id="L312">        } else {</span>
+        } else {
 <span class="nc" id="L313">            ventas.forEach(v -&gt; {</span>
 <span class="nc" id="L314">                System.out.printf(&quot;%s | Cliente: %s | Total: $%.2f | Items: %d%n&quot;,</span>
 <span class="nc" id="L315">                    v.getNumeroVenta(),</span>

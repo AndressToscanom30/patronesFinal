@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: e2e.Command.CommandE2ETest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.316 s -- in e2e.Command.CommandE2ETest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.095 s -- in e2e.Command.CommandE2ETest
